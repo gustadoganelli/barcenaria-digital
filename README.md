@@ -70,13 +70,14 @@ Nenhuma nesta fase (ver `.env.example`).
 
 ## Limitações conhecidas
 
-- Cardápio parcial até a transcrição do destaque "Cardápio" do Instagram.
+- Cardápio transcrito das páginas 3 a 15 (de 18) do destaque "Cardápio"; faltam conferir as páginas 1–2 e 16–18.
+- Duas inconsistências vieram do cardápio original e estão marcadas com `revisar` no JSON (uva do Paisajes de Los Andes; região do Château Briot).
 - Horário de fechamento, telefone do WhatsApp e endereço a confirmar com a casa.
 - Sem backend: pré-reserva de evento abre o WhatsApp com a mensagem pronta.
 
 ## Roadmap
 
-1. Transcrever o cardápio completo dos prints.
+1. Conferir as páginas 1–2 e 16–18 do destaque "Cardápio".
 2. Validar com a casa (preços, horários, fotos) e remover `noindex`.
 3. Fase 2: painel para a equipe editar cardápio e promoções; domínio próprio; Google Meu Negócio.
 

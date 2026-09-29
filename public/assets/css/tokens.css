@@ -12,6 +12,7 @@
   --on-gold: #14180b;            /* text on gold buttons */
   --brick: #b0583a;              /* sparing accent: "hoje", badges */
   --on-brick: #fff6ea;
+  --brick-ink: #96452b;              /* brick as text on paper: 5.8:1 on --paper-soft */
 
   /* ---- Surfaces (dark, from root up) ---- */
   --bg: #0b1207;                 /* page root — green-black */
@@ -117,7 +118,7 @@
   --line-strong: rgba(29, 53, 39, 0.3);
   --text: #1f271d;
   --text-muted: #4d5847;             /* 7:1 on --bg */
-  --text-faint: #6a6f5e;             /* 4.8:1 on --bg */
+  --text-faint: #5e6353;             /* 5.2:1 on --bg-soft, 5.6:1 on --bg */
   --gold: #1a3103;                   /* accent fill: plaque green */
   --gold-bright: #6b5220;            /* accent text: bronze, 5.7:1 on paper */
   --gold-deep: #4a3a1c;

@@ -3,15 +3,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Barcenaria · Bar e Restaurante no Tatuapé</title>
+  <title>Barcenaria · Bar e Restaurante na Anália Franco</title>
   <meta name="robots" content="noindex, nofollow">
-  <meta name="description" content="Barcenaria Bar e Restaurante: drinks autorais, cozinha de bar, rooftop com churrasqueira, sinuca e telão. Praça Ituzaingó, 40 — Anália Franco, Tatuapé, São Paulo.">
+  <meta name="description" content="Barcenaria Bar e Restaurante: drinks autorais, cozinha de bar, rooftop com churrasqueira, sinuca e telão. Praça Ituzaingó, 40 — Anália Franco (Tatuapé), São Paulo.">
   <meta name="theme-color" content="#0b1207">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="pt_BR">
   <meta property="og:site_name" content="Barcenaria">
-  <meta property="og:title" content="Barcenaria · Bar e Restaurante no Tatuapé">
-  <meta property="og:description" content="Seu novo ponto favorito no Tatuapé. Boa comida, boa música e boas histórias.">
+  <meta property="og:title" content="Barcenaria · Bar e Restaurante na Anália Franco">
+  <meta property="og:description" content="Seu novo ponto favorito na Anália Franco. Boa comida, boa música e boas histórias.">
   <meta property="og:image" content="/images/brand/og-image.jpg">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/images/brand/apple-touch-icon.png">
@@ -128,15 +128,15 @@
           <video class="hero__video" id="hero-video" muted loop playsinline preload="none" poster="/video/hero-poster.webp" aria-label="Vídeo curto do ambiente da Barcenaria: fachada, deck, balcão, drink e sinuca">
             <source src="/video/hero.mp4" type="video/mp4">
           </video>
-          <button class="icon-btn hero__play" type="button" id="hero-play" aria-pressed="false" aria-label="Pausar vídeo" hidden>
+          <button class="icon-btn video-toggle hero__play" type="button" id="hero-play" aria-label="Pausar vídeo" hidden>
             <svg class="icon icon--pause" aria-hidden="true"><use href="#i-pause"/></svg>
             <svg class="icon icon--play" aria-hidden="true"><use href="#i-play"/></svg>
           </button>
         </div>
       </div>
       <div class="hero__copy wrap">
-        <p class="kicker"><svg class="diamond" aria-hidden="true"><use href="#i-diamond"/></svg>Tatuapé · Anália Franco</p>
-        <h1 class="hero__title" id="hero-titulo">Seu novo ponto favorito no Tatuapé.</h1>
+        <p class="kicker"><svg class="diamond" aria-hidden="true"><use href="#i-diamond"/></svg>Anália Franco · São Paulo</p>
+        <h1 class="hero__title" id="hero-titulo">Seu novo ponto favorito na Anália Franco.</h1>
         <p class="script hero__script">boa comida, boa música e boas histórias</p>
         <p class="hero__lead">Drinks autorais, cozinha de bar caprichada, rooftop com churrasqueira, sinuca e telão. A gente chega para tomar uma e acaba ficando a tarde inteira.</p>
         <p class="status" data-status><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg><span>Qua e qui a partir das 16h · sex a dom a partir das 12h</span></p>
@@ -149,7 +149,11 @@
     </section>
 
     <!-- ============ LETREIRO ============ -->
-    <div class="marquee" aria-label="Destaques da casa">
+    <div class="marquee" role="region" aria-label="Destaques da casa">
+      <button class="marquee__toggle" type="button" id="marquee-toggle" aria-label="Pausar letreiro" hidden>
+        <svg class="icon icon--pause" aria-hidden="true"><use href="#i-pause"/></svg>
+        <svg class="icon icon--play" aria-hidden="true"><use href="#i-play"/></svg>
+      </button>
       <div class="marquee__track">
         <ul class="marquee__list" role="list">
           <li>Chopp Brahma</li><li>Rooftop com churrasqueira</li><li>Sinuca</li><li>Telão</li><li>Feijoada aos sábados</li><li>Drinks autorais</li><li>BarcenaIPA</li><li>Almoço executivo</li>
@@ -181,7 +185,7 @@
         <header class="section__head reveal">
           <p class="kicker"><span class="kicker__num">Nº 02</span>A casa</p>
           <h2 class="section__title" id="casa-titulo">Varanda, rooftop, salão e balcão.</h2>
-          <p class="section__lead">Ambiente interno e externo na Praça Ituzaingó, com cara de bar de bairro e estrutura para comemorar.</p>
+          <p class="section__lead">Ambiente interno e externo na Praça Ituzaingó, no coração da Anália Franco, com cara de bar de bairro e estrutura para comemorar.</p>
         </header>
         <ul class="features reveal" role="list" aria-label="Estrutura">
           <li><svg class="icon" aria-hidden="true"><use href="#i-rooftop"/></svg>Rooftop</li>
@@ -290,7 +294,7 @@
           <div class="paper__masthead">
             <span>Barcenaria · Boa comida, boa música e boas histórias</span>
             <span class="paper__edition"><svg class="diamond" aria-hidden="true"><use href="#i-diamond"/></svg>Edição especial · Eventos<svg class="diamond" aria-hidden="true"><use href="#i-diamond"/></svg></span>
-            <span>Tatuapé · São Paulo</span>
+            <span>Anália Franco · São Paulo</span>
           </div>
           <h2 class="paper__headline" id="eventos-titulo">Seu próximo evento pode acontecer aqui.</h2>
           <p class="paper__deck">Aniversário, confraternização ou encontro da empresa: a gente ajuda você a celebrar do seu jeito.</p>
@@ -301,6 +305,10 @@
                 <video id="eventos-video" muted loop playsinline preload="none" poster="/video/eventos-poster.webp" aria-label="Vídeo do salão com mesa longa posta para evento">
                   <source src="/video/eventos.mp4" type="video/mp4">
                 </video>
+                <button class="icon-btn video-toggle paper__play" type="button" id="eventos-play" aria-label="Tocar vídeo" hidden>
+                  <svg class="icon icon--pause" aria-hidden="true"><use href="#i-pause"/></svg>
+                  <svg class="icon icon--play" aria-hidden="true"><use href="#i-play"/></svg>
+                </button>
               </figure>
               <p class="paper__text">Rooftop com churrasqueira, ambiente interno e externo, sinuca, telão e toda a estrutura da Barcenaria para reunir seus convidados com boa gastronomia, drinks e aquele clima que faz todo mundo querer ficar mais um pouco.</p>
               <ul class="paper__list" role="list">
@@ -311,7 +319,7 @@
               </ul>
             </div>
 
-            <form class="booking" id="booking" novalidate aria-labelledby="booking-titulo">
+            <form class="booking" id="booking" method="post" novalidate aria-labelledby="booking-titulo">
               <h3 class="booking__title" id="booking-titulo">Pré-reserva pelo WhatsApp</h3>
               <p class="booking__hint">Preencha e a gente monta a mensagem para você enviar à casa.</p>
               <div class="field">
@@ -401,7 +409,7 @@
           <h2 class="section__title" id="visite-titulo">Vem pra Barcenaria.</h2>
           <address class="visite__address">
             <svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg>
-            <span>Praça Ituzaingó, 40<br>Anália Franco — Tatuapé, São Paulo — SP</span>
+            <span>Praça Ituzaingó, 40<br><strong>Anália Franco</strong> · Tatuapé, São Paulo — SP</span>
           </address>
           <table class="hours" aria-label="Horário de funcionamento">
             <tbody>
@@ -450,7 +458,7 @@
         </ul>
       </nav>
       <div class="footer__contact">
-        <p>Praça Ituzaingó, 40<br>Anália Franco — Tatuapé<br>São Paulo — SP</p>
+        <p>Praça Ituzaingó, 40<br>Anália Franco · Tatuapé<br>São Paulo — SP</p>
         <p class="footer__links">
           <a href="https://www.instagram.com/barcenariaoficial/" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-instagram"/></svg>@barcenariaoficial</a>
           <a href="https://wa.me/message/BVGPN2ILM2WIG1" target="_blank" rel="noopener" data-whatsapp="contato"><svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg>WhatsApp</a>

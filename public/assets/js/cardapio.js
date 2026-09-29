@@ -243,10 +243,11 @@ function buildModel() {
   const labels = state.cardapio.selos ?? {};
   const { dow } = state.now;
   state.cats = (state.cardapio.categorias ?? [])
-    .filter((c) => c.itens?.length || c.grupos?.length)
+    .filter((c) => (c.tipo === 'tabela' ? c.grupos : c.itens)?.length)
     .map((c) => ({ ...c, kind: c.tipo ?? 'lista', items: [] }));
   for (const cat of state.cats) {
     cat.window = windowStatus(cat);
+    if (cat.kind === 'tabela') cat.grupos = cat.grupos.filter((g) => g.itens?.length);
     const rows = cat.kind === 'tabela'
       ? cat.grupos.flatMap((g) => g.itens.map((raw) => ({ ...raw, grupo: g })))
       : cat.itens;
@@ -259,6 +260,7 @@ function buildModel() {
         hay: norm([
           raw.nome, raw.prato, raw.descricao, raw.grupo?.nome, cat.nome, cat.subtitulo,
           raw.uvas, raw.origem, raw.notas, ...(cat.sabores ?? []), ...selos.map((s) => labels[s]),
+          ...(raw.grupo?.colunas ?? []).filter((_, i) => raw.precos?.[i] != null),
           raw.vegetariano ? 'vegetariano veggie' : '',
         ].join(' ')),
         today: Boolean(dias?.includes(dow)),
@@ -270,8 +272,12 @@ function buildModel() {
     }
   }
   const promosToday = state.promocoes.filter((p) => p.tipo === 'promocao' && p.dias?.includes(dow));
-  state.promoIds = new Set(promosToday.map((p) => relatedItem(p.titulo)?.id).filter(Boolean));
+  state.promoIds = new Set(promosToday.map((p) => relatedItem(p.titulo))
+    .filter((it) => it && it.cat.window !== 'encerrado').map((it) => it.id));
 }
+
+// Promotions that belong to a time-boxed category are represented by that category's own "Hoje" row.
+const promoCategory = (p) => p.categoria ?? relatedItem(p.titulo)?.cat.id;
 
 /* ---------- rendering: shared bits ---------- */
 
@@ -403,15 +409,15 @@ function catBody(cat) {
       return h('ul', { class: 'items items--wines', role: 'list' }, cat.items.map(wineRow));
     case 'opcoes':
       return [
-        cat.sabores?.length && h('div', { class: 'flavors' },
+        cat.sabores?.length ? h('div', { class: 'flavors' },
           h('p', { class: 'flavors__label', text: 'Sabores' }),
-          h('ul', { class: 'flavors__list', role: 'list' }, cat.sabores.map((s) => h('li', { text: s })))),
+          h('ul', { class: 'flavors__list', role: 'list' }, cat.sabores.map((s) => h('li', { text: s })))) : null,
         h('ul', { class: 'items items--compact', role: 'list' }, cat.items.map(compactRow)),
       ];
     case 'fixo':
       return [
         h('p', { class: 'fixed__price' }, h('span', { class: 'fixed__label', text: 'Preço único' }), priceNodes(cat.preco)),
-        h('ol', { class: 'items items--fixed' }, cat.items.map(fixedRow)),
+        h('ol', { class: 'items items--fixed', role: 'list' }, cat.items.map(fixedRow)),
       ];
     default:
       return h('ul', { class: 'items', role: 'list' }, cat.items.map(listRow));
@@ -470,13 +476,14 @@ function nextOpenDay(from) {
 }
 
 function renderToday() {
-  const { dow, minutes } = state.now;
+  const { dow } = state.now;
   const hoje = state.casa?.horarios?.find((x) => x.dia === dow);
   const closed = Boolean(hoje && !hoje.abre);
   const head = h('div', { class: 'today__head' }, h('h2', { class: 'today__title', id: 'hoje-titulo', text: 'Hoje na Barcê' }));
   if (hoje) {
     let status = 'fechado';
-    if (!closed) status = minutes >= toMinutes(hoje.abre) ? `aberto desde as ${hourLabel(hoje.abre)}` : `abre hoje às ${hourLabel(hoje.abre)}`;
+    // Closing time is unknown: never claim "open now".
+    if (!closed) status = `hoje a partir das ${hourLabel(hoje.abre)}`;
     head.append(h('p', { class: 'today__status' }, icon('clock'), `${hoje.nome} · ${status}`));
   }
   const frame = h('div', { class: 'today__frame' }, head);
@@ -493,8 +500,9 @@ function renderToday() {
     }
   } else {
     for (const cat of state.cats.filter((c) => c.window === 'agora' || c.window === 'mais-tarde')) rows.push(windowRow(cat));
+    const boxed = new Set(state.cats.filter((c) => c.window && c.window !== 'outro-dia').map((c) => c.id));
     const todays = state.promocoes.filter((p) => p.dias?.includes(dow));
-    let list = todays.filter((p) => p.tipo === 'promocao');
+    let list = todays.filter((p) => p.tipo === 'promocao' && !boxed.has(promoCategory(p)));
     let tag = ['Hoje', 'today'];
     if (!list.length && !rows.length) { list = todays.filter((p) => p.tipo === 'destaque'); tag = ['Sempre na casa', 'star']; }
     for (const p of list) rows.push(promoRow(p, ...tag));
@@ -753,7 +761,8 @@ function pairingChips(it) {
     h('ul', { class: 'sheet__pair', role: 'list' }, dishes.map((d) => h('li', {},
       h('button', {
         class: 'chip', type: 'button',
-        onclick: () => { const opener = state.opener; finishClose(); openSheet(d, opener); },
+        // Swap content in place: closing and reopening would fire an async 'close' after the reopen.
+        onclick: () => { openSheet(d, state.opener); sheet.querySelector('[data-close]').focus(); },
       }, h('span', { text: d.nome }), d.prato && h('small', { text: d.prato }))))),
   ];
 }
@@ -763,8 +772,9 @@ function openSheet(it, opener) {
   state.opener = opener;
   const media = $('#sheet-media');
   const imgId = it.imagem ?? (it.kind === 'vinhos' ? it.cat.imagem : null);
+  // A category photo (e.g. one bottle for all wines) is decorative for the other items.
   const img = imgId && image(imgId, {
-    sizes: '(min-width: 48rem) 36rem, 100vw', alt: `Foto ilustrativa: ${it.prato ?? it.nome}`, largest: true, lazy: false,
+    sizes: '(min-width: 48rem) 36rem, 100vw', alt: it.imagem ? `Foto ilustrativa: ${it.prato ?? it.nome}` : '', largest: true, lazy: false,
   });
   media.replaceChildren(...(img ? [img, h('figcaption', { class: 'sheet__credit', text: 'Imagem meramente ilustrativa' })] : []));
   media.hidden = !img;
@@ -820,11 +830,11 @@ function closeSheet() {
 function initSheet() {
   sheet.addEventListener('cancel', (e) => { e.preventDefault(); closeSheet(); });
   sheet.addEventListener('close', () => {
+    if (sheet.open) return;
     sheet.classList.remove('is-closing', 'is-settling');
     sheet.style.transform = '';
     document.documentElement.classList.remove('is-locked');
-    // Pairing chips reopen the sheet synchronously; only restore focus when it really stays closed.
-    queueMicrotask(() => { if (!sheet.open) state.opener?.focus({ preventScroll: true }); });
+    state.opener?.focus({ preventScroll: true });
   });
   sheet.addEventListener('click', (e) => {
     if (e.target === sheet || e.target.closest('[data-close]')) closeSheet();
@@ -886,13 +896,22 @@ async function init() {
       h('button', { class: 'btn', type: 'button', text: 'Tentar de novo', onclick: () => location.reload() })));
     return;
   }
-  buildModel();
-  renderToday();
-  renderFilters();
-  renderMenu();
-  renderNoticeAndFooter();
-  applyFilters();
-  initSpy();
+  try {
+    buildModel();
+    renderToday();
+    renderFilters();
+    renderMenu();
+    renderNoticeAndFooter();
+    applyFilters();
+    initSpy();
+  } catch (err) {
+    console.warn('Cardápio com dados inválidos:', err);
+    const list = $('#cardapio-lista');
+    list.removeAttribute('aria-busy');
+    list.replaceChildren(h('div', { class: 'menu__error' },
+      h('p', { text: 'O cardápio digital está em manutenção. Peça ao garçom o cardápio da casa.' })));
+    return;
+  }
   const target = location.hash && document.getElementById(location.hash.slice(1));
   if (target) target.scrollIntoView({ block: 'start' });
 }

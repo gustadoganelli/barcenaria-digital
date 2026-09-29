@@ -7,7 +7,6 @@
   "aviso": "Preços sujeitos a alteração. Imagens meramente ilustrativas. Informe o garçom sobre alergias e restrições.",
   "selos": {
     "sucesso-da-casa": "Sucesso da casa",
-    "da-casa": "Feito na casa",
     "somente-sabado": "Só aos sábados"
   },
   "categorias": [
@@ -19,12 +18,51 @@
       "tipo": "lista",
       "imagem": "cardapio/compensado-burrata",
       "itens": [
-        { "id": "formica", "nome": "Fórmica", "prato": "Trio de antepastos", "descricao": "Caponata de berinjela, sardela e tapenade de azeitonas.", "preco": 70 },
-        { "id": "compensado", "nome": "Compensado", "prato": "Burrata fresca cremosa", "descricao": "Rúcula, presunto parma, tomate confitado e pesto de manjericão.", "preco": 90, "imagem": "cardapio/compensado-burrata" },
-        { "id": "laminas", "nome": "Lâminas", "prato": "Steak tartare", "descricao": "Cortado na ponta da faca, temperado à moda clássica com cebola, mostardas, alcaparras, azeite e cebolinha.", "preco": 70 },
-        { "id": "serragem", "nome": "Serragem", "prato": "Tartare de salmão", "descricao": "Cortado na ponta da faca, marinado em cítricos e especiarias asiáticas, com salada de quinoa.", "preco": 80, "imagem": "cardapio/serragem-tartare" },
-        { "id": "lascas", "nome": "Lascas", "prato": null, "descricao": "Alface americana, tiras de frango grelhadas, croutons, queijo ralado e molho caesar da casa.", "preco": 60 },
-        { "id": "cunhas", "nome": "Cunhas", "prato": null, "descricao": "Mix de folhas frescas, tomate cereja, pepino, azeitonas e lascas de queijo ralado.", "preco": 50, "vegetariano": true }
+        {
+          "id": "formica",
+          "nome": "Fórmica",
+          "prato": "Trio de antepastos",
+          "descricao": "Caponata de berinjela, sardela e tapenade de azeitonas.",
+          "preco": 70
+        },
+        {
+          "id": "compensado",
+          "nome": "Compensado",
+          "prato": "Burrata fresca cremosa",
+          "descricao": "Rúcula, presunto parma, tomate confitado e pesto de manjericão.",
+          "preco": 90,
+          "imagem": "cardapio/compensado-burrata"
+        },
+        {
+          "id": "laminas",
+          "nome": "Lâminas",
+          "prato": "Steak tartare",
+          "descricao": "Cortado na ponta da faca, temperado à moda clássica com cebola, mostardas, alcaparras, azeite e cebolinha.",
+          "preco": 70
+        },
+        {
+          "id": "serragem",
+          "nome": "Serragem",
+          "prato": "Tartare de salmão",
+          "descricao": "Cortado na ponta da faca, marinado em cítricos e especiarias asiáticas, com salada de quinoa.",
+          "preco": 80,
+          "imagem": "cardapio/serragem-tartare"
+        },
+        {
+          "id": "lascas",
+          "nome": "Lascas",
+          "prato": null,
+          "descricao": "Alface americana, tiras de frango grelhadas, croutons, queijo ralado e molho caesar da casa.",
+          "preco": 60
+        },
+        {
+          "id": "cunhas",
+          "nome": "Cunhas",
+          "prato": null,
+          "descricao": "Mix de folhas frescas, tomate cereja, pepino, azeitonas e lascas de queijo ralado.",
+          "preco": 50,
+          "vegetariano": true
+        }
       ]
     },
     {
@@ -34,20 +72,115 @@
       "tipo": "lista",
       "imagem": "pratos/bucha-torresmo-de-rolo",
       "itens": [
-        { "id": "caixa-de-ferramentas", "nome": "Caixa de Ferramentas", "prato": "Linguiça artesanal", "descricao": "Grelhada e servida com barbecue especial da casa e batatas crocantes.", "preco": 90, "imagem": "pratos/linguica-artesanal" },
-        { "id": "rustico", "nome": "Rústico", "prato": "6 bolinhos de mix de cogumelos", "descricao": "Com maionese da casa.", "preco": 55, "vegetariano": true },
-        { "id": "jogos-de-lixas", "nome": "Jogos de Lixas", "prato": "6 pastéis", "descricao": "Recheios de queijo, palmito com cogumelos e carne desfiada. Acompanha vinagrete.", "preco": 70 },
-        { "id": "plaina", "nome": "Plaina", "prato": "Frango à passarinho", "descricao": "Coberto de alho frito e raspas de limão.", "preco": 50 },
-        { "id": "bucha", "nome": "Bucha", "prato": "Panceta em rolo", "descricao": "Pururucada perfeitamente crocante, temperada com raspas de limão-siciliano e acompanhada de geleia de pimenta.", "preco": 70, "selos": ["sucesso-da-casa"], "imagem": "pratos/bucha-torresmo-de-rolo", "imagem_extra": "pratos/torresmo-na-mesa" },
-        { "id": "esquadro", "nome": "Esquadro", "prato": "Iscas de peixe empanadas", "descricao": "Servidas com raspas de limão-siciliano e maionese da casa.", "preco": 75 },
-        { "id": "guarda-roupa", "nome": "Guarda-Roupa", "prato": "8 porpetas caseiras", "descricao": "Cobertas com queijo, com molho de tomate rústico caseiro e cestinha de pães.", "preco": 65, "imagem": "cardapio/guarda-roupa-porpetas" },
-        { "id": "verniz", "nome": "Verniz", "prato": "Iscas de frango empanadas", "descricao": "Acompanhadas de molho barbecue.", "preco": 65 },
-        { "id": "tupia", "nome": "Tupia", "prato": "Bolinho de queijo da canastra", "descricao": "Acompanhado de geleia de pimenta.", "preco": 55, "vegetariano": true },
-        { "id": "viga", "nome": "Viga", "prato": "Picanha na chapa", "descricao": "Acompanhada de farofa e vinagrete.", "preco": 170 },
-        { "id": "cavilhas", "nome": "Cavilhas", "prato": "Batatas fritas", "descricao": "Cobertas com queijo cheddar e bacon crocantes.", "preco": 55 },
-        { "id": "sarrafo", "nome": "Sarrafo", "prato": "Fraldinha na chapa", "descricao": "Acompanhada de farofa e vinagrete.", "preco": 160, "imagem": "cardapio/sarrafo-fraldinha" },
-        { "id": "trilho", "nome": "Trilho", "prato": "6 bolinhos de carne-seca", "descricao": "Cremosos, com maionese da casa.", "preco": 55 },
-        { "id": "tabua", "nome": "Tábua", "prato": "Filé-mignon aperitivo", "descricao": "Com molho de catupiry gratinado e alho frito. Acompanha cestinha de pães.", "preco": 170 }
+        {
+          "id": "caixa-de-ferramentas",
+          "nome": "Caixa de Ferramentas",
+          "prato": "Linguiça artesanal",
+          "descricao": "Grelhada e servida com barbecue especial da casa e batatas crocantes.",
+          "preco": 90,
+          "imagem": "pratos/linguica-artesanal"
+        },
+        {
+          "id": "rustico",
+          "nome": "Rústico",
+          "prato": "6 bolinhos de mix de cogumelos",
+          "descricao": "Com maionese da casa.",
+          "preco": 55,
+          "vegetariano": true
+        },
+        {
+          "id": "jogos-de-lixas",
+          "nome": "Jogos de Lixas",
+          "prato": "6 pastéis",
+          "descricao": "Recheios de queijo, palmito com cogumelos e carne desfiada. Acompanha vinagrete.",
+          "preco": 70
+        },
+        {
+          "id": "plaina",
+          "nome": "Plaina",
+          "prato": "Frango à passarinho",
+          "descricao": "Coberto de alho frito e raspas de limão.",
+          "preco": 50
+        },
+        {
+          "id": "bucha",
+          "nome": "Bucha",
+          "prato": "Panceta em rolo",
+          "descricao": "Pururucada perfeitamente crocante, temperada com raspas de limão-siciliano e acompanhada de geleia de pimenta.",
+          "preco": 70,
+          "selos": [
+            "sucesso-da-casa"
+          ],
+          "imagem": "pratos/bucha-torresmo-de-rolo",
+          "imagem_extra": "pratos/torresmo-na-mesa",
+          "fonte_selo": "Arte oficial da Bucha no Instagram (30/08/2026): \"Sucesso da casa\""
+        },
+        {
+          "id": "esquadro",
+          "nome": "Esquadro",
+          "prato": "Iscas de peixe empanadas",
+          "descricao": "Servidas com raspas de limão-siciliano e maionese da casa.",
+          "preco": 75
+        },
+        {
+          "id": "guarda-roupa",
+          "nome": "Guarda-Roupa",
+          "prato": "8 porpetas caseiras",
+          "descricao": "Cobertas com queijo, com molho de tomate rústico caseiro e cestinha de pães.",
+          "preco": 65,
+          "imagem": "cardapio/guarda-roupa-porpetas"
+        },
+        {
+          "id": "verniz",
+          "nome": "Verniz",
+          "prato": "Iscas de frango empanadas",
+          "descricao": "Acompanhadas de molho barbecue.",
+          "preco": 65
+        },
+        {
+          "id": "tupia",
+          "nome": "Tupia",
+          "prato": "Bolinho de queijo da canastra",
+          "descricao": "Acompanhado de geleia de pimenta.",
+          "preco": 55,
+          "vegetariano": true
+        },
+        {
+          "id": "viga",
+          "nome": "Viga",
+          "prato": "Picanha na chapa",
+          "descricao": "Acompanhada de farofa e vinagrete.",
+          "preco": 170
+        },
+        {
+          "id": "cavilhas",
+          "nome": "Cavilhas",
+          "prato": "Batatas fritas",
+          "descricao": "Cobertas com queijo cheddar e bacon crocantes.",
+          "preco": 55
+        },
+        {
+          "id": "sarrafo",
+          "nome": "Sarrafo",
+          "prato": "Fraldinha na chapa",
+          "descricao": "Acompanhada de farofa e vinagrete.",
+          "preco": 160,
+          "imagem": "cardapio/sarrafo-fraldinha"
+        },
+        {
+          "id": "trilho",
+          "nome": "Trilho",
+          "prato": "6 bolinhos de carne-seca",
+          "descricao": "Cremosos, com maionese da casa.",
+          "preco": 55
+        },
+        {
+          "id": "tabua",
+          "nome": "Tábua",
+          "prato": "Filé-mignon aperitivo",
+          "descricao": "Com molho de catupiry gratinado e alho frito. Acompanha cestinha de pães.",
+          "preco": 170
+        }
       ]
     },
     {
@@ -55,13 +188,55 @@
       "nome": "Acompanhamentos",
       "tipo": "lista",
       "itens": [
-        { "id": "enxerto", "nome": "Enxerto", "prato": null, "descricao": "Arroz branco.", "preco": 15 },
-        { "id": "massa-f12-clara", "nome": "Massa F12 Clara", "prato": null, "descricao": "Purê cremoso de batata.", "preco": 20, "vegetariano": true },
-        { "id": "farpas", "nome": "Farpas", "prato": null, "descricao": "Feijão carioca.", "preco": 15 },
-        { "id": "massa-f12-escura", "nome": "Massa F12 Escura", "prato": null, "descricao": "Purê cremoso de mandioquinha.", "preco": 20, "vegetariano": true },
-        { "id": "dormente", "nome": "Dormente", "prato": null, "descricao": "Tábua de legumes braseados com tempero rústico da casa.", "preco": 30, "vegetariano": true },
-        { "id": "fechadura", "nome": "Fechadura", "prato": null, "descricao": "Farofa caseira.", "preco": 15 },
-        { "id": "escoras", "nome": "Escoras", "prato": null, "descricao": "Batatas fritas fininhas.", "preco": 25, "vegetariano": true }
+        {
+          "id": "enxerto",
+          "nome": "Enxerto",
+          "prato": null,
+          "descricao": "Arroz branco.",
+          "preco": 15
+        },
+        {
+          "id": "massa-f12-clara",
+          "nome": "Massa F12 Clara",
+          "prato": null,
+          "descricao": "Purê cremoso de batata.",
+          "preco": 20
+        },
+        {
+          "id": "farpas",
+          "nome": "Farpas",
+          "prato": null,
+          "descricao": "Feijão carioca.",
+          "preco": 15
+        },
+        {
+          "id": "massa-f12-escura",
+          "nome": "Massa F12 Escura",
+          "prato": null,
+          "descricao": "Purê cremoso de mandioquinha.",
+          "preco": 20
+        },
+        {
+          "id": "dormente",
+          "nome": "Dormente",
+          "prato": null,
+          "descricao": "Tábua de legumes braseados com tempero rústico da casa.",
+          "preco": 30
+        },
+        {
+          "id": "fechadura",
+          "nome": "Fechadura",
+          "prato": null,
+          "descricao": "Farofa caseira.",
+          "preco": 15
+        },
+        {
+          "id": "escoras",
+          "nome": "Escoras",
+          "prato": null,
+          "descricao": "Batatas fritas fininhas.",
+          "preco": 25
+        }
       ]
     },
     {
@@ -71,14 +246,65 @@
       "tipo": "lista",
       "imagem": "cardapio/fita-metrica-linguini",
       "itens": [
-        { "id": "prego", "nome": "Prego", "prato": "Risoto cremoso de funghi", "descricao": "Finalizado com lascas de filé-mignon grelhado.", "preco": 90 },
-        { "id": "ripa", "nome": "Ripa", "prato": "Filé de tilápia grelhado", "descricao": "Acompanhado de enxerto (arroz) e massa F12 escura (purê de mandioquinha).", "preco": 60 },
-        { "id": "talha", "nome": "Talha", "prato": "Risoto cremoso de queijo parmesão", "descricao": "Com tomate e manjericão.", "preco": 75, "vegetariano": true },
-        { "id": "gabinete", "nome": "Gabinete", "prato": "Filé de frango à parmegiana", "descricao": "Acompanhado de arroz e fritas fininhas.", "preco": 65 },
-        { "id": "fita-metrica", "nome": "Fita Métrica", "prato": "Linguini grano duro", "descricao": "Ao molho pesto de rúcula, tomate confitado e burrata cremosa.", "preco": 75, "imagem": "cardapio/fita-metrica-linguini" },
-        { "id": "morsa", "nome": "Morsa", "prato": "Gnocchi à sorrentina", "descricao": "Molho de tomate caseiro coberto com queijo, gratinado, com folhas de manjericão.", "preco": 80, "vegetariano": true },
-        { "id": "caibro", "nome": "Caibro", "prato": "Posta de salmão de 200 g grelhada", "descricao": "Acompanhada de enxerto (arroz) e dormente (legumes braseados).", "preco": 85 },
-        { "id": "armario", "nome": "Armário", "prato": "Filé-mignon à parmegiana", "descricao": "Acompanhado de arroz e fritas fininhas.", "preco": 85 }
+        {
+          "id": "prego",
+          "nome": "Prego",
+          "prato": "Risoto cremoso de funghi",
+          "descricao": "Finalizado com lascas de filé-mignon grelhado.",
+          "preco": 90
+        },
+        {
+          "id": "ripa",
+          "nome": "Ripa",
+          "prato": "Filé de tilápia grelhado",
+          "descricao": "Acompanhado de enxerto (arroz) e massa F12 escura (purê de mandioquinha).",
+          "preco": 60
+        },
+        {
+          "id": "talha",
+          "nome": "Talha",
+          "prato": "Risoto cremoso de queijo parmesão",
+          "descricao": "Com tomate e manjericão.",
+          "preco": 75,
+          "vegetariano": true
+        },
+        {
+          "id": "gabinete",
+          "nome": "Gabinete",
+          "prato": "Filé de frango à parmegiana",
+          "descricao": "Acompanhado de arroz e fritas fininhas.",
+          "preco": 65
+        },
+        {
+          "id": "fita-metrica",
+          "nome": "Fita Métrica",
+          "prato": "Linguini grano duro",
+          "descricao": "Ao molho pesto de rúcula, tomate confitado e burrata cremosa.",
+          "preco": 75,
+          "imagem": "cardapio/fita-metrica-linguini"
+        },
+        {
+          "id": "morsa",
+          "nome": "Morsa",
+          "prato": "Gnocchi à sorrentina",
+          "descricao": "Molho de tomate caseiro coberto com queijo, gratinado, com folhas de manjericão.",
+          "preco": 80,
+          "vegetariano": true
+        },
+        {
+          "id": "caibro",
+          "nome": "Caibro",
+          "prato": "Posta de salmão de 200 g grelhada",
+          "descricao": "Acompanhada de enxerto (arroz) e dormente (legumes braseados).",
+          "preco": 85
+        },
+        {
+          "id": "armario",
+          "nome": "Armário",
+          "prato": "Filé-mignon à parmegiana",
+          "descricao": "Acompanhado de arroz e fritas fininhas.",
+          "preco": 85
+        }
       ]
     },
     {
@@ -87,9 +313,27 @@
       "subtitulo": "kids",
       "tipo": "lista",
       "itens": [
-        { "id": "mini-verniz", "nome": "Mini Verniz", "prato": null, "descricao": "Iscas de filé de frango grelhado, purê de batata e arroz.", "preco": 35 },
-        { "id": "mini-fita-metrica", "nome": "Mini Fita Métrica", "prato": null, "descricao": "Linguini ao pomodoro e filé-mignon.", "preco": 50 },
-        { "id": "mini-tabua", "nome": "Mini Tábua", "prato": null, "descricao": "Filé-mignon grelhado com arroz, feijão e fritas fininhas.", "preco": 45 }
+        {
+          "id": "mini-verniz",
+          "nome": "Mini Verniz",
+          "prato": null,
+          "descricao": "Iscas de filé de frango grelhado, purê de batata e arroz.",
+          "preco": 35
+        },
+        {
+          "id": "mini-fita-metrica",
+          "nome": "Mini Fita Métrica",
+          "prato": null,
+          "descricao": "Linguini ao pomodoro e filé-mignon.",
+          "preco": 50
+        },
+        {
+          "id": "mini-tabua",
+          "nome": "Mini Tábua",
+          "prato": null,
+          "descricao": "Filé-mignon grelhado com arroz, feijão e fritas fininhas.",
+          "preco": 45
+        }
       ]
     },
     {
@@ -99,10 +343,35 @@
       "nota": "Acompanham cestinha de fritas fininhas.",
       "tipo": "lista",
       "itens": [
-        { "id": "cava-x-salada", "nome": "Cava X-Salada", "prato": null, "descricao": "Blend da casa, queijo muçarela, alface, tomate e maionese aioli.", "preco": 53 },
-        { "id": "porca-pernil-desfiado", "nome": "Porca Pernil Desfiado", "prato": null, "descricao": "Pernil suíno desfiado, com cebola, pimentões e azeite.", "preco": 48 },
-        { "id": "ferragem-x-bacon-cheddar", "nome": "Ferragem X-Bacon Cheddar", "prato": null, "descricao": "Blend da casa, queijo cheddar e bacon crocante.", "preco": 58 },
-        { "id": "estopa-burguer-de-quinoa", "nome": "Estopa Burguer de Quinoa", "prato": null, "descricao": "Burguer veggie à base de quinoa, com crisp de parmesão e tomatinhos confitados.", "preco": 52, "vegetariano": true }
+        {
+          "id": "cava-x-salada",
+          "nome": "Cava X-Salada",
+          "prato": null,
+          "descricao": "Blend da casa, queijo muçarela, alface, tomate e maionese aioli.",
+          "preco": 53
+        },
+        {
+          "id": "porca-pernil-desfiado",
+          "nome": "Porca Pernil Desfiado",
+          "prato": null,
+          "descricao": "Pernil suíno desfiado, com cebola, pimentões e azeite.",
+          "preco": 48
+        },
+        {
+          "id": "ferragem-x-bacon-cheddar",
+          "nome": "Ferragem X-Bacon Cheddar",
+          "prato": null,
+          "descricao": "Blend da casa, queijo cheddar e bacon crocante.",
+          "preco": 58
+        },
+        {
+          "id": "estopa-burguer-de-quinoa",
+          "nome": "Estopa Burguer de Quinoa",
+          "prato": null,
+          "descricao": "Burguer veggie à base de quinoa, com crisp de parmesão e tomatinhos confitados.",
+          "preco": 52,
+          "vegetariano": true
+        }
       ]
     },
     {
@@ -111,11 +380,41 @@
       "subtitulo": "acabamento final",
       "tipo": "lista",
       "itens": [
-        { "id": "arruela", "nome": "Arruela", "prato": null, "descricao": "Panacota com coulis de frutas vermelhas.", "preco": 30 },
-        { "id": "chave-inglesa", "nome": "Chave Inglesa", "prato": null, "descricao": "Gelato de tangerina com calda de chocolate.", "preco": 23 },
-        { "id": "meia-esquadria", "nome": "Meia Esquadria", "prato": null, "descricao": "Torta de chocolate com calda de caramelo salgado.", "preco": 40 },
-        { "id": "chave-de-boca", "nome": "Chave de Boca", "prato": null, "descricao": "Gelato de manjericão com toque de azeite.", "preco": 23 },
-        { "id": "primer", "nome": "Primer", "prato": null, "descricao": "Café expresso.", "preco": 10 }
+        {
+          "id": "arruela",
+          "nome": "Arruela",
+          "prato": null,
+          "descricao": "Panacota com coulis de frutas vermelhas.",
+          "preco": 30
+        },
+        {
+          "id": "chave-inglesa",
+          "nome": "Chave Inglesa",
+          "prato": null,
+          "descricao": "Gelato de tangerina com calda de chocolate.",
+          "preco": 23
+        },
+        {
+          "id": "meia-esquadria",
+          "nome": "Meia Esquadria",
+          "prato": null,
+          "descricao": "Torta de chocolate com calda de caramelo salgado.",
+          "preco": 40
+        },
+        {
+          "id": "chave-de-boca",
+          "nome": "Chave de Boca",
+          "prato": null,
+          "descricao": "Gelato de manjericão com toque de azeite.",
+          "preco": 23
+        },
+        {
+          "id": "primer",
+          "nome": "Primer",
+          "prato": null,
+          "descricao": "Café expresso.",
+          "preco": 10
+        }
       ]
     },
     {
@@ -123,13 +422,55 @@
       "nome": "Bebidas",
       "tipo": "lista",
       "itens": [
-        { "id": "agua-sem-gas", "nome": "Água sem gás", "prato": null, "descricao": "Pra quem veio só acompanhar, ou se arrependeu.", "preco": 8 },
-        { "id": "agua-com-gas", "nome": "Água com gás", "prato": null, "descricao": "A água que acha que é sofisticada.", "preco": 8 },
-        { "id": "refrigerantes", "nome": "Refrigerantes", "prato": null, "descricao": "Porque nem todo mundo veio pra sofrer amanhã.", "preco": 10 },
-        { "id": "tonica-schweppes", "nome": "Tônica Schweppes", "prato": null, "descricao": "Sozinha é séria, acompanhada vira problema.", "preco": 10 },
-        { "id": "sucos", "nome": "Sucos", "prato": null, "descricao": "Pra fingir responsabilidade antes do drink. Consulte as opções.", "preco": 18 },
-        { "id": "sodas", "nome": "Sodas", "prato": null, "descricao": "Toda grande noite começa com uma mentira. Consulte as opções.", "preco": 14 },
-        { "id": "red-bull", "nome": "Red Bull 250 ml", "prato": null, "descricao": "Asa pra beber… e pra falar besteira depois.", "preco": 18 }
+        {
+          "id": "agua-sem-gas",
+          "nome": "Água sem gás",
+          "prato": null,
+          "descricao": "Pra quem veio só acompanhar, ou se arrependeu.",
+          "preco": 8
+        },
+        {
+          "id": "agua-com-gas",
+          "nome": "Água com gás",
+          "prato": null,
+          "descricao": "A água que acha que é sofisticada.",
+          "preco": 8
+        },
+        {
+          "id": "refrigerantes",
+          "nome": "Refrigerantes",
+          "prato": null,
+          "descricao": "Porque nem todo mundo veio pra sofrer amanhã.",
+          "preco": 10
+        },
+        {
+          "id": "tonica-schweppes",
+          "nome": "Tônica Schweppes",
+          "prato": null,
+          "descricao": "Sozinha é séria, acompanhada vira problema.",
+          "preco": 10
+        },
+        {
+          "id": "sucos",
+          "nome": "Sucos",
+          "prato": null,
+          "descricao": "Pra fingir responsabilidade antes do drink. Consulte as opções.",
+          "preco": 18
+        },
+        {
+          "id": "sodas",
+          "nome": "Sodas",
+          "prato": null,
+          "descricao": "Toda grande noite começa com uma mentira. Consulte as opções.",
+          "preco": 14
+        },
+        {
+          "id": "red-bull",
+          "nome": "Red Bull 250 ml",
+          "prato": null,
+          "descricao": "Asa pra beber… e pra falar besteira depois.",
+          "preco": 18
+        }
       ]
     },
     {
@@ -138,51 +479,273 @@
       "tipo": "lista",
       "imagem": "bar/chopp-brahma",
       "itens": [
-        { "id": "chopp-brahma", "nome": "Chopp Brahma", "prato": null, "descricao": "Se o bar é bom… o resto você já sabe.", "preco": 16, "imagem": "bar/chopp-brahma" },
-        { "id": "chopp-liberty-ipa", "nome": "Chopp Liberty IPA by Dr. Ewam", "prato": null, "descricao": "Na garrafa é bom, no barril é ainda melhor.", "preco": 21 },
-        { "id": "barcenaipa", "nome": "BarcenaIPA by Dr. Ewam 500 ml", "prato": null, "descricao": "O marceneiro também sabe fazer cerveja.", "preco": 35, "selos": ["da-casa"], "imagem": "bar/barcenaipa" },
-        { "id": "mandarina-ipa", "nome": "Mandarina IPA by Dr. Ewam 500 ml", "prato": null, "descricao": "Artesanato e sabor em forma de garrafa.", "preco": 35 },
-        { "id": "heineken-600", "nome": "Heineken 600 ml", "prato": null, "descricao": "Clássica, gelada e nunca decepciona.", "preco": 23 },
-        { "id": "original-600", "nome": "Original 600 ml", "prato": null, "descricao": "De falso aqui, só tem você.", "preco": 23 },
-        { "id": "amstel-600", "nome": "Amstel 600 ml", "prato": null, "descricao": "A honestidade que resolve a noite.", "preco": 18 },
-        { "id": "heineken-ln", "nome": "Heineken long neck 330 ml", "prato": null, "descricao": "Clássica, gelada e nunca decepciona — versão neném.", "preco": 15 },
-        { "id": "heineken-zero", "nome": "Heineken long neck sem álcool 330 ml", "prato": null, "descricao": "Zero álcool, zero arrependimento.", "preco": 15 },
-        { "id": "praya", "nome": "Praya 355 ml", "prato": null, "descricao": "Leve, fácil e perigosa.", "preco": 15 },
-        { "id": "corona", "nome": "Corona 355 ml", "prato": null, "descricao": "Pode remeter a tempos difíceis, mas com limão logo passa.", "preco": 15 },
-        { "id": "blue-moon", "nome": "Blue Moon 355 ml", "prato": null, "descricao": "Cerveja que acha que é drink.", "preco": 20 },
-        { "id": "lagunitas-ipa", "nome": "Lagunitas IPA 355 ml", "prato": null, "descricao": "Amarga igual segunda-feira, deliciosa igual sexta.", "preco": 25 }
+        {
+          "id": "chopp-brahma",
+          "nome": "Chopp Brahma",
+          "prato": null,
+          "descricao": "Se o bar é bom… o resto você já sabe.",
+          "preco": 16,
+          "imagem": "bar/chopp-brahma"
+        },
+        {
+          "id": "chopp-liberty-ipa",
+          "nome": "Chopp Liberty IPA by Dr. Ewam",
+          "prato": null,
+          "descricao": "Na garrafa é bom, no barril é ainda melhor.",
+          "preco": 21
+        },
+        {
+          "id": "barcenaipa",
+          "nome": "BarcenaIPA by Dr. Ewam 500 ml",
+          "prato": null,
+          "descricao": "O marceneiro também sabe fazer cerveja.",
+          "preco": 35,
+          "imagem": "bar/barcenaipa"
+        },
+        {
+          "id": "mandarina-ipa",
+          "nome": "Mandarina IPA by Dr. Ewam 500 ml",
+          "prato": null,
+          "descricao": "Artesanato e sabor em forma de garrafa.",
+          "preco": 35
+        },
+        {
+          "id": "heineken-600",
+          "nome": "Heineken 600 ml",
+          "prato": null,
+          "descricao": "Clássica, gelada e nunca decepciona.",
+          "preco": 23
+        },
+        {
+          "id": "original-600",
+          "nome": "Original 600 ml",
+          "prato": null,
+          "descricao": "De falso aqui, só tem você.",
+          "preco": 23
+        },
+        {
+          "id": "amstel-600",
+          "nome": "Amstel 600 ml",
+          "prato": null,
+          "descricao": "A honestidade que resolve a noite.",
+          "preco": 18
+        },
+        {
+          "id": "heineken-ln",
+          "nome": "Heineken long neck 330 ml",
+          "prato": null,
+          "descricao": "Clássica, gelada e nunca decepciona — versão neném.",
+          "preco": 15
+        },
+        {
+          "id": "heineken-zero",
+          "nome": "Heineken long neck sem álcool 330 ml",
+          "prato": null,
+          "descricao": "Zero álcool, zero arrependimento.",
+          "preco": 15
+        },
+        {
+          "id": "praya",
+          "nome": "Praya 355 ml",
+          "prato": null,
+          "descricao": "Leve, fácil e perigosa.",
+          "preco": 15
+        },
+        {
+          "id": "corona",
+          "nome": "Corona 355 ml",
+          "prato": null,
+          "descricao": "Pode remeter a tempos difíceis, mas com limão logo passa.",
+          "preco": 15
+        },
+        {
+          "id": "blue-moon",
+          "nome": "Blue Moon 355 ml",
+          "prato": null,
+          "descricao": "Cerveja que acha que é drink.",
+          "preco": 20
+        },
+        {
+          "id": "lagunitas-ipa",
+          "nome": "Lagunitas IPA 355 ml",
+          "prato": null,
+          "descricao": "Amarga igual segunda-feira, deliciosa igual sexta.",
+          "preco": 25
+        }
       ]
     },
     {
       "id": "drinks",
       "nome": "Drinks",
-      "subtitulo": "da bancada do marceneiro",
       "tipo": "lista",
       "imagem": "cardapio/grampo-gin-tropical",
       "itens": [
-        { "id": "martelo-mojito", "nome": "Martelo Mojito", "prato": null, "descricao": "Rum branco, hortelã fresca, limão, açúcar mascavo e água com gás. Refrescante e forte, como um bom martelo.", "preco": 38 },
-        { "id": "chave-tonica", "nome": "Chave Tônica", "prato": null, "descricao": "Gin Beefeater, água tônica, limão e alecrim. Versátil e ajustável, perfeito para todos os gostos.", "preco": 42 },
-        { "id": "grampo-gin-tropical", "nome": "Grampo Gin Tropical", "prato": null, "descricao": "Gin Beefeater, água tônica, rodela de limão-taiti e Red Bull Tropical ou Melancia. Desbasta o cansaço e deixa só a alegria.", "preco": 48, "imagem": "cardapio/grampo-gin-tropical" },
-        { "id": "corredica-tonica", "nome": "Corrediça Tônica", "prato": null, "descricao": "Gin Beefeater, água tônica, carpaccio de caju, xarope de gengibre, limão-siciliano e alecrim defumado. Um deslize que vale demais.", "preco": 48 },
-        { "id": "reparo-tonica", "nome": "Reparo Tônica", "prato": null, "descricao": "Gin Beefeater Botanics, mel, xarope de gengibre, água tônica e finas fatias de morango. Low carb, para você errar somente nas decisões.", "preco": 50 },
-        { "id": "parafuso-tropical", "nome": "Parafuso Tropical", "prato": null, "descricao": "Vodka Absolut, maracujá, laranja e um twist de pimenta. Doce, ácido e levemente picante, que prende o cliente no sabor.", "preco": 42 },
-        { "id": "lixadeira-negroni", "nome": "Lixadeira Negroni", "prato": null, "descricao": "Gin Beefeater, vermute rosso e Campari. Clássico e intenso, vai “alisar” a noite.", "preco": 48, "imagem": "cardapio/negroni" },
-        { "id": "marreta-negroni", "nome": "Marreta Negroni", "prato": null, "descricao": "O negroni envelhecido na casa, em barril de carvalho e especiarias. Esse não bate, ele marreta de verdade.", "preco": 55, "selos": ["da-casa"] },
-        { "id": "nivel-fitzgerald", "nome": "Nível Fitzgerald", "prato": null, "descricao": "Gin Beefeater, suco de limão-siciliano, xarope de açúcar e bitter de angostura. Difícil de dizer, porém muito fácil de descer.", "preco": 45 },
-        { "id": "tico-tico-spritz", "nome": "Tico-Tico Spritz", "prato": null, "descricao": "Aperol, espumante, água com gás e twist de laranja. Leve, vibrante e “picotado” no frescor.", "preco": 42, "imagem": "bar/drink-spritz" },
-        { "id": "serrote-spritz", "nome": "Serrote Spritz", "prato": null, "descricao": "Limoncello, espumante, água com gás e twist de limão-siciliano. Corta a sede com frescor e muita elegância.", "preco": 45 },
-        { "id": "puxador-ramazzotti-spritz", "nome": "Puxador Ramazzotti Spritz", "prato": null, "descricao": "Ramazzotti Rosato, espumante, água com gás e uma fatia de laranja. Leve, rosado e fácil de abrir a noite.", "preco": 48 },
-        { "id": "fecho-toque-lillet-spritz", "nome": "Fecho-Toque Lillet Spritz", "prato": null, "descricao": "Lillet Rosé, espumante, água com gás, morango, laranja, pepino e folhas de hortelã. Um gole, um toque, e as portas se abrem.", "preco": 48 },
-        { "id": "makita-mule", "nome": "Makita Mule", "prato": null, "descricao": "Vodka Absolut, ginger, limão-taiti e hortelã. Energético, elétrico e cheio de torque, servido na caneca de cobre.", "preco": 45 },
-        { "id": "formao-penicillin", "nome": "Formão Penicillin", "prato": null, "descricao": "Whisky Chivas 12 anos, xarope de açúcar, limão-siciliano, mel e gengibre. Dói, mas cura.", "preco": 45 },
-        { "id": "alicate-carajillo", "nome": "Alicate Carajillo", "prato": null, "descricao": "Licor 43, gelo, café forte e uma casca de laranja. Puxa você pra pista mesmo dizendo “só mais um”.", "preco": 45, "imagem": "cardapio/alicate-carajillo" },
-        { "id": "grosa-cosmopolitan", "nome": "Grosa Cosmopolitan", "prato": null, "descricao": "Vodka Absolut, Cointreau, suco de cranberry, suco de limão e laranja. Elegante, forte e sem frescura.", "preco": 40 },
-        { "id": "dobradica-jack-43", "nome": "Dobradiça Jack 43", "prato": null, "descricao": "Licor 43, Jack Daniel’s, maracujá, gengibre e canela em pau. Depois desse, você abre… mas não fecha.", "preco": 48 },
-        { "id": "resina-jorge-amado", "nome": "Resina Jorge Amado", "prato": null, "descricao": "Cachaça Gabriela Cravo e Canela de Paraty, maracujá e limão. Literatura líquida da mais alta qualidade.", "preco": 45, "imagem": "bar/resina-jorge-amado" },
-        { "id": "sargento-margarita", "nome": "Sargento Margarita", "prato": null, "descricao": "Tequila, Cointreau, suco de limão e sal. Quem manda aqui é o sal da borda.", "preco": 40 },
-        { "id": "perfil-caju-amigo", "nome": "Perfil Caju Amigo", "prato": null, "descricao": "Cachaça artesanal, compota de caju e suco de caju. Amigo mesmo é quem paga a próxima.", "preco": 40 },
-        { "id": "trinco-do-sertao", "nome": "Trinco do Sertão", "prato": null, "descricao": "Cachaça artesanal, suco de laranja, suco de limão-taiti e siciliano, finalizado com rapadura. Trava a sede e destrava o juízo.", "preco": 40 },
-        { "id": "furadeira-jackn-coke-e-fanta", "nome": "Furadeira Jack’n Coke é Fanta", "prato": null, "descricao": "Nossa versão do drink mais vendido do mundo, com Jack Daniel’s Tennessee Fire, Fanta Laranja e xarope de morango. O bom senso acaba após essa perfuração da sede.", "preco": 40 }
+        {
+          "id": "martelo-mojito",
+          "nome": "Martelo Mojito",
+          "prato": null,
+          "descricao": "Rum branco, hortelã fresca, limão, açúcar mascavo e água com gás. Refrescante e forte, como um bom martelo.",
+          "preco": 38
+        },
+        {
+          "id": "chave-tonica",
+          "nome": "Chave Tônica",
+          "prato": null,
+          "descricao": "Gin Beefeater, água tônica, limão e alecrim. Versátil e ajustável, perfeito para todos os gostos.",
+          "preco": 42
+        },
+        {
+          "id": "grampo-gin-tropical",
+          "nome": "Grampo Gin Tropical",
+          "prato": null,
+          "descricao": "Gin Beefeater, água tônica, rodela de limão-taiti e Red Bull Tropical ou Melancia. Desbasta o cansaço e deixa só a alegria.",
+          "preco": 48,
+          "imagem": "cardapio/grampo-gin-tropical"
+        },
+        {
+          "id": "corredica-tonica",
+          "nome": "Corrediça Tônica",
+          "prato": null,
+          "descricao": "Gin Beefeater, água tônica, carpaccio de caju, xarope de gengibre, limão-siciliano e alecrim defumado. Um deslize que vale demais.",
+          "preco": 48
+        },
+        {
+          "id": "reparo-tonica",
+          "nome": "Reparo Tônica",
+          "prato": null,
+          "descricao": "Gin Beefeater Botanics, mel, xarope de gengibre, água tônica e finas fatias de morango. Low carb, para você errar somente nas decisões.",
+          "preco": 50
+        },
+        {
+          "id": "parafuso-tropical",
+          "nome": "Parafuso Tropical",
+          "prato": null,
+          "descricao": "Vodka Absolut, maracujá, laranja e um twist de pimenta. Doce, ácido e levemente picante, que prende o cliente no sabor.",
+          "preco": 42
+        },
+        {
+          "id": "lixadeira-negroni",
+          "nome": "Lixadeira Negroni",
+          "prato": null,
+          "descricao": "Gin Beefeater, vermute rosso e Campari. Clássico e intenso, vai “alisar” a noite.",
+          "preco": 48,
+          "imagem": "cardapio/negroni"
+        },
+        {
+          "id": "marreta-negroni",
+          "nome": "Marreta Negroni",
+          "prato": null,
+          "descricao": "O negroni envelhecido na casa, em barril de carvalho e especiarias. Esse não bate, ele marreta de verdade.",
+          "preco": 55
+        },
+        {
+          "id": "nivel-fitzgerald",
+          "nome": "Nível Fitzgerald",
+          "prato": null,
+          "descricao": "Gin Beefeater, suco de limão-siciliano, xarope de açúcar e bitter de angostura. Difícil de dizer, porém muito fácil de descer.",
+          "preco": 45
+        },
+        {
+          "id": "tico-tico-spritz",
+          "nome": "Tico-Tico Spritz",
+          "prato": null,
+          "descricao": "Aperol, espumante, água com gás e twist de laranja. Leve, vibrante e “picotado” no frescor.",
+          "preco": 42,
+          "imagem": "bar/drink-spritz"
+        },
+        {
+          "id": "serrote-spritz",
+          "nome": "Serrote Spritz",
+          "prato": null,
+          "descricao": "Limoncello, espumante, água com gás e twist de limão-siciliano. Corta a sede com frescor e muita elegância.",
+          "preco": 45
+        },
+        {
+          "id": "puxador-ramazzotti-spritz",
+          "nome": "Puxador Ramazzotti Spritz",
+          "prato": null,
+          "descricao": "Ramazzotti Rosato, espumante, água com gás e uma fatia de laranja. Leve, rosado e fácil de abrir a noite.",
+          "preco": 48
+        },
+        {
+          "id": "fecho-toque-lillet-spritz",
+          "nome": "Fecho-Toque Lillet Spritz",
+          "prato": null,
+          "descricao": "Lillet Rosé, espumante, água com gás, morango, laranja, pepino e folhas de hortelã. Um gole, um toque, e as portas se abrem.",
+          "preco": 48
+        },
+        {
+          "id": "makita-mule",
+          "nome": "Makita Mule",
+          "prato": null,
+          "descricao": "Vodka Absolut, ginger, limão-taiti e hortelã. Energético, elétrico e cheio de torque, servido na caneca de cobre.",
+          "preco": 45
+        },
+        {
+          "id": "formao-penicillin",
+          "nome": "Formão Penicillin",
+          "prato": null,
+          "descricao": "Whisky Chivas 12 anos, xarope de açúcar, limão-siciliano, mel e gengibre. Dói, mas cura.",
+          "preco": 45
+        },
+        {
+          "id": "alicate-carajillo",
+          "nome": "Alicate Carajillo",
+          "prato": null,
+          "descricao": "Licor 43, gelo, café forte e uma casca de laranja. Puxa você pra pista mesmo dizendo “só mais um”.",
+          "preco": 45,
+          "imagem": "cardapio/alicate-carajillo"
+        },
+        {
+          "id": "grosa-cosmopolitan",
+          "nome": "Grosa Cosmopolitan",
+          "prato": null,
+          "descricao": "Vodka Absolut, Cointreau, suco de cranberry, suco de limão e laranja. Elegante, forte e sem frescura.",
+          "preco": 40
+        },
+        {
+          "id": "dobradica-jack-43",
+          "nome": "Dobradiça Jack 43",
+          "prato": null,
+          "descricao": "Licor 43, Jack Daniel’s, maracujá, gengibre e canela em pau. Depois desse, você abre… mas não fecha.",
+          "preco": 48
+        },
+        {
+          "id": "resina-jorge-amado",
+          "nome": "Resina Jorge Amado",
+          "prato": null,
+          "descricao": "Cachaça Gabriela Cravo e Canela de Paraty, maracujá e limão. Literatura líquida da mais alta qualidade.",
+          "preco": 45,
+          "imagem": "bar/resina-jorge-amado"
+        },
+        {
+          "id": "sargento-margarita",
+          "nome": "Sargento Margarita",
+          "prato": null,
+          "descricao": "Tequila, Cointreau, suco de limão e sal. Quem manda aqui é o sal da borda.",
+          "preco": 40
+        },
+        {
+          "id": "perfil-caju-amigo",
+          "nome": "Perfil Caju Amigo",
+          "prato": null,
+          "descricao": "Cachaça artesanal, compota de caju e suco de caju. Amigo mesmo é quem paga a próxima.",
+          "preco": 40
+        },
+        {
+          "id": "trinco-do-sertao",
+          "nome": "Trinco do Sertão",
+          "prato": null,
+          "descricao": "Cachaça artesanal, suco de laranja, suco de limão-taiti e siciliano, finalizado com rapadura. Trava a sede e destrava o juízo.",
+          "preco": 40
+        },
+        {
+          "id": "furadeira-jackn-coke-e-fanta",
+          "nome": "Furadeira Jack’n Coke é Fanta",
+          "prato": null,
+          "descricao": "Nossa versão do drink mais vendido do mundo, com Jack Daniel’s Tennessee Fire, Fanta Laranja e xarope de morango. O bom senso acaba após essa perfuração da sede.",
+          "preco": 40
+        }
       ]
     },
     {
@@ -191,8 +754,20 @@
       "tipo": "lista",
       "imagem": "cardapio/drink-sinuca",
       "itens": [
-        { "id": "pink-moon", "nome": "Pink Moon", "prato": null, "descricao": "Drink pronto à base de vinho, nas versões blanc e rosé. Tá calor, mas o vinho é presença garantida independente da estação.", "preco": 20 },
-        { "id": "xeque-mate", "nome": "Xeque-Mate", "prato": null, "descricao": "Drink pronto à base de rum, guaraná, chá-mate e limão. Um gole, e o jogo muda.", "preco": 20 }
+        {
+          "id": "pink-moon",
+          "nome": "Pink Moon",
+          "prato": null,
+          "descricao": "Drink pronto à base de vinho, nas versões blanc e rosé. Tá calor, mas o vinho é presença garantida independente da estação.",
+          "preco": 20
+        },
+        {
+          "id": "xeque-mate",
+          "nome": "Xeque-Mate",
+          "prato": null,
+          "descricao": "Drink pronto à base de rum, guaraná, chá-mate e limão. Um gole, e o jogo muda.",
+          "preco": 20
+        }
       ]
     },
     {
@@ -200,15 +775,53 @@
       "nome": "Caipirinhas",
       "tipo": "opcoes",
       "imagem": "cardapio/caipirinha-morango",
-      "sabores": ["Limão", "Dois limões", "Caju", "Maracujá", "Caju e limão", "Kiwi", "Morango", "Abacaxi", "Frutas vermelhas"],
+      "sabores": [
+        "Limão",
+        "Dois limões",
+        "Caju",
+        "Maracujá",
+        "Caju e limão",
+        "Kiwi",
+        "Morango",
+        "Abacaxi",
+        "Frutas vermelhas"
+      ],
       "itens": [
-        { "id": "caipirinha-cachaca", "nome": "Cachaça", "preco": 25 },
-        { "id": "caipirinha-malibu", "nome": "Malibu", "preco": 30 },
-        { "id": "caipirinha-cachaca-premium", "nome": "Cachaça premium", "preco": 35 },
-        { "id": "caipirinha-weber-haus", "nome": "Cachaça Weber Haus", "preco": 55 },
-        { "id": "caipirinha-vodka", "nome": "Vodka", "preco": 35 },
-        { "id": "caipirinha-vodka-premium", "nome": "Vodka premium", "preco": 45 },
-        { "id": "caipirinha-saque", "nome": "Saquê", "preco": 35 }
+        {
+          "id": "caipirinha-cachaca",
+          "nome": "Cachaça",
+          "preco": 25
+        },
+        {
+          "id": "caipirinha-malibu",
+          "nome": "Malibu",
+          "preco": 30
+        },
+        {
+          "id": "caipirinha-cachaca-premium",
+          "nome": "Cachaça premium",
+          "preco": 35
+        },
+        {
+          "id": "caipirinha-weber-haus",
+          "nome": "Cachaça Weber Haus",
+          "preco": 55
+        },
+        {
+          "id": "caipirinha-vodka",
+          "nome": "Vodka",
+          "preco": 35
+        },
+        {
+          "id": "caipirinha-vodka-premium",
+          "nome": "Vodka premium",
+          "preco": 45
+        },
+        {
+          "id": "caipirinha-saque",
+          "nome": "Saquê",
+          "preco": 35
+        }
       ]
     },
     {
@@ -216,8 +829,20 @@
       "nome": "Jarras",
       "tipo": "lista",
       "itens": [
-        { "id": "sangrid", "nome": "Sangrid", "prato": null, "descricao": "Vinho tinto, frutas picadas, água tônica e açúcar. Vinho, fruta e decisões duvidosas.", "preco": 170 },
-        { "id": "clericorte", "nome": "Clericorte", "prato": null, "descricao": "Espumante, frutas picadas, Cointreau e açúcar. Fruta pra fingir que é saudável.", "preco": 190 }
+        {
+          "id": "sangrid",
+          "nome": "Sangrid",
+          "prato": null,
+          "descricao": "Vinho tinto, frutas picadas, água tônica e açúcar. Vinho, fruta e decisões duvidosas.",
+          "preco": 170
+        },
+        {
+          "id": "clericorte",
+          "nome": "Clericorte",
+          "prato": null,
+          "descricao": "Espumante, frutas picadas, Cointreau e açúcar. Fruta pra fingir que é saudável.",
+          "preco": 190
+        }
       ]
     },
     {
@@ -225,101 +850,395 @@
       "nome": "Destilados",
       "tipo": "tabela",
       "imagem": "cardapio/gin-tonica",
-      "nota": "Combo: consulte o garçom sobre o que acompanha.",
       "grupos": [
         {
           "nome": "Vodka",
-          "colunas": ["Dose", "Garrafa", "Combo"],
+          "colunas": [
+            "Dose",
+            "Garrafa",
+            "Combo"
+          ],
           "itens": [
-            { "id": "absolut", "nome": "Absolut", "precos": [25, 300, 400] },
-            { "id": "absolut-elyx", "nome": "Absolut Elyx", "precos": [50, 600, 700] },
-            { "id": "ciroc", "nome": "Cîroc", "precos": [40, 500, 600] },
-            { "id": "grey-goose", "nome": "Grey Goose", "precos": [35, 350, 450] },
-            { "id": "smirnoff", "nome": "Smirnoff", "precos": [20, 150, 250] }
+            {
+              "id": "absolut",
+              "nome": "Absolut",
+              "precos": [
+                25,
+                300,
+                400
+              ]
+            },
+            {
+              "id": "absolut-elyx",
+              "nome": "Absolut Elyx",
+              "precos": [
+                50,
+                600,
+                700
+              ]
+            },
+            {
+              "id": "ciroc",
+              "nome": "Cîroc",
+              "precos": [
+                40,
+                500,
+                600
+              ]
+            },
+            {
+              "id": "grey-goose",
+              "nome": "Grey Goose",
+              "precos": [
+                35,
+                350,
+                450
+              ]
+            },
+            {
+              "id": "smirnoff",
+              "nome": "Smirnoff",
+              "precos": [
+                20,
+                150,
+                250
+              ]
+            }
           ]
         },
         {
           "nome": "Whisky — Irish",
-          "colunas": ["Dose", "Garrafa", "Combo"],
+          "colunas": [
+            "Dose",
+            "Garrafa",
+            "Combo"
+          ],
           "itens": [
-            { "id": "jameson", "nome": "Jameson", "precos": [38, 300, 400] },
-            { "id": "jameson-ipa", "nome": "Jameson IPA", "precos": [40, 380, 480] }
+            {
+              "id": "jameson",
+              "nome": "Jameson",
+              "precos": [
+                38,
+                300,
+                400
+              ]
+            },
+            {
+              "id": "jameson-ipa",
+              "nome": "Jameson IPA",
+              "precos": [
+                40,
+                380,
+                480
+              ]
+            }
           ]
         },
         {
           "nome": "Whisky — Single Malt",
-          "colunas": ["Dose", "Garrafa", "Combo"],
+          "colunas": [
+            "Dose",
+            "Garrafa",
+            "Combo"
+          ],
           "itens": [
-            { "id": "glenlivet-founders", "nome": "The Glenlivet Founder’s Reserve", "precos": [55, 600, 700] },
-            { "id": "glenlivet-15", "nome": "The Glenlivet 15 anos", "precos": [70, 950, null] },
-            { "id": "green-label-15", "nome": "Green Label 15 anos", "precos": [75, 1000, null] },
-            { "id": "macallan-12", "nome": "Macallan 12 anos", "precos": [100, 1300, null] }
+            {
+              "id": "glenlivet-founders",
+              "nome": "The Glenlivet Founder’s Reserve",
+              "precos": [
+                55,
+                600,
+                700
+              ]
+            },
+            {
+              "id": "glenlivet-15",
+              "nome": "The Glenlivet 15 anos",
+              "precos": [
+                70,
+                950,
+                null
+              ]
+            },
+            {
+              "id": "green-label-15",
+              "nome": "Green Label 15 anos",
+              "precos": [
+                75,
+                1000,
+                null
+              ]
+            },
+            {
+              "id": "macallan-12",
+              "nome": "Macallan 12 anos",
+              "precos": [
+                100,
+                1300,
+                null
+              ]
+            }
           ]
         },
         {
           "nome": "Whisky — Scotch",
-          "colunas": ["Dose", "Garrafa", "Combo"],
+          "colunas": [
+            "Dose",
+            "Garrafa",
+            "Combo"
+          ],
           "itens": [
-            { "id": "chivas-12", "nome": "Chivas 12 anos", "precos": [40, 450, 550] },
-            { "id": "black-label", "nome": "Black Label", "precos": [45, 450, 550] },
-            { "id": "red-label", "nome": "Red Label", "precos": [35, 250, 350] }
+            {
+              "id": "chivas-12",
+              "nome": "Chivas 12 anos",
+              "precos": [
+                40,
+                450,
+                550
+              ]
+            },
+            {
+              "id": "black-label",
+              "nome": "Black Label",
+              "precos": [
+                45,
+                450,
+                550
+              ]
+            },
+            {
+              "id": "red-label",
+              "nome": "Red Label",
+              "precos": [
+                35,
+                250,
+                350
+              ]
+            }
           ]
         },
         {
           "nome": "Whisky — Bourbon",
-          "colunas": ["Dose", "Garrafa", "Combo"],
+          "colunas": [
+            "Dose",
+            "Garrafa",
+            "Combo"
+          ],
           "itens": [
-            { "id": "jack-daniels", "nome": "Jack Daniel’s", "precos": [38, 400, 500] }
+            {
+              "id": "jack-daniels",
+              "nome": "Jack Daniel’s",
+              "precos": [
+                38,
+                400,
+                500
+              ]
+            }
           ]
         },
         {
           "nome": "Gin",
-          "colunas": ["Dose", "Garrafa", "Combo"],
+          "colunas": [
+            "Dose",
+            "Garrafa",
+            "Combo"
+          ],
           "itens": [
-            { "id": "beefeater", "nome": "Beefeater", "precos": [35, 300, 400] },
-            { "id": "beefeater-botanics", "nome": "Beefeater Botanics", "precos": [38, 330, 430] },
-            { "id": "tanqueray", "nome": "Tanqueray", "precos": [40, 350, 450] },
-            { "id": "hendricks", "nome": "Hendrick’s", "precos": [55, 600, 700] }
+            {
+              "id": "beefeater",
+              "nome": "Beefeater",
+              "precos": [
+                35,
+                300,
+                400
+              ]
+            },
+            {
+              "id": "beefeater-botanics",
+              "nome": "Beefeater Botanics",
+              "precos": [
+                38,
+                330,
+                430
+              ]
+            },
+            {
+              "id": "tanqueray",
+              "nome": "Tanqueray",
+              "precos": [
+                40,
+                350,
+                450
+              ]
+            },
+            {
+              "id": "hendricks",
+              "nome": "Hendrick’s",
+              "precos": [
+                55,
+                600,
+                700
+              ]
+            }
           ]
         },
         {
           "nome": "Cachaça",
-          "colunas": ["Dose"],
+          "colunas": [
+            "Dose"
+          ],
           "itens": [
-            { "id": "weber-haus", "nome": "Weber Haus", "precos": [35] },
-            { "id": "espirito-de-minas", "nome": "Espírito de Minas", "precos": [30] },
-            { "id": "seleta", "nome": "Seleta", "precos": [25] },
-            { "id": "sagatiba", "nome": "Sagatiba", "precos": [20] }
+            {
+              "id": "weber-haus",
+              "nome": "Weber Haus",
+              "precos": [
+                35
+              ]
+            },
+            {
+              "id": "espirito-de-minas",
+              "nome": "Espírito de Minas",
+              "precos": [
+                30
+              ]
+            },
+            {
+              "id": "seleta",
+              "nome": "Seleta",
+              "precos": [
+                25
+              ]
+            },
+            {
+              "id": "sagatiba",
+              "nome": "Sagatiba",
+              "precos": [
+                20
+              ]
+            }
           ]
         },
         {
           "nome": "Rum",
-          "colunas": ["Dose", "Garrafa"],
+          "colunas": [
+            "Dose",
+            "Garrafa"
+          ],
           "itens": [
-            { "id": "bacardi-prata", "nome": "Bacardí Prata", "precos": [25, 250] },
-            { "id": "bacardi-oro", "nome": "Bacardí Oro", "precos": [25, 250] },
-            { "id": "havana-3", "nome": "Havana Club 3 anos", "precos": [30, 300] },
-            { "id": "havana-7", "nome": "Havana Club 7 anos", "precos": [40, 400] }
+            {
+              "id": "bacardi-prata",
+              "nome": "Bacardí Prata",
+              "precos": [
+                25,
+                250
+              ]
+            },
+            {
+              "id": "bacardi-oro",
+              "nome": "Bacardí Oro",
+              "precos": [
+                25,
+                250
+              ]
+            },
+            {
+              "id": "havana-3",
+              "nome": "Havana Club 3 anos",
+              "precos": [
+                30,
+                300
+              ]
+            },
+            {
+              "id": "havana-7",
+              "nome": "Havana Club 7 anos",
+              "precos": [
+                40,
+                400
+              ]
+            }
           ]
         },
         {
           "nome": "Tequila",
-          "colunas": ["Dose", "Garrafa"],
+          "colunas": [
+            "Dose",
+            "Garrafa"
+          ],
           "itens": [
-            { "id": "jose-cuervo-silver", "nome": "José Cuervo Silver", "precos": [35, 450] },
-            { "id": "jose-cuervo-gold", "nome": "José Cuervo Gold", "precos": [35, 450] }
+            {
+              "id": "jose-cuervo-silver",
+              "nome": "José Cuervo Silver",
+              "precos": [
+                35,
+                450
+              ]
+            },
+            {
+              "id": "jose-cuervo-gold",
+              "nome": "José Cuervo Gold",
+              "precos": [
+                35,
+                450
+              ]
+            }
           ]
         },
         {
           "nome": "Aperitivos",
-          "colunas": ["Dose", "Garrafa"],
+          "colunas": [
+            "Dose",
+            "Garrafa"
+          ],
           "itens": [
-            { "id": "lillet", "nome": "Lillet Blanc / Rosé", "precos": [30, null] },
-            { "id": "baileys", "nome": "Baileys", "precos": [30, null] },
-            { "id": "frangelico", "nome": "Frangelico", "precos": [30, null] },
-            { "id": "amarula", "nome": "Amarula", "precos": [30, null] },
-            { "id": "campari", "nome": "Campari", "precos": [30, 180] },
-            { "id": "licor-43", "nome": "Licor 43", "precos": [35, 450] }
+            {
+              "id": "lillet",
+              "nome": "Lillet Blanc / Rosé",
+              "precos": [
+                30,
+                null
+              ]
+            },
+            {
+              "id": "baileys",
+              "nome": "Baileys",
+              "precos": [
+                30,
+                null
+              ]
+            },
+            {
+              "id": "frangelico",
+              "nome": "Frangelico",
+              "precos": [
+                30,
+                null
+              ]
+            },
+            {
+              "id": "amarula",
+              "nome": "Amarula",
+              "precos": [
+                30,
+                null
+              ]
+            },
+            {
+              "id": "campari",
+              "nome": "Campari",
+              "precos": [
+                30,
+                180
+              ]
+            },
+            {
+              "id": "licor-43",
+              "nome": "Licor 43",
+              "precos": [
+                35,
+                450
+              ]
+            }
           ]
         }
       ]
@@ -327,21 +1246,190 @@
     {
       "id": "tintos",
       "nome": "Vinhos Tintos",
-      "subtitulo": "com sugestão de harmonização",
       "tipo": "vinhos",
       "imagem": "cardapio/sarrafo-fraldinha",
       "itens": [
-        { "id": "paisajes-de-los-andes", "nome": "Paisajes de Los Andes Cabernet Sauvignon", "preco": 129, "uvas": "100% Chardonnay", "madeira": "3 meses em madeira", "origem": "Chile — Colchagua e Cachapoal", "pais": "CL", "notas": "Médio corpo, seco e macio, com aromas de geleia de frutas vermelhas e pimentão vermelho assado.", "harmoniza": "Experimente com uma Tábua, Viga ou Lâminas.", "harmoniza_ids": ["tabua", "viga", "laminas"], "revisar": "Rótulo Cabernet Sauvignon com uva '100% Chardonnay' no cardápio original." },
-        { "id": "royal-road-malbec", "nome": "Royal Road Malbec", "preco": 139, "uvas": "100% Malbec", "madeira": "Sem madeira", "origem": "Argentina — Mendoza", "pais": "AR", "notas": "Médio corpo, macio e vibrante, com aromas de ameixa em geleia e bastante floral de violeta.", "harmoniza": "Que tal um Sarrafo, Trilho ou Armário para acompanhar?", "harmoniza_ids": ["sarrafo", "trilho", "armario"] },
-        { "id": "el-picoteo", "nome": "El Picoteo", "preco": 169, "uvas": "60% Monastrell, 40% Syrah", "madeira": "3 meses em madeira", "origem": "Espanha — Almansa", "pais": "ES", "notas": "Médio corpo e bem aromático, de calda de framboesa com baunilha.", "harmoniza": "Versátil, vai bem demais com as Lâminas, Escoras, Trilhos, Vigas e Armários.", "harmoniza_ids": ["laminas", "escoras", "trilho", "viga", "armario"] },
-        { "id": "chateau-briot", "nome": "Château Briot Gran Vin de Bordeaux", "preco": 209, "uvas": "62% Cabernet Sauvignon, 38% Merlot", "madeira": "12 meses em madeira", "origem": "França — Bordeaux", "pais": "FR", "notas": "Corpo médio para encorpado, seco e com os clássicos aromas de pimentão assado com carne e geleia de morango.", "harmoniza": "Clássico para pedir acompanhado de uma Viga, Gabinete ou Guarda-Roupa.", "harmoniza_ids": ["viga", "gabinete", "guarda-roupa"], "revisar": "Cardápio original cita 'Bordeaux — Ladoix' (Ladoix é na Borgonha)." },
-        { "id": "gauchezco-reserve-cabernet-franc", "nome": "Gauchezco Reserve Cabernet Franc", "preco": 219, "uvas": "100% Cabernet Franc", "madeira": "10 meses em madeira", "origem": "Argentina — Mendoza — Maipú", "pais": "AR", "notas": "Muito encorpado, elaborado com uvas de vinhedos centenários, resultando em elegância e equilíbrio. Tabaco, coco queimado e cereja negra em calda.", "harmoniza": "Casamento perfeito com as Vigas, Gabinetes e Guarda-Roupas.", "harmoniza_ids": ["viga", "gabinete", "guarda-roupa"] },
-        { "id": "gauchezco-reserve-malbec", "nome": "Gauchezco Reserve Malbec", "preco": 219, "uvas": "100% Malbec", "madeira": "10 meses em madeira", "origem": "Argentina — Mendoza", "pais": "AR", "notas": "Intenso, potente e aromático, com notas de geleia de ameixa, violeta e baunilha.", "harmoniza": "Aqui recomendamos a Bucha, Viga e Sarrafo.", "harmoniza_ids": ["bucha", "viga", "sarrafo"] },
-        { "id": "el-abuelo-crianza", "nome": "El Abuelo Crianza", "preco": 219, "uvas": "50% Monastrell, 30% Tempranillo, 20% Cabernet Sauvignon", "madeira": "6 meses em madeira", "origem": "Espanha — Almansa", "pais": "ES", "notas": "Super encorpado e macio, com bastante aroma de chocolate, café e calda de cereja.", "harmoniza": "Chame um Armário, Morsa ou Tábua.", "harmoniza_ids": ["armario", "morsa", "tabua"] },
-        { "id": "les-bourgarels-pinot-noir", "nome": "Les Bourgarels Pinot Noir", "preco": 239, "uvas": "100% Pinot Noir", "madeira": "Sem passagem por madeira", "origem": "França — Carcassonne", "pais": "FR", "notas": "Leve, delicado e aromático, com notas de morango maduro e flores.", "harmoniza": "Acompanha bem um Prego, Talha e Guarda-Roupa.", "harmoniza_ids": ["prego", "talha", "guarda-roupa"] },
-        { "id": "excava-carmenere", "nome": "Excava Carménère", "preco": 289, "uvas": "100% Carménère", "madeira": "9 meses em madeira", "origem": "Chile — Colchagua", "pais": "CL", "notas": "Encorpado, intenso e com aromas de geleia de morango com alecrim.", "harmoniza": "Ideal para acompanhar uma Fita Métrica, Plaina e Verniz.", "harmoniza_ids": ["fita-metrica", "plaina", "verniz"] },
-        { "id": "primitivo-di-manduria", "nome": "Primitivo di Manduria Villa Mottura", "preco": 299, "uvas": "100% Primitivo", "madeira": "12 meses em madeira", "origem": "Itália — Puglia — Manduria", "pais": "IT", "notas": "Muito encorpado, cremoso e tostado. Aromas de calda de manjar com ameixa seca, cravo e canela.", "harmoniza": "Experimente com um Verniz, Rústico, Talha ou Fita Métrica.", "harmoniza_ids": ["verniz", "rustico", "talha", "fita-metrica"] },
-        { "id": "angelita-del-challao", "nome": "Angelita del Challao Rioja", "preco": 399, "uvas": "85% Tempranillo, 10% Garnacha, Viura, Garnacha Blanca e Malvasía (4%), outras (1%)", "madeira": "20 meses em madeira", "origem": "Espanha — Rioja Alavesa", "pais": "ES", "notas": "Elegante, complexo e muito fino, com aromas de calda de amora, ameixa seca e chocolate.", "harmoniza": "Perfeito com um Prego, Morsa e Tábua.", "harmoniza_ids": ["prego", "morsa", "tabua"] }
+        {
+          "id": "paisajes-de-los-andes",
+          "nome": "Paisajes de Los Andes Cabernet Sauvignon",
+          "preco": 129,
+          "uvas": "100% Chardonnay",
+          "madeira": "3 meses em madeira",
+          "origem": "Chile — Colchagua e Cachapoal",
+          "pais": "CL",
+          "notas": "Médio corpo, seco e macio, com aromas de geleia de frutas vermelhas e pimentão vermelho assado.",
+          "harmoniza": "Experimente com uma Tábua, Viga ou Lâminas.",
+          "harmoniza_ids": [
+            "tabua",
+            "viga",
+            "laminas"
+          ],
+          "revisar": "Rótulo Cabernet Sauvignon com uva '100% Chardonnay' no cardápio original."
+        },
+        {
+          "id": "royal-road-malbec",
+          "nome": "Royal Road Malbec",
+          "preco": 139,
+          "uvas": "100% Malbec",
+          "madeira": "Sem madeira",
+          "origem": "Argentina — Mendoza",
+          "pais": "AR",
+          "notas": "Médio corpo, macio e vibrante, com aromas de ameixa em geleia e bastante floral de violeta.",
+          "harmoniza": "Que tal um Sarrafo, Trilho ou Armário para acompanhar?",
+          "harmoniza_ids": [
+            "sarrafo",
+            "trilho",
+            "armario"
+          ]
+        },
+        {
+          "id": "el-picoteo",
+          "nome": "El Picoteo",
+          "preco": 169,
+          "uvas": "60% Monastrell, 40% Syrah",
+          "madeira": "3 meses em madeira",
+          "origem": "Espanha — Almansa",
+          "pais": "ES",
+          "notas": "Médio corpo e bem aromático, de calda de framboesa com baunilha.",
+          "harmoniza": "Versátil, vai bem demais com as Lâminas, Escoras, Trilhos, Vigas e Armários.",
+          "harmoniza_ids": [
+            "laminas",
+            "escoras",
+            "trilho",
+            "viga",
+            "armario"
+          ]
+        },
+        {
+          "id": "chateau-briot",
+          "nome": "Château Briot Gran Vin de Bordeaux",
+          "preco": 209,
+          "uvas": "62% Cabernet Sauvignon, 38% Merlot",
+          "madeira": "12 meses em madeira",
+          "origem": "França — Bordeaux",
+          "pais": "FR",
+          "notas": "Corpo médio para encorpado, seco e com os clássicos aromas de pimentão assado com carne e geleia de morango.",
+          "harmoniza": "Clássico para pedir acompanhado de uma Viga, Gabinete ou Guarda-Roupa.",
+          "harmoniza_ids": [
+            "viga",
+            "gabinete",
+            "guarda-roupa"
+          ],
+          "revisar": "Cardápio original cita 'Bordeaux — Ladoix' (Ladoix é na Borgonha)."
+        },
+        {
+          "id": "gauchezco-reserve-cabernet-franc",
+          "nome": "Gauchezco Reserve Cabernet Franc",
+          "preco": 219,
+          "uvas": "100% Cabernet Franc",
+          "madeira": "10 meses em madeira",
+          "origem": "Argentina — Mendoza — Maipú",
+          "pais": "AR",
+          "notas": "Muito encorpado, elaborado com uvas de vinhedos centenários, resultando em elegância e equilíbrio. Tabaco, coco queimado e cereja negra em calda.",
+          "harmoniza": "Casamento perfeito com as Vigas, Gabinetes e Guarda-Roupas.",
+          "harmoniza_ids": [
+            "viga",
+            "gabinete",
+            "guarda-roupa"
+          ]
+        },
+        {
+          "id": "gauchezco-reserve-malbec",
+          "nome": "Gauchezco Reserve Malbec",
+          "preco": 219,
+          "uvas": "100% Malbec",
+          "madeira": "10 meses em madeira",
+          "origem": "Argentina — Mendoza",
+          "pais": "AR",
+          "notas": "Intenso, potente e aromático, com notas de geleia de ameixa, violeta e baunilha.",
+          "harmoniza": "Aqui recomendamos a Bucha, Viga e Sarrafo.",
+          "harmoniza_ids": [
+            "bucha",
+            "viga",
+            "sarrafo"
+          ]
+        },
+        {
+          "id": "el-abuelo-crianza",
+          "nome": "El Abuelo Crianza",
+          "preco": 219,
+          "uvas": "50% Monastrell, 30% Tempranillo, 20% Cabernet Sauvignon",
+          "madeira": "6 meses em madeira",
+          "origem": "Espanha — Almansa",
+          "pais": "ES",
+          "notas": "Super encorpado e macio, com bastante aroma de chocolate, café e calda de cereja.",
+          "harmoniza": "Chame um Armário, Morsa ou Tábua.",
+          "harmoniza_ids": [
+            "armario",
+            "morsa",
+            "tabua"
+          ]
+        },
+        {
+          "id": "les-bourgarels-pinot-noir",
+          "nome": "Les Bourgarels Pinot Noir",
+          "preco": 239,
+          "uvas": "100% Pinot Noir",
+          "madeira": "Sem passagem por madeira",
+          "origem": "França — Carcassonne",
+          "pais": "FR",
+          "notas": "Leve, delicado e aromático, com notas de morango maduro e flores.",
+          "harmoniza": "Acompanha bem um Prego, Talha e Guarda-Roupas.",
+          "harmoniza_ids": [
+            "prego",
+            "talha",
+            "guarda-roupa"
+          ]
+        },
+        {
+          "id": "excava-carmenere",
+          "nome": "Excava Carménère",
+          "preco": 289,
+          "uvas": "100% Carménère",
+          "madeira": "9 meses em madeira",
+          "origem": "Chile — Colchagua",
+          "pais": "CL",
+          "notas": "Encorpado, intenso e com aromas de geleia de morango com alecrim.",
+          "harmoniza": "Ideal para acompanhar uma Fita Métrica, Plaina e Verniz.",
+          "harmoniza_ids": [
+            "fita-metrica",
+            "plaina",
+            "verniz"
+          ]
+        },
+        {
+          "id": "primitivo-di-manduria",
+          "nome": "Primitivo di Manduria Villa Mottura",
+          "preco": 299,
+          "uvas": "100% Primitivo",
+          "madeira": "12 meses em madeira",
+          "origem": "Itália — Puglia — Manduria",
+          "pais": "IT",
+          "notas": "Muito encorpado, cremoso e tostado. Aromas de calda de manjar com ameixa seca, cravo e canela.",
+          "harmoniza": "Experimente com um Verniz, Rústicos, Talhas ou Fita Métricas.",
+          "harmoniza_ids": [
+            "verniz",
+            "rustico",
+            "talha",
+            "fita-metrica"
+          ]
+        },
+        {
+          "id": "angelita-del-challao",
+          "nome": "Angelita del Challao Rioja",
+          "preco": 399,
+          "uvas": "85% Tempranillo, 10% Garnacha, Viura, Garnacha Blanca e Malvasía (4%), outras (1%)",
+          "madeira": "20 meses em madeira",
+          "origem": "Espanha — Rioja Alavesa",
+          "pais": "ES",
+          "notas": "Elegante, complexo e muito fino, com aromas de calda de amora, ameixa seca e chocolate.",
+          "harmoniza": "Perfeito com um Prego, Morsa e Tábua.",
+          "harmoniza_ids": [
+            "prego",
+            "morsa",
+            "tabua"
+          ]
+        }
       ]
     },
     {
@@ -351,14 +1439,42 @@
       "tipo": "fixo",
       "preco": 49.9,
       "horario": "De sexta a domingo, das 12h às 16h",
-      "dias": [5, 6, 0],
-      "janela": { "inicio": "12:00", "fim": "16:00" },
+      "dias": [
+        5,
+        6,
+        0
+      ],
+      "janela": {
+        "inicio": "12:00",
+        "fim": "16:00"
+      },
       "itens": [
-        { "id": "executivo-tilapia", "nome": "Tilápia grelhada", "descricao": "Com purê de batatas e arroz à grega." },
-        { "id": "executivo-virado", "nome": "Virado à paulista", "descricao": "Bisteca suína, couve, ovo frito, arroz, feijão e banana empanada." },
-        { "id": "executivo-espetinhos", "nome": "Dois espetinhos à sua escolha", "descricao": "Carne, frango ou linguiça, acompanhados de arroz, feijão carioca e fritas." },
-        { "id": "executivo-pernil", "nome": "Pernil suíno", "descricao": "Acompanhado de arroz, feijão carioca, farofa e vinagrete." },
-        { "id": "executivo-gnocchi", "nome": "Gnocchi ao pesto", "descricao": "Com molho pesto de manjericão.", "vegetariano": true }
+        {
+          "id": "executivo-tilapia",
+          "nome": "Tilápia grelhada",
+          "descricao": "Com purê de batatas e arroz à grega."
+        },
+        {
+          "id": "executivo-virado",
+          "nome": "Virado à paulista",
+          "descricao": "Bisteca suína, couve, ovo frito, arroz, feijão e banana empanada."
+        },
+        {
+          "id": "executivo-espetinhos",
+          "nome": "Dois espetinhos à sua escolha",
+          "descricao": "Carne, frango ou linguiça, acompanhados de arroz, feijão carioca e fritas."
+        },
+        {
+          "id": "executivo-pernil",
+          "nome": "Pernil suíno",
+          "descricao": "Acompanhado de arroz, feijão carioca, farofa e vinagrete."
+        },
+        {
+          "id": "executivo-gnocchi",
+          "nome": "Gnocchi ao pesto",
+          "descricao": "Com molho pesto de manjericão.",
+          "vegetariano": true
+        }
       ]
     },
     {
@@ -367,12 +1483,41 @@
       "subtitulo": "aos sábados",
       "tipo": "lista",
       "horario": "Aos sábados, das 12h às 16h",
-      "dias": [6],
-      "janela": { "inicio": "12:00", "fim": "16:00" },
+      "dias": [
+        6
+      ],
+      "janela": {
+        "inicio": "12:00",
+        "fim": "16:00"
+      },
       "nota": "Consulte a programação especial de domingo nas nossas redes sociais.",
       "imagem": "cardapio/feijoada-panela",
       "itens": [
-        { "id": "feijoada", "nome": "Feijoada da Barcenaria", "prato": null, "descricao": "Completa e bem servida, com cerveja gelada, boa música e muita resenha.", "preco": 59.9, "precos": [{ "rotulo": "Individual", "valor": 59.9 }, { "rotulo": "Para dois", "valor": 99.9 }], "selos": ["somente-sabado"], "dias": [6], "imagem": "cardapio/feijoada-panela", "imagem_extra": "pratos/feijoada" }
+        {
+          "id": "feijoada",
+          "nome": "Feijoada",
+          "prato": null,
+          "descricao": "Individual ou para dois.",
+          "preco": 59.9,
+          "precos": [
+            {
+              "rotulo": "Individual",
+              "valor": 59.9
+            },
+            {
+              "rotulo": "Para dois",
+              "valor": 99.9
+            }
+          ],
+          "selos": [
+            "somente-sabado"
+          ],
+          "dias": [
+            6
+          ],
+          "imagem": "cardapio/feijoada-panela",
+          "imagem_extra": "pratos/feijoada"
+        }
       ]
     }
   ]

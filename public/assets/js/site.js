@@ -121,20 +121,27 @@ function copyText(text) {
   return Promise.resolve(fallback());
 }
 
-// WhatsApp rule (spec §2): wa.me with text when the number is known; otherwise copy the message and open the business link.
+// WhatsApp rule (spec §2): wa.me with text when the number is known. Without it, the business link can't carry text,
+// so the message is shown with explicit "copy" and "open" actions (auto-copy is best effort only).
 function whatsapp(message, feedbackEl) {
   const { whatsapp_numero: numero, whatsapp_link: link } = state.casa?.contato ?? {};
   if (numero) {
     window.open(`https://wa.me/${String(numero).replace(/\D/g, '')}?text=${encodeURIComponent(message)}`, '_blank', 'noopener');
     return;
   }
-  const copying = copyText(message);
-  window.open(link ?? 'https://wa.me/message/BVGPN2ILM2WIG1', '_blank', 'noopener');
-  copying.then((ok) => {
-    const text = ok ? 'Mensagem copiada — é só colar na conversa com a Barcenaria.' : 'Abrimos o WhatsApp da casa. Copie a mensagem do formulário para enviar.';
-    if (feedbackEl) feedbackEl.textContent = text;
-    toast(text);
-  });
+  const href = link ?? 'https://wa.me/message/BVGPN2ILM2WIG1';
+  const box = h('textarea', { class: 'booking__message', readonly: true, rows: '7', 'aria-label': 'Mensagem pronta para enviar' });
+  box.value = message;
+  const status = h('p', { class: 'booking__status', role: 'status' });
+  const copy = () => copyText(message).then((ok) => { status.textContent = ok ? 'Mensagem copiada. Agora é só colar na conversa.' : 'Não foi possível copiar sozinho: selecione o texto acima e copie.'; });
+  feedbackEl.replaceChildren(
+    h('p', { class: 'booking__lead', text: 'Sua mensagem está pronta:' }),
+    box,
+    h('div', { class: 'booking__actions' },
+      h('button', { class: 'btn btn--dark', type: 'button', onclick: copy }, icon('copy'), 'Copiar mensagem'),
+      h('a', { class: 'btn btn--ghost-dark', href, target: '_blank', rel: 'noopener' }, icon('whatsapp'), 'Abrir WhatsApp da casa')),
+    status);
+  copy();
 }
 
 async function getJSON(name) {
@@ -155,13 +162,12 @@ function nextOpen(fromDow) {
 }
 
 function renderStatus() {
-  const { dow, minutes } = state.now;
+  const { dow } = state.now;
   const today = state.casa.horarios.find((x) => x.dia === dow);
+  // Closing time is unknown, so never claim "open now": state only today's opening time.
   let text;
-  let open = false;
   if (today?.abre) {
-    if (minutes >= toMinutes(today.abre)) { text = `Aberto hoje desde as ${hourLabel(today.abre)}`; open = true; }
-    else text = `Abre hoje às ${hourLabel(today.abre)}`;
+    text = `Hoje a partir das ${hourLabel(today.abre)}`;
   } else {
     const next = nextOpen(dow);
     text = next ? `Hoje fechado — voltamos ${next.nome.toLowerCase()}, ${hourLabel(next.abre)}` : 'Hoje fechado';
@@ -169,7 +175,6 @@ function renderStatus() {
   for (const el of $$('[data-status]')) {
     const span = el.querySelector('span');
     (span ?? el).textContent = text;
-    el.classList.toggle('is-open', open);
     el.classList.toggle('is-closed', !today?.abre);
   }
   $(`.hours tr[data-dia="${dow}"]`)?.classList.add('is-today');
@@ -189,18 +194,22 @@ function renderGlossary() {
   if (!items.length) return;
   list.removeAttribute('aria-live');
   list.replaceChildren(...items.map((it, i) => {
-    const reveal = h('span', { class: 'gloss__reveal', id: `gloss-${it.id}` },
+    // The answer is a sibling of the disclosure button, so it stays hidden from assistive tech until opened.
+    const reveal = h('p', { class: 'gloss__reveal', id: `gloss-${it.id}`, hidden: true },
       h('span', { class: 'gloss__dish', text: it.short ?? it.prato ?? firstSentence(it.descricao) }),
       priceOf(it) != null && h('span', { class: 'gloss__price', text: brl(priceOf(it)) }));
     const btn = h('button', {
       class: 'gloss__card', type: 'button', 'aria-expanded': 'false', 'aria-controls': reveal.id,
-      onclick: () => btn.setAttribute('aria-expanded', String(btn.getAttribute('aria-expanded') !== 'true')),
+      onclick: () => {
+        const open = btn.getAttribute('aria-expanded') !== 'true';
+        btn.setAttribute('aria-expanded', String(open));
+        reveal.hidden = !open;
+      },
     },
     h('span', { class: 'gloss__num', text: `Nº ${String(i + 1).padStart(2, '0')}` }),
     h('span', { class: 'gloss__tool', text: it.nome }),
-    h('span', { class: 'gloss__hint' }, icon('x'), 'O que é?'),
-    reveal);
-    return h('li', { class: 'gloss__item reveal' }, btn);
+    h('span', { class: 'gloss__hint' }, icon('x'), 'O que é?'));
+    return h('li', { class: 'gloss__item reveal' }, btn, reveal);
   }));
   observeReveal($$('.reveal', list));
 }
@@ -238,12 +247,10 @@ function promoCard(p, i, group) {
   const art = p.imagem && h('button', {
     class: 'promo-card__art', type: 'button', 'aria-label': `Ampliar: ${p.imagem_alt ?? p.titulo}`,
     onclick: (e) => openLightbox(group, i, e.currentTarget),
-  }, image(p.imagem, { alt: p.imagem_alt ?? '', sizes: '(min-width: 64rem) 22rem, 11rem' }));
-  const tag = p.tipo === 'destaque' ? h('span', { class: 'promo-card__tag', text: 'Sempre na casa' }) : h('span', { class: 'promo-card__tag promo-card__tag--promo', text: 'Promoção' });
+  }, image(p.imagem, { alt: p.imagem_alt ?? '', sizes: '(min-width: 64rem) 18rem, 40vw' }));
   return h('article', { class: 'promo-card' },
     art,
     h('div', { class: 'promo-card__body' },
-      tag,
       h('h3', { class: 'promo-card__title', text: p.titulo }),
       h('p', { class: 'promo-card__text', text: p.resumo }),
       h('div', { class: 'promo-card__foot' },
@@ -251,29 +258,24 @@ function promoCard(p, i, group) {
         p.fonte && h('a', { class: 'promo-card__link', href: p.fonte, target: '_blank', rel: 'noopener' }, icon('instagram'), 'Ver no Instagram'))));
 }
 
+// Simple day picker: days on one side, only the selected day's promotions on the other (today by default).
 function renderPromoTabs() {
   const root = $('#promo-tabs');
   const { dow } = state.now;
-  const byDay = (d) => {
-    const all = state.promocoes.filter((p) => p.dias?.includes(d) && p.tipo !== 'evento');
-    return [...all.filter((p) => p.tipo === 'promocao'), ...all.filter((p) => p.tipo === 'destaque')];
-  };
+  const byDay = (d) => state.promocoes.filter((p) => p.tipo === 'promocao' && p.dias?.includes(d));
   const open = PROMO_DAYS.includes(dow);
   const selected = open ? dow : PROMO_DAYS.find((d) => d > dow) ?? PROMO_DAYS[0];
   const list = h('div', { class: 'tabs__list', role: 'tablist', 'aria-label': 'Dias da semana' });
   const panel = h('div', { class: 'tabs__panel', role: 'tabpanel', tabindex: '0' });
-  const tabs = PROMO_DAYS.map((d) => {
-    const count = byDay(d).filter((p) => p.tipo === 'promocao').length;
-    return h('button', {
-      class: 'tab', type: 'button', role: 'tab', id: `tab-${d}`, 'aria-controls': 'promo-panel',
-      'aria-selected': String(d === selected), tabindex: d === selected ? '0' : '-1', 'data-day': String(d),
-    },
-    h('span', { class: 'tab__day', text: DAY_SHORT[d] }),
-    h('span', { class: 'tab__count', text: count ? `${count} promo${count > 1 ? 's' : ''}` : 'destaques' }),
-    d === dow && h('span', { class: 'tab__today', text: 'Hoje' }));
-  });
+  const tabs = PROMO_DAYS.map((d) => h('button', {
+    class: 'tab', type: 'button', role: 'tab', id: `tab-${d}`, 'aria-controls': 'promo-panel',
+    'aria-selected': String(d === selected), tabindex: d === selected ? '0' : '-1', 'data-day': String(d),
+  },
+  h('span', { class: 'tab__day', 'aria-hidden': 'true', text: DAY_SHORT[d] }),
+  h('span', { class: 'tab__long', text: DAY_LONG[d] }),
+  d === dow && h('span', { class: 'tab__today', text: 'Hoje' })));
   panel.id = 'promo-panel';
-  list.append(...tabs, h('p', { class: 'tabs__closed', text: 'Seg e ter: fechado' }));
+  list.append(...tabs);
 
   const show = (d, focus = false) => {
     tabs.forEach((t) => {
@@ -288,19 +290,20 @@ function renderPromoTabs() {
     let gi = 0;
     panel.replaceChildren(...(promos.length
       ? promos.map((p) => promoCard(p, p.imagem ? gi++ : 0, group))
-      : [h('p', { class: 'tabs__empty', text: `Sem promoção cadastrada para ${DAY_LONG[d]} — os destaques da casa valem todos os dias.` })]));
-    if (!open && d === selected) panel.prepend(h('p', { class: 'tabs__empty', text: `Hoje (${DAY_LONG[dow]}) a casa está fechada. Olha o que tem ${d === 0 || d === 6 ? 'no' : 'na'} ${DAY_LONG[d]}:` }));
+      : [h('p', { class: 'tabs__empty', text: `Sem promoção cadastrada para ${DAY_LONG[d]}.` })]));
     if (!reduced.matches) { panel.classList.remove('is-entering'); void panel.offsetWidth; panel.classList.add('is-entering'); }
   };
 
   list.addEventListener('click', (e) => { const t = e.target.closest('[role="tab"]'); if (t) show(Number(t.dataset.day)); });
+  const orient = () => list.setAttribute('aria-orientation', desktop.matches ? 'vertical' : 'horizontal');
+  orient();
+  desktop.addEventListener('change', orient);
   list.addEventListener('keydown', (e) => {
     const i = tabs.indexOf(document.activeElement);
     if (i < 0) return;
-    const vertical = desktop.matches;
     const next = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 }[e.key];
     let j = null;
-    if (next && ((vertical && (e.key === 'ArrowDown' || e.key === 'ArrowUp')) || (!vertical && (e.key === 'ArrowLeft' || e.key === 'ArrowRight')))) j = (i + next + tabs.length) % tabs.length;
+    if (next) j = (i + next + tabs.length) % tabs.length;
     if (e.key === 'Home') j = 0;
     if (e.key === 'End') j = tabs.length - 1;
     if (j == null) return;
@@ -347,7 +350,9 @@ function initChrome() {
     } else header.classList.remove('is-hidden');
     const pastHero = y > hero.offsetHeight * 0.7;
     const nearEnd = y > max - 120;
-    dock.classList.toggle('is-visible', pastHero && !nearEnd);
+    const showDock = pastHero && !nearEnd;
+    dock.classList.toggle('is-visible', showDock);
+    dock.inert = !showDock;
     toTop.hidden = !pastHero;
     lastY = y;
   };
@@ -376,7 +381,9 @@ function initMenu() {
   const dialog = $('#menu');
   const toggle = $('.menu-toggle');
   const close = () => { if (dialog.open) dialog.close(); };
+  let target = null;
   toggle.addEventListener('click', () => {
+    target = null;
     dialog.showModal();
     toggle.setAttribute('aria-expanded', 'true');
     document.documentElement.classList.add('is-locked');
@@ -384,12 +391,15 @@ function initMenu() {
   dialog.addEventListener('close', () => {
     toggle.setAttribute('aria-expanded', 'false');
     document.documentElement.classList.remove('is-locked');
-    toggle.focus({ preventScroll: true });
+    // After choosing a section, keyboard/screen-reader focus continues from that section, not from the header.
+    const section = target && $(target);
+    if (section) { section.setAttribute('tabindex', '-1'); section.focus({ preventScroll: true }); }
+    else toggle.focus({ preventScroll: true });
   });
   dialog.addEventListener('click', (e) => {
     if (e.target === dialog || e.target.closest('[data-close]')) close();
     const link = e.target.closest('a[href^="#"]');
-    if (link) { close(); }
+    if (link) { target = link.getAttribute('href'); close(); }
   });
   desktop.addEventListener('change', (e) => { if (e.matches) close(); });
 }
@@ -438,6 +448,15 @@ function initParallax() {
 function initMarquee() {
   const anim = $('.marquee__track')?.getAnimations?.()[0];
   if (!anim || reduced.matches) return;
+  const toggle = $('#marquee-toggle');
+  let paused = false;
+  const sync = () => {
+    toggle.dataset.paused = String(paused);
+    toggle.setAttribute('aria-label', paused ? 'Retomar letreiro' : 'Pausar letreiro');
+  };
+  toggle.hidden = false;
+  toggle.addEventListener('click', () => { paused = !paused; if (paused) anim.pause(); else anim.play(); sync(); });
+  sync();
   let lastY = scrollY;
   let lastT = performance.now();
   let raf = 0;
@@ -463,21 +482,24 @@ function allowAutoplay() {
 
 function initVideos() {
   const hero = $('#hero-video');
-  const btn = $('#hero-play');
   const eventos = $('#eventos-video');
-  const setBtn = () => {
-    const paused = hero.paused;
-    btn.setAttribute('aria-pressed', String(paused));
-    btn.setAttribute('aria-label', paused ? 'Tocar vídeo' : 'Pausar vídeo');
+  // Play/pause toggle with a changing label (no aria-pressed: the label already carries the state).
+  const wire = (video, btn) => {
+    const sync = () => {
+      btn.dataset.paused = String(video.paused);
+      btn.setAttribute('aria-label', video.paused ? 'Tocar vídeo' : 'Pausar vídeo');
+    };
+    btn.hidden = false;
+    btn.addEventListener('click', () => {
+      if (video.paused) { video.preload = 'auto'; video.play().catch(() => {}); video.dataset.user = 'play'; }
+      else { video.pause(); video.dataset.user = 'pause'; }
+    });
+    video.addEventListener('play', sync);
+    video.addEventListener('pause', sync);
+    sync();
   };
-  btn.hidden = false;
-  btn.addEventListener('click', () => {
-    if (hero.paused) { hero.preload = 'auto'; hero.play().catch(() => {}); hero.dataset.user = 'play'; }
-    else { hero.pause(); hero.dataset.user = 'pause'; }
-  });
-  hero.addEventListener('play', setBtn);
-  hero.addEventListener('pause', setBtn);
-  setBtn();
+  wire(hero, $('#hero-play'));
+  if (eventos) wire(eventos, $('#eventos-play'));
 
   const auto = allowAutoplay();
   const io = new IntersectionObserver((entries) => {
@@ -526,13 +548,17 @@ function initLightbox() {
     if (e.key === 'ArrowRight') showSlide(lb.index + 1);
   });
   let x0 = null;
-  dialog.addEventListener('pointerdown', (e) => { x0 = e.clientX; });
+  let swiped = false;
+  dialog.addEventListener('pointerdown', (e) => { x0 = e.clientX; swiped = false; });
+  dialog.addEventListener('pointercancel', () => { x0 = null; });
   dialog.addEventListener('pointerup', (e) => {
     if (x0 == null) return;
     const dx = e.clientX - x0;
     x0 = null;
-    if (Math.abs(dx) > 50 && lb.list.length > 1) showSlide(lb.index + (dx < 0 ? 1 : -1));
+    if (Math.abs(dx) > 50 && lb.list.length > 1) { swiped = true; showSlide(lb.index + (dx < 0 ? 1 : -1)); }
   });
+  // A swipe ending on the backdrop must not also count as a "click outside" that closes the gallery.
+  dialog.addEventListener('click', (e) => { if (swiped) { e.stopImmediatePropagation(); swiped = false; } }, true);
 
   const buttons = $$('[data-lightbox="casa"]');
   const casa = buttons.map((b) => { const img = b.querySelector('img'); return { src: img.dataset.full ?? img.currentSrc ?? img.src, alt: img.alt }; });
@@ -544,12 +570,14 @@ function initLightbox() {
 function initMap() {
   const box = $('#mapa');
   const btn = $('#mapa-carregar');
-  const load = () => {
+  const load = (fromClick) => {
     if (box.querySelector('iframe')) return;
     const src = state.casa?.mapas?.embed ?? 'https://www.google.com/maps?q=Pra%C3%A7a%20Ituzaing%C3%B3%2C%2040%20-%20Tatuap%C3%A9%2C%20S%C3%A3o%20Paulo%20-%20SP&output=embed';
-    box.replaceChildren(h('iframe', { src, title: 'Mapa: Barcenaria, Praça Ituzaingó, 40 — Tatuapé', loading: 'lazy', referrerpolicy: 'no-referrer-when-downgrade', allowfullscreen: true }));
+    const frame = h('iframe', { src, title: 'Mapa: Barcenaria, Praça Ituzaingó, 40 — Anália Franco', loading: 'lazy', referrerpolicy: 'no-referrer-when-downgrade', allowfullscreen: true });
+    box.replaceChildren(frame);
+    if (fromClick) frame.focus();
   };
-  btn.addEventListener('click', load);
+  btn.addEventListener('click', () => load(true));
   if (desktop.matches) {
     const io = new IntersectionObserver((entries) => { if (entries.some((e) => e.isIntersecting)) { load(); io.disconnect(); } }, { rootMargin: '200px' });
     io.observe(box);
@@ -596,7 +624,6 @@ function initBooking() {
     ];
     if (f.obs.value.trim()) lines.push(`• Observações: ${f.obs.value.trim()}`);
     lines.push('Pode me passar as condições e a disponibilidade?');
-    feedback.textContent = 'Abrindo o WhatsApp…';
     whatsapp(lines.join('\n'), feedback);
   });
 }
@@ -612,6 +639,7 @@ async function init() {
   initVideos();
   initParallax();
   initMarquee();
+  initBooking();
   observeReveal($$('.reveal'));
 
   const [casa, cardapio, promocoes, imagens] = await Promise.allSettled(['casa', 'cardapio', 'promocoes', 'imagens'].map(getJSON));
@@ -627,7 +655,6 @@ async function init() {
     if (state.casa.prototipo?.texto) $('#prototipo').textContent = state.casa.prototipo.texto;
   }
   initMap();
-  initBooking();
   if (state.cardapio && Object.keys(state.imagens).length) { renderGlossary(); renderBento(); }
   if (state.promocoes.length && Object.keys(state.imagens).length) renderPromoTabs();
 }

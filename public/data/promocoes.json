@@ -47,7 +47,8 @@
       "imagem_alt": "Arte da Feijoada da Barcenaria, servida todos os sábados",
       "fonte": "https://www.instagram.com/barcenariaoficial/p/DdG-wFNun1W/",
       "publicado_em": "2026-09-10",
-      "preco_rotulo": "a partir de"
+      "preco_rotulo": "a partir de",
+      "categoria": "feijoada"
     },
     {
       "id": "almoco-executivo",
@@ -64,7 +65,8 @@
       "imagem": "casa/deck-dia",
       "imagem_alt": "Deck externo da Barcenaria com mesas de madeira e guarda-sóis durante o dia",
       "fonte": null,
-      "publicado_em": "2026-06-30"
+      "publicado_em": "2026-06-30",
+      "categoria": "executivos"
     },
     {
       "id": "resina-jorge-amado",

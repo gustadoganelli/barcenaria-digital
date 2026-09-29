@@ -1,11 +1,11 @@
 {
   "nome": "Barcenaria",
   "nome_completo": "Barcenaria Bar e Restaurante",
-  "slogan": "Seu novo ponto favorito no Tatuapé.",
+  "slogan": "Seu novo ponto favorito na Anália Franco.",
   "assinatura": "Boa comida, boa música e boas histórias.",
   "endereco": {
     "logradouro": "Praça Ituzaingó, 40",
-    "bairro": "Anália Franco — Tatuapé",
+    "bairro": "Anália Franco · Tatuapé",
     "cidade": "São Paulo",
     "uf": "SP",
     "confirmar": true
@@ -16,13 +16,48 @@
     "embed": "https://www.google.com/maps?q=Pra%C3%A7a%20Ituzaing%C3%B3%2C%2040%20-%20Tatuap%C3%A9%2C%20S%C3%A3o%20Paulo%20-%20SP&output=embed"
   },
   "horarios": [
-    { "dia": 0, "nome": "Domingo", "abre": "12:00", "fecha": null },
-    { "dia": 1, "nome": "Segunda", "abre": null, "fecha": null },
-    { "dia": 2, "nome": "Terça", "abre": null, "fecha": null },
-    { "dia": 3, "nome": "Quarta", "abre": "16:00", "fecha": null },
-    { "dia": 4, "nome": "Quinta", "abre": "16:00", "fecha": null },
-    { "dia": 5, "nome": "Sexta", "abre": "12:00", "fecha": null },
-    { "dia": 6, "nome": "Sábado", "abre": "12:00", "fecha": null }
+    {
+      "dia": 0,
+      "nome": "Domingo",
+      "abre": "12:00",
+      "fecha": null
+    },
+    {
+      "dia": 1,
+      "nome": "Segunda",
+      "abre": null,
+      "fecha": null
+    },
+    {
+      "dia": 2,
+      "nome": "Terça",
+      "abre": null,
+      "fecha": null
+    },
+    {
+      "dia": 3,
+      "nome": "Quarta",
+      "abre": "16:00",
+      "fecha": null
+    },
+    {
+      "dia": 4,
+      "nome": "Quinta",
+      "abre": "16:00",
+      "fecha": null
+    },
+    {
+      "dia": 5,
+      "nome": "Sexta",
+      "abre": "12:00",
+      "fecha": null
+    },
+    {
+      "dia": 6,
+      "nome": "Sábado",
+      "abre": "12:00",
+      "fecha": null
+    }
   ],
   "horarios_observacao": "Horário de fechamento e funcionamento às segundas e terças a confirmar com a casa.",
   "contato": {
@@ -31,7 +66,13 @@
     "instagram": "https://www.instagram.com/barcenariaoficial/",
     "instagram_usuario": "@barcenariaoficial"
   },
-  "estrutura": ["Rooftop com churrasqueira", "Varanda com telão", "Salão interno", "Sinuca", "Ambiente interno e externo"],
+  "estrutura": [
+    "Rooftop com churrasqueira",
+    "Varanda com telão",
+    "Salão interno",
+    "Sinuca",
+    "Ambiente interno e externo"
+  ],
   "prototipo": {
     "ativo": true,
     "texto": "Protótipo de apresentação desenvolvido por Gustavo Doganelli. Conteúdo e fotos extraídos do Instagram oficial da casa; sujeito à aprovação da Barcenaria."

@@ -152,7 +152,7 @@ mark { background: color-mix(in srgb, var(--gold) 38%, transparent); color: inhe
 .search__input {
   width: 100%; min-height: calc(var(--tap) + var(--space-1));
   padding: var(--space-2) calc(var(--tap) + var(--space-1)) var(--space-2) calc(var(--space-3) + 1.5rem + var(--space-2));
-  border: 1px solid var(--line-strong); border-radius: var(--radius);
+  border: 1px solid var(--text-faint); border-radius: var(--radius);
   background: var(--surface); color: var(--text); font-size: var(--fs-md);
   appearance: none; -webkit-appearance: none;
   transition: border-color var(--dur-fast), background-color var(--dur-fast);

@@ -38,11 +38,11 @@
     .note { font-size: var(--fs-sm); color: var(--text-faint); }
 
     /* A4 sheet with 4 A6 table tents (105 × 148.5 mm) */
-    .sheets { display: grid; gap: var(--space-8); justify-content: center; padding-bottom: var(--space-16); }
-    .sheet { width: 210mm; height: 297mm; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; background: var(--print-paper); box-shadow: var(--shadow-lg); }
+    .sheets { display: grid; gap: var(--space-8); padding-bottom: var(--space-16); overflow-x: auto; }
+    .sheet { margin-inline: auto; width: 210mm; height: 297mm; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; background: var(--print-paper); box-shadow: var(--shadow-lg); }
     .tent {
       position: relative; display: grid; justify-items: center; align-content: center; gap: 4mm; padding: 9mm;
-      background: var(--brand-green); color: var(--gold-bright); text-align: center; outline: 0.2mm dashed rgba(0, 0, 0, 0.25);
+      background: var(--brand-green); color: var(--gold-bright); text-align: center; outline: 0.2mm dashed rgba(246, 239, 223, 0.6);
       -webkit-print-color-adjust: exact; print-color-adjust: exact;
     }
     .tent::before { content: ""; position: absolute; inset: 5mm; border: 0.5mm solid var(--gold); border-radius: 3mm; }
@@ -50,13 +50,13 @@
     .tent__logo { width: 30mm; height: auto; position: relative; z-index: 1; }
     .tent__kicker { position: relative; z-index: 1; font: 700 11pt/1 var(--font-menu); letter-spacing: 0.18em; text-transform: uppercase; }
     .tent__title { position: relative; z-index: 1; font: 700 17pt/1.1 var(--font-display); color: var(--paper-soft); }
-    .tent__qr { position: relative; z-index: 1; width: 44mm; height: 44mm; padding: 2.5mm; background: var(--paper-soft); border-radius: 2mm; }
+    .tent__qr { position: relative; z-index: 1; width: 46mm; height: 46mm; padding: 0; background: var(--paper-soft); border-radius: 2mm; }
     .tent__qr svg { display: block; width: 100%; height: 100%; }
     .tent__hint { position: relative; z-index: 1; font: 600 10pt/1.3 var(--font-body); color: var(--paper-soft); }
     .tent__mesa { position: relative; z-index: 1; padding: 1mm 4mm; border: 0.4mm solid var(--gold); border-radius: 10mm; font: 700 12pt/1.2 var(--font-menu); letter-spacing: 0.12em; text-transform: uppercase; }
     .tent__insta { position: relative; z-index: 1; font: 600 9pt/1 var(--font-condensed); letter-spacing: 0.08em; }
 
-    .ink .tent { background: var(--print-paper); color: var(--paper-ink); }
+    .ink .tent { background: var(--print-paper); color: var(--paper-ink); outline-color: rgba(0, 0, 0, 0.35); }
     .ink .tent__title, .ink .tent__hint { color: var(--paper-ink); }
     .ink .tent__qr { background: var(--print-paper); }
 
@@ -102,7 +102,8 @@
       let d = '';
       for (let r = 0; r < n; r += 1) for (let c = 0; c < n; c += 1) if (qr.isDark(r, c)) d += `M${c} ${r}h1v1h-1z`;
       const svg = document.createElementNS(SVG_NS, 'svg');
-      svg.setAttribute('viewBox', `0 0 ${n} ${n}`);
+      // 4-module quiet zone (ISO/IEC 18004) drawn inside the light box.
+      svg.setAttribute('viewBox', `-4 -4 ${n + 8} ${n + 8}`);
       svg.setAttribute('shape-rendering', 'crispEdges');
       svg.setAttribute('role', 'img');
       svg.setAttribute('aria-label', `QR code para ${text}`);
@@ -129,14 +130,27 @@
       return el;
     }
 
+    function tableUrl(base, mesa) {
+      const u = new URL(base);
+      if (mesa) u.searchParams.set('mesa', mesa);
+      return u.href;
+    }
+    const clamp = (v, fallback) => Math.min(999, Math.max(1, Math.trunc(Number(v)) || fallback));
+
     function render() {
       const base = $('#base').value.trim() || `${location.origin}/cardapio`;
       const semMesa = $('#sem-mesa').checked;
-      let de = Math.max(1, Number($('#de').value) || 1);
-      let ate = Math.max(de, Number($('#ate').value) || de);
-      ate = Math.min(ate, de + 99);
-      const urls = semMesa ? [[base, null], [base, null], [base, null], [base, null]]
-        : Array.from({ length: ate - de + 1 }, (_, i) => [`${base}?mesa=${de + i}`, de + i]);
+      const de = clamp($('#de').value, 1);
+      const ate = Math.min(Math.max(de, clamp($('#ate').value, de)), de + 99);
+      let urls;
+      try {
+        urls = semMesa ? [1, 2, 3, 4].map(() => [tableUrl(base), null])
+          : Array.from({ length: ate - de + 1 }, (_, i) => [tableUrl(base, de + i), de + i]);
+      } catch {
+        $('#folhas').replaceChildren();
+        $('#resumo').textContent = 'Informe o endereço completo do cardápio, começando com https://';
+        return;
+      }
       const sheets = [];
       for (let i = 0; i < urls.length; i += 4) {
         const sheet = document.createElement('div');
@@ -148,7 +162,7 @@
       document.body.classList.toggle('ink', $('#economia').checked);
       $('#resumo').textContent = semMesa
         ? '4 displays sem número de mesa (1 folha A4).'
-        : `${urls.length} displays, mesas ${de} a ${ate} (${sheets.length} folha${sheets.length > 1 ? 's' : ''} A4).`;
+        : `${urls.length} display${urls.length > 1 ? 's' : ''}, mesas ${de} a ${ate} (${sheets.length} folha${sheets.length > 1 ? 's' : ''} A4).`;
       $('#de').disabled = $('#ate').disabled = semMesa;
     }
 
