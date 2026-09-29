@@ -9,3 +9,6 @@ node_modules/
 referencias/instagram/*.mp4
 referencias/instagram/frames/
 referencias/.build-assets.log
+
+.vercel
+.env*

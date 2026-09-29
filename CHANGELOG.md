@@ -3,7 +3,7 @@
 Formato: [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/) · Versões por **data** (`AAAA-MM-DD`), não SemVer.
 Log de trabalho diário fica em `.sessoes/` — não aqui. Aqui entra só o que importa a quem **consome** o projeto.
 
-## [Não publicado]
+## [2026-09-29] — publicado em https://barcenaria-digital.vercel.app (protótipo, noindex)
 ### Adicionado
 - Estrutura inicial do projeto, especificação de design (`docs/design-spec.md`) e tokens da marca.
 - Coleta dos 12 posts públicos do Instagram (fotos em alta, 3 reels, legendas) em `referencias/instagram/`.

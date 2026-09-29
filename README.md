@@ -5,6 +5,18 @@
 **Status:** em desenvolvimento (protótipo de apresentação)
 **Última atualização:** 2026-09-29
 
+## Links (protótipo, não indexado)
+
+| Página | Endereço |
+|---|---|
+| Site | https://barcenaria-digital.vercel.app |
+| Cardápio digital | https://barcenaria-digital.vercel.app/cardapio |
+| QR das mesas (imprimir) | https://barcenaria-digital.vercel.app/cardapio/qr |
+| Comanda — apresentação | https://barcenaria-digital.vercel.app/comanda |
+| Comanda — garçom / expedição | https://barcenaria-digital.vercel.app/garcom · https://barcenaria-digital.vercel.app/expedicao |
+
+Projeto Vercel: `gusta15/barcenaria-digital`. Publicar: `npx.cmd vercel@latest deploy --prod --scope gusta15` (no PowerShell use `npx.cmd`).
+
 ## Problema
 
 A Barcenaria não tem site: no Google aparece apenas o Instagram. O cardápio existe no papel e em
