@@ -91,3 +91,66 @@
   --z-sheet: 80;
   --z-toast: 90;
 }
+
+/* ---- Additions for the cardápio and QR displays (2026-09-29) ---- */
+:root {
+  --tap: 2.75rem;                    /* minimum touch target (44px) */
+  --thumb: 5rem;                     /* menu item thumbnail (80px) */
+  --menu-width: 64rem;               /* cardápio content column */
+  --focus-ring: 2px solid var(--gold-bright);
+  --focus-offset: 2px;
+  --backdrop: rgba(4, 8, 3, 0.72);   /* modal / bottom sheet backdrop */
+  --dim: 0.5;                        /* off-day item thumbnails */
+  --print-paper: #ffffff;            /* QR displays, "economizar tinta" background */
+}
+
+/* Light "papel" theme (cardápio only, for strong sunlight): set via html[data-theme="light"].
+   Accent fill turns into plaque green; accent text becomes deep bronze to keep AA on kraft. */
+:root[data-theme="light"] {
+  color-scheme: light;
+  /* Mirrors the printed menu: cream paper #fef8e8, deep green headings, thin gold rules. */
+  --bg: #f9f2e1;
+  --bg-soft: #f3ead4;
+  --surface: #fffbf1;
+  --surface-raised: #fffdf8;
+  --line: rgba(29, 53, 39, 0.14);
+  --line-strong: rgba(29, 53, 39, 0.3);
+  --text: #1f271d;
+  --text-muted: #4d5847;             /* 7:1 on --bg */
+  --text-faint: #6a6f5e;             /* 4.8:1 on --bg */
+  --gold: #1a3103;                   /* accent fill: plaque green */
+  --gold-bright: #6b5220;            /* accent text: bronze, 5.7:1 on paper */
+  --gold-deep: #4a3a1c;
+  --on-gold: #e3cf93;                /* gold lettering on plaque green */
+  --shadow-sm: 0 1px 2px rgba(35, 26, 14, 0.12);
+  --shadow-md: 0 8px 24px rgba(35, 26, 14, 0.14);
+  --shadow-lg: 0 24px 60px rgba(35, 26, 14, 0.22);
+  --glow-gold: 0 0 0 1px var(--line-strong), 0 10px 30px rgba(35, 26, 14, 0.1);
+  --backdrop: rgba(35, 26, 14, 0.5);
+}
+
+/* ---- Site layout additions (public/index.html) ---- */
+:root {
+  --header-h: 4.5rem;   /* fixed site header height */
+  --tap: 2.75rem;       /* minimum touch target (44px) */
+  --dock-h: 3.5rem;     /* mobile dock buttons (56px) */
+  --stagger: 70ms;      /* delay step between revealed siblings */
+  --z-menu: 45;         /* mobile menu panel, under the header */
+  --z-float: 55;        /* back-to-top button */
+}
+
+/* ---- Menu identity (cardápio v2, 2026-09-29) ---- */
+:root {
+  --font-menu: "Barlow Condensed", "Barlow Semi Condensed", system-ui, sans-serif; /* printed-menu headings */
+  --heading: var(--gold-bright);     /* section titles and item names */
+  --price: var(--gold-bright);
+  --rule: var(--gold-deep);          /* decorative gold frame lines */
+  --veg: #8fc983;                    /* vegetarian leaf on dark */
+  --scrim: rgba(0, 0, 0, 0.55);      /* text over photos */
+}
+:root[data-theme="light"] {
+  --heading: #1d3527;                /* printed-menu green, 11:1 on --bg */
+  --price: #1d3527;
+  --rule: #c2a468;
+  --veg: #2f7a2c;                    /* 5.2:1 on --bg */
+}

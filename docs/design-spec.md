@@ -239,8 +239,8 @@ rápido**. Densidade 6, Motion 3.
 
 ### 4.1 QR imprimível (`public/cardapio/qr/index.html`)
 Página para imprimir "display de mesa" (A6 retrato, 2 por folha A4, `@page` e `@media print`).
-Gera o QR **no navegador** com `public/assets/vendor/qrcode.mjs` (`import qrcode from
-'/assets/vendor/qrcode.mjs'`; API: `const qr = qrcode(0, 'M'); qr.addData(url); qr.make();
+Gera o QR **no navegador** com `public/assets/vendor/qrcode.js` (`import qrcode from
+'/assets/vendor/qrcode.js'`; API: `const qr = qrcode(0, 'M'); qr.addData(url); qr.make();
 qr.createSvgTag({ cellSize: 8, margin: 2 })` ou desenhar via `qr.getModuleCount()`/`qr.isDark(r,c)`),
 apontando para `${location.origin}/cardapio` (+ `?mesa=N` se informado num campo "Número da mesa"
 na tela — gerar vários de uma vez, ex.: mesas 1–20). Layout do display: logo-placa, "Aponte a câmera

@@ -25,6 +25,9 @@ const PHOTO = {
   jorgeAmado: `${IG}/2026-08-30-drink-resina-jorge-amado.jpg`,
   bucha: `${IG}/2026-08-30-bucha-torresmo-de-rolo.jpg`,
 };
+// Story screenshots of the "Cardápio" highlight (738x1600, Instagram UI cropped out below)
+const MENU = (name) => `referencias/cardapio/WhatsApp Image 2026-09-29 at ${name}.jpeg`;
+const SITE = (name) => `referencias/site/Captura de tela 2026-09-29 ${name}.png`;
 
 const tmp = mkdtempSync(join(tmpdir(), 'barcenaria-'));
 const frameCache = new Map();
@@ -79,7 +82,27 @@ const IMAGES = [
   { id: 'promos/linguica', src: () => PHOTO.linguica, widths: [640, 1080] },
   { id: 'promos/barcenaipa', src: () => PHOTO.ipa, widths: [640, 1080] },
   { id: 'promos/quinta-sinuca', src: () => PHOTO.sinuca, widths: [640, 1080] },
+  // Fotos do cardápio impresso (recortes sem a interface do Instagram e sem a legenda "imagem ilustrativa")
+  { id: 'cardapio/compensado-burrata', src: () => MENU('16.53.19'), crop: [146, 240, 565, 370], widths: [565] },
+  { id: 'cardapio/serragem-tartare', src: () => MENU('16.53.19'), crop: [146, 1048, 439, 277], widths: [439] },
+  { id: 'cardapio/guarda-roupa-porpetas', src: () => MENU('16.53.19 (2)'), crop: [146, 700, 565, 700], widths: [565] },
+  { id: 'cardapio/fita-metrica-linguini', src: () => MENU('16.53.19 (3)'), crop: [27, 588, 565, 385], widths: [565] },
+  { id: 'cardapio/drink-sinuca', src: () => MENU('16.53.20 (1)'), crop: [146, 965, 565, 290], widths: [565] },
+  { id: 'cardapio/grampo-gin-tropical', src: () => MENU('16.53.20 (2)'), crop: [86, 270, 232, 488], widths: [232] },
+  { id: 'cardapio/negroni', src: () => MENU('16.53.20 (2)'), crop: [86, 772, 232, 480], widths: [232] },
+  { id: 'cardapio/alicate-carajillo', src: () => MENU('16.53.21'), crop: [420, 310, 232, 448], widths: [232] },
+  { id: 'cardapio/drink-amarelo', src: () => MENU('16.53.21'), crop: [420, 772, 232, 480], widths: [232] },
+  { id: 'cardapio/gin-tonica', src: () => MENU('16.53.21 (1)'), crop: [27, 205, 566, 333], widths: [566] },
+  { id: 'cardapio/caipirinha-morango', src: () => MENU('16.53.21 (2)'), crop: [146, 812, 563, 198], widths: [563] },
+  { id: 'cardapio/sarrafo-fraldinha', src: () => MENU('16.53.22'), crop: [27, 705, 565, 695], widths: [565] },
+  { id: 'cardapio/feijoada-panela', src: () => MENU('16.53.22 (1)'), crop: [146, 500, 565, 420], widths: [565] },
+  // Fotos da casa enviadas como print
+  { id: 'casa/salao-sofas', src: () => SITE('165658'), widths: [480] },
+  { id: 'casa/deck-dia', src: () => SITE('165728'), widths: [480] },
+  { id: 'bar/cervejeiras', src: () => SITE('165810'), widths: [480] },
+  { id: 'casa/dia-de-jogo', src: () => SITE('165856'), widths: [480] },
 ];
+const ONLY = (process.argv.find((a) => a.startsWith('--only=')) || '').slice(7);
 
 // Hero: short loop of the best shots of the "varanda" reel (no captions in these ranges)
 const HERO_CUTS = [[32.0, 35.8], [10.0, 12.0], [26.0, 28.8], [14.0, 16.4], [20.0, 22.0]];
@@ -88,7 +111,7 @@ const kb = (f) => `${Math.round(statSync(f).size / 1024)}KB`;
 const ensureDir = (f) => mkdirSync(f.slice(0, f.lastIndexOf('/')), { recursive: true });
 
 async function buildImages() {
-  for (const img of IMAGES) {
+  for (const img of IMAGES.filter((i) => !ONLY || i.id.startsWith(ONLY))) {
     const src = img.src();
     const meta = await sharp(src).metadata();
     for (const w of img.widths) {
@@ -160,6 +183,7 @@ async function writeManifest() {
 try {
   if (!existsSync(IG)) throw new Error(`Pasta ${IG} não encontrada — rode a partir da raiz do projeto.`);
   if (process.argv.includes('--manifest-only')) { await writeManifest(); process.exit(0); }
+  if (ONLY) { await buildImages(); await writeManifest(); process.exit(0); }
   await buildImages();
   await buildBrand();
   buildVideos();

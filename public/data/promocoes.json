@@ -1,11 +1,14 @@
 {
   "atualizado_em": "2026-09-29",
-  "observacao": "Promoções extraídas dos posts do Instagram oficial entre 30/08 e 29/09/2026. Validade a confirmar com a casa.",
+  "observacao": "Promoções extraídas dos posts do Instagram oficial (30/08 a 29/09/2026) e do cardápio de 30/06/2026. Validade a confirmar com a casa.",
   "promocoes": [
     {
       "id": "chopp-double",
       "tipo": "promocao",
-      "dias": [3, 4],
+      "dias": [
+        3,
+        4
+      ],
       "titulo": "Chopp Brahma Double em dose dupla",
       "resumo": "Pediu um, o próximo é por nossa conta.",
       "detalhe": "Chopp Brahma Double, gelado como deve ser. Todas as quartas e quintas-feiras.",
@@ -18,7 +21,9 @@
     {
       "id": "quinta-sinuca",
       "tipo": "promocao",
-      "dias": [4],
+      "dias": [
+        4
+      ],
       "titulo": "Quinta da sinuca",
       "resumo": "Sinuca, Chopp Brahma Double e espetinho à vontade.",
       "detalhe": "Chama a galera: sinuca liberada, Chopp Brahma Double e espetinho à vontade por pessoa.",
@@ -31,20 +36,46 @@
     {
       "id": "feijoada-sabado",
       "tipo": "promocao",
-      "dias": [6],
+      "dias": [
+        6
+      ],
       "titulo": "Feijoada da Barcenaria",
-      "resumo": "Completa, bem servida e com cerveja gelada. Todos os sábados.",
-      "detalhe": "Sábado sem feijoada é só um dia qualquer. Ela chega completa, com boa música e muita resenha.",
-      "preco": null,
+      "resumo": "Completa e bem servida, das 12h às 16h. Individual R$ 59,90 · para dois R$ 99,90.",
+      "detalhe": "Sábado sem feijoada é só um dia qualquer. Ela chega completa, com cerveja gelada, boa música e muita resenha.",
+      "preco": 59.9,
       "imagem": "promos/feijoada-sabado",
       "imagem_alt": "Arte da Feijoada da Barcenaria, servida todos os sábados",
       "fonte": "https://www.instagram.com/barcenariaoficial/p/DdG-wFNun1W/",
-      "publicado_em": "2026-09-10"
+      "publicado_em": "2026-09-10",
+      "preco_rotulo": "a partir de"
+    },
+    {
+      "id": "almoco-executivo",
+      "tipo": "promocao",
+      "dias": [
+        5,
+        6,
+        0
+      ],
+      "titulo": "Almoço executivo",
+      "resumo": "De sexta a domingo, das 12h às 16h: tilápia, virado à paulista, espetinhos, pernil ou gnocchi ao pesto.",
+      "detalhe": "Cinco opções completas, com arroz, feijão e acompanhamentos da casa.",
+      "preco": 49.9,
+      "imagem": "casa/deck-dia",
+      "imagem_alt": "Deck externo da Barcenaria com mesas de madeira e guarda-sóis durante o dia",
+      "fonte": null,
+      "publicado_em": "2026-06-30"
     },
     {
       "id": "resina-jorge-amado",
       "tipo": "destaque",
-      "dias": [0, 3, 4, 5, 6],
+      "dias": [
+        0,
+        3,
+        4,
+        5,
+        6
+      ],
       "titulo": "Resina Jorge Amado",
       "resumo": "Cachaça Gabriela Cravo e Canela de Paraty, maracujá e limão.",
       "detalhe": "Literatura líquida, servida com gelo: um drink brasileiro, aromático e refrescante.",
@@ -57,11 +88,17 @@
     {
       "id": "bucha-torresmo",
       "tipo": "destaque",
-      "dias": [0, 3, 4, 5, 6],
+      "dias": [
+        0,
+        3,
+        4,
+        5,
+        6
+      ],
       "titulo": "Bucha — Torresmo de Rolo",
-      "resumo": "O sucesso da casa: crocante por fora, macia por dentro. Para compartilhar.",
+      "resumo": "O sucesso da casa: panceta em rolo pururucada, com limão-siciliano e geleia de pimenta.",
       "detalhe": "Feita na casa, receita exclusiva. Combina com um chopp bem gelado.",
-      "preco": null,
+      "preco": 70,
       "imagem": "promos/bucha-torresmo",
       "imagem_alt": "Arte da Bucha, torresmo de rolo, sucesso da casa",
       "fonte": "https://www.instagram.com/barcenariaoficial/p/DcribKPJfc-/",
@@ -70,7 +107,13 @@
     {
       "id": "eventos",
       "tipo": "evento",
-      "dias": [0, 3, 4, 5, 6],
+      "dias": [
+        0,
+        3,
+        4,
+        5,
+        6
+      ],
       "titulo": "Reservas para eventos abertas",
       "resumo": "Aniversário, confraternização ou encontro da empresa — no rooftop ou no salão.",
       "detalhe": "Rooftop com churrasqueira, ambiente interno e externo, sinuca e telão.",

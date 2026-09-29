@@ -11,7 +11,7 @@ com a Amigos do Bem. Falhar = cliente vê informação errada (preço, horário)
 
 ## Stack deste projeto
 - HTML/CSS/JS puros, ES modules, **sem build step e sem dependências JS no navegador**
-  (exceção: `public/assets/vendor/qrcode.mjs`, MIT, vendorizado).
+  (exceção: `public/assets/vendor/qrcode.js`, MIT, vendorizado).
 - Deploy Vercel (não Cloudflare). Sem banco na fase 1.
 - Node só para ferramentas locais: `npm run dev` (servidor em :4180) e `npm run assets`.
 

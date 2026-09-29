@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Cardápio · Barcenaria Bar e Restaurante</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="Cardápio digital da Barcenaria: entradas, porções, pratos, chopp, drinks autorais e vinhos. Praça Ituzaingó, 40 — Anália Franco, Tatuapé.">
+  <meta name="theme-color" content="#f6efdc">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="Barcenaria">
+  <meta property="og:title" content="Cardápio · Barcenaria Bar e Restaurante">
+  <meta property="og:description" content="Petiscos, pratos, chopp e drinks autorais. Seu novo ponto favorito no Tatuapé.">
+  <meta property="og:image" content="/images/brand/og-image.jpg">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/images/brand/apple-touch-icon.png">
+  <script>
+    // Apply the saved/system theme before first paint (no flash).
+    (function () {
+      var t;
+      try { t = localStorage.getItem('barcenaria:tema'); } catch (e) {}
+      // Default is the "papel" look of the printed menu; dark only when the phone is in dark mode.
+      if (t !== 'light' && t !== 'dark') t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@600;700&family=Barlow+Semi+Condensed:wght@500;600;700&family=Cinzel:wght@500;600;700&family=Yellowtail&display=swap">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/cardapio.css">
+  <script type="module" src="/assets/js/cardapio.js"></script>
+</head>
+<body>
+  <svg class="sprite" aria-hidden="true" focusable="false">
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M4.6 4.6l1.4 1.4M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4 6 18M18 6l1.4-1.4"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20.5 14.1A8.5 8.5 0 1 1 9.9 3.5a6.6 6.6 0 0 0 10.6 10.6Z"/></symbol>
+    <symbol id="i-share" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 13.5 6.8 4M15.4 6.5l-6.8 4"/></symbol>
+    <symbol id="i-whatsapp" viewBox="0 0 24 24"><path d="M3.5 20.5 4.8 16A8.5 8.5 0 1 1 8 19.3Z"/><path d="M9.2 8.6c.2-.5.6-.7 1-.5l.9 1.6c.2.3.1.7-.2 1l-.4.4a5 5 0 0 0 2.4 2.4l.4-.4c.3-.3.7-.4 1-.2l1.6.9c.4.2.5.6.3 1-.5 1-1.5 1.4-2.5 1.1a7 7 0 0 1-4.6-4.6c-.2-.9 0-1.9.1-2.7Z"/></symbol>
+    <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M19 10c0 5-7 11.5-7 11.5S5 15 5 10a7 7 0 0 1 14 0Z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+    <symbol id="i-home" viewBox="0 0 24 24"><path d="M3.5 10.5 12 3.5l8.5 7V20a1 1 0 0 1-1 1H15v-6H9v6H4.5a1 1 0 0 1-1-1Z"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+    <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M5 19c0-8 5-13 15-14-1 10-6 15-14 15"/><path d="M5 19c3-4 6-7 10-9"/></symbol>
+    <symbol id="i-fork" viewBox="0 0 24 24"><path d="M7 3v7a2 2 0 0 0 4 0V3M9 12v9M17 21V3c-2 1.5-3 4-3 7v3h3"/></symbol>
+    <symbol id="i-mug" viewBox="0 0 24 24"><path d="M5 9h10v9a3 3 0 0 1-3 3H8a3 3 0 0 1-3-3Z"/><path d="M15 11.5h1.5a2.5 2.5 0 0 1 0 5H15"/><path d="M5 9a2.5 2.5 0 0 1 2.5-3.5A3 3 0 0 1 12.7 5 2.5 2.5 0 0 1 15 9"/></symbol>
+  </svg>
+
+  <a class="skip-link" href="#cardapio-lista">Pular para os itens do cardápio</a>
+
+  <p class="strip" id="faixa-status" hidden>
+    <span class="wrap strip__inner"><svg class="icon" aria-hidden="true"><use href="#i-mug"/></svg>Cardápio em atualização — na dúvida, pergunte ao garçom.</span>
+  </p>
+
+  <header class="topbar wrap">
+    <a class="topbar__logo" href="/">
+      <img src="/images/brand/logo-placa-160.webp" srcset="/images/brand/logo-placa-160.webp 160w, /images/brand/logo-placa-320.webp 320w" sizes="40px" width="160" height="179" alt="Barcenaria Bar e Restaurante — ir para o site">
+    </a>
+    <div class="topbar__title">
+      <p class="topbar__kicker">Barcenaria <span class="mesa-badge" id="mesa" hidden></span></p>
+      <h1 class="topbar__h1">Cardápio</h1>
+    </div>
+    <div class="topbar__actions">
+      <button class="icon-btn" type="button" id="tema" aria-label="Ativar tema claro" title="Ativar tema claro">
+        <svg class="icon icon--to-light" aria-hidden="true"><use href="#i-sun"/></svg>
+        <svg class="icon icon--to-dark" aria-hidden="true"><use href="#i-moon"/></svg>
+      </button>
+      <button class="icon-btn" type="button" id="compartilhar" aria-label="Compartilhar cardápio" title="Compartilhar cardápio">
+        <svg class="icon" aria-hidden="true"><use href="#i-share"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <div class="wrap">
+      <section class="today" id="hoje" aria-labelledby="hoje-titulo" hidden></section>
+
+      <div class="finder" id="busca-area">
+        <form class="search" role="search" id="busca-form">
+          <label class="visually-hidden" for="busca">Buscar no cardápio</label>
+          <svg class="icon search__icon" aria-hidden="true"><use href="#i-search"/></svg>
+          <input class="search__input" id="busca" type="search" placeholder="Buscar: picanha, burrata, negroni…" autocomplete="off" spellcheck="false" enterkeyhint="search" aria-describedby="resultado">
+          <button class="icon-btn search__clear" type="button" id="busca-limpar" aria-label="Limpar busca" hidden>
+            <svg class="icon" aria-hidden="true"><use href="#i-x"/></svg>
+          </button>
+        </form>
+        <div class="quick" id="filtros" role="group" aria-label="Filtros rápidos"></div>
+        <p class="count" id="resultado" role="status" aria-live="polite"></p>
+      </div>
+    </div>
+
+    <nav class="catnav" id="catnav" aria-label="Categorias do cardápio">
+      <div class="wrap catnav__inner">
+        <button class="icon-btn catnav__search" type="button" id="ir-busca" aria-label="Ir para a busca">
+          <svg class="icon" aria-hidden="true"><use href="#i-search"/></svg>
+        </button>
+        <div class="catnav__track" id="catnav-track"></div>
+      </div>
+    </nav>
+
+    <div class="wrap">
+      <div class="menu" id="cardapio-lista" tabindex="-1" aria-busy="true">
+        <p class="menu__loading">Carregando cardápio…</p>
+        <noscript><p class="menu__loading">O cardápio digital precisa de JavaScript ativado. Peça ao garçom o cardápio da casa.</p></noscript>
+      </div>
+      <div class="empty" id="vazio" hidden></div>
+
+      <aside class="notice" aria-label="Avisos">
+        <p class="notice__main" id="aviso">Preços sujeitos a alteração · Informe o garçom sobre alergias</p>
+        <p class="notice__date" id="atualizado" hidden></p>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer__inner">
+      <div class="footer__brand">
+        <img src="/images/brand/logo-placa-160.webp" width="160" height="179" alt="Placa da Barcenaria" loading="lazy" decoding="async">
+        <div>
+          <p class="footer__name" id="rodape-nome">Barcenaria Bar e Restaurante</p>
+          <p class="footer__address" id="rodape-endereco"></p>
+          <p class="footer__confirm" id="rodape-confirmar" hidden>Informações sujeitas a confirmação</p>
+        </div>
+      </div>
+      <ul class="footer__links" role="list">
+        <li><a class="link-btn" href="/"><svg class="icon" aria-hidden="true"><use href="#i-home"/></svg>Site da Barcenaria</a></li>
+        <li id="rodape-instagram" hidden><a class="link-btn" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-instagram"/></svg><span></span></a></li>
+        <li id="rodape-whatsapp" hidden><a class="link-btn" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg>WhatsApp</a></li>
+        <li id="rodape-mapa" hidden><a class="link-btn" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg>Como chegar</a></li>
+      </ul>
+      <p class="footer__legal" id="rodape-prototipo" hidden></p>
+      <p class="footer__legal" id="rodape-ano"></p>
+    </div>
+  </footer>
+
+  <dialog class="sheet" id="sheet" aria-labelledby="sheet-titulo" aria-describedby="sheet-desc">
+    <div class="sheet__grip" data-drag aria-hidden="true"></div>
+    <button class="icon-btn sheet__close" type="button" data-close aria-label="Fechar" autofocus>
+      <svg class="icon" aria-hidden="true"><use href="#i-x"/></svg>
+    </button>
+    <div class="sheet__scroll">
+      <figure class="sheet__media" id="sheet-media" data-drag></figure>
+      <div class="sheet__body">
+        <p class="sheet__kicker" id="sheet-categoria"></p>
+        <h2 class="sheet__title" id="sheet-titulo"></h2>
+        <p class="sheet__dish" id="sheet-prato" hidden></p>
+        <p class="sheet__price" id="sheet-preco"></p>
+        <ul class="tags sheet__tags" id="sheet-selos" role="list"></ul>
+        <p class="sheet__desc" id="sheet-desc"></p>
+        <div class="sheet__extra" id="sheet-extra"></div>
+        <p class="sheet__days" id="sheet-dias" hidden></p>
+        <div class="sheet__cta">
+          <button class="btn" type="button" id="sheet-whatsapp">
+            <svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg>Chamar garçom? Fale no WhatsApp
+          </button>
+          <p class="sheet__feedback" id="sheet-aviso" role="status"></p>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <p class="toast" id="toast" role="status" aria-live="polite"></p>
+</body>
+</html>

@@ -241,5 +241,107 @@
       1080
     ],
     "ratio": 1
+  },
+  "cardapio/compensado-burrata": {
+    "widths": [
+      565
+    ],
+    "ratio": 1.527
+  },
+  "cardapio/serragem-tartare": {
+    "widths": [
+      439
+    ],
+    "ratio": 1.5848
+  },
+  "cardapio/guarda-roupa-porpetas": {
+    "widths": [
+      565
+    ],
+    "ratio": 0.8071
+  },
+  "cardapio/fita-metrica-linguini": {
+    "widths": [
+      565
+    ],
+    "ratio": 1.4675
+  },
+  "cardapio/drink-sinuca": {
+    "widths": [
+      565
+    ],
+    "ratio": 1.9483
+  },
+  "cardapio/grampo-gin-tropical": {
+    "widths": [
+      232
+    ],
+    "ratio": 0.4754
+  },
+  "cardapio/negroni": {
+    "widths": [
+      232
+    ],
+    "ratio": 0.4833
+  },
+  "cardapio/alicate-carajillo": {
+    "widths": [
+      232
+    ],
+    "ratio": 0.5179
+  },
+  "cardapio/drink-amarelo": {
+    "widths": [
+      232
+    ],
+    "ratio": 0.4833
+  },
+  "cardapio/gin-tonica": {
+    "widths": [
+      566
+    ],
+    "ratio": 1.6997
+  },
+  "cardapio/caipirinha-morango": {
+    "widths": [
+      563
+    ],
+    "ratio": 2.8434
+  },
+  "cardapio/sarrafo-fraldinha": {
+    "widths": [
+      565
+    ],
+    "ratio": 0.8129
+  },
+  "cardapio/feijoada-panela": {
+    "widths": [
+      565
+    ],
+    "ratio": 1.3452
+  },
+  "casa/salao-sofas": {
+    "widths": [
+      480
+    ],
+    "ratio": 0.6621
+  },
+  "casa/deck-dia": {
+    "widths": [
+      480
+    ],
+    "ratio": 0.6742
+  },
+  "bar/cervejeiras": {
+    "widths": [
+      480
+    ],
+    "ratio": 0.6867
+  },
+  "casa/dia-de-jogo": {
+    "widths": [
+      480
+    ],
+    "ratio": 0.6809
   }
 }
