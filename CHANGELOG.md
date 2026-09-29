@@ -15,5 +15,10 @@ Log de trabalho diário fica em `.sessoes/` — não aqui. Aqui entra só o que 
 - Site one-page: vídeo de abertura, glossário da oficina (nomes de marcenaria → prato real), a casa em 4 capítulos, destaques da cozinha, promoções por dia da semana, eventos com pré-reserva via WhatsApp e convite digital, Instagram, horários e mapa.
 - Cardápio digital em /cardapio com tema "papel" do cardápio impresso e tema escuro, busca pelo nome do prato, filtros, promoção do dia, painel de detalhes e número da mesa via ?mesa=.
 - QR codes imprimíveis das mesas em /cardapio/qr (4 displays A6 por folha A4).
+- Comanda digital (demonstração): app do garçom em /garcom (mesas, itens com opções e observações, conta da mesa), tela da expedição em /expedicao (pedido dividido entre cozinha e bar, tempos de preparo, impressão da comanda, aviso de pronto) e tela de apresentação lado a lado em /comanda. Sincroniza no mesmo navegador (localStorage + BroadcastChannel).
 ### Alterado
+- Anália Franco em destaque no título, selo do topo e endereço.
+- Promoções: só as do dia escolhido (hoje por padrão).
+- Status do dia sem afirmar "aberto" (horário de fechamento desconhecido).
+- Cardápio: removidas marcações e textos que não constavam no original (4 vegetarianos, selo da IPA, descrição da feijoada, subtítulos).
 - Biblioteca de QR vendorizada renomeada para `qrcode.js` (MIME de módulo sem configuração extra).

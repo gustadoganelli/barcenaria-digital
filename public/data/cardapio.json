@@ -63,7 +63,8 @@
           "preco": 50,
           "vegetariano": true
         }
-      ]
+      ],
+      "estacao": "cozinha"
     },
     {
       "id": "porcoes",
@@ -181,7 +182,8 @@
           "descricao": "Com molho de catupiry gratinado e alho frito. Acompanha cestinha de pães.",
           "preco": 170
         }
-      ]
+      ],
+      "estacao": "cozinha"
     },
     {
       "id": "acompanhamentos",
@@ -237,7 +239,8 @@
           "descricao": "Batatas fritas fininhas.",
           "preco": 25
         }
-      ]
+      ],
+      "estacao": "cozinha"
     },
     {
       "id": "da-panela",
@@ -305,7 +308,8 @@
           "descricao": "Acompanhado de arroz e fritas fininhas.",
           "preco": 85
         }
-      ]
+      ],
+      "estacao": "cozinha"
     },
     {
       "id": "kids",
@@ -334,7 +338,8 @@
           "descricao": "Filé-mignon grelhado com arroz, feijão e fritas fininhas.",
           "preco": 45
         }
-      ]
+      ],
+      "estacao": "cozinha"
     },
     {
       "id": "lanches",
@@ -372,7 +377,8 @@
           "preco": 52,
           "vegetariano": true
         }
-      ]
+      ],
+      "estacao": "cozinha"
     },
     {
       "id": "sobremesas",
@@ -413,9 +419,11 @@
           "nome": "Primer",
           "prato": null,
           "descricao": "Café expresso.",
-          "preco": 10
+          "preco": 10,
+          "estacao": "bar"
         }
-      ]
+      ],
+      "estacao": "cozinha"
     },
     {
       "id": "bebidas",
@@ -471,7 +479,8 @@
           "descricao": "Asa pra beber… e pra falar besteira depois.",
           "preco": 18
         }
-      ]
+      ],
+      "estacao": "bar"
     },
     {
       "id": "cervejas-e-chopps",
@@ -572,7 +581,8 @@
           "descricao": "Amarga igual segunda-feira, deliciosa igual sexta.",
           "preco": 25
         }
-      ]
+      ],
+      "estacao": "bar"
     },
     {
       "id": "drinks",
@@ -746,7 +756,8 @@
           "descricao": "Nossa versão do drink mais vendido do mundo, com Jack Daniel’s Tennessee Fire, Fanta Laranja e xarope de morango. O bom senso acaba após essa perfuração da sede.",
           "preco": 40
         }
-      ]
+      ],
+      "estacao": "bar"
     },
     {
       "id": "drinks-prontos",
@@ -768,7 +779,8 @@
           "descricao": "Drink pronto à base de rum, guaraná, chá-mate e limão. Um gole, e o jogo muda.",
           "preco": 20
         }
-      ]
+      ],
+      "estacao": "bar"
     },
     {
       "id": "caipirinhas",
@@ -822,7 +834,8 @@
           "nome": "Saquê",
           "preco": 35
         }
-      ]
+      ],
+      "estacao": "bar"
     },
     {
       "id": "jarras",
@@ -843,7 +856,8 @@
           "descricao": "Espumante, frutas picadas, Cointreau e açúcar. Fruta pra fingir que é saudável.",
           "preco": 190
         }
-      ]
+      ],
+      "estacao": "bar"
     },
     {
       "id": "destilados",
@@ -1241,7 +1255,8 @@
             }
           ]
         }
-      ]
+      ],
+      "estacao": "bar"
     },
     {
       "id": "tintos",
@@ -1430,7 +1445,8 @@
             "tabua"
           ]
         }
-      ]
+      ],
+      "estacao": "bar"
     },
     {
       "id": "executivos",
@@ -1475,7 +1491,8 @@
           "descricao": "Com molho pesto de manjericão.",
           "vegetariano": true
         }
-      ]
+      ],
+      "estacao": "cozinha"
     },
     {
       "id": "feijoada",
@@ -1518,7 +1535,12 @@
           "imagem": "cardapio/feijoada-panela",
           "imagem_extra": "pratos/feijoada"
         }
-      ]
+      ],
+      "estacao": "cozinha"
     }
-  ]
+  ],
+  "estacoes": {
+    "cozinha": "Cozinha",
+    "bar": "Bar"
+  }
 }

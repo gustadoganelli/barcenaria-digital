@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Comanda do garçom · Barcenaria</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#0b1207">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@600;700&family=Barlow+Semi+Condensed:wght@500;600;700&family=Cinzel:wght@600;700&display=swap">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/comanda.css">
+  <script type="module" src="/assets/js/garcom.js"></script>
+</head>
+<body>
+  <svg class="sprite" aria-hidden="true" focusable="false">
+    <symbol id="i-back" viewBox="0 0 24 24"><path d="m15 5-7 7 7 7"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24"><path d="M21 3 10 14M21 3l-7 18-4-7-7-4Z"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/></symbol>
+    <symbol id="i-receipt" viewBox="0 0 24 24"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2Z"/><path d="M9 8h6M9 12h6M9 16h4"/></symbol>
+    <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M5 19c0-8 5-13 15-14-1 10-6 15-14 15"/><path d="M5 19c3-4 6-7 10-9"/></symbol>
+  </svg>
+
+  <header class="appbar">
+    <button class="icon-btn" type="button" id="voltar" aria-label="Voltar para as mesas" hidden><svg class="icon" aria-hidden="true"><use href="#i-back"/></svg></button>
+    <img class="appbar__logo" src="/images/brand/logo-placa-160.webp" width="160" height="178" alt="" id="logo">
+    <div class="appbar__title">
+      <p class="appbar__kicker">Barcenaria · Comanda</p>
+      <h1 class="appbar__h1" id="titulo" tabindex="-1">Mesas</h1>
+    </div>
+    <button class="chip" type="button" id="garcom-btn" aria-haspopup="dialog"><svg class="icon" aria-hidden="true"><use href="#i-user"/></svg><span id="garcom-nome">Garçom</span></button>
+  </header>
+  <p class="demo-strip"><strong>Demo</strong><span>Os pedidos ficam neste navegador e aparecem na tela da expedição.</span></p>
+
+  <main>
+    <section class="view" id="view-mesas" aria-labelledby="titulo">
+      <p class="legend"><span><i></i>Livre</span><span><i class="is-open"></i>Com pedido</span><span><i class="is-ready"></i>Pronto para servir</span></p>
+      <ul class="tables" id="mesas" role="list"></ul>
+    </section>
+
+    <section class="view" id="view-mesa" hidden>
+      <div class="seg" role="tablist" aria-label="Mesa">
+        <button type="button" role="tab" id="tab-pedir" aria-controls="panel-pedir" aria-selected="true">Pedir</button>
+        <button type="button" role="tab" id="tab-conta" aria-controls="panel-conta" aria-selected="false" tabindex="-1">Conta<span class="count" id="conta-count" hidden></span></button>
+      </div>
+      <div id="panel-pedir" role="tabpanel" aria-labelledby="tab-pedir">
+        <div class="search">
+          <svg class="icon" aria-hidden="true"><use href="#i-search"/></svg>
+          <label class="visually-hidden" for="busca">Buscar item</label>
+          <input id="busca" type="search" placeholder="Buscar: viga, negroni, picanha…" autocomplete="off" enterkeyhint="search">
+        </div>
+        <nav class="cats" id="cats" aria-label="Categorias"></nav>
+        <div id="lista"></div>
+      </div>
+      <div id="panel-conta" role="tabpanel" aria-labelledby="tab-conta" hidden></div>
+    </section>
+  </main>
+
+  <div class="cartbar" id="cartbar" hidden>
+    <button class="btn btn--block" type="button" id="ver-carrinho" aria-haspopup="dialog">
+      <span id="cart-resumo"></span><span>Revisar e enviar</span>
+    </button>
+  </div>
+
+  <dialog class="sheet" id="sheet" aria-labelledby="sheet-titulo"></dialog>
+  <p class="toast" id="toast" role="status" aria-live="polite"></p>
+</body>
+</html>

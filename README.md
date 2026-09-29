@@ -29,6 +29,8 @@ public/ (estático, publicado na Vercel)
    ├─ index.html                → site
    ├─ cardapio/index.html       → cardápio digital
    ├─ cardapio/qr/index.html    → QR codes imprimíveis
+   ├─ garcom/, expedicao/       → comanda digital (demonstração, sem servidor)
+   ├─ comanda/index.html        → apresentação garçom + expedição lado a lado
    ├─ data/*.json               → conteúdo (casa, cardápio, promoções, manifesto de imagens)
    └─ assets/css|js|vendor
 ```
@@ -74,6 +76,7 @@ Nenhuma nesta fase (ver `.env.example`).
 - Duas inconsistências vieram do cardápio original e estão marcadas com `revisar` no JSON (uva do Paisajes de Los Andes; região do Château Briot).
 - Horário de fechamento, telefone do WhatsApp e endereço a confirmar com a casa.
 - Sem backend: pré-reserva de evento abre o WhatsApp com a mensagem pronta.
+- Comanda digital é demonstração: só sincroniza janelas do mesmo navegador. A versão real exige backend em tempo real, login por garçom e modo offline.
 
 ## Roadmap
 

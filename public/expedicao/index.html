@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Expedição · Barcenaria</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#0b1207">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@600;700&family=Barlow+Semi+Condensed:wght@500;600;700&family=Cinzel:wght@600;700&display=swap">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/comanda.css">
+  <script type="module" src="/assets/js/expedicao.js"></script>
+</head>
+<body>
+  <svg class="sprite" aria-hidden="true" focusable="false">
+    <symbol id="i-send" viewBox="0 0 24 24"><path d="M21 3 10 14M21 3l-7 18-4-7-7-4Z"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+    <symbol id="i-print" viewBox="0 0 24 24"><path d="M7 9V3h10v6M7 17H4v-7h16v7h-3"/><path d="M7 14h10v7H7Z"/></symbol>
+    <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 16V11a6 6 0 0 1 12 0v5l2 2H4Z"/><path d="M10 20a2 2 0 0 0 4 0"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/></symbol>
+  </svg>
+
+  <header class="appbar appbar--wide">
+    <img class="appbar__logo" src="/images/brand/logo-placa-160.webp" width="160" height="178" alt="">
+    <div class="appbar__title">
+      <p class="appbar__kicker">Barcenaria · Comanda</p>
+      <h1 class="appbar__h1">Expedição</h1>
+    </div>
+    <div class="appbar__actions">
+      <span class="stat" id="stat-novos">Novos <b>0</b></span>
+      <span class="stat" id="stat-preparo">Em preparo <b>0</b></span>
+      <span class="stat" id="stat-prontos">Prontos <b>0</b></span>
+      <time class="appbar__clock" id="relogio"></time>
+      <label class="chip"><input type="checkbox" id="imprimir"> Imprimir ao encaminhar</label>
+      <button class="chip" type="button" id="som" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="#i-bell"/></svg>Som</button>
+      <button class="btn btn--ghost btn--sm" type="button" id="exemplo"><svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg>Pedido de exemplo</button>
+      <button class="btn btn--danger btn--sm" type="button" id="limpar"><svg class="icon" aria-hidden="true"><use href="#i-trash"/></svg>Limpar demo</button>
+    </div>
+  </header>
+  <p class="demo-strip"><strong>Demo</strong><span>Recebe os pedidos feitos em <a href="/garcom" target="_blank" rel="noopener">/garcom</a> neste mesmo navegador. A versão real sincroniza celulares e este computador pela internet.</span></p>
+
+  <main class="board" aria-live="polite">
+    <section class="col" aria-labelledby="col-novos">
+      <div class="col__head"><h2 class="col__title" id="col-novos">Novos pedidos</h2><span class="col__count" id="n-novos">0</span></div>
+      <div class="col__list" id="novos"></div>
+    </section>
+    <section class="col" aria-labelledby="col-cozinha">
+      <div class="col__head"><h2 class="col__title" id="col-cozinha">Cozinha · em preparo</h2><span class="col__count" id="n-cozinha">0</span></div>
+      <div class="col__list" id="preparo-cozinha"></div>
+    </section>
+    <section class="col" aria-labelledby="col-bar">
+      <div class="col__head"><h2 class="col__title" id="col-bar">Bar · em preparo</h2><span class="col__count" id="n-bar">0</span></div>
+      <div class="col__list" id="preparo-bar"></div>
+    </section>
+    <section class="col" aria-labelledby="col-prontos">
+      <div class="col__head"><h2 class="col__title" id="col-prontos">Prontos · aguardando garçom</h2><span class="col__count" id="n-prontos">0</span></div>
+      <div class="col__list" id="prontos"></div>
+    </section>
+  </main>
+
+  <div class="print-area" id="print-area"></div>
+  <p class="toast" id="toast" role="status" aria-live="polite"></p>
+</body>
+</html>
