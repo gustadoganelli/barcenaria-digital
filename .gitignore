@@ -1,0 +1,11 @@
+node_modules/
+.vercel/
+.env*
+!.env.example
+*.pem
+*.key
+*.pfx
+# material bruto pesado (vídeos originais do Instagram) fica fora do git
+referencias/instagram/*.mp4
+referencias/instagram/frames/
+referencias/.build-assets.log

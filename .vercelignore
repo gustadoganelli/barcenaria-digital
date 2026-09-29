@@ -1,0 +1,7 @@
+referencias/
+scripts/
+node_modules/
+docs/
+.sessoes/
+.env*
+*.md

@@ -1,0 +1,84 @@
+{
+  "atualizado_em": "2026-09-29",
+  "observacao": "Promoções extraídas dos posts do Instagram oficial entre 30/08 e 29/09/2026. Validade a confirmar com a casa.",
+  "promocoes": [
+    {
+      "id": "chopp-double",
+      "tipo": "promocao",
+      "dias": [3, 4],
+      "titulo": "Chopp Brahma Double em dose dupla",
+      "resumo": "Pediu um, o próximo é por nossa conta.",
+      "detalhe": "Chopp Brahma Double, gelado como deve ser. Todas as quartas e quintas-feiras.",
+      "preco": null,
+      "imagem": "promos/chopp-double",
+      "imagem_alt": "Arte da promoção Chopp Brahma Double, todas as quartas e quintas-feiras",
+      "fonte": "https://www.instagram.com/barcenariaoficial/p/DdFj-YbJcdf/",
+      "publicado_em": "2026-09-09"
+    },
+    {
+      "id": "quinta-sinuca",
+      "tipo": "promocao",
+      "dias": [4],
+      "titulo": "Quinta da sinuca",
+      "resumo": "Sinuca, Chopp Brahma Double e espetinho à vontade.",
+      "detalhe": "Chama a galera: sinuca liberada, Chopp Brahma Double e espetinho à vontade por pessoa.",
+      "preco": 69.9,
+      "imagem": "promos/quinta-sinuca",
+      "imagem_alt": "Mesa de sinuca com feltro amarelo no salão de tijolinhos da Barcenaria",
+      "fonte": "https://www.instagram.com/barcenariaoficial/p/DdZMLilO-S7/",
+      "publicado_em": "2026-09-17"
+    },
+    {
+      "id": "feijoada-sabado",
+      "tipo": "promocao",
+      "dias": [6],
+      "titulo": "Feijoada da Barcenaria",
+      "resumo": "Completa, bem servida e com cerveja gelada. Todos os sábados.",
+      "detalhe": "Sábado sem feijoada é só um dia qualquer. Ela chega completa, com boa música e muita resenha.",
+      "preco": null,
+      "imagem": "promos/feijoada-sabado",
+      "imagem_alt": "Arte da Feijoada da Barcenaria, servida todos os sábados",
+      "fonte": "https://www.instagram.com/barcenariaoficial/p/DdG-wFNun1W/",
+      "publicado_em": "2026-09-10"
+    },
+    {
+      "id": "resina-jorge-amado",
+      "tipo": "destaque",
+      "dias": [0, 3, 4, 5, 6],
+      "titulo": "Resina Jorge Amado",
+      "resumo": "Cachaça Gabriela Cravo e Canela de Paraty, maracujá e limão.",
+      "detalhe": "Literatura líquida, servida com gelo: um drink brasileiro, aromático e refrescante.",
+      "preco": 45,
+      "imagem": "promos/resina-jorge-amado",
+      "imagem_alt": "Arte do drink Resina Jorge Amado, R$ 45",
+      "fonte": "https://www.instagram.com/barcenariaoficial/p/DcrikiCpRzj/",
+      "publicado_em": "2026-08-30"
+    },
+    {
+      "id": "bucha-torresmo",
+      "tipo": "destaque",
+      "dias": [0, 3, 4, 5, 6],
+      "titulo": "Bucha — Torresmo de Rolo",
+      "resumo": "O sucesso da casa: crocante por fora, macia por dentro. Para compartilhar.",
+      "detalhe": "Feita na casa, receita exclusiva. Combina com um chopp bem gelado.",
+      "preco": null,
+      "imagem": "promos/bucha-torresmo",
+      "imagem_alt": "Arte da Bucha, torresmo de rolo, sucesso da casa",
+      "fonte": "https://www.instagram.com/barcenariaoficial/p/DcribKPJfc-/",
+      "publicado_em": "2026-08-30"
+    },
+    {
+      "id": "eventos",
+      "tipo": "evento",
+      "dias": [0, 3, 4, 5, 6],
+      "titulo": "Reservas para eventos abertas",
+      "resumo": "Aniversário, confraternização ou encontro da empresa — no rooftop ou no salão.",
+      "detalhe": "Rooftop com churrasqueira, ambiente interno e externo, sinuca e telão.",
+      "preco": null,
+      "imagem": "eventos/mesa-longa",
+      "imagem_alt": "Mesa longa posta para evento no salão de tijolinhos",
+      "fonte": "https://www.instagram.com/barcenariaoficial/reel/DdzKOQUpPp3/",
+      "publicado_em": "2026-09-27"
+    }
+  ]
+}

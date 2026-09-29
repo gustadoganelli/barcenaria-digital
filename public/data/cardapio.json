@@ -1,0 +1,107 @@
+{
+  "atualizado_em": "2026-09-29",
+  "status": "parcial",
+  "observacao": "Itens e preços extraídos dos posts do Instagram oficial. O cardápio completo será transcrito do destaque 'Cardápio'. Preços sujeitos a alteração.",
+  "categorias": [
+    {
+      "id": "petiscos",
+      "nome": "Petiscos",
+      "descricao": "Para dividir na mesa, com um chopp gelado do lado.",
+      "itens": [
+        {
+          "id": "bucha-torresmo-de-rolo",
+          "nome": "Bucha — Torresmo de Rolo",
+          "descricao": "Crocante por fora, macia por dentro. Feita na casa, com receita exclusiva e limão grelhado.",
+          "preco": null,
+          "selos": ["sucesso-da-casa", "para-compartilhar"],
+          "imagem": "pratos/bucha-torresmo-de-rolo",
+          "fonte": "instagram"
+        },
+        {
+          "id": "linguica-artesanal",
+          "nome": "Linguiça artesanal",
+          "descricao": "Grelhada no ponto certo, com o barbecue especial da casa e batatas crocantes.",
+          "preco": null,
+          "selos": ["para-compartilhar"],
+          "imagem": "pratos/linguica-artesanal",
+          "fonte": "instagram"
+        }
+      ]
+    },
+    {
+      "id": "pratos",
+      "nome": "Pratos",
+      "descricao": "Da chapa e da panela, bem servidos.",
+      "itens": [
+        {
+          "id": "fraldinha-na-chapa",
+          "nome": "Fraldinha na chapa",
+          "descricao": "Macia e suculenta, acompanhada de farofa crocante e vinagrete fresco.",
+          "preco": null,
+          "selos": [],
+          "imagem": "pratos/fraldinha-na-chapa",
+          "fonte": "instagram"
+        },
+        {
+          "id": "feijoada",
+          "nome": "Feijoada da Barcenaria",
+          "descricao": "Completa e bem servida. Servida aos sábados.",
+          "preco": null,
+          "selos": ["somente-sabado"],
+          "dias": [6],
+          "imagem": "pratos/feijoada",
+          "fonte": "instagram"
+        }
+      ]
+    },
+    {
+      "id": "chopp-e-cervejas",
+      "nome": "Chopp e cervejas",
+      "descricao": "Gelados como devem ser.",
+      "itens": [
+        {
+          "id": "chopp-brahma-double",
+          "nome": "Chopp Brahma Double",
+          "descricao": "Mais corpo e mais sabor, com espuma cremosa. Às quartas e quintas, pediu um, o próximo é por nossa conta.",
+          "preco": null,
+          "selos": ["promo-qua-qui"],
+          "imagem": "bar/chopp-brahma",
+          "fonte": "instagram"
+        },
+        {
+          "id": "barcenaipa",
+          "nome": "BarcenaIPA",
+          "descricao": "A IPA da casa: India Pale Ale artesanal, 6,2% de álcool, equilibrada e com amargor marcante. Garrafa de 500 ml.",
+          "preco": null,
+          "selos": ["da-casa"],
+          "imagem": "bar/barcenaipa",
+          "fonte": "instagram"
+        }
+      ]
+    },
+    {
+      "id": "drinks",
+      "nome": "Drinks",
+      "descricao": "Autorais, preparados no balcão.",
+      "itens": [
+        {
+          "id": "resina-jorge-amado",
+          "nome": "Resina Jorge Amado",
+          "descricao": "Cachaça Gabriela Cravo e Canela de Paraty, maracujá e limão.",
+          "preco": 45,
+          "selos": ["autoral"],
+          "imagem": "bar/resina-jorge-amado",
+          "fonte": "instagram"
+        }
+      ]
+    }
+  ],
+  "selos": {
+    "sucesso-da-casa": "Sucesso da casa",
+    "para-compartilhar": "Para compartilhar",
+    "somente-sabado": "Só aos sábados",
+    "promo-qua-qui": "Dose dupla qua e qui",
+    "da-casa": "Da casa",
+    "autoral": "Autoral"
+  }
+}

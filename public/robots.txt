@@ -1,0 +1,3 @@
+# Protótipo de apresentação: não indexar até aprovação da Barcenaria.
+User-agent: *
+Disallow: /

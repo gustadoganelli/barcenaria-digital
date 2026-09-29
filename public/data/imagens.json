@@ -1,0 +1,245 @@
+{
+  "casa/fachada": {
+    "widths": [
+      480,
+      720
+    ],
+    "ratio": 0.5625
+  },
+  "casa/deck": {
+    "widths": [
+      480,
+      720
+    ],
+    "ratio": 0.5625
+  },
+  "casa/deck-sol": {
+    "widths": [
+      480,
+      720
+    ],
+    "ratio": 0.5625
+  },
+  "casa/bar": {
+    "widths": [
+      480,
+      720
+    ],
+    "ratio": 0.5625
+  },
+  "casa/salao": {
+    "widths": [
+      480,
+      720
+    ],
+    "ratio": 0.5625
+  },
+  "casa/janela": {
+    "widths": [
+      480,
+      720
+    ],
+    "ratio": 0.5625
+  },
+  "casa/telao": {
+    "widths": [
+      480,
+      720
+    ],
+    "ratio": 0.9474
+  },
+  "casa/sinuca": {
+    "widths": [
+      640,
+      1200
+    ],
+    "ratio": 1
+  },
+  "casa/sinuca-tv": {
+    "widths": [
+      480,
+      720
+    ],
+    "ratio": 0.5625
+  },
+  "casa/varanda-noite": {
+    "widths": [
+      800,
+      1600
+    ],
+    "ratio": 1.3072
+  },
+  "casa/rooftop": {
+    "widths": [
+      540,
+      1080
+    ],
+    "ratio": 0.8308
+  },
+  "casa/rooftop-mesas": {
+    "widths": [
+      540,
+      1080
+    ],
+    "ratio": 0.8308
+  },
+  "casa/churrasqueira": {
+    "widths": [
+      540,
+      1080
+    ],
+    "ratio": 0.8308
+  },
+  "eventos/mesa-posta": {
+    "widths": [
+      540,
+      1080
+    ],
+    "ratio": 0.5625
+  },
+  "eventos/mesa-longa": {
+    "widths": [
+      540,
+      1080
+    ],
+    "ratio": 0.5625
+  },
+  "eventos/mesa-tijolo": {
+    "widths": [
+      540,
+      1080
+    ],
+    "ratio": 0.5625
+  },
+  "bar/drink-spritz": {
+    "widths": [
+      480,
+      720
+    ],
+    "ratio": 0.5625
+  },
+  "bar/bartender": {
+    "widths": [
+      480,
+      720
+    ],
+    "ratio": 0.5625
+  },
+  "bar/drink-escuro": {
+    "widths": [
+      480,
+      720
+    ],
+    "ratio": 0.5625
+  },
+  "bar/chopp-brahma": {
+    "widths": [
+      400
+    ],
+    "ratio": 0.5333
+  },
+  "bar/barcenaipa": {
+    "widths": [
+      500
+    ],
+    "ratio": 0.641
+  },
+  "bar/resina-jorge-amado": {
+    "widths": [
+      480,
+      694
+    ],
+    "ratio": 1.0515
+  },
+  "pratos/bucha-torresmo-de-rolo": {
+    "widths": [
+      480,
+      746
+    ],
+    "ratio": 1.1068
+  },
+  "pratos/torresmo-na-mesa": {
+    "widths": [
+      800,
+      1400
+    ],
+    "ratio": 1.5135
+  },
+  "pratos/fraldinha-na-chapa": {
+    "widths": [
+      480,
+      650
+    ],
+    "ratio": 1.3684
+  },
+  "pratos/linguica-artesanal": {
+    "widths": [
+      480,
+      785
+    ],
+    "ratio": 1.4952
+  },
+  "pratos/feijoada": {
+    "widths": [
+      480,
+      700
+    ],
+    "ratio": 1.1667
+  },
+  "promos/chopp-double": {
+    "widths": [
+      640,
+      1080
+    ],
+    "ratio": 1
+  },
+  "promos/feijoada-sabado": {
+    "widths": [
+      640,
+      1080
+    ],
+    "ratio": 1
+  },
+  "promos/resina-jorge-amado": {
+    "widths": [
+      640,
+      1080
+    ],
+    "ratio": 1
+  },
+  "promos/bucha-torresmo": {
+    "widths": [
+      640,
+      1080
+    ],
+    "ratio": 1
+  },
+  "promos/fraldinha": {
+    "widths": [
+      640,
+      1080
+    ],
+    "ratio": 1
+  },
+  "promos/linguica": {
+    "widths": [
+      640,
+      1080
+    ],
+    "ratio": 1
+  },
+  "promos/barcenaipa": {
+    "widths": [
+      640,
+      1080
+    ],
+    "ratio": 1
+  },
+  "promos/quinta-sinuca": {
+    "widths": [
+      640,
+      1080
+    ],
+    "ratio": 1
+  }
+}
