@@ -3,6 +3,10 @@
 Formato: [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/) · Versões por **data** (`AAAA-MM-DD`), não SemVer.
 Log de trabalho diário fica em `.sessoes/` — não aqui. Aqui entra só o que importa a quem **consome** o projeto.
 
+## [2026-09-30] — publicado em https://barcenaria-digital.vercel.app (noindex)
+### Alterado
+- Rodapé do site e do cardápio: aviso de protótipo substituído por "Desenvolvido por Gustavo Doganelli" com links para LinkedIn e GitHub. O aviso segue em `casa.json` (`prototipo.ativo: false`) e volta ao ligar a chave.
+
 ## [2026-09-29] — publicado em https://barcenaria-digital.vercel.app (protótipo, noindex)
 ### Adicionado
 - Estrutura inicial do projeto, especificação de design (`docs/design-spec.md`) e tokens da marca.

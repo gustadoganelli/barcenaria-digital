@@ -652,7 +652,10 @@ async function init() {
   if (state.casa) {
     renderStatus();
     wireWhatsappLinks();
-    if (state.casa.prototipo?.texto) $('#prototipo').textContent = state.casa.prototipo.texto;
+    if (state.casa.prototipo?.ativo && state.casa.prototipo.texto) {
+      $('#prototipo').textContent = state.casa.prototipo.texto;
+      $('#prototipo').hidden = false;
+    }
   }
   initMap();
   if (state.cardapio && Object.keys(state.imagens).length) { renderGlossary(); renderBento(); }
