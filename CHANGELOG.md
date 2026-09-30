@@ -7,6 +7,10 @@ Log de trabalho diário fica em `.sessoes/` — não aqui. Aqui entra só o que 
 ### Alterado
 - Rodapé do site e do cardápio: aviso de protótipo substituído por "Desenvolvido por Gustavo Doganelli" com links para LinkedIn, GitHub e WhatsApp (mensagem pronta indicando a origem). O aviso segue em `casa.json` (`prototipo.ativo: false`) e volta ao ligar a chave.
 
+### Segurança
+- Cabeçalhos em `vercel.json`: Content-Security-Policy restrita ao próprio site, Google Fonts e mapa do Google; `X-Frame-Options: SAMEORIGIN`; Permissions-Policy bloqueando câmera, microfone, localização e pagamento.
+- Scripts e estilos que estavam dentro do HTML foram para arquivos próprios (`theme-boot.js`, `qr.js`, `qr.css`, `comanda-demo.css`), e os estilos inline do JS viraram classes ou CSSOM, para funcionar com a CSP sem `unsafe-inline`.
+
 ## [2026-09-29] — publicado em https://barcenaria-digital.vercel.app (protótipo, noindex)
 ### Adicionado
 - Estrutura inicial do projeto, especificação de design (`docs/design-spec.md`) e tokens da marca.

@@ -18,18 +18,7 @@
   <meta property="og:url" content="https://barcenaria-digital.vercel.app/cardapio">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/images/brand/apple-touch-icon.png">
-  <script>
-    // Apply the saved/system theme before first paint (no flash).
-    (function () {
-      var t;
-      try { t = localStorage.getItem('barcenaria:tema'); } catch (e) {}
-      // Default is the "papel" look of the printed menu; dark only when the phone is in dark mode.
-      if (t !== 'light' && t !== 'dark') t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-      document.documentElement.setAttribute('data-theme', t);
-      var m = document.querySelector('meta[name="theme-color"]');
-      if (m) m.content = t === 'dark' ? '#0b1207' : '#f9f2e1';
-    })();
-  </script>
+  <script src="/assets/js/theme-boot.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@600;700&family=Barlow+Semi+Condensed:wght@500;600;700&family=Cinzel:wght@500;600;700&family=Yellowtail&display=swap">

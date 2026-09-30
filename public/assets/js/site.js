@@ -222,7 +222,7 @@ function renderBento() {
     const prices = it.precos?.length
       ? it.precos.map((p) => `${p.rotulo} ${brl(p.valor)}`).join(' · ')
       : (it.preco != null ? brl(it.preco) : 'Consulte');
-    return h('a', { class: 'dish reveal', href: `/cardapio#item-${it.id}`, style: `--delay:${(i % 3) * 70}ms` },
+    const card = h('a', { class: 'dish reveal', href: `/cardapio#item-${it.id}` },
       image(cfg.img, { cls: 'dish__img', alt: '', sizes: i === 0 ? '(min-width: 64rem) 58vw, 78vw' : '(min-width: 64rem) 33vw, 78vw' }),
       h('span', { class: 'dish__body' },
         cfg.tag && h('span', { class: `dish__tag${cfg.tagClass ? ` dish__tag--${cfg.tagClass}` : ''}`, text: cfg.tag }),
@@ -230,6 +230,9 @@ function renderBento() {
         h('span', { class: 'dish__name', text: it.prato ?? it.nome }),
         h('span', { class: 'dish__desc', text: it.descricao }),
         h('span', { class: 'dish__price', text: prices })));
+    // CSSOM (not a style attribute), so the strict CSP allows it.
+    card.style.setProperty('--delay', `${(i % 3) * 70}ms`);
+    return card;
   }));
   observeReveal($$('.reveal', box));
   const bar = $('.bento__progress span');

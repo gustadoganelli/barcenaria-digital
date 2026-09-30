@@ -165,7 +165,7 @@ function openItem(it, opener) {
   const addBtn = h('button', { class: 'btn btn--block', type: 'button' });
   const unit = () => variante?.preco ?? it.preco ?? null;
   const refresh = () => { out.textContent = String(qtd); addBtn.replaceChildren(icon('plus'), `Adicionar ${qtd}× · ${brl(unit() == null ? null : unit() * qtd)}`); };
-  const radios = (name, list, current, label, onPick) => h('fieldset', { class: 'options-set', style: 'border:0;margin:0;padding:0' },
+  const radios = (name, list, current, label, onPick) => h('fieldset', { class: 'options-set' },
     h('legend', { class: 'field-label', text: label }),
     h('div', { class: 'options' }, list.map((opt, i) => {
       const text = typeof opt === 'string' ? opt : `${opt.rotulo} · ${brl(opt.preco)}`;
@@ -291,7 +291,7 @@ function confirmClose(opener) {
   const n = ui.mesa;
   openSheet([
     sheetHead(`Fechar a mesa ${n}?`, 'Os pedidos saem da tela e a mesa fica livre.'),
-    h('div', { class: 'sheet__foot', style: 'display:grid;gap:var(--space-2)' },
+    h('div', { class: 'sheet__foot sheet__foot--stack' },
       h('button', { class: 'btn btn--danger btn--block', type: 'button', onclick: () => { closeTable(n); closeSheet(); toast(`Mesa ${n} fechada`); showMesas(); } }, 'Sim, fechar mesa'),
       h('button', { class: 'btn btn--ghost btn--block', type: 'button', 'data-close': true }, 'Cancelar')),
   ], opener);
