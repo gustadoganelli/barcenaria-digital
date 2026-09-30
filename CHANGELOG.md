@@ -5,7 +5,7 @@ Log de trabalho diário fica em `.sessoes/` — não aqui. Aqui entra só o que 
 
 ## [2026-09-30] — publicado em https://barcenaria-digital.vercel.app (noindex)
 ### Alterado
-- Rodapé do site e do cardápio: aviso de protótipo substituído por "Desenvolvido por Gustavo Doganelli" com links para LinkedIn e GitHub. O aviso segue em `casa.json` (`prototipo.ativo: false`) e volta ao ligar a chave.
+- Rodapé do site e do cardápio: aviso de protótipo substituído por "Desenvolvido por Gustavo Doganelli" com links para LinkedIn, GitHub e WhatsApp (mensagem pronta indicando a origem). O aviso segue em `casa.json` (`prototipo.ativo: false`) e volta ao ligar a chave.
 
 ## [2026-09-29] — publicado em https://barcenaria-digital.vercel.app (protótipo, noindex)
 ### Adicionado
