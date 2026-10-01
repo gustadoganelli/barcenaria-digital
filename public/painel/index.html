@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Painel da casa · Barcenaria</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#0b1207">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@600;700&family=Barlow+Semi+Condensed:wght@500;600;700&family=Cinzel:wght@600;700&display=swap">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/comanda.css">
+  <link rel="stylesheet" href="/assets/css/painel.css">
+  <script type="module" src="/assets/js/painel.js"></script>
+</head>
+<body>
+  <svg class="sprite" aria-hidden="true" focusable="false">
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+    <symbol id="i-left" viewBox="0 0 24 24"><path d="m15 5-7 7 7 7"/></symbol>
+    <symbol id="i-right" viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/></symbol>
+    <symbol id="i-whatsapp" viewBox="0 0 24 24"><path d="M3.5 20.5 4.8 16A8.5 8.5 0 1 1 8 19.3Z"/><path d="M9.2 8.6c.2-.5.6-.7 1-.5l.9 1.6c.2.3.1.7-.2 1l-.4.4a5 5 0 0 0 2.4 2.4l.4-.4c.3-.3.7-.4 1-.2l1.6.9c.4.2.5.6.3 1-.5 1-1.5 1.4-2.5 1.1a7 7 0 0 1-4.6-4.6c-.2-.9 0-1.9.1-2.7Z"/></symbol>
+    <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 3 2.5 20h19Z"/><path d="M12 10v4.5M12 17.5h.01"/></symbol>
+  </svg>
+
+  <header class="appbar appbar--wide">
+    <img class="appbar__logo" src="/images/brand/logo-placa-160.webp" width="160" height="178" alt="">
+    <div class="appbar__title">
+      <p class="appbar__kicker">Barcenaria · Painel da casa</p>
+      <h1 class="appbar__h1" id="titulo">Reservas</h1>
+    </div>
+    <div class="appbar__actions">
+      <button class="btn btn--sm" type="button" id="nova-reserva"><svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg>Nova reserva</button>
+      <button class="btn btn--danger btn--sm" type="button" id="limpar"><svg class="icon" aria-hidden="true"><use href="#i-trash"/></svg>Restaurar demo</button>
+    </div>
+  </header>
+  <p class="demo-strip"><strong>Demo</strong><span>Reservas e vendas de exemplo, salvas só neste navegador. Os pedidos feitos em <a href="/comanda" target="_blank" rel="noopener">/comanda</a> entram nos resultados. A versão real usa login da equipe e banco de dados.</span></p>
+
+  <main class="panel">
+    <div class="seg panel__tabs" role="tablist" aria-label="Painel">
+      <button type="button" role="tab" id="tab-reservas" aria-controls="panel-reservas" aria-selected="true">Reservas</button>
+      <button type="button" role="tab" id="tab-resultados" aria-controls="panel-resultados" aria-selected="false" tabindex="-1">Resultados</button>
+    </div>
+
+    <section id="panel-reservas" role="tabpanel" aria-labelledby="tab-reservas">
+      <div class="res-layout">
+        <div class="cal" id="calendario"></div>
+        <div class="day" id="agenda" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section id="panel-resultados" role="tabpanel" aria-labelledby="tab-resultados" hidden>
+      <div class="filters" role="group" aria-label="Período">
+        <button class="chip" type="button" data-periodo="7" aria-pressed="false">Últimos 7 dias</button>
+        <button class="chip" type="button" data-periodo="28" aria-pressed="true">Últimos 28 dias</button>
+      </div>
+      <p class="note" id="fonte"></p>
+      <div class="kpis" id="kpis"></div>
+      <div class="charts">
+        <figure class="chart chart--wide" id="chart-dia"></figure>
+        <figure class="chart" id="chart-top"></figure>
+        <figure class="chart" id="chart-semana"></figure>
+        <figure class="chart" id="chart-hora"></figure>
+      </div>
+    </section>
+  </main>
+
+  <dialog class="sheet" id="sheet" aria-labelledby="sheet-titulo"></dialog>
+  <div class="tip" id="tip" role="tooltip" hidden></div>
+  <p class="toast" id="toast" role="status" aria-live="polite"></p>
+</body>
+</html>

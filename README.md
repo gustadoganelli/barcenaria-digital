@@ -14,6 +14,7 @@
 | QR das mesas (imprimir) | https://barcenaria-digital.vercel.app/cardapio/qr |
 | Comanda — apresentação | https://barcenaria-digital.vercel.app/comanda |
 | Comanda — garçom / expedição | https://barcenaria-digital.vercel.app/garcom · https://barcenaria-digital.vercel.app/expedicao |
+| Painel da casa — reservas e resultados | https://barcenaria-digital.vercel.app/painel |
 
 Projeto Vercel: `gusta15/barcenaria-digital`. Publicar: `npx.cmd vercel@latest deploy --prod --scope gusta15` (no PowerShell use `npx.cmd`).
 
@@ -43,6 +44,7 @@ public/ (estático, publicado na Vercel)
    ├─ cardapio/qr/index.html    → QR codes imprimíveis
    ├─ garcom/, expedicao/       → comanda digital (demonstração, sem servidor)
    ├─ comanda/index.html        → apresentação garçom + expedição lado a lado
+   ├─ painel/index.html         → painel da casa: agenda de reservas + resultados (demonstração)
    ├─ data/*.json               → conteúdo (casa, cardápio, promoções, manifesto de imagens)
    └─ assets/css|js|vendor
 ```
@@ -89,6 +91,7 @@ Nenhuma nesta fase (ver `.env.example`).
 - Horário de fechamento, telefone do WhatsApp e endereço a confirmar com a casa.
 - Sem backend: pré-reserva de evento abre o WhatsApp com a mensagem pronta.
 - Comanda digital é demonstração: só sincroniza janelas do mesmo navegador. A versão real exige backend em tempo real, login por garçom e modo offline.
+- Painel da casa é demonstração: reservas ficam no `localStorage` do navegador e os resultados usam dados de exemplo gerados do cardápio real (mais os pedidos da demo da comanda). A versão real exige banco de dados, login da equipe e fonte de vendas (comanda ou sistema de caixa).
 
 ## Roadmap
 

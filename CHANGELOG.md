@@ -4,6 +4,9 @@ Formato: [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/) · Versões
 Log de trabalho diário fica em `.sessoes/` — não aqui. Aqui entra só o que importa a quem **consome** o projeto.
 
 ## [2026-09-30] — publicado em https://barcenaria-digital.vercel.app (noindex)
+### Adicionado
+- Painel da casa (`/painel`, demonstração): agenda de reservas por área (Rooftop, Varanda, Salão interno) que recusa duas reservas da mesma área no mesmo horário e sugere áreas livres; aba de resultados com faturamento por dia, média por dia da semana, comandas por horário, pratos e bebidas mais vendidos e divisão cozinha × bar, sobre dados de exemplo gerados do cardápio real e os pedidos da demo da comanda.
+
 ### Alterado
 - Rodapé do site e do cardápio: aviso de protótipo substituído por "Desenvolvido por Gustavo Doganelli" com links para LinkedIn, GitHub e WhatsApp (mensagem pronta indicando a origem). O aviso segue em `casa.json` (`prototipo.ativo: false`) e volta ao ligar a chave.
 
