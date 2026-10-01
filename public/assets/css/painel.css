@@ -63,6 +63,7 @@
 .res__name { font-weight: 600; }
 .res__meta { color: var(--text-muted); font-size: var(--fs-sm); }
 .res__obs { font-size: var(--fs-sm); font-style: italic; }
+.res__origin { justify-self: start; padding: 0 var(--space-2); border: 1px solid var(--gold); border-radius: var(--radius-pill); color: var(--gold-bright); font: 700 var(--fs-xs)/1.6 var(--font-condensed); letter-spacing: 0.06em; text-transform: uppercase; }
 .res__actions { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-2); }
 .tag--pre { border-style: dashed; border-color: var(--gold); color: var(--gold-bright); }
 .tag--confirmada { border-color: var(--veg); color: var(--veg); }

@@ -6,11 +6,13 @@ const KEY = 'barcenaria:reservas:v1';
 const TZ = 'America/Sao_Paulo';
 
 export const AREAS = [
-  { id: 'rooftop', nome: 'Rooftop' },
-  { id: 'varanda', nome: 'Varanda' },
-  { id: 'salao', nome: 'Salão interno' },
+  { id: 'rooftop', nome: 'Rooftop', em: 'no' },
+  { id: 'varanda', nome: 'Varanda', em: 'na' },
+  { id: 'salao', nome: 'Salão interno', em: 'no' },
 ];
-const TIPOS = {
+// "no Rooftop", "na Varanda", "no Salão interno".
+export const naArea = (id) => { const a = AREAS.find((x) => x.id === id); return a ? `${a.em} ${a.nome}` : id; };
+export const TIPOS = {
   aniversario: { nome: 'Aniversário', inteira: true },
   confraternizacao: { nome: 'Confraternização', inteira: true },
   evento: { nome: 'Evento fechado', inteira: true },
@@ -31,7 +33,7 @@ const byStart = (a, b) => minutes(a.inicio) - minutes(b.inicio);
 
 /* ---------- rules ---------- */
 
-function conflicts(list, r) {
+export function conflicts(list, r) {
   return list.filter((o) => o.id !== r.id && o.status !== 'cancelada' && o.data === r.data && o.area === r.area
     && (o.inteira || r.inteira) && overlaps(o, r));
 }
@@ -54,13 +56,13 @@ function seed() {
     r(next(4), 'salao', 'mesa', '20:00', '23:00', 'João Pedro', 4, 'confirmada', 'Mesa perto da sinuca.'),
   ];
 }
-function load() {
+export function load() {
   try { const s = JSON.parse(localStorage.getItem(KEY)); if (Array.isArray(s?.reservas)) return s; } catch {}
   const s = { reservas: seed() };
   save(s);
   return s;
 }
-function save(s) { try { localStorage.setItem(KEY, JSON.stringify(s)); } catch {} }
+export function save(s) { try { localStorage.setItem(KEY, JSON.stringify(s)); } catch {} }
 
 /* ---------- UI ---------- */
 
@@ -138,7 +140,7 @@ function whatsapp(r) {
   let digits = r.telefone.replace(/\D/g, '');
   if (digits.length === 10 || digits.length === 11) digits = `55${digits}`;
   if (digits.length < 12) return null;
-  const msg = `Olá, ${r.nome.split(' ')[0]}! Aqui é da Barcenaria. Sua reserva para ${fmtDay(r.data, { day: 'numeric', month: 'long' })}, das ${r.inicio} às ${r.fim}, no ${areaName(r.area)}, está ${STATUS[r.status].toLowerCase()}.`;
+  const msg = `Olá, ${r.nome.split(' ')[0]}! Aqui é da Barcenaria. Sua reserva para ${fmtDay(r.data, { day: 'numeric', month: 'long' })}, das ${r.inicio} às ${r.fim}, ${naArea(r.area)}, está ${STATUS[r.status].toLowerCase()}.`;
   return h('a', { class: 'btn btn--ghost btn--sm', href: `https://wa.me/${digits}?text=${encodeURIComponent(msg)}`, target: '_blank', rel: 'noopener' }, icon('whatsapp'), 'WhatsApp');
 }
 
@@ -159,6 +161,7 @@ function card(r) {
       h('p', { class: 'res__time', text: `${r.inicio}–${r.fim}` }),
       h('span', { class: `tag tag--${r.status}`, text: STATUS[r.status] })),
     h('p', { class: 'res__name', text: r.nome }),
+    r.origem === 'site' && h('p', { class: 'res__origin', text: 'Pedido pelo site' }),
     h('p', { class: 'res__meta', text: `${TIPOS[r.tipo]?.nome ?? r.tipo}${r.inteira ? ' · área inteira' : ''} · ${r.pessoas} ${r.pessoas === 1 ? 'pessoa' : 'pessoas'}` }),
     r.obs && h('p', { class: 'res__obs', text: r.obs }),
     h('p', { class: 'res__meta', text: `${r.telefone} · registrado por ${r.registradoPor}` }),
@@ -243,7 +246,7 @@ function openForm(opener) {
     if (clash.length) {
       const free = freeAreas(state.reservas, r);
       showError(error,
-        h('p', { class: 'form__error-title' }, icon('alert'), `${areaName(r.area)} já está reservado nesse horário`),
+        h('p', { class: 'form__error-title' }, icon('alert'), `Já existe reserva ${naArea(r.area)} nesse horário`),
         h('ul', {}, clash.map((c) => h('li', { text: `${c.inicio}–${c.fim} · ${c.nome} · ${TIPOS[c.tipo]?.nome ?? c.tipo}${c.inteira ? ' (área inteira)' : ''} · ${STATUS[c.status]}` }))),
         free.length
           ? h('p', {}, 'Livre no mesmo horário: ', free.map((a) => h('button', { class: 'chip', type: 'button', onclick: () => { area.value = a.id; error.hidden = true; }, text: a.nome })))
@@ -256,7 +259,7 @@ function openForm(opener) {
     month = r.data.slice(0, 7);
     closeForm();
     render();
-    toast(`Reserva de ${r.nome} registrada no ${areaName(r.area)}`);
+    toast(`Reserva de ${r.nome} registrada ${naArea(r.area)}`);
   });
 
   sheet().replaceChildren(
@@ -286,6 +289,13 @@ export function initReservas(opts) {
   selected = todayISO();
   month = selected.slice(0, 7);
   sheet().addEventListener('click', (e) => { if (e.target === sheet()) closeForm(); });
+  // Requests made on /reservar in another tab show up here without reloading.
+  window.addEventListener('storage', (e) => {
+    if (e.key !== KEY) return;
+    state = load();
+    render();
+    toast('Agenda atualizada em outra janela');
+  });
   $('#nova-reserva').addEventListener('click', (e) => openForm(e.currentTarget));
   $('#limpar').addEventListener('click', () => {
     if (!window.confirm('Voltar as reservas para os exemplos iniciais?')) return;

@@ -15,6 +15,7 @@
 | Comanda — apresentação | https://barcenaria-digital.vercel.app/comanda |
 | Comanda — garçom / expedição | https://barcenaria-digital.vercel.app/garcom · https://barcenaria-digital.vercel.app/expedicao |
 | Painel da casa — reservas e resultados | https://barcenaria-digital.vercel.app/painel |
+| Pedir reserva (cliente) | https://barcenaria-digital.vercel.app/reservar |
 
 Projeto Vercel: `gusta15/barcenaria-digital`. Publicar: `npx.cmd vercel@latest deploy --prod --scope gusta15` (no PowerShell use `npx.cmd`).
 
@@ -45,6 +46,7 @@ public/ (estático, publicado na Vercel)
    ├─ garcom/, expedicao/       → comanda digital (demonstração, sem servidor)
    ├─ comanda/index.html        → apresentação garçom + expedição lado a lado
    ├─ painel/index.html         → painel da casa: agenda de reservas + resultados (demonstração)
+   ├─ reservar/index.html       → pedido de reserva do cliente, com disponibilidade por área (demonstração)
    ├─ data/*.json               → conteúdo (casa, cardápio, promoções, manifesto de imagens)
    └─ assets/css|js|vendor
 ```

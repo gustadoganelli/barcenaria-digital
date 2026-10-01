@@ -1,0 +1,34 @@
+/* Customer reservation request (DEMO). Builds on comanda.css + painel.css form styles. */
+.ask { display: grid; gap: var(--space-6); max-width: 64rem; margin-inline: auto; padding: var(--space-6) var(--gutter) calc(var(--space-16) + env(safe-area-inset-bottom)); }
+.ask__lead { font-size: var(--fs-lg); }
+.ask__steps { display: grid; gap: var(--space-2); margin: var(--space-4) 0 0; padding-left: var(--space-5); color: var(--text-muted); }
+.ask__steps strong { color: var(--text); }
+.ask__card { padding: var(--space-5); border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--surface); }
+.ask__title { margin-bottom: var(--space-4); font: 600 var(--fs-xl)/1.2 var(--font-display); }
+.ask__form { display: grid; }
+.ask__muted { color: var(--text-muted); font-size: var(--fs-sm); }
+.ask .day__warn[hidden] { display: none; }
+
+.areas { display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: var(--space-2); margin: 0; padding: 0; border: 0; }
+.areas legend { padding: 0; }
+.area-opt {
+  position: relative; display: grid; gap: 2px; padding: var(--space-3) var(--space-4); border: 1px solid var(--line-strong);
+  border-radius: var(--radius); background: var(--bg-soft); cursor: pointer;
+}
+.area-opt input { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
+.area-opt__name { font: 700 var(--fs-md)/1.2 var(--font-condensed); letter-spacing: 0.02em; }
+.area-opt__status { color: var(--text-muted); font-size: var(--fs-sm); }
+.area-opt.is-free .area-opt__status { color: var(--veg); }
+.area-opt.is-busy { opacity: 0.55; cursor: not-allowed; border-style: dashed; }
+.area-opt.is-busy input { cursor: not-allowed; }
+.area-opt:has(input:checked) { border-color: var(--gold); box-shadow: inset 0 0 0 1px var(--gold); background: var(--surface-raised); }
+.area-opt:has(input:focus-visible) { outline: 2px solid var(--gold-bright); outline-offset: 2px; }
+
+.ask__done { display: grid; gap: var(--space-3); justify-items: start; }
+.ask__done-icon { display: grid; place-items: center; width: 3rem; height: 3rem; border-radius: 50%; background: var(--brand-green-strong); color: var(--veg); }
+.ask__done-icon .icon { width: 1.75rem; height: 1.75rem; }
+.ask__actions { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-2); }
+
+@media (min-width: 60rem) {
+  .ask { grid-template-columns: 0.8fr 1.2fr; align-items: start; padding-top: var(--space-10); }
+}

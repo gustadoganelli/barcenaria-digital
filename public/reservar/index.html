@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Pedir reserva · Barcenaria</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="Peça sua reserva na Barcenaria e veja na hora se o Rooftop, a Varanda ou o Salão estão livres.">
+  <meta name="theme-color" content="#0b1207">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@600;700&family=Barlow+Semi+Condensed:wght@500;600;700&family=Cinzel:wght@600;700&display=swap">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/comanda.css">
+  <link rel="stylesheet" href="/assets/css/painel.css">
+  <link rel="stylesheet" href="/assets/css/reservar.css">
+  <script type="module" src="/assets/js/reservar.js"></script>
+</head>
+<body>
+  <svg class="sprite" aria-hidden="true" focusable="false">
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+    <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 3 2.5 20h19Z"/><path d="M12 10v4.5M12 17.5h.01"/></symbol>
+    <symbol id="i-back" viewBox="0 0 24 24"><path d="m15 5-7 7 7 7"/></symbol>
+    <symbol id="i-whatsapp" viewBox="0 0 24 24"><path d="M3.5 20.5 4.8 16A8.5 8.5 0 1 1 8 19.3Z"/><path d="M9.2 8.6c.2-.5.6-.7 1-.5l.9 1.6c.2.3.1.7-.2 1l-.4.4a5 5 0 0 0 2.4 2.4l.4-.4c.3-.3.7-.4 1-.2l1.6.9c.4.2.5.6.3 1-.5 1-1.5 1.4-2.5 1.1a7 7 0 0 1-4.6-4.6c-.2-.9 0-1.9.1-2.7Z"/></symbol>
+  </svg>
+
+  <header class="appbar">
+    <a href="/" aria-label="Voltar para o site da Barcenaria"><img class="appbar__logo" src="/images/brand/logo-placa-160.webp" width="160" height="178" alt=""></a>
+    <div class="appbar__title">
+      <p class="appbar__kicker">Barcenaria · Anália Franco</p>
+      <h1 class="appbar__h1">Pedir reserva</h1>
+    </div>
+    <a class="btn btn--ghost btn--sm" href="/"><svg class="icon" aria-hidden="true"><use href="#i-back"/></svg>Site</a>
+  </header>
+  <p class="demo-strip"><strong>Demo</strong><span>O pedido fica salvo só neste navegador e aparece como pré-reserva no <a href="/painel" target="_blank" rel="noopener">painel da casa</a>. Na versão real, chega para a equipe na hora.</span></p>
+
+  <main class="ask">
+    <div class="ask__intro">
+      <p class="ask__lead">Escolha o dia, o horário e o espaço. Você vê na hora o que está livre, e a equipe confirma pelo WhatsApp.</p>
+      <ol class="ask__steps">
+        <li><strong>Você pede</strong> aqui, em um minuto.</li>
+        <li><strong>A casa confirma</strong> pelo WhatsApp, com as condições do espaço.</li>
+        <li><strong>Pronto:</strong> o espaço fica reservado para você.</li>
+      </ol>
+    </div>
+    <div class="ask__card" id="area-pedido" aria-live="polite"></div>
+  </main>
+
+  <p class="toast" id="toast" role="status" aria-live="polite"></p>
+</body>
+</html>
