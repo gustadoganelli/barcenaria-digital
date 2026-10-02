@@ -330,8 +330,6 @@ mark { background: color-mix(in srgb, var(--gold) 38%, transparent); color: inhe
 .sheet__tags:empty { display: none; }
 .sheet__desc { margin-top: var(--space-4); max-width: var(--measure); line-height: 1.6; }
 .sheet__days { margin-top: var(--space-3); color: var(--text-muted); font-size: var(--fs-sm); }
-.sheet__cta { margin-top: var(--space-6); display: grid; gap: var(--space-2); }
-.sheet__feedback { min-height: 1.5em; color: var(--gold-bright); font-size: var(--fs-sm); }
 
 @keyframes sheet-in { from { transform: translateY(100%); } }
 @keyframes sheet-out { to { transform: translateY(100%); } }

@@ -143,22 +143,6 @@ function copyText(text) {
   return Promise.resolve(copyWithExecCommand(text));
 }
 
-// WhatsApp rule (spec §2): wa.me with text when a number exists; otherwise copy + open the business link.
-function whatsapp(message, feedback) {
-  const { whatsapp_numero: numero, whatsapp_link: link } = state.casa?.contato ?? {};
-  if (numero) {
-    window.open(`https://wa.me/${String(numero).replace(/\D/g, '')}?text=${encodeURIComponent(message)}`, '_blank', 'noopener');
-    return;
-  }
-  if (!link) return;
-  const copying = copyText(message);
-  window.open(link, '_blank', 'noopener');
-  copying.then((ok) => {
-    const text = ok ? 'Mensagem copiada — é só colar na conversa.' : `Abrimos o WhatsApp da casa. Mensagem: “${message}”`;
-    if (feedback) feedback.textContent = text; else toast(text);
-  });
-}
-
 /* ---------- theme, share, mesa ---------- */
 
 function initTheme() {
@@ -802,8 +786,6 @@ function openSheet(it, opener) {
       : (it.offDay ? `hoje é ${dayName(state.now.dow).toLowerCase()}` : 'hoje tem!');
     days.textContent = `${when} — ${status}.`;
   }
-  $('#sheet-aviso').textContent = '';
-  $('#sheet-whatsapp').hidden = !state.casa?.contato;
   sheet.classList.remove('is-closing', 'is-settling');
   sheet.style.transform = '';
   document.documentElement.classList.add('is-locked');
@@ -839,15 +821,6 @@ function initSheet() {
   sheet.addEventListener('click', (e) => {
     if (e.target === sheet || e.target.closest('[data-close]')) closeSheet();
   });
-  $('#sheet-whatsapp').addEventListener('click', () => {
-    const it = state.current;
-    if (!it) return;
-    const msg = state.mesa
-      ? `Olá, Barcenaria! Estou na mesa ${state.mesa} e gostaria de chamar o garçom. Tenho interesse em: ${it.nome}.`
-      : `Olá, Barcenaria! Vi no cardápio digital e gostaria de saber mais sobre: ${it.nome}.`;
-    whatsapp(msg, $('#sheet-aviso'));
-  });
-
   // Drag-to-close from the grip or the photo (touch only; desktop shows a centered dialog).
   let startY = null;
   let dy = 0;

@@ -3,6 +3,10 @@
 Formato: [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/) · Versões por **data** (`AAAA-MM-DD`), não SemVer.
 Log de trabalho diário fica em `.sessoes/` — não aqui. Aqui entra só o que importa a quem **consome** o projeto.
 
+## [2026-10-02] — publicado em https://barcenaria-digital.vercel.app (noindex)
+### Removido
+- Botão "Chamar garçom? Fale no WhatsApp" da ficha do item no cardápio: o cliente não chama o garçom pelo WhatsApp.
+
 ## [2026-09-30] — publicado em https://barcenaria-digital.vercel.app (noindex)
 ### Adicionado
 - Painel da casa (`/painel`, demonstração): agenda de reservas por área (Rooftop, Varanda, Salão interno) que recusa duas reservas da mesma área no mesmo horário e sugere áreas livres; aba de resultados com faturamento por dia, média por dia da semana, comandas por horário, pratos e bebidas mais vendidos e divisão cozinha × bar, sobre dados de exemplo gerados do cardápio real e os pedidos da demo da comanda.
