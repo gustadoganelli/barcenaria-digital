@@ -409,6 +409,20 @@ function initMenu() {
 
 /* ---------- reveal + parallax + marquee ---------- */
 
+// Hero title enters word by word; the heading keeps its full text as the accessible name.
+function splitHeroTitle() {
+  const title = $('#hero-titulo');
+  if (!title || reduced.matches) return;
+  const text = title.textContent.trim();
+  const words = text.split(/\s+/).map((w, i) => {
+    const span = h('span', { class: 'hero__word', 'aria-hidden': 'true', text: w });
+    span.style.setProperty('--i', i);
+    return span;
+  });
+  title.setAttribute('aria-label', text);
+  title.replaceChildren(...words.flatMap((span, i) => (i ? [' ', span] : [span])));
+}
+
 let revealIO;
 function observeReveal(els) {
   if (reduced.matches || !('IntersectionObserver' in window)) { els.forEach((el) => el.classList.add('is-in')); return; }
@@ -636,6 +650,7 @@ function initBooking() {
 async function init() {
   state.now = saoPauloNow();
   $('#ano').textContent = String(new Date().getFullYear());
+  splitHeroTitle();
   initChrome();
   initMenu();
   initLightbox();

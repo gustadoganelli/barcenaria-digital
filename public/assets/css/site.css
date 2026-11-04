@@ -76,11 +76,12 @@ address { font-style: normal; }
   border: 1px solid var(--gold); border-radius: var(--radius);
   background: var(--gold); color: var(--on-gold);
   font: 600 var(--fs-md)/1.2 var(--font-condensed); letter-spacing: 0.04em; text-decoration: none; white-space: nowrap;
-  transition: background-color var(--dur-fast), border-color var(--dur-fast), color var(--dur-fast), transform var(--dur-fast);
+  transition: background-color var(--dur-fast), border-color var(--dur-fast), color var(--dur-fast), transform var(--dur) var(--ease-back);
 }
-.btn:hover { background: var(--gold-bright); border-color: var(--gold-bright); }
-.btn:active { transform: translateY(1px); }
-.btn .icon { width: 1.25rem; height: 1.25rem; }
+.btn:hover { background: var(--gold-bright); border-color: var(--gold-bright); transform: translateY(-2px); }
+.btn:active { transform: translateY(1px) scale(1.03, 0.94); transition-duration: var(--dur-fast); } /* squash on press */
+.btn .icon { width: 1.25rem; height: 1.25rem; transition: transform var(--dur) var(--ease-back) 40ms; } /* trails the button: follow-through */
+.btn:hover .icon { transform: translateY(-1px); }
 .btn--lg { min-height: calc(var(--tap) + var(--space-2)); padding-inline: var(--space-6); font-size: var(--fs-lg); }
 .btn--sm { min-height: var(--tap); padding-inline: var(--space-4); font-size: var(--fs-sm); }
 .btn--ghost { background: transparent; color: var(--text); border-color: var(--line-strong); }
@@ -103,7 +104,7 @@ address { font-style: normal; }
   color: var(--gold-bright); font: 600 var(--fs-md)/1.2 var(--font-condensed); letter-spacing: 0.04em; text-decoration: none;
   border-bottom: 1px solid var(--line-strong); padding-block: var(--space-2);
 }
-.link-arrow .icon { width: 1.25rem; height: 1.25rem; transition: transform var(--dur) var(--ease-out); }
+.link-arrow .icon { width: 1.25rem; height: 1.25rem; transition: transform var(--dur-slow) var(--ease-anticipate); }
 .link-arrow:hover .icon { transform: translateX(4px); }
 
 /* ---------- Tape measure progress ---------- */
@@ -178,7 +179,7 @@ address { font-style: normal; }
 .hero { position: relative; min-height: 100svh; display: grid; align-items: end; isolation: isolate; overflow: hidden; }
 .hero__media { position: absolute; inset: 0; z-index: -1; }
 .hero__frame { position: absolute; inset: 0; }
-.hero__video { width: 100%; height: 100%; object-fit: cover; }
+.hero__video { width: 100%; height: 100%; object-fit: cover; animation: breathe 14s var(--ease-in-out) infinite alternate; } /* idle drift */
 .hero__media::after {
   content: ""; position: absolute; inset: 0; pointer-events: none;
   background: linear-gradient(to top, var(--bg) 8%, color-mix(in srgb, var(--bg) 70%, transparent) 42%, color-mix(in srgb, var(--bg) 20%, transparent) 70%, color-mix(in srgb, var(--bg) 55%, transparent));
@@ -188,6 +189,7 @@ address { font-style: normal; }
 .marquee__toggle[data-paused="false"] .icon--play, .marquee__toggle[data-paused="true"] .icon--pause { display: none; }
 .hero__copy { display: grid; gap: var(--space-4); padding-block: calc(var(--space-16) * 2) var(--space-16); }
 .hero__title { font: 600 var(--fs-hero)/1 var(--font-display); letter-spacing: 0.005em; text-wrap: balance; max-width: 14ch; }
+.hero__word { display: inline-block; animation: word-in var(--dur-slow) var(--ease-out) both; animation-delay: calc(var(--i, 0) * var(--stagger-word)); }
 .hero__script { font-size: clamp(1.5rem, 5vw, 2.25rem); }
 .hero__lead { max-width: 46ch; color: var(--text-muted); font-size: var(--fs-lg); }
 .status {
@@ -246,7 +248,7 @@ address { font-style: normal; }
   background:
     repeating-linear-gradient(100deg, transparent 0 22px, color-mix(in srgb, var(--gold) 5%, transparent) 22px 23px),
     var(--surface);
-  overflow: hidden; transition: border-color var(--dur), transform var(--dur) var(--ease-out), background-color var(--dur);
+  overflow: hidden; transition: border-color var(--dur), transform var(--dur-slow) var(--ease-anticipate), background-color var(--dur);
 }
 .gloss__card::after {
   /* ruler ticks along the bottom edge */
@@ -557,7 +559,7 @@ address { font-style: normal; }
 .toast.is-visible { opacity: 1; transform: translate(-50%, 0); }
 
 /* ---------- Reveal ---------- */
-.js .reveal { opacity: 0; transform: translateY(24px); transition: opacity var(--dur-slow) var(--ease-out), transform var(--dur-slow) var(--ease-out); transition-delay: var(--delay, 0ms); }
+.js .reveal { opacity: 0; transform: translateY(24px); transition: opacity var(--dur-slow) var(--ease-out), transform var(--dur-slow) var(--ease-back); transition-delay: var(--delay, 0ms); }
 .js .reveal.is-in { opacity: 1; transform: none; }
 
 /* ---------- Keyframes ---------- */
@@ -565,6 +567,8 @@ address { font-style: normal; }
 @keyframes nudge { 50% { transform: translateY(4px); } }
 @keyframes fade-in { from { opacity: 0; } }
 @keyframes panel-in { from { opacity: 0; transform: translateY(8px); } }
+@keyframes word-in { from { opacity: 0; transform: translateY(0.25em) scale(0.96); } 60% { opacity: 1; transform: scale(1.08); } to { opacity: 1; transform: none; } }
+@keyframes breathe { to { transform: scale(1.04); } }
 
 /* ---------- Breakpoints ---------- */
 @media (min-width: 40rem) {
@@ -664,7 +668,7 @@ address { font-style: normal; }
 
 
 @media (hover: none) {
-  .gloss__card:hover { transform: none; }
+  .gloss__card:hover, .btn:hover:not(:active), .btn:hover .icon { transform: none; }
   .shot:hover img, .dish:hover .dish__img, .insta__grid a:hover img { transform: none; }
 }
 
@@ -674,7 +678,7 @@ address { font-style: normal; }
     animation-duration: 1ms !important; animation-iteration-count: 1 !important;
     transition-duration: 1ms !important;
   }
-  .marquee__track { animation: none; }
+  .marquee__track, .hero__word, .hero__video { animation: none; }
   .js .reveal { opacity: 1; transform: none; }
 }
 

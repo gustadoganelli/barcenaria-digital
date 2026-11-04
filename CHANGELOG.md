@@ -3,6 +3,19 @@
 Formato: [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/) · Versões por **data** (`AAAA-MM-DD`), não SemVer.
 Log de trabalho diário fica em `.sessoes/` — não aqui. Aqui entra só o que importa a quem **consome** o projeto.
 
+## [2026-11-04] — publicado em https://barcenaria-digital.vercel.app (noindex)
+### Alterado
+- Movimento do site com antecipação e overshoot:
+  - O título do início entra palavra por palavra, a cada 80 ms, crescendo até 1.08 antes de assentar.
+  - Botões sobem com overshoot no hover e achatam ao toque (squash); o ícone vem logo atrás (follow-through).
+  - Cards do glossário e setas de link recuam antes de andar.
+  - As seções entram com um leve passo além do ponto final.
+  - O vídeo de abertura tem um zoom lento e contínuo no repouso.
+- Novos tokens em `tokens.css`: `--ease-back`, `--ease-anticipate` e `--stagger-word`.
+- Letreiro e barra de progresso seguem lineares de propósito, porque marcam velocidade e tempo.
+- Cardápio, comanda e painel não mudaram.
+- Com "reduzir movimento" ligado no aparelho, título e vídeo ficam parados.
+
 ## [2026-10-02] — publicado em https://barcenaria-digital.vercel.app (noindex)
 ### Removido
 - Botão "Chamar garçom? Fale no WhatsApp" da ficha do item no cardápio: o cliente não chama o garçom pelo WhatsApp.
