@@ -1,0 +1,122 @@
+/* Barcenaria — the saw scenes (docs/cena-serrote.md), built on real footage.
+   Scene 1 "o corte": the first screen is a film of a handsaw cutting a strip of wood; the scroll advances it frame
+   by frame. When the block falls, a line of light runs across the screen and the picture splits in two, revealing
+   the hero. Scene 2 "a bancada": a pinned stage where a second film (a back saw on the bench) advances with the
+   scroll while the pieces with the names of the dishes land one by one.
+   Everything here only exists under html.corte-on (set by corte-boot.js): without JS or with reduced motion the
+   opening is not rendered and the bench is a plain, visible list. Scroll-linked values are written by corte.js as
+   transforms and opacity. */
+
+/* ---------- scene 1: the film over the first screen ---------- */
+.corte, .corte-espaco { display: none; }
+.corte-on .corte-espaco { display: block; height: 260svh; } /* the scroll the film needs before the hero arrives */
+.corte-on .corte {
+  /* vh on purpose (the large viewport): the stage, the split line and both canvases keep one size while the
+     mobile browser bars come and go, so the two halves always show one picture */
+  --y: 54vh; /* where the picture splits */
+  display: block; position: fixed; inset: 0 0 auto; height: 100vh; z-index: 70; overflow: hidden; cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.corte.is-done { visibility: hidden; pointer-events: none; }
+/* links to the top of the page (logo, skip link) land exactly where the opening ends, not 4rem short of it */
+.corte-on #inicio, .corte-on #conteudo { scroll-margin-top: calc(var(--space-16) * -1); }
+.corte.is-open { pointer-events: none; } /* halves parted: clicks reach the page behind */
+/* the hero title waits for the halves to part before its word-by-word entrance (corte.js sets .corte-aberto) */
+.corte-on:not(.corte-aberto) .hero__word { animation-play-state: paused; }
+.corte__metade { position: absolute; left: 0; right: 0; overflow: hidden; background: #14100c; will-change: transform; }
+.corte__cima { top: 0; height: var(--y); }
+.corte__baixo { top: var(--y); bottom: 0; }
+/* both halves hold a canvas the size of the whole screen, so together they show one picture */
+.corte__tela { position: absolute; left: 0; width: 100%; height: 100vh; }
+.corte__cima .corte__tela { top: 0; }
+.corte__baixo .corte__tela { bottom: 0; }
+.corte__metade::after { content: ""; position: absolute; inset: 0; pointer-events: none; }
+.corte__cima::after { background: linear-gradient(to bottom, rgba(8, 6, 4, 0.78), rgba(8, 6, 4, 0.25) 62%, transparent); }
+.corte__baixo::after { background: linear-gradient(to top, rgba(8, 6, 4, 0.82), transparent 46%); }
+.corte__marca { position: absolute; inset: 0 0 auto; z-index: 1; display: grid; justify-items: center; gap: var(--space-2); padding: calc(var(--space-8) + env(safe-area-inset-top)) var(--gutter) 0; }
+.corte__placa { width: min(34vw, 9.5rem); height: auto; filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.65)); }
+.corte__lema { margin: 0; color: var(--gold-bright); font: 400 clamp(1.4rem, 5.6vw, 2rem)/1 var(--font-script); text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8); }
+.corte__rodape { position: absolute; inset: auto 0 0; z-index: 1; display: grid; justify-items: center; gap: var(--space-2); padding: 0 var(--gutter) calc(100vh - 100svh + var(--space-10) + env(safe-area-inset-bottom)); will-change: opacity; } /* stays above the browser bar */
+.corte__dica {
+  display: inline-flex; align-items: center; gap: var(--space-2); margin: 0;
+  color: var(--gold-bright); font: 600 var(--fs-sm)/1 var(--font-condensed); letter-spacing: var(--tracking-caps); text-transform: uppercase; text-shadow: 0 1px 6px rgba(0, 0, 0, 0.9);
+}
+.corte__dica .icon { width: 1.2em; height: 1.2em; animation: corte-dica 1.8s var(--ease-in-out) infinite; }
+@keyframes corte-dica { 0%, 100% { transform: translateY(-3px); } 50% { transform: translateY(4px); } } /* first frame = last frame */
+.corte__sub { margin: 0; color: var(--text-muted); font-size: var(--fs-xs); text-shadow: 0 1px 6px rgba(0, 0, 0, 0.9); }
+.corte__fenda { /* the light of the room behind, coming through the cut */
+  position: absolute; left: 0; right: 0; top: var(--y); height: 3px; margin-top: -1.5px; z-index: 2; background: #ffe6b0;
+  box-shadow: 0 0 18px 4px rgba(255, 200, 120, 0.6), 0 0 60px 10px rgba(255, 180, 90, 0.25);
+  transform: scaleX(0); transform-origin: left center; opacity: 0; will-change: transform, opacity;
+}
+
+/* ---------- scene 2: the bench ---------- */
+.bancada { position: relative; background: linear-gradient(to bottom, var(--bg-soft), var(--bg)); }
+.bancada__pin { display: grid; gap: var(--space-6); align-content: center; padding-block: var(--space-16); }
+.bancada__head { display: grid; gap: var(--space-2); }
+.bancada__lead { max-width: var(--measure); margin: 0; color: var(--text-muted); }
+.bancada__serra { display: none; }
+.pecas { display: grid; gap: var(--space-3); margin: 0; padding: 0; list-style: none; }
+.peca {
+  position: relative; display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: var(--space-4); align-items: center;
+  min-height: 3.6rem; padding: var(--space-2) var(--space-5); border-radius: 5px; overflow: hidden;
+  background-color: #d3a970; background-image: linear-gradient(rgba(226, 190, 136, 0.62), rgba(214, 174, 116, 0.62)), url("/images/brand/madeira-clara.webp"); background-size: cover;
+  color: #24140a; box-shadow: inset 0 2px 0 rgba(255, 240, 210, 0.45), inset 0 -3px 0 rgba(60, 32, 10, 0.4), 0 10px 18px rgba(0, 0, 0, 0.45);
+}
+.peca::before, .peca::after { content: ""; position: absolute; top: 0; bottom: 0; width: 7px; background: repeating-linear-gradient(to bottom, rgba(60, 32, 10, 0.55) 0 2px, rgba(120, 78, 38, 0.5) 2px 5px); } /* end grain of a sawn block */
+.peca::before { left: 0; }
+.peca::after { right: 0; }
+.peca__num { grid-row: span 2; font: 700 var(--fs-xs)/1 var(--font-condensed); letter-spacing: var(--tracking-caps); text-transform: uppercase; color: #4a2c10; }
+.peca__nome { font: 700 clamp(1.25rem, 5.4vw, 1.7rem)/1.05 var(--font-display); letter-spacing: 0.04em; text-transform: uppercase; color: #24120a; }
+.peca__prato { font: 600 var(--fs-md)/1.2 var(--font-condensed); color: #33200e; }
+.bancada__fim { margin: 0; }
+
+.corte-on .bancada { height: 430svh; }
+/* the pinned stage: title, the film taking whatever height is left, the pile of pieces, the link — always between
+   the fixed header and the dock, so the fifth piece never hides behind the bar on a real phone viewport */
+.corte-on .bancada__pin {
+  position: sticky; top: 0; height: 100svh; overflow: hidden;
+  grid-template-rows: auto minmax(4.5rem, 15rem) auto auto; gap: var(--space-3);
+  padding-block: calc(var(--header-h) + var(--space-3)) calc(var(--dock-h) + env(safe-area-inset-bottom) + var(--space-3));
+}
+.corte-on .bancada__head .section__title { font-size: clamp(1.3rem, 6vw, 1.75rem); }
+.corte-on .bancada__serra { display: block; position: relative; overflow: hidden; border-radius: var(--radius); box-shadow: 0 0 0 1px var(--line-strong), var(--shadow-md); background: #14100c; }
+.corte-on .bancada__serra::after { content: ""; position: absolute; inset: 0; pointer-events: none; box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.55); }
+.bancada__tela { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.corte-on .peca { will-change: transform, opacity; }
+
+@media (max-width: 63.99rem) {
+  .corte-on .pecas { gap: var(--space-2); }
+  .corte-on .peca { min-height: 3rem; padding-block: var(--space-1); }
+  .corte-on .bancada__head .section__title::after { margin-top: var(--space-2); }
+}
+@media (max-width: 63.99rem) and (max-height: 46rem) { /* phones with the browser bars showing: the cards say it all */
+  .corte-on .bancada__lead { display: none; }
+}
+@media (max-width: 63.99rem) and (max-height: 40rem) { /* short phones: tighter stack; the dock already takes to the menu */
+  .corte-on .bancada__pin { grid-template-rows: auto minmax(4rem, 15rem) auto; padding-block: calc(var(--header-h) + var(--space-1)) calc(var(--dock-h) + env(safe-area-inset-bottom) + var(--space-2)); }
+  .corte-on .bancada__fim { display: none; }
+  .corte-on .pecas { gap: var(--space-1); }
+  .corte-on .peca { min-height: 2.75rem; }
+  .corte-on .peca__prato { font-size: var(--fs-sm); }
+}
+@media (min-width: 64rem) {
+  .corte-on .corte { --y: 56vh; }
+  .corte__placa { width: 9.5rem; }
+  .bancada__pin { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: var(--space-16); align-items: center; }
+  .bancada__head, .bancada__serra, .bancada__fim { grid-column: 1; }
+  .pecas { grid-column: 2; grid-row: 1 / span 3; gap: var(--space-4); }
+  .peca { min-height: 4.6rem; padding-inline: var(--space-8); }
+  .peca__nome { font-size: 1.9rem; }
+  .peca__prato { font-size: var(--fs-lg, 1.125rem); }
+  .corte-on .bancada__pin { grid-template-rows: auto minmax(12rem, 22rem) auto; gap: var(--space-6); padding-block: calc(var(--header-h) + var(--space-6)) var(--space-8); }
+  .corte-on .bancada__head .section__title { font-size: var(--fs-3xl); }
+  .corte-on .bancada__serra { align-self: stretch; }
+}
+
+@media (max-height: 34.5rem) { /* too short to pin (landscape phones, 200% zoom): the bench is a plain section; same query in corte.js */
+  .corte-on .bancada { height: auto; }
+  .corte-on .bancada__pin { position: static; height: auto; overflow: visible; grid-template-rows: none; padding-block: var(--space-16); }
+  .corte-on .bancada__serra { height: 9rem; }
+  .corte-on .bancada__lead, .corte-on .bancada__fim { display: block; }
+}

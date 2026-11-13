@@ -3,6 +3,17 @@
 Formato: [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/) · Versões por **data** (`AAAA-MM-DD`), não SemVer.
 Log de trabalho diário fica em `.sessoes/` — não aqui. Aqui entra só o que importa a quem **consome** o projeto.
 
+## [2026-11-13] — publicado em https://barcenaria-digital.vercel.app (noindex)
+### Adicionado
+- Abertura "o corte" na página inicial: a primeira tela é um filme de um serrote cortando uma ripa de madeira, com a placa da casa e o lema "aqui, a cozinha é oficina". A rolagem avança o filme quadro a quadro; quando o toco cai, uma linha de luz corre pela tela, a imagem se parte em duas e revela o início do site. Parado 3,5 s no topo, o filme roda sozinho; tocar na tela também roda; rolar para cima volta o filme.
+- Seção "Cada corte, um prato." entre o letreiro e o glossário: palco preso na tela em que um segundo filme (serrote na bancada) avança com a rolagem e cinco peças de madeira pousam, uma a uma, com o nome do item e o prato que chega à mesa (Viga, Sarrafo, Serragem, Fita Métrica, Guarda-Roupa). Sem preço; link para o cardápio completo.
+- Filmagem real (banco de imagens Pexels, uso comercial sem atribuição; registro em `referencias/fontes-serra.md`), convertida em sequência de quadros por `scripts/build-serra.mjs`. Especificação em `docs/cena-serrote.md`.
+
+### Alterado
+- O título do início agora faz a entrada palavra por palavra quando a abertura se parte, não mais no carregamento.
+- Cabeçalho, barra inferior e botão "voltar ao topo" contam a rolagem a partir do início do site, depois da abertura; "voltar ao topo" e o logo levam ao início do site, não ao filme.
+- Com "reduzir movimento" ligado ou sem JavaScript, a abertura não aparece e a seção das peças é uma lista simples. Em tela muito baixa (celular deitado, zoom alto) a seção das peças também fica simples, sem palco preso.
+
 ## [2026-11-04] — publicado em https://barcenaria-digital.vercel.app (noindex)
 ### Alterado
 - Movimento do site com antecipação e overshoot:

@@ -8,6 +8,8 @@ node_modules/
 # material bruto pesado (vídeos originais do Instagram) fica fora do git
 referencias/instagram/*.mp4
 referencias/instagram/frames/
+# filmagens de banco de imagens da cena do serrote (origem e licença em referencias/fontes-serra.md)
+referencias/serra/*.mp4
 referencias/.build-assets.log
 
 .vercel

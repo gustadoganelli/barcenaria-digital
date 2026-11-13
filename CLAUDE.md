@@ -33,11 +33,17 @@ Nenhuma na fase 1. Ver `.env.example`.
 - Imagem nova: entra em `IMAGES` do `build-assets.mjs`, rodar `npm run assets` (gera WebP +
   `data/imagens.json`). Nunca referenciar URL do Instagram (expira).
 - Especificação completa: `docs/design-spec.md`.
+- Cena do serrote (abertura e bancada da página inicial): especificação em `docs/cena-serrote.md`. Vive em
+  `corte-boot.js`, `corte.js` e `corte.css`, só sob `html.corte-on`. Quadros em `public/video/serra/`, gerados por
+  `node scripts/build-serra.mjs` a partir de `referencias/serra/*.mp4`. Filmagem real, nunca serrote desenhado.
 - Verificação: `npm run dev` e checar 375×812 e 1440×900, console sem erros.
+- Pedidos e estado de cada um: `PEDIDOS.md`, atualizado a cada rodada.
 
 ## Armadilhas conhecidas
 - Destaques do Instagram exigem login: cardápio completo vem de prints em `referencias/cardapio/`.
-- Vídeos brutos (`referencias/instagram/*.mp4`) ficam fora do git (pesados).
+- Vídeos brutos (`referencias/instagram/*.mp4`, `referencias/serra/*.mp4`) ficam fora do git (pesados).
+- Cena do serrote: a abertura usa `vh` em tudo e a bancada usa `svh` com o espaço do cabeçalho e da barra
+  inferior reservado. Conferir em 390×664 (janela real do celular com as barras do navegador), não só em 390×844.
 
 ## Fora de escopo
 Pedido online, pagamento, reserva com backend, painel de edição (fase 2), domínio próprio.

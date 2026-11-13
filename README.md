@@ -38,7 +38,8 @@ oficial [@barcenariaoficial](https://www.instagram.com/barcenariaoficial/).
 
 ```
 referencias/ (fotos, reels e prints do Instagram)
-   └─ scripts/build-assets.mjs  → public/images/*.webp, public/video/*.mp4, public/data/imagens.json
+   ├─ scripts/build-assets.mjs  → public/images/*.webp, public/video/*.mp4, public/data/imagens.json
+   └─ scripts/build-serra.mjs   → public/video/serra/*.webp + serra.json (quadros da cena do serrote)
 public/ (estático, publicado na Vercel)
    ├─ index.html                → site
    ├─ cardapio/index.html       → cardápio digital
@@ -83,8 +84,11 @@ Nenhuma nesta fase (ver `.env.example`).
 | `referencias/instagram/` | material bruto + `manifest.json` com legendas e datas |
 | `referencias/cardapio/`, `referencias/site/` | prints enviados manualmente |
 | `referencias/brand/logo-placa.png` | logo isolado com fundo transparente |
-| `scripts/` | servidor local, geração de assets, isolamento do logo |
+| `referencias/serra/`, `referencias/fontes-serra.md` | filmagens da cena do serrote (fora do git) e registro de origem e licença |
+| `scripts/` | servidor local, geração de assets, isolamento do logo, quadros da cena do serrote (`build-serra.mjs`) e textura das peças (`build-madeira.mjs`) |
 | `docs/design-spec.md` | especificação de design e construção |
+| `docs/cena-serrote.md` | especificação da abertura com o serrote e da bancada (cenas guiadas pela rolagem) |
+| `PEDIDOS.md` | registro corrido dos pedidos e do estado de cada um |
 
 ## Limitações conhecidas
 

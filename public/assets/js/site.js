@@ -336,13 +336,15 @@ function initChrome() {
   const dock = $('.dock');
   const toTop = $('#to-top');
   const hero = $('#inicio');
-  let lastY = scrollY;
+  const lead = $('.corte-espaco'); // the saw opening (corte.js) scrolls before the page proper; 0 when it is off
+  const pageY = () => Math.max(0, scrollY - (lead ? lead.offsetHeight : 0));
+  let lastY = pageY();
   let ticking = false;
   const update = () => {
     ticking = false;
-    const y = scrollY;
+    const y = pageY();
     const max = document.documentElement.scrollHeight - innerHeight;
-    const p = max > 0 ? Math.min(1, y / max) : 0;
+    const p = max > 0 ? Math.min(1, scrollY / max) : 0;
     document.documentElement.style.setProperty('--progress', p.toFixed(4));
     header.classList.toggle('is-scrolled', y > 40);
     const goingDown = y > lastY + 4;
@@ -352,7 +354,7 @@ function initChrome() {
       if (goingUp) header.classList.remove('is-hidden');
     } else header.classList.remove('is-hidden');
     const pastHero = y > hero.offsetHeight * 0.7;
-    const nearEnd = y > max - 120;
+    const nearEnd = scrollY > max - 120;
     const showDock = pastHero && !nearEnd;
     dock.classList.toggle('is-visible', showDock);
     dock.inert = !showDock;
@@ -362,7 +364,7 @@ function initChrome() {
   addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
   addEventListener('resize', update);
   update();
-  toTop.addEventListener('click', () => { scrollTo({ top: 0, behavior: reduced.matches ? 'auto' : 'smooth' }); $('.brand').focus({ preventScroll: true }); });
+  toTop.addEventListener('click', () => { scrollTo({ top: lead ? lead.offsetHeight : 0, behavior: reduced.matches ? 'auto' : 'smooth' }); $('.brand').focus({ preventScroll: true }); });
 
   const links = $$('.nav__link');
   const sections = [hero, ...links.map((a) => $(a.getAttribute('href'))).filter(Boolean)];
