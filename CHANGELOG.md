@@ -9,6 +9,12 @@ Log de trabalho diário fica em `.sessoes/` — não aqui. Aqui entra só o que 
 - Seção "Cada corte, um prato." entre o letreiro e o glossário: palco preso na tela em que um segundo filme (serrote na bancada) avança com a rolagem e cinco peças de madeira pousam, uma a uma, com o nome do item e o prato que chega à mesa (Viga, Sarrafo, Serragem, Fita Métrica, Guarda-Roupa). Sem preço; link para o cardápio completo.
 - Filmagem real (banco de imagens Pexels, uso comercial sem atribuição; registro em `referencias/fontes-serra.md`), convertida em sequência de quadros por `scripts/build-serra.mjs`. Especificação em `docs/cena-serrote.md`.
 
+- Segunda rodada no mesmo dia, depois do retorno "mais animado e menos travado": por cima do filme entram a placa caindo e balançando, serragem voando do corte conforme a rolagem, as palavras da casa carimbadas a cada serrada ("Boa comida", "Boa música", "Boas histórias") e um estouro de serragem quando a imagem se parte; na bancada, as peças caem com peso, achatam ao bater, levantam poeira e recebem o número carimbado. Filme com o dobro de quadros e tratamento de cor mais quente e claro.
+
+### Corrigido
+- Travamento ao rolar (também fora das cenas): o site recalculava o estilo da página inteira a cada rolagem por causa da barra de progresso; agora só os dois elementos que a usam são atualizados.
+- Engasgos da abertura: os quadros do filme passam a ser decodificados antes de serem usados; o início do site fica pronto por trás do filme desde o carregamento; as seções seguintes só são pintadas quando a abertura termina. A imagem segue a rolagem com uma pequena inércia, sem passos. Medição em `docs/cena-serrote.md` (seção "Fluidez").
+
 ### Alterado
 - O título do início agora faz a entrada palavra por palavra quando a abertura se parte, não mais no carregamento.
 - Cabeçalho, barra inferior e botão "voltar ao topo" contam a rolagem a partir do início do site, depois da abertura; "voltar ao topo" e o logo levam ao início do site, não ao filme.

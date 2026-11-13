@@ -338,6 +338,7 @@ function initChrome() {
   const hero = $('#inicio');
   const lead = $('.corte-espaco'); // the saw opening (corte.js) scrolls before the page proper; 0 when it is off
   const pageY = () => Math.max(0, scrollY - (lead ? lead.offsetHeight : 0));
+  const meters = [$('.tape__fill'), $('.to-top__progress')].filter(Boolean); // scroll progress: the tape and the ring
   let lastY = pageY();
   let ticking = false;
   const update = () => {
@@ -345,7 +346,8 @@ function initChrome() {
     const y = pageY();
     const max = document.documentElement.scrollHeight - innerHeight;
     const p = max > 0 ? Math.min(1, scrollY / max) : 0;
-    document.documentElement.style.setProperty('--progress', p.toFixed(4));
+    // set on the two elements that use it: on <html> it would restyle the whole page at every scroll frame
+    for (const el of meters) el.style.setProperty('--progress', p.toFixed(4));
     header.classList.toggle('is-scrolled', y > 40);
     const goingDown = y > lastY + 4;
     const goingUp = y < lastY - 4;
@@ -521,12 +523,21 @@ function initVideos() {
   if (eventos) wire(eventos, $('#eventos-play'));
 
   const auto = allowAutoplay();
+  const inView = new Set();
+  const start = (v) => { if (auto && v.dataset.user !== 'pause') { v.preload = 'auto'; v.play().catch(() => {}); } };
+  // behind the saw opening (corte.js) the hero video waits until the film's frames have arrived
+  const held = (v) => v === hero && document.documentElement.classList.contains('corte-on') && !window.__corteVideo;
+  addEventListener('corte:video', () => { if (inView.has(hero)) start(hero); });
   const io = new IntersectionObserver((entries) => {
     for (const e of entries) {
       const v = e.target;
       if (e.isIntersecting) {
-        if (auto && v.dataset.user !== 'pause') { v.preload = 'auto'; v.play().catch(() => {}); }
-      } else if (!v.paused) v.pause();
+        inView.add(v);
+        if (!held(v)) start(v);
+      } else {
+        inView.delete(v);
+        if (!v.paused) v.pause();
+      }
     }
   }, { threshold: 0.25 });
   io.observe(hero);

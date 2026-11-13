@@ -26,8 +26,8 @@
   <link rel="stylesheet" href="/assets/css/tokens.css">
   <link rel="stylesheet" href="/assets/css/site.css">
   <link rel="stylesheet" href="/assets/css/corte.css">
-  <link rel="preload" as="image" href="/video/serra/p-000.webp" media="(max-aspect-ratio: 1/1) and (prefers-reduced-motion: no-preference)">
-  <link rel="preload" as="image" href="/video/serra/l-000.webp" media="(min-aspect-ratio: 1/1) and (prefers-reduced-motion: no-preference)">
+  <link rel="preload" as="fetch" crossorigin href="/video/serra/p-000.webp" media="(max-aspect-ratio: 1/1) and (prefers-reduced-motion: no-preference)">
+  <link rel="preload" as="fetch" crossorigin href="/video/serra/l-000.webp" media="(min-aspect-ratio: 1/1) and (prefers-reduced-motion: no-preference)">
   <link rel="preload" as="fetch" href="/video/serra/serra.json" crossorigin media="(prefers-reduced-motion: no-preference)">
   <script src="/assets/js/corte-boot.js"></script>
   <script type="module" src="/assets/js/site.js"></script>
@@ -103,6 +103,12 @@
       </div>
     </div>
     <span class="corte__fenda"></span>
+    <canvas class="corte__po"></canvas>
+    <div class="corte__falas">
+      <p class="corte__fala">Boa comida</p>
+      <p class="corte__fala">Boa música</p>
+      <p class="corte__fala">Boas histórias</p>
+    </div>
   </div>
 
   <header class="header" id="topo">
@@ -153,9 +159,11 @@
     </div>
   </dialog>
 
-  <div class="corte-espaco" aria-hidden="true"></div><!-- the scroll the saw needs before the hero arrives; outside <main> so "pular para o conteúdo" lands past it -->
   <main id="conteudo">
     <!-- ============ HERO ============ -->
+    <!-- .corte-pista: under html.corte-on the hero stays pinned behind the film while the spacer after it scrolls
+         by, so it is already painted when the picture splits (otherwise the track is just the hero) -->
+    <div class="corte-pista">
     <section class="hero" id="inicio" aria-labelledby="hero-titulo">
       <div class="hero__media">
         <div class="hero__frame" data-parallax="0.06">
@@ -181,6 +189,8 @@
       </div>
       <a class="hero__scroll" href="#oficina"><span>Role</span><svg class="icon" aria-hidden="true"><use href="#i-down"/></svg></a>
     </section>
+    <div class="corte-espaco" aria-hidden="true"></div><!-- the scroll the film needs -->
+    </div>
 
     <!-- ============ LETREIRO ============ -->
     <div class="marquee" role="region" aria-label="Destaques da casa">
@@ -201,6 +211,7 @@
     <!-- ============ A BANCADA: each cut, a dish (scene 2; a plain list without JS or with reduced motion) ============ -->
     <section class="bancada" id="bancada" aria-labelledby="bancada-titulo">
       <div class="wrap bancada__pin">
+        <canvas class="bancada__po" aria-hidden="true"></canvas>
         <header class="bancada__head">
           <p class="kicker"><svg class="diamond" aria-hidden="true"><use href="#i-diamond"/></svg>Da serra para a mesa</p>
           <h2 class="section__title" id="bancada-titulo">Cada corte, um prato.</h2>

@@ -35,7 +35,8 @@ Nenhuma na fase 1. Ver `.env.example`.
 - Especificação completa: `docs/design-spec.md`.
 - Cena do serrote (abertura e bancada da página inicial): especificação em `docs/cena-serrote.md`. Vive em
   `corte-boot.js`, `corte.js` e `corte.css`, só sob `html.corte-on`. Quadros em `public/video/serra/`, gerados por
-  `node scripts/build-serra.mjs` a partir de `referencias/serra/*.mp4`. Filmagem real, nunca serrote desenhado.
+  `node scripts/build-serra.mjs` a partir de `referencias/serra/*.mp4`. Filme real como base e animação por cima
+  (nem serrote desenhado, nem só o vídeo avançando).
 - Verificação: `npm run dev` e checar 375×812 e 1440×900, console sem erros.
 - Pedidos e estado de cada um: `PEDIDOS.md`, atualizado a cada rodada.
 
@@ -44,6 +45,9 @@ Nenhuma na fase 1. Ver `.env.example`.
 - Vídeos brutos (`referencias/instagram/*.mp4`, `referencias/serra/*.mp4`) ficam fora do git (pesados).
 - Cena do serrote: a abertura usa `vh` em tudo e a bancada usa `svh` com o espaço do cabeçalho e da barra
   inferior reservado. Conferir em 390×664 (janela real do celular com as barras do navegador), não só em 390×844.
+- Fluidez é requisito medido (`docs/cena-serrote.md`, seção "Fluidez"). Não gravar variável CSS no `<html>` a cada
+  rolagem (recalcula a página inteira); não desenhar quadro de filme sem estar decodificado; não deixar seção
+  pesada ser pintada no meio de uma cena.
 
 ## Fora de escopo
 Pedido online, pagamento, reserva com backend, painel de edição (fase 2), domínio próprio.

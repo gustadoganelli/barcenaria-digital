@@ -5,5 +5,10 @@
   if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   var root = document.documentElement;
   root.classList.add('corte-on');
-  setTimeout(function () { if (!window.__corte) root.classList.remove('corte-on'); }, 4000);
+  setTimeout(function () {
+    if (window.__corte) return;
+    root.classList.remove('corte-on');
+    window.__corteVideo = true; // the hero video was waiting for the film (site.js)
+    dispatchEvent(new Event('corte:video'));
+  }, 4000);
 })();

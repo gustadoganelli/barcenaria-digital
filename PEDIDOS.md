@@ -32,12 +32,26 @@ Registro corrido dos pedidos do Gustavo e do estado de cada um.
   - Sessões do Pecatto e da C41: receberam o pedido completo, o aviso de realismo e o aviso de continuar; as duas
     estavam em execução em 13/11.
 
+- 2026-11-13, retorno do Gustavo sobre a versão publicada com filmagem real (commit 02b301c): "até ficou bom, mais
+  preciso de algo mais animado, acho que exageramos quando falamos pra ser realista e ele está muito travado
+  também". Decisão: filme real como base, animação por cima, e fluidez medida. Feito na mesma data:
+  - Animação: placa caindo e balançando, serragem do corte pela velocidade da rolagem, palavras da casa carimbadas
+    por serrada, estouro de serragem no corte, metades saindo inclinadas; peças da bancada com queda, achatamento,
+    poeira e número carimbado. Filme com 20 quadros por segundo (eram 10) e cor mais quente e clara.
+  - Fluidez: cinco causas do travamento encontradas por medição e corrigidas (lista e números em
+    `docs/cena-serrote.md`, seção "Fluidez"). A principal estava no site original: a barra de progresso gravada
+    como variável CSS na raiz do documento.
+  - O mesmo retorno foi repassado às sessões do Pecatto e da C41 como régua de qualidade.
+
 ### Plano de despacho (ultracode, autorizado diretamente)
 | Estágio | Objetivo | Agentes | Modelo · esforço | Ferramentas | Parada |
 |---|---|---|---|---|---|
 | Desenho | 3 propostas independentes para aumentar o impacto das duas cenas (cinema, robustez no celular, fidelidade à marca) | ×3 | sonnet · high | leitura | uma rodada — feito em 12/11 |
 | Revisão | achar defeitos na implementação por lente (movimento, desempenho no celular, acessibilidade e CSP, regressão) | ×4 | sonnet · medium | leitura | uma rodada — 13/11, até 2 achados por lente |
 | Verificação | tentar refutar cada achado da revisão | 1 por achado, teto 8 | haiku · low | leitura | um voto — 13/11 |
+
+| Revisão 2 | achar defeitos na versão animada (laço e filme, navegadores de celular, regressão e acessibilidade) | ×3 | sonnet · medium | leitura | uma rodada — 13/11, até 2 achados por lente |
+| Verificação 2 | tentar refutar cada achado | 1 por achado, teto 6 | haiku · low | leitura | um voto — 13/11 |
 
 Implementação, julgamento final, commit, push e publicação: sessão principal.
 

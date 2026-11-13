@@ -1,25 +1,40 @@
-/* Barcenaria — the saw scenes (docs/cena-serrote.md), built on real footage.
-   Scene 1 "o corte": the first screen is a film of a handsaw cutting a strip of wood; the scroll advances it frame
-   by frame. When the block falls, a line of light runs across the screen and the picture splits in two, revealing
-   the hero. Scene 2 "a bancada": a pinned stage where a second film (a back saw on the bench) advances with the
-   scroll while the pieces with the names of the dishes land one by one.
+/* Barcenaria — the saw scenes (docs/cena-serrote.md): real footage as the base, animation on top of it.
+   Scene 1 "o corte": the first screen is a film of a handsaw cutting a strip of wood; the scroll advances it
+   (smoothed, so it glides). On top: the sign swinging in, sawdust flying from the cut, the words of the house
+   stamped one per stroke. When the block falls, a line of light runs across the screen, sawdust bursts and the
+   picture splits in two, revealing the hero. Scene 2 "a bancada": a pinned stage where a second film (a back saw
+   on the bench) advances while the pieces with the names of the dishes drop, squash and raise dust.
    Everything here only exists under html.corte-on (set by corte-boot.js): without JS or with reduced motion the
    opening is not rendered and the bench is a plain, visible list. Scroll-linked values are written by corte.js as
    transforms and opacity. */
 
 /* ---------- scene 1: the film over the first screen ---------- */
 .corte, .corte-espaco { display: none; }
-.corte-on .corte-espaco { display: block; height: 260svh; } /* the scroll the film needs before the hero arrives */
+/* The track: the hero stays pinned at the top, already painted behind the film, while the spacer after it gives
+   the film its scroll (220svh — the same length is used in the scroll-margin below). If the hero only arrived
+   by scrolling, the browser would paint it in the middle of the film and the scene would stutter. */
+.corte-on .corte-espaco { display: block; height: 220svh; }
+.corte-on .corte-pista > .hero { position: sticky; top: 0; }
 .corte-on .corte {
   /* vh on purpose (the large viewport): the stage, the split line and both canvases keep one size while the
      mobile browser bars come and go, so the two halves always show one picture */
   --y: 54vh; /* where the picture splits */
   display: block; position: fixed; inset: 0 0 auto; height: 100vh; z-index: 70; overflow: hidden; cursor: pointer;
+  /* a hair under 1 on purpose: a fully opaque cover lets the browser skip drawing the hero behind it, and then the
+     first time the halves move it has to set all of that up at once — a visible hitch right at the split */
+  opacity: 0.999;
   -webkit-tap-highlight-color: transparent;
 }
 .corte.is-done { visibility: hidden; pointer-events: none; }
-/* links to the top of the page (logo, skip link) land exactly where the opening ends, not 4rem short of it */
-.corte-on #inicio, .corte-on #conteudo { scroll-margin-top: calc(var(--space-16) * -1); }
+/* While the film runs, what comes after the hero is laid out but not painted: otherwise the browser paints those
+   sections as they get near, right when the picture splits, and the scene stutters. When the opening ends
+   corte.js marks them .corte-visto one after the other, nearest first, so that cost is spread over a few frames
+   — or all at once at the first key press, so keyboard users are never kept waiting. */
+.corte-on main > :not(.corte-pista):not(.corte-visto), .corte-on .footer:not(.corte-visto) { visibility: hidden; }
+/* links to the top of the page land exactly where the opening ends: the logo (the pinned hero, minus html's
+   scroll-padding) and the skip link (<main> starts at the top of the track, so it also skips the film's scroll) */
+.corte-on #inicio { scroll-margin-top: calc(var(--space-16) * -1); }
+.corte-on #conteudo { scroll-margin-top: calc(-220svh - var(--space-16)); }
 .corte.is-open { pointer-events: none; } /* halves parted: clicks reach the page behind */
 /* the hero title waits for the halves to part before its word-by-word entrance (corte.js sets .corte-aberto) */
 .corte-on:not(.corte-aberto) .hero__word { animation-play-state: paused; }
@@ -27,16 +42,29 @@
 .corte__cima { top: 0; height: var(--y); }
 .corte__baixo { top: var(--y); bottom: 0; }
 /* both halves hold a canvas the size of the whole screen, so together they show one picture */
-.corte__tela { position: absolute; left: 0; width: 100%; height: 100vh; }
+.corte__tela { position: absolute; left: 0; width: 100%; height: 100vh; object-fit: cover; will-change: transform; }
 .corte__cima .corte__tela { top: 0; }
 .corte__baixo .corte__tela { bottom: 0; }
 .corte__metade::after { content: ""; position: absolute; inset: 0; pointer-events: none; }
-.corte__cima::after { background: linear-gradient(to bottom, rgba(8, 6, 4, 0.78), rgba(8, 6, 4, 0.25) 62%, transparent); }
-.corte__baixo::after { background: linear-gradient(to top, rgba(8, 6, 4, 0.82), transparent 46%); }
+.corte__cima::after { background: linear-gradient(to bottom, rgba(8, 6, 4, 0.62), rgba(8, 6, 4, 0.12) 58%, transparent); }
+.corte__baixo::after { background: linear-gradient(to top, rgba(8, 6, 4, 0.7), transparent 44%); }
 .corte__marca { position: absolute; inset: 0 0 auto; z-index: 1; display: grid; justify-items: center; gap: var(--space-2); padding: calc(var(--space-8) + env(safe-area-inset-top)) var(--gutter) 0; }
-.corte__placa { width: min(34vw, 9.5rem); height: auto; filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.65)); }
-.corte__lema { margin: 0; color: var(--gold-bright); font: 400 clamp(1.4rem, 5.6vw, 2rem)/1 var(--font-script); text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8); }
-.corte__rodape { position: absolute; inset: auto 0 0; z-index: 1; display: grid; justify-items: center; gap: var(--space-2); padding: 0 var(--gutter) calc(100vh - 100svh + var(--space-10) + env(safe-area-inset-bottom)); will-change: opacity; } /* stays above the browser bar */
+.corte__placa {
+  width: min(34vw, 9.5rem); height: auto; filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.65));
+  /* a hanging sign: drops, swings past the rest position and keeps a slow sway */
+  transform-origin: 50% 0; animation: corte-placa-cai 1.3s var(--ease-out) both, corte-placa-balanca 5.6s var(--ease-in-out) 1.3s infinite;
+}
+@keyframes corte-placa-cai {
+  0% { opacity: 0; transform: translateY(-140%) rotate(-12deg); }
+  50% { opacity: 1; transform: translateY(0) rotate(8deg); }
+  70% { transform: rotate(-5deg); }
+  86% { transform: rotate(2deg); }
+  100% { transform: rotate(-1.2deg); }
+}
+@keyframes corte-placa-balanca { 0%, 100% { transform: rotate(-1.2deg); } 50% { transform: rotate(1.2deg); } } /* first frame = last frame */
+@keyframes corte-sobe { from { opacity: 0; transform: translateY(16px); } }
+.corte__lema { margin: 0; color: var(--gold-bright); font: 400 clamp(1.4rem, 5.6vw, 2rem)/1 var(--font-script); text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8); animation: corte-sobe 700ms var(--ease-out) 750ms backwards; }
+.corte__rodape { position: absolute; inset: auto 0 0; z-index: 1; display: grid; justify-items: center; gap: var(--space-2); padding: 0 var(--gutter) calc(100vh - 100svh + var(--space-10) + env(safe-area-inset-bottom)); will-change: opacity; animation: corte-sobe 700ms var(--ease-out) 1250ms backwards; } /* stays above the browser bar */
 .corte__dica {
   display: inline-flex; align-items: center; gap: var(--space-2); margin: 0;
   color: var(--gold-bright); font: 600 var(--fs-sm)/1 var(--font-condensed); letter-spacing: var(--tracking-caps); text-transform: uppercase; text-shadow: 0 1px 6px rgba(0, 0, 0, 0.9);
@@ -49,13 +77,23 @@
   box-shadow: 0 0 18px 4px rgba(255, 200, 120, 0.6), 0 0 60px 10px rgba(255, 180, 90, 0.25);
   transform: scaleX(0); transform-origin: left center; opacity: 0; will-change: transform, opacity;
 }
+/* sawdust: a transparent canvas over the film; corte.js throws the particles */
+.corte__po { position: absolute; inset: 0 0 auto; width: 100%; height: 100vh; z-index: 2; pointer-events: none; }
+/* the words of the house, stamped one per stroke of the saw */
+.corte__falas { position: absolute; inset: auto 0 calc(100vh - 100svh + 16vh); z-index: 3; display: grid; place-items: center; padding-inline: var(--gutter); pointer-events: none; }
+.corte__fala {
+  grid-area: 1 / 1; margin: 0; max-width: 12ch; text-align: center; text-wrap: balance; opacity: 0;
+  font: 700 clamp(2.2rem, 10.5vw, 5.5rem)/0.98 var(--font-display); letter-spacing: 0.02em; text-transform: uppercase;
+  color: var(--gold-bright); text-shadow: 0 3px 0 rgba(20, 12, 4, 0.75), 0 12px 34px rgba(0, 0, 0, 0.75);
+  will-change: transform, opacity;
+}
 
 /* ---------- scene 2: the bench ---------- */
 .bancada { position: relative; background: linear-gradient(to bottom, var(--bg-soft), var(--bg)); }
 .bancada__pin { display: grid; gap: var(--space-6); align-content: center; padding-block: var(--space-16); }
 .bancada__head { display: grid; gap: var(--space-2); }
 .bancada__lead { max-width: var(--measure); margin: 0; color: var(--text-muted); }
-.bancada__serra { display: none; }
+.bancada__serra, .bancada__po { display: none; }
 .pecas { display: grid; gap: var(--space-3); margin: 0; padding: 0; list-style: none; }
 .peca {
   position: relative; display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: var(--space-4); align-items: center;
@@ -71,7 +109,7 @@
 .peca__prato { font: 600 var(--fs-md)/1.2 var(--font-condensed); color: #33200e; }
 .bancada__fim { margin: 0; }
 
-.corte-on .bancada { height: 430svh; }
+.corte-on .bancada { height: 380svh; }
 /* the pinned stage: title, the film taking whatever height is left, the pile of pieces, the link — always between
    the fixed header and the dock, so the fifth piece never hides behind the bar on a real phone viewport */
 .corte-on .bancada__pin {
@@ -83,7 +121,9 @@
 .corte-on .bancada__serra { display: block; position: relative; overflow: hidden; border-radius: var(--radius); box-shadow: 0 0 0 1px var(--line-strong), var(--shadow-md); background: #14100c; }
 .corte-on .bancada__serra::after { content: ""; position: absolute; inset: 0; pointer-events: none; box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.55); }
 .bancada__tela { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.corte-on .peca { will-change: transform, opacity; }
+.corte-on .bancada__po { display: block; position: absolute; inset: 0; width: 100%; height: 100%; z-index: 3; pointer-events: none; } /* dust raised by the landing pieces */
+.corte-on .peca { will-change: transform, opacity; transform-origin: 50% 100%; } /* squashes against the pile below */
+.corte-on .peca__num { will-change: transform, opacity; }
 
 @media (max-width: 63.99rem) {
   .corte-on .pecas { gap: var(--space-2); }
@@ -103,6 +143,7 @@
 @media (min-width: 64rem) {
   .corte-on .corte { --y: 56vh; }
   .corte__placa { width: 9.5rem; }
+  .corte__fala { max-width: none; }
   .bancada__pin { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: var(--space-16); align-items: center; }
   .bancada__head, .bancada__serra, .bancada__fim { grid-column: 1; }
   .pecas { grid-column: 2; grid-row: 1 / span 3; gap: var(--space-4); }
@@ -119,4 +160,5 @@
   .corte-on .bancada__pin { position: static; height: auto; overflow: visible; grid-template-rows: none; padding-block: var(--space-16); }
   .corte-on .bancada__serra { height: 9rem; }
   .corte-on .bancada__lead, .corte-on .bancada__fim { display: block; }
+  .corte-on .bancada__po { display: none; }
 }
