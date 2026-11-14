@@ -27,7 +27,9 @@
   <link rel="stylesheet" href="/assets/css/site.css">
   <link rel="stylesheet" href="/assets/css/corte.css">
   <link rel="preload" as="image" href="/images/brand/serrote-traco.svg" media="(prefers-reduced-motion: no-preference)">
+  <link rel="preload" as="image" href="/images/brand/logo-vidro.webp" media="(prefers-reduced-motion: no-preference)">
   <script src="/assets/js/corte-boot.js"></script>
+  <script type="module" src="/assets/js/vidro.js"></script>
   <script type="module" src="/assets/js/site.js"></script>
   <script type="application/ld+json">
   {
@@ -82,9 +84,11 @@
   <!-- Scroll progress drawn as a tape measure ("fita métrica") -->
   <div class="tape" aria-hidden="true"><span class="tape__fill"></span></div>
 
-  <!-- Opening ident: the house sign on a green board, a gold handsaw cuts across, the board opens (CSS only,
-       2.7 s, plays by itself; only shown under html.corte-on — see assets/css/corte.css and docs/cena-serrote.md) -->
+  <!-- Opening ident: the house sign on a green board, a gold handsaw cuts across, the board opens onto the sign
+       as a plate of glass with a light sweeping (assets/js/vidro.js, WebGL), then the site. Plays by itself, about
+       4 s; only shown under html.corte-on — see assets/css/corte.css and docs/cena-serrote.md -->
   <div class="corte" aria-hidden="true">
+    <canvas class="corte__vidro"></canvas>
     <div class="corte__metade corte__cima">
       <div class="corte__marca"><img class="corte__placa" src="/images/brand/logo-placa-320.webp" width="320" height="357" alt=""></div>
     </div>

@@ -12,8 +12,8 @@
   --y: 60vh; /* where the board is cut */
   display: block; position: fixed; inset: 0 0 auto; height: 100vh; z-index: 70; overflow: hidden; pointer-events: none;
 }
-/* over (corte-boot.js sets the class when the ident ends) or dismissed by the visitor: fades and leaves */
-.corte-pula .corte { opacity: 0; visibility: hidden; transition: opacity 220ms var(--ease-out), visibility 0s linear 220ms; }
+/* over (corte-fim) or dismissed by the visitor (corte-pula) — corte-boot.js sets the class: fades and leaves */
+.corte-fim .corte, .corte-pula .corte { opacity: 0; visibility: hidden; transition: opacity 220ms var(--ease-out), visibility 0s linear 220ms; }
 
 /* the board: two halves of one picture (each holds layers the size of the whole screen, so they line up) */
 .corte__metade { position: absolute; left: 0; right: 0; overflow: hidden; background: #0e1a0a; will-change: transform; }
@@ -103,8 +103,19 @@
 .corte__po i:nth-child(11) { left: 85%; animation-delay: 1383ms; --dx: 8px; --dy: 96px; width: 6px; }
 .corte__po i:nth-child(12) { left: 93%; animation-delay: 1442ms; --dx: -9px; --dy: 74px; }
 
-/* the hero title keeps its word-by-word entrance for when the board opens */
+/* Second beat (vidro.js, WebGL), only when html.corte-vidro: behind the board, the house sign as a plate of glass
+   in front of warm light, with a light sweeping across. The board parts onto it; then the stage dissolves inside
+   the canvas (the page shows through) while the sign flies to the logo of the header, and this layer only fades
+   as it lands there. --corte-vidro-t (set by vidro.js) lines the fade up with the clock of the ident. */
+.corte__vidro { display: none; position: absolute; inset: 0; width: 100%; height: 100%; }
+.corte-vidro .corte__vidro { display: block; }
+.corte-vidro .corte { animation: corte-some 220ms linear calc(3950ms + var(--corte-vidro-t, 0ms)) forwards; }
+@keyframes corte-some { to { opacity: 0; } }
+
+/* the hero title keeps its word-by-word entrance for when the board opens (or the glass fades) */
 .corte-on .hero__word { animation-delay: calc(1850ms + var(--i, 0) * var(--stagger-word)); }
+.corte-vidro .hero__word { animation-delay: calc(3300ms + var(--i, 0) * var(--stagger-word)); }
+/* dismissed: the title shows at once. When the ident runs to its end the delays above stay, so no word jumps. */
 .corte-pula .hero__word { animation-delay: calc(var(--i, 0) * var(--stagger-word)); }
 
 /* ---------- "Cada corte, um prato." ---------- */

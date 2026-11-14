@@ -39,7 +39,8 @@ oficial [@barcenariaoficial](https://www.instagram.com/barcenariaoficial/).
 ```
 referencias/ (fotos, reels e prints do Instagram)
    ├─ scripts/build-assets.mjs  → public/images/*.webp, public/video/*.mp4, public/data/imagens.json
-   └─ scripts/build-madeira.mjs → public/images/brand/madeira-clara.webp (textura das peças de "Cada corte, um prato.")
+   ├─ scripts/build-madeira.mjs → public/images/brand/madeira-clara.webp (textura das peças de "Cada corte, um prato.")
+   └─ scripts/build-vidro.mjs   → public/images/brand/logo-vidro.webp (máscara da placa para o vidro da vinheta)
 public/ (estático, publicado na Vercel)
    ├─ index.html                → site
    ├─ cardapio/index.html       → cardápio digital

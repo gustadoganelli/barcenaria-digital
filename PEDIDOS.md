@@ -56,6 +56,19 @@ Registro corrido dos pedidos do Gustavo e do estado de cada um.
   serrote ele é dourado." Feito: o visual B virou o único, o A saiu do projeto, e a vinheta foi publicada (ver
   `CHANGELOG.md`).
 
+- 2026-11-13, pedido do Gustavo depois de ver a vinheta no ar: "após a animação do serrote dá um efeito [...] no
+  nosso projeto do C41 [...] ao entrar tem um efeito intro behind the scenes como o da Apple, podemos aplicar assim
+  como no C41, tá no nosso git, pode usar de referência com o logo do Barcenaria".
+  - Feito (local, sem commit): segundo tempo da vinheta em WebGL (`public/assets/js/vidro.js`, adaptado de
+    `vidro.js` do repositório da C41): quando a tela se abre depois do serrote, a placa da casa aparece em vidro
+    verde com a arte dourada em relevo, um feixe de luz varre e a câmera recua; depois o site entra. A vinheta
+    passa de 2,7 s para cerca de 4,1 s. Sem WebGL, ou se não ficar pronto a tempo, vale o final simples.
+  - Mostrado em vídeo (`docs/prints/vinheta-vidro-celular.mp4` e `vinheta-vidro-computador.mp4`).
+- 2026-11-13, retorno do Gustavo: "ficou ótimo, mas o logo aparece e vai lá pra cima no canto alto esquerdo, aonde
+  já está hoje no site". Feito: no fim do vidro o palco se dissolve, o site aparece por trás e a placa encolhe e
+  voa até pousar sobre o logo do cabeçalho. Revisão por agentes (2 lentes) antes de publicar; publicado (ver
+  `CHANGELOG.md`).
+
 ### Plano de despacho (ultracode, autorizado diretamente)
 | Estágio | Objetivo | Agentes | Modelo · esforço | Ferramentas | Parada |
 |---|---|---|---|---|---|
@@ -65,6 +78,9 @@ Registro corrido dos pedidos do Gustavo e do estado de cada um.
 
 | Revisão 2 | achar defeitos na versão animada (laço e filme, navegadores de celular, regressão e acessibilidade) | ×3 | sonnet · medium | leitura | uma rodada — 13/11, até 2 achados por lente |
 | Verificação 2 | tentar refutar cada achado | 1 por achado, teto 6 | haiku · low | leitura | um voto — 13/11 |
+
+| Revisão 3 | achar defeitos no segundo tempo em WebGL (ciclo de vida e falhas; navegadores e layout) | ×2 | sonnet · medium | leitura | uma rodada — 13/11, até 2 achados por lente |
+| Verificação 3 | tentar refutar cada achado | 1 por achado, teto 4 | haiku · low | leitura | um voto — 13/11 |
 
 Implementação, julgamento final, commit, push e publicação: sessão principal.
 
