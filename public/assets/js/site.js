@@ -336,16 +336,14 @@ function initChrome() {
   const dock = $('.dock');
   const toTop = $('#to-top');
   const hero = $('#inicio');
-  const lead = $('.corte-espaco'); // the saw opening (corte.js) scrolls before the page proper; 0 when it is off
-  const pageY = () => Math.max(0, scrollY - (lead ? lead.offsetHeight : 0));
   const meters = [$('.tape__fill'), $('.to-top__progress')].filter(Boolean); // scroll progress: the tape and the ring
-  let lastY = pageY();
+  let lastY = scrollY;
   let ticking = false;
   const update = () => {
     ticking = false;
-    const y = pageY();
+    const y = scrollY;
     const max = document.documentElement.scrollHeight - innerHeight;
-    const p = max > 0 ? Math.min(1, scrollY / max) : 0;
+    const p = max > 0 ? Math.min(1, y / max) : 0;
     // set on the two elements that use it: on <html> it would restyle the whole page at every scroll frame
     for (const el of meters) el.style.setProperty('--progress', p.toFixed(4));
     header.classList.toggle('is-scrolled', y > 40);
@@ -356,7 +354,7 @@ function initChrome() {
       if (goingUp) header.classList.remove('is-hidden');
     } else header.classList.remove('is-hidden');
     const pastHero = y > hero.offsetHeight * 0.7;
-    const nearEnd = scrollY > max - 120;
+    const nearEnd = y > max - 120;
     const showDock = pastHero && !nearEnd;
     dock.classList.toggle('is-visible', showDock);
     dock.inert = !showDock;
@@ -366,7 +364,7 @@ function initChrome() {
   addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
   addEventListener('resize', update);
   update();
-  toTop.addEventListener('click', () => { scrollTo({ top: lead ? lead.offsetHeight : 0, behavior: reduced.matches ? 'auto' : 'smooth' }); $('.brand').focus({ preventScroll: true }); });
+  toTop.addEventListener('click', () => { scrollTo({ top: 0, behavior: reduced.matches ? 'auto' : 'smooth' }); $('.brand').focus({ preventScroll: true }); });
 
   const links = $$('.nav__link');
   const sections = [hero, ...links.map((a) => $(a.getAttribute('href'))).filter(Boolean)];
@@ -523,21 +521,12 @@ function initVideos() {
   if (eventos) wire(eventos, $('#eventos-play'));
 
   const auto = allowAutoplay();
-  const inView = new Set();
-  const start = (v) => { if (auto && v.dataset.user !== 'pause') { v.preload = 'auto'; v.play().catch(() => {}); } };
-  // behind the saw opening (corte.js) the hero video waits until the film's frames have arrived
-  const held = (v) => v === hero && document.documentElement.classList.contains('corte-on') && !window.__corteVideo;
-  addEventListener('corte:video', () => { if (inView.has(hero)) start(hero); });
   const io = new IntersectionObserver((entries) => {
     for (const e of entries) {
       const v = e.target;
       if (e.isIntersecting) {
-        inView.add(v);
-        if (!held(v)) start(v);
-      } else {
-        inView.delete(v);
-        if (!v.paused) v.pause();
-      }
+        if (auto && v.dataset.user !== 'pause') { v.preload = 'auto'; v.play().catch(() => {}); }
+      } else if (!v.paused) v.pause();
     }
   }, { threshold: 0.25 });
   io.observe(hero);

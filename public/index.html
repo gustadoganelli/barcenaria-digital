@@ -26,12 +26,9 @@
   <link rel="stylesheet" href="/assets/css/tokens.css">
   <link rel="stylesheet" href="/assets/css/site.css">
   <link rel="stylesheet" href="/assets/css/corte.css">
-  <link rel="preload" as="fetch" crossorigin href="/video/serra/p-000.webp" media="(max-aspect-ratio: 1/1) and (prefers-reduced-motion: no-preference)">
-  <link rel="preload" as="fetch" crossorigin href="/video/serra/l-000.webp" media="(min-aspect-ratio: 1/1) and (prefers-reduced-motion: no-preference)">
-  <link rel="preload" as="fetch" href="/video/serra/serra.json" crossorigin media="(prefers-reduced-motion: no-preference)">
+  <link rel="preload" as="image" href="/images/brand/serrote-traco.svg" media="(prefers-reduced-motion: no-preference)">
   <script src="/assets/js/corte-boot.js"></script>
   <script type="module" src="/assets/js/site.js"></script>
-  <script type="module" src="/assets/js/corte.js"></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -85,30 +82,16 @@
   <!-- Scroll progress drawn as a tape measure ("fita métrica") -->
   <div class="tape" aria-hidden="true"><span class="tape__fill"></span></div>
 
-  <!-- Scene 1 "o corte": real footage of a handsaw, scrubbed by the scroll, that splits open over the first screen
-       (only shown under html.corte-on; frames in /video/serra, see docs/cena-serrote.md) -->
-  <div class="corte" id="corte" aria-hidden="true">
+  <!-- Opening ident: the house sign on a green board, a gold handsaw cuts across, the board opens (CSS only,
+       2.7 s, plays by itself; only shown under html.corte-on — see assets/css/corte.css and docs/cena-serrote.md) -->
+  <div class="corte" aria-hidden="true">
     <div class="corte__metade corte__cima">
-      <canvas class="corte__tela"></canvas>
-      <div class="corte__marca">
-        <img class="corte__placa" src="/images/brand/logo-placa-320.webp" width="320" height="357" alt="">
-        <p class="corte__lema">aqui, a cozinha é oficina</p>
-      </div>
+      <div class="corte__marca"><img class="corte__placa" src="/images/brand/logo-placa-320.webp" width="320" height="357" alt=""></div>
     </div>
-    <div class="corte__metade corte__baixo">
-      <canvas class="corte__tela"></canvas>
-      <div class="corte__rodape">
-        <p class="corte__dica"><svg class="icon" aria-hidden="true"><use href="#i-down"/></svg>Role para serrar</p>
-        <p class="corte__sub">ou toque na tela</p>
-      </div>
-    </div>
+    <div class="corte__metade corte__baixo"></div>
     <span class="corte__fenda"></span>
-    <canvas class="corte__po"></canvas>
-    <div class="corte__falas">
-      <p class="corte__fala">Boa comida</p>
-      <p class="corte__fala">Boa música</p>
-      <p class="corte__fala">Boas histórias</p>
-    </div>
+    <span class="corte__po"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+    <span class="corte__lamina"></span>
   </div>
 
   <header class="header" id="topo">
@@ -161,9 +144,6 @@
 
   <main id="conteudo">
     <!-- ============ HERO ============ -->
-    <!-- .corte-pista: under html.corte-on the hero stays pinned behind the film while the spacer after it scrolls
-         by, so it is already painted when the picture splits (otherwise the track is just the hero) -->
-    <div class="corte-pista">
     <section class="hero" id="inicio" aria-labelledby="hero-titulo">
       <div class="hero__media">
         <div class="hero__frame" data-parallax="0.06">
@@ -189,8 +169,6 @@
       </div>
       <a class="hero__scroll" href="#oficina"><span>Role</span><svg class="icon" aria-hidden="true"><use href="#i-down"/></svg></a>
     </section>
-    <div class="corte-espaco" aria-hidden="true"></div><!-- the scroll the film needs -->
-    </div>
 
     <!-- ============ LETREIRO ============ -->
     <div class="marquee" role="region" aria-label="Destaques da casa">
@@ -208,24 +186,22 @@
       </div>
     </div>
 
-    <!-- ============ A BANCADA: each cut, a dish (scene 2; a plain list without JS or with reduced motion) ============ -->
+    <!-- ============ CADA CORTE, UM PRATO ============ -->
     <section class="bancada" id="bancada" aria-labelledby="bancada-titulo">
-      <div class="wrap bancada__pin">
-        <canvas class="bancada__po" aria-hidden="true"></canvas>
-        <header class="bancada__head">
+      <div class="wrap bancada__grid">
+        <header class="bancada__head reveal">
           <p class="kicker"><svg class="diamond" aria-hidden="true"><use href="#i-diamond"/></svg>Da serra para a mesa</p>
           <h2 class="section__title" id="bancada-titulo">Cada corte, um prato.</h2>
           <p class="bancada__lead">Na Barcenaria você pede a peça e a cozinha entrega o prato.</p>
+          <p class="bancada__fim"><a class="link-arrow" href="/cardapio">Ver o cardápio completo<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></p>
         </header>
-        <div class="bancada__serra" aria-hidden="true"><canvas class="bancada__tela" width="800" height="500"></canvas></div>
         <ol class="pecas" role="list">
-          <li class="peca"><span class="peca__num">Nº 01</span><strong class="peca__nome">Viga</strong><span class="peca__prato">Picanha na chapa</span></li>
-          <li class="peca"><span class="peca__num">Nº 02</span><strong class="peca__nome">Sarrafo</strong><span class="peca__prato">Fraldinha na chapa</span></li>
-          <li class="peca"><span class="peca__num">Nº 03</span><strong class="peca__nome">Serragem</strong><span class="peca__prato">Tartare de salmão</span></li>
-          <li class="peca"><span class="peca__num">Nº 04</span><strong class="peca__nome">Fita Métrica</strong><span class="peca__prato">Linguini grano duro</span></li>
-          <li class="peca"><span class="peca__num">Nº 05</span><strong class="peca__nome">Guarda-Roupa</strong><span class="peca__prato">8 porpetas caseiras</span></li>
+          <li class="peca reveal"><span class="peca__num">Nº 01</span><strong class="peca__nome">Viga</strong><span class="peca__prato">Picanha na chapa</span></li>
+          <li class="peca reveal"><span class="peca__num">Nº 02</span><strong class="peca__nome">Sarrafo</strong><span class="peca__prato">Fraldinha na chapa</span></li>
+          <li class="peca reveal"><span class="peca__num">Nº 03</span><strong class="peca__nome">Serragem</strong><span class="peca__prato">Tartare de salmão</span></li>
+          <li class="peca reveal"><span class="peca__num">Nº 04</span><strong class="peca__nome">Fita Métrica</strong><span class="peca__prato">Linguini grano duro</span></li>
+          <li class="peca reveal"><span class="peca__num">Nº 05</span><strong class="peca__nome">Guarda-Roupa</strong><span class="peca__prato">8 porpetas caseiras</span></li>
         </ol>
-        <p class="bancada__fim"><a class="link-arrow" href="/cardapio">Ver o cardápio completo<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></p>
       </div>
     </section>
 

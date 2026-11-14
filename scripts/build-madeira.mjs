@@ -1,4 +1,5 @@
-// Generates the procedural wood texture of the bench pieces (public/images/brand/madeira-clara.webp).
+// Generates the procedural wood texture of the blocks with the names of the dishes on the home page
+// (public/images/brand/madeira-clara.webp).
 // Drawn with SVG turbulence stretched along the grain, so no photo is needed and the tile repeats horizontally.
 // Run with `node scripts/build-madeira.mjs`.
 import sharp from 'sharp';

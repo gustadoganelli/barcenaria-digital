@@ -43,6 +43,19 @@ Registro corrido dos pedidos do Gustavo e do estado de cada um.
     como variável CSS na raiz do documento.
   - O mesmo retorno foi repassado às sessões do Pecatto e da C41 como régua de qualidade.
 
+- 2026-11-13, retorno do Gustavo sobre a versão animada (commit 740d4e9): "ficou péssimo, não gostei". Perguntado,
+  marcou os quatro problemas (efeitos por cima do filme, continua travando, o vídeo de serrote em si, demora para
+  chegar ao site), escolheu o caminho "abertura curta, automática" e pediu para o site no ar voltar ao de antes.
+  - Feito em 13/11: produção republicada a partir do commit de 04/11 (37edb52), sem abertura.
+  - Feito em 13/11 (local, sem commit): vinheta de 2,7 s só em CSS e seção "Cada corte, um prato." sem prender a
+    tela; quadros do filme, script de extração e registro de licença removidos; correção da barra de progresso
+    mantida. Especificação reescrita em `docs/cena-serrote.md`.
+  - Dois visuais gravados lado a lado (`docs/prints/vinheta-*-A-e-B.mp4`): A, madeira e serrote de aço; B, verde e
+    dourado com serrote em traço.
+- 2026-11-13, escolha do Gustavo: "Agora sim ficou mais interessante. Eu gostei do modelo que o fundo é verde e o
+  serrote ele é dourado." Feito: o visual B virou o único, o A saiu do projeto, e a vinheta foi publicada (ver
+  `CHANGELOG.md`).
+
 ### Plano de despacho (ultracode, autorizado diretamente)
 | Estágio | Objetivo | Agentes | Modelo · esforço | Ferramentas | Parada |
 |---|---|---|---|---|---|

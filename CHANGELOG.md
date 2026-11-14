@@ -5,20 +5,14 @@ Log de trabalho diário fica em `.sessoes/` — não aqui. Aqui entra só o que 
 
 ## [2026-11-13] — publicado em https://barcenaria-digital.vercel.app (noindex)
 ### Adicionado
-- Abertura "o corte" na página inicial: a primeira tela é um filme de um serrote cortando uma ripa de madeira, com a placa da casa e o lema "aqui, a cozinha é oficina". A rolagem avança o filme quadro a quadro; quando o toco cai, uma linha de luz corre pela tela, a imagem se parte em duas e revela o início do site. Parado 3,5 s no topo, o filme roda sozinho; tocar na tela também roda; rolar para cima volta o filme.
-- Seção "Cada corte, um prato." entre o letreiro e o glossário: palco preso na tela em que um segundo filme (serrote na bancada) avança com a rolagem e cinco peças de madeira pousam, uma a uma, com o nome do item e o prato que chega à mesa (Viga, Sarrafo, Serragem, Fita Métrica, Guarda-Roupa). Sem preço; link para o cardápio completo.
-- Filmagem real (banco de imagens Pexels, uso comercial sem atribuição; registro em `referencias/fontes-serra.md`), convertida em sequência de quadros por `scripts/build-serra.mjs`. Especificação em `docs/cena-serrote.md`.
-
-- Segunda rodada no mesmo dia, depois do retorno "mais animado e menos travado": por cima do filme entram a placa caindo e balançando, serragem voando do corte conforme a rolagem, as palavras da casa carimbadas a cada serrada ("Boa comida", "Boa música", "Boas histórias") e um estouro de serragem quando a imagem se parte; na bancada, as peças caem com peso, achatam ao bater, levantam poeira e recebem o número carimbado. Filme com o dobro de quadros e tratamento de cor mais quente e claro.
+- Vinheta de abertura na página inicial (2,7 s, automática), no desenho da placa da casa: fundo verde com moldura dourada, a placa, um serrote em traço dourado que corta a tela em dois golpes, e a tela se abre para o site. Só CSS, não bloqueia a página, qualquer toque dispensa; não toca com "reduzir movimento", em link direto para uma seção nem ao voltar pelo navegador.
+- Seção "Cada corte, um prato." entre o letreiro e o glossário: cinco peças de madeira com o nome do item e o prato (Viga, Sarrafo, Serragem, Fita Métrica, Guarda-Roupa). Sem preço; link para o cardápio completo.
 
 ### Corrigido
-- Travamento ao rolar (também fora das cenas): o site recalculava o estilo da página inteira a cada rolagem por causa da barra de progresso; agora só os dois elementos que a usam são atualizados.
-- Engasgos da abertura: os quadros do filme passam a ser decodificados antes de serem usados; o início do site fica pronto por trás do filme desde o carregamento; as seções seguintes só são pintadas quando a abertura termina. A imagem segue a rolagem com uma pequena inércia, sem passos. Medição em `docs/cena-serrote.md` (seção "Fluidez").
+- Travamento ao rolar o site: a barra de progresso recalculava o estilo da página inteira a cada rolagem; agora só os dois elementos que a usam são atualizados.
 
-### Alterado
-- O título do início agora faz a entrada palavra por palavra quando a abertura se parte, não mais no carregamento.
-- Cabeçalho, barra inferior e botão "voltar ao topo" contam a rolagem a partir do início do site, depois da abertura; "voltar ao topo" e o logo levam ao início do site, não ao filme.
-- Com "reduzir movimento" ligado ou sem JavaScript, a abertura não aparece e a seção das peças é uma lista simples. Em tela muito baixa (celular deitado, zoom alto) a seção das peças também fica simples, sem palco preso.
+### Retirado
+- Abertura com filmagem de serrote avançada pela rolagem (duas versões publicadas mais cedo no mesmo dia, a segunda com animação por cima). Recusada pelo Gustavo. Histórico em `docs/cena-serrote.md`.
 
 ## [2026-11-04] — publicado em https://barcenaria-digital.vercel.app (noindex)
 ### Alterado

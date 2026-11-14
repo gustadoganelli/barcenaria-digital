@@ -33,21 +33,19 @@ Nenhuma na fase 1. Ver `.env.example`.
 - Imagem nova: entra em `IMAGES` do `build-assets.mjs`, rodar `npm run assets` (gera WebP +
   `data/imagens.json`). Nunca referenciar URL do Instagram (expira).
 - Especificação completa: `docs/design-spec.md`.
-- Cena do serrote (abertura e bancada da página inicial): especificação em `docs/cena-serrote.md`. Vive em
-  `corte-boot.js`, `corte.js` e `corte.css`, só sob `html.corte-on`. Quadros em `public/video/serra/`, gerados por
-  `node scripts/build-serra.mjs` a partir de `referencias/serra/*.mp4`. Filme real como base e animação por cima
-  (nem serrote desenhado, nem só o vídeo avançando).
+- Vinheta de abertura e seção "Cada corte, um prato." da página inicial: especificação e histórico em
+  `docs/cena-serrote.md`. Vivem em `corte-boot.js` e `corte.css`; a vinheta só existe sob `html.corte-on`. É curta,
+  automática e só CSS: nada de cena presa à rolagem, filmagem de banco de imagens ou efeitos por cima (três
+  tentativas recusadas). Mudança visual nela só vai ao ar depois de o Gustavo ver em vídeo.
 - Verificação: `npm run dev` e checar 375×812 e 1440×900, console sem erros.
 - Pedidos e estado de cada um: `PEDIDOS.md`, atualizado a cada rodada.
 
 ## Armadilhas conhecidas
 - Destaques do Instagram exigem login: cardápio completo vem de prints em `referencias/cardapio/`.
 - Vídeos brutos (`referencias/instagram/*.mp4`, `referencias/serra/*.mp4`) ficam fora do git (pesados).
-- Cena do serrote: a abertura usa `vh` em tudo e a bancada usa `svh` com o espaço do cabeçalho e da barra
-  inferior reservado. Conferir em 390×664 (janela real do celular com as barras do navegador), não só em 390×844.
-- Fluidez é requisito medido (`docs/cena-serrote.md`, seção "Fluidez"). Não gravar variável CSS no `<html>` a cada
-  rolagem (recalcula a página inteira); não desenhar quadro de filme sem estar decodificado; não deixar seção
-  pesada ser pintada no meio de uma cena.
+- Não gravar variável CSS no `<html>` a cada rolagem: recalcula o estilo da página inteira e trava o site
+  (medido em 13/11; a barra de progresso grava só nos dois elementos que a usam).
+- Conferir a página inicial em 390×664 (janela real do celular com as barras do navegador), não só em 390×844.
 
 ## Fora de escopo
 Pedido online, pagamento, reserva com backend, painel de edição (fase 2), domínio próprio.
