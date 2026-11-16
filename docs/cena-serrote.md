@@ -1,4 +1,4 @@
-# Abertura "o corte" e seção "Cada corte, um prato." — especificação
+# Abertura "o corte" (vinheta da página inicial) — especificação
 
 Pedido do Gustavo em 2026-11-12: um efeito "focado na causa deles", com um serrote cortando madeira na abertura e
 os nomes dos pratos em seguida. Três tentativas foram recusadas antes do formato atual:
@@ -53,13 +53,10 @@ e vai lá pra cima no canto alto esquerdo, aonde já está hoje no site".
   dispensar a vinheta, vale o final simples (a tela se abre direto para o site).
 - Vídeos: `docs/prints/vinheta-vidro-celular.mp4` e `vinheta-vidro-computador.mp4`.
 
-## Seção "Cada corte, um prato."
-- Seção comum, entre o letreiro e o glossário; não prende a tela.
-- Cinco peças de madeira com o nome do item e o prato que chega à mesa: Viga (picanha na chapa), Sarrafo
-  (fraldinha na chapa), Serragem (tartare de salmão), Fita Métrica (linguini grano duro), Guarda-Roupa (8 porpetas
-  caseiras). Dados de `public/data/cardapio.json`. Sem preço.
-- As peças entram com a revelação que o site já tinha (`.reveal` de `site.js`), só que pousando de cima com uma
-  leve inclinação.
+## Seção "Cada corte, um prato." (retirada em 16/11)
+A seção com as cinco peças de madeira e os nomes dos pratos (Viga, Sarrafo, Serragem, Fita Métrica, Guarda-Roupa)
+ficou no ar de 13 a 16/11. O Gustavo pediu para tirar em 16/11: "tira esse cada corte um prato". Saíram a
+marcação, os estilos, a textura `madeira-clara.webp` e o `scripts/build-madeira.mjs`.
 
 ## O que ficou das tentativas anteriores
 - `site.js` gravava a barra de progresso como variável CSS no `<html>` a cada rolagem, o que recalculava o estilo
@@ -76,10 +73,10 @@ e vai lá pra cima no canto alto esquerdo, aonde já está hoje no site".
 
 ## Arquivos
 - `public/assets/js/corte-boot.js` (decide antes da primeira pintura se a vinheta toca; dispensa ao toque),
-  `public/assets/css/corte.css` (vinheta e seção), `public/assets/js/vidro.js` (segundo tempo, WebGL), marcação
-  em `public/index.html` (`.corte`, `#bancada`).
+  `public/assets/css/corte.css` (vinheta), `public/assets/js/vidro.js` (segundo tempo, WebGL), marcação em
+  `public/index.html` (`.corte`).
 - `public/images/brand/serrote-traco.svg` (serrote), `logo-vidro.webp` (máscara da placa, gerada por
-  `scripts/build-vidro.mjs`), `madeira-clara.webp` (textura das peças, gerada por `scripts/build-madeira.mjs`).
+  `scripts/build-vidro.mjs`).
 
 ## Como gravar a vinheta para conferência
 Os roteiros de captura ficam fora do projeto. O método: abrir a página num Chromium sem janela, pausar todas as

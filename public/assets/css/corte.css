@@ -1,4 +1,4 @@
-/* Barcenaria — the opening ident and the "Cada corte, um prato." section (docs/cena-serrote.md).
+/* Barcenaria — the opening ident (docs/cena-serrote.md).
    The ident is a short film made only of CSS (2.7 s, no video, no frames, no scroll), in the language of the
    house sign: a deep green board with a gold frame, the sign, a handsaw in gold line work that cuts across in two
    strokes, and the board parts to show the site. It plays by itself on load, does not block the page (no pointer
@@ -118,35 +118,6 @@
 /* dismissed: the title shows at once. When the ident runs to its end the delays above stay, so no word jumps. */
 .corte-pula .hero__word { animation-delay: calc(var(--i, 0) * var(--stagger-word)); }
 
-/* ---------- "Cada corte, um prato." ---------- */
-/* An ordinary section: the pieces of wood with the names of the dishes come in with the page's own reveal
-   (site.js), only landing from above with a slight tilt, like blocks dropped on the bench. */
-.bancada { position: relative; background: linear-gradient(to bottom, var(--bg-soft), var(--bg)); }
-.bancada__grid { display: grid; gap: var(--space-8); padding-block: var(--space-16); }
-.bancada__head { display: grid; gap: var(--space-2); align-content: start; }
-.bancada__lead { max-width: var(--measure); margin: 0; color: var(--text-muted); }
-.bancada__fim { margin: var(--space-4) 0 0; }
-.pecas { display: grid; gap: var(--space-3); margin: 0; padding: 0; list-style: none; }
-.peca {
-  position: relative; display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: var(--space-4); align-items: center;
-  min-height: 3.6rem; padding: var(--space-2) var(--space-5); border-radius: 5px; overflow: hidden;
-  background-color: #d3a970; background-image: linear-gradient(rgba(226, 190, 136, 0.62), rgba(214, 174, 116, 0.62)), url("/images/brand/madeira-clara.webp"); background-size: cover;
-  color: #24140a; box-shadow: inset 0 2px 0 rgba(255, 240, 210, 0.45), inset 0 -3px 0 rgba(60, 32, 10, 0.4), 0 10px 18px rgba(0, 0, 0, 0.45);
-}
-.peca::before, .peca::after { content: ""; position: absolute; top: 0; bottom: 0; width: 7px; background: repeating-linear-gradient(to bottom, rgba(60, 32, 10, 0.55) 0 2px, rgba(120, 78, 38, 0.5) 2px 5px); } /* end grain of a sawn block */
-.peca::before { left: 0; }
-.peca::after { right: 0; }
-.peca__num { grid-row: span 2; font: 700 var(--fs-xs)/1 var(--font-condensed); letter-spacing: var(--tracking-caps); text-transform: uppercase; color: #4a2c10; }
-.peca__nome { font: 700 clamp(1.25rem, 5.4vw, 1.7rem)/1.05 var(--font-display); letter-spacing: 0.04em; text-transform: uppercase; color: #24120a; }
-.peca__prato { font: 600 var(--fs-md)/1.2 var(--font-condensed); color: #33200e; }
-.js .peca.reveal:not(.is-in) { transform: translateY(-34px) rotate(-2.5deg); }
-.js .peca.reveal:not(.is-in):nth-child(even) { transform: translateY(-34px) rotate(2.5deg); }
-
 @media (min-width: 64rem) {
   .corte__placa { width: 17rem; }
-  .bancada__grid { grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); column-gap: var(--space-16); align-items: center; }
-  .pecas { gap: var(--space-4); }
-  .peca { min-height: 4.6rem; padding-inline: var(--space-8); }
-  .peca__nome { font-size: 1.9rem; }
-  .peca__prato { font-size: var(--fs-lg, 1.125rem); }
 }

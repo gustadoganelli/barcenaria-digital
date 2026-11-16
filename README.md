@@ -39,7 +39,6 @@ oficial [@barcenariaoficial](https://www.instagram.com/barcenariaoficial/).
 ```
 referencias/ (fotos, reels e prints do Instagram)
    ├─ scripts/build-assets.mjs  → public/images/*.webp, public/video/*.mp4, public/data/imagens.json
-   ├─ scripts/build-madeira.mjs → public/images/brand/madeira-clara.webp (textura das peças de "Cada corte, um prato.")
    └─ scripts/build-vidro.mjs   → public/images/brand/logo-vidro.webp (máscara da placa para o vidro da vinheta)
 public/ (estático, publicado na Vercel)
    ├─ index.html                → site
@@ -85,9 +84,9 @@ Nenhuma nesta fase (ver `.env.example`).
 | `referencias/instagram/` | material bruto + `manifest.json` com legendas e datas |
 | `referencias/cardapio/`, `referencias/site/` | prints enviados manualmente |
 | `referencias/brand/logo-placa.png` | logo isolado com fundo transparente |
-| `scripts/` | servidor local, geração de assets, isolamento do logo e textura de madeira das peças (`build-madeira.mjs`) |
+| `scripts/` | servidor local, geração de assets, isolamento do logo e máscara da placa para a vinheta (`build-vidro.mjs`) |
 | `docs/design-spec.md` | especificação de design e construção |
-| `docs/cena-serrote.md` | especificação da vinheta de abertura e da seção "Cada corte, um prato.", com o histórico das tentativas |
+| `docs/cena-serrote.md` | especificação da vinheta de abertura, com o histórico das tentativas |
 | `PEDIDOS.md` | registro corrido dos pedidos e do estado de cada um |
 
 ## Limitações conhecidas

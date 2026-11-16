@@ -3,6 +3,10 @@
 Formato: [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/) · Versões por **data** (`AAAA-MM-DD`), não SemVer.
 Log de trabalho diário fica em `.sessoes/` — não aqui. Aqui entra só o que importa a quem **consome** o projeto.
 
+## [2026-11-16] — publicado em https://barcenaria-digital.vercel.app (noindex)
+### Removido
+- Seção "Cada corte, um prato." da página inicial (as cinco peças de madeira com os nomes dos pratos), a pedido do Gustavo. A vinheta de abertura não muda.
+
 ## [2026-11-13] — publicado em https://barcenaria-digital.vercel.app (noindex)
 ### Adicionado
 - Vinheta de abertura na página inicial (automática, cerca de 4 s), no desenho da placa da casa: fundo verde com moldura dourada, a placa, um serrote em traço dourado que corta a tela em dois golpes; a tela se abre e a placa aparece em vidro verde com a arte dourada em relevo e um feixe de luz passando (o mesmo efeito da abertura do site da C41); então o site aparece por trás e a placa voa até pousar sobre o logo do cabeçalho. Não bloqueia a página, qualquer toque dispensa; não toca com "reduzir movimento", em link direto para uma seção nem ao voltar pelo navegador. Sem WebGL, a tela se abre direto para o site.

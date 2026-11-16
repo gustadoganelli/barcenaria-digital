@@ -69,6 +69,9 @@ Registro corrido dos pedidos do Gustavo e do estado de cada um.
   voa até pousar sobre o logo do cabeçalho. Revisão por agentes (2 lentes) antes de publicar; publicado (ver
   `CHANGELOG.md`).
 
+- 2026-11-16, pedido do Gustavo: "tira esse cada corte um prato". Feito e publicado: a seção saiu da página inicial,
+  com os estilos, a textura das peças e o script que a gerava. A vinheta de abertura não mudou.
+
 ### Plano de despacho (ultracode, autorizado diretamente)
 | Estágio | Objetivo | Agentes | Modelo · esforço | Ferramentas | Parada |
 |---|---|---|---|---|---|

@@ -33,8 +33,8 @@ Nenhuma na fase 1. Ver `.env.example`.
 - Imagem nova: entra em `IMAGES` do `build-assets.mjs`, rodar `npm run assets` (gera WebP +
   `data/imagens.json`). Nunca referenciar URL do Instagram (expira).
 - Especificação completa: `docs/design-spec.md`.
-- Vinheta de abertura e seção "Cada corte, um prato." da página inicial: especificação e histórico em
-  `docs/cena-serrote.md`. Vivem em `corte-boot.js`, `corte.css` e `vidro.js` (segundo tempo em WebGL: a placa em
+- Vinheta de abertura da página inicial: especificação e histórico em `docs/cena-serrote.md` (a seção "Cada
+  corte, um prato." foi retirada em 16/11 a pedido do Gustavo: não recolocar). Vive em `corte-boot.js`, `corte.css` e `vidro.js` (segundo tempo em WebGL: a placa em
   vidro que voa para o logo do cabeçalho; adaptado do site da C41); a vinheta só existe sob `html.corte-on`. É
   curta e automática: nada de cena presa à rolagem, filmagem de banco de imagens ou efeitos por cima (três
   tentativas recusadas). Mudança visual nela só vai ao ar depois de o Gustavo ver em vídeo; ajuste que ele mesmo
