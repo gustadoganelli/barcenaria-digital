@@ -72,6 +72,18 @@ Registro corrido dos pedidos do Gustavo e do estado de cada um.
 - 2026-11-16, pedido do Gustavo: "tira esse cada corte um prato". Feito e publicado: a seção saiu da página inicial,
   com os estilos, a textura das peças e o script que a gerava. A vinheta de abertura não mudou.
 
+- 2026-11-17, pedido do Gustavo depois de ver o reel do @_marsdesigner (site conceito do Café Pilão): levar para
+  as nossas páginas a tipografia gigante atrás do produto, os blocos de cor e os soltos em paralaxe, sem prender a
+  rolagem; "bolar o roteiro elaborado pro Barcenaria inicialmente como teste".
+  - Feito: roteiro em `docs/roteiro-vitrine.md` e teste com dois blocos (Fita Métrica e Serragem) numa página à
+    parte, só no computador (`public/vitrine/`, `vitrine.css`, `vitrine.js`, recortes por
+    `scripts/build-recortes.mjs`). Esses arquivos ficam fora do git e fora do ar até o aceite.
+  - **Aguardando o Gustavo:** aprovar a direção pelos vídeos `docs/prints/vitrine-teste-*.mp4` e decidir se a
+    vitrine substitui "Os mais pedidos da casa" ou fica junto.
+- 2026-11-17, pedido do Gustavo: "coloca a animação no desenvolvido por assim como no Pecatto e nos outros".
+  Feito e publicado em 23/11 na página inicial (o rodapé do cardápio digital não foi mexido).
+- 2026-11-23, pedido do Gustavo: "eles lançaram um novo cardápio, confere no Instagram e atualiza".
+
 ### Plano de despacho (ultracode, autorizado diretamente)
 | Estágio | Objetivo | Agentes | Modelo · esforço | Ferramentas | Parada |
 |---|---|---|---|---|---|

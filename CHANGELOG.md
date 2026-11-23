@@ -3,6 +3,10 @@
 Formato: [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/) · Versões por **data** (`AAAA-MM-DD`), não SemVer.
 Log de trabalho diário fica em `.sessoes/` — não aqui. Aqui entra só o que importa a quem **consome** o projeto.
 
+## [2026-11-23] — publicado em https://barcenaria-digital.vercel.app (noindex)
+### Alterado
+- Rodapé da página inicial: o "Desenvolvido por" ganhou a animação que as outras demos já têm. Ao chegar ao fim da página, o nome entra letra por letra, um fio dourado se desenha por baixo, uma lasca cai do fio e os três links sobem em arco.
+
 ## [2026-11-16] — publicado em https://barcenaria-digital.vercel.app (noindex)
 ### Removido
 - Seção "Cada corte, um prato." da página inicial (as cinco peças de madeira com os nomes dos pratos), a pedido do Gustavo. A vinheta de abertura não muda.

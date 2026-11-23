@@ -533,6 +533,27 @@ function initVideos() {
   if (eventos) io.observe(eventos);
 }
 
+/* ---------- footer credit ---------- */
+
+// The name is split into letters (kept readable as one label) so they can drop in one by one; the animation
+// itself is CSS (.footer__dev.is-in). It has its own observer: the credit sits at the very bottom of the page,
+// where the inset of the reveal observer would never let it in.
+function initCredit() {
+  const dev = $('#dev'), name = $('#dev-nome');
+  if (!dev || !name) return;
+  const text = name.textContent;
+  name.setAttribute('aria-label', text);
+  name.replaceChildren(...[...text].map((c, i) => {
+    const s = h('span', { class: 'footer__dev-char', 'aria-hidden': 'true', text: c });
+    s.style.setProperty('--i', i);
+    return s;
+  }));
+  $$('.footer__dev-links a', dev).forEach((a, i) => a.style.setProperty('--i', i));
+  if (reduced.matches || !('IntersectionObserver' in window)) { dev.classList.add('is-in'); return; }
+  const io = new IntersectionObserver(([e]) => { if (e.isIntersecting) { dev.classList.add('is-in'); io.disconnect(); } }, { threshold: 0.5 });
+  io.observe(dev);
+}
+
 /* ---------- lightbox ---------- */
 
 const lb = { list: [], index: 0, opener: null };
@@ -657,6 +678,7 @@ async function init() {
   initMenu();
   initLightbox();
   initVideos();
+  initCredit();
   initParallax();
   initMarquee();
   initBooking();
