@@ -44,6 +44,8 @@ Nenhuma na fase 1. Ver `.env.example`.
 
 ## Armadilhas conhecidas
 - Destaques do Instagram exigem login: cardápio completo vem de prints em `referencias/cardapio/`.
+- Desde o cardápio de 18/11/2026 as comidas não têm mais nome de ferramenta; só os drinks (a confirmar com a
+  casa). Não escrever que os pratos levam nome de marcenaria.
 - Vídeos brutos (`referencias/instagram/*.mp4`, `referencias/serra/*.mp4`) ficam fora do git (pesados).
 - Não gravar variável CSS no `<html>` a cada rolagem: recalcula o estilo da página inteira e trava o site
   (medido em 13/11; a barra de progresso grava só nos dois elementos que a usam).

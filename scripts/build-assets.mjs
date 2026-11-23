@@ -24,6 +24,10 @@ const PHOTO = {
   linguica: `${IG}/2026-09-04-linguica-artesanal.jpg`,
   jorgeAmado: `${IG}/2026-08-30-drink-resina-jorge-amado.jpg`,
   bucha: `${IG}/2026-08-30-bucha-torresmo-de-rolo.jpg`,
+  // Cardápio novo: capa do carrossel de 18/11 e quadros do reel de 20/11 (prints, sem os controles do player)
+  cardapioNovo: `${IG}/2026-11-18-cardapio-novo-capa.jpg`,
+  burger: `${IG}/2026-11-20-reel-cardapio-novo-burger.jpg`,
+  parmegiana: `${IG}/2026-11-20-reel-cardapio-novo-parmegiana.jpg`,
 };
 // Story screenshots of the "Cardápio" highlight (738x1600, Instagram UI cropped out below)
 const MENU = (name) => `referencias/cardapio/WhatsApp Image 2026-09-29 at ${name}.jpeg`;
@@ -73,6 +77,8 @@ const IMAGES = [
   { id: 'pratos/fraldinha-na-chapa', src: () => PHOTO.fraldinha, crop: [585, 535, 650, 475], widths: [480, 650] },
   { id: 'pratos/linguica-artesanal', src: () => PHOTO.linguica, crop: [385, 560, 785, 525], widths: [480, 785] },
   { id: 'pratos/feijoada', src: () => PHOTO.feijoada, crop: [460, 500, 700, 600], widths: [480, 700] },
+  { id: 'pratos/burger-barcenaria', src: () => PHOTO.burger, crop: [0, 300, 1014, 700], widths: [480, 1014] },
+  { id: 'pratos/parmegiana-de-file-mignon', src: () => PHOTO.parmegiana, crop: [0, 560, 1014, 700], widths: [480, 1014] },
   // Promoções (artes completas publicadas pela casa)
   { id: 'promos/chopp-double', src: () => PHOTO.chopp, widths: [640, 1080] },
   { id: 'promos/feijoada-sabado', src: () => PHOTO.feijoada, widths: [640, 1080] },
@@ -82,6 +88,7 @@ const IMAGES = [
   { id: 'promos/linguica', src: () => PHOTO.linguica, widths: [640, 1080] },
   { id: 'promos/barcenaipa', src: () => PHOTO.ipa, widths: [640, 1080] },
   { id: 'promos/quinta-sinuca', src: () => PHOTO.sinuca, widths: [640, 1080] },
+  { id: 'promos/cardapio-novo', src: () => PHOTO.cardapioNovo, crop: [40, 40, 1120, 1090], widths: [640, 1120] },
   // Fotos do cardápio impresso (recortes sem a interface do Instagram e sem a legenda "imagem ilustrativa")
   { id: 'cardapio/compensado-burrata', src: () => MENU('16.53.19'), crop: [146, 240, 565, 370], widths: [565] },
   { id: 'cardapio/serragem-tartare', src: () => MENU('16.53.19'), crop: [146, 1048, 439, 277], widths: [439] },

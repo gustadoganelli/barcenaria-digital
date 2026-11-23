@@ -91,7 +91,7 @@ Nenhuma nesta fase (ver `.env.example`).
 
 ## Limitações conhecidas
 
-- Cardápio transcrito das páginas 3 a 15 (de 18) do destaque "Cardápio"; faltam conferir as páginas 1–2 e 16–18.
+- Comidas: cardápio novo publicado pela casa no Instagram em 18/11/2026 (prints em `referencias/cardapio/2026-11-18-cardapio-novo-*.jpg`). Bebidas, almoço executivo e feijoada: seguem do destaque "Cardápio" de 30/06/2026 (páginas 3 a 15 de 18) e não aparecem na publicação nova; a confirmar com a casa. Enquanto isso o cardápio digital mostra a faixa "Cardápio em atualização".
 - Duas inconsistências vieram do cardápio original e estão marcadas com `revisar` no JSON (uva do Paisajes de Los Andes; região do Château Briot).
 - Horário de fechamento, telefone do WhatsApp e endereço a confirmar com a casa.
 - Sem backend: pré-reserva de evento abre o WhatsApp com a mensagem pronta.
@@ -100,7 +100,7 @@ Nenhuma nesta fase (ver `.env.example`).
 
 ## Roadmap
 
-1. Conferir as páginas 1–2 e 16–18 do destaque "Cardápio".
+1. Confirmar com a casa a carta de bebidas, o almoço executivo e a feijoada depois do cardápio novo de 18/11/2026.
 2. Validar com a casa (preços, horários, fotos) e remover `noindex`.
 3. Fase 2: painel para a equipe editar cardápio e promoções; domínio próprio; Google Meu Negócio.
 

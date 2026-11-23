@@ -1,9 +1,9 @@
 {
-  "versao": 2,
-  "atualizado_em": "2026-09-29",
-  "fonte": "Destaque 'Cardápio' do Instagram oficial, publicado em 30/06/2026.",
-  "status": "completo",
-  "observacao": "Transcrito das páginas 3 a 15 (de 18) do destaque. Páginas 1–2 e 16–18 ainda não conferidas. Preços sujeitos a alteração.",
+  "versao": 3,
+  "atualizado_em": "2026-11-23",
+  "fonte": "Comidas: cardápio novo publicado no Instagram oficial em 18/11/2026 (https://www.instagram.com/p/Df5fFo8mENN/). Bebidas, almoço executivo e feijoada: destaque 'Cardápio' do Instagram oficial, publicado em 30/06/2026.",
+  "status": "parcial",
+  "observacao": "Comidas transcritas das quatro páginas do carrossel de 18/11/2026. A publicação nova não traz bebidas, almoço executivo nem feijoada: essas categorias seguem como no cardápio de 30/06/2026 e estão a confirmar com a casa. Preços sujeitos a alteração.",
   "aviso": "Preços sujeitos a alteração. Imagens meramente ilustrativas. Informe o garçom sobre alergias e restrições.",
   "selos": {
     "sucesso-da-casa": "Sucesso da casa",
@@ -11,419 +11,389 @@
   },
   "categorias": [
     {
-      "id": "entradas",
-      "nome": "Entradas",
-      "subtitulo": "para esquadrejar seu apetite",
-      "nota": "Acompanham cesta de pão caseiro.",
-      "tipo": "lista",
-      "imagem": "cardapio/compensado-burrata",
-      "itens": [
-        {
-          "id": "formica",
-          "nome": "Fórmica",
-          "prato": "Trio de antepastos",
-          "descricao": "Caponata de berinjela, sardela e tapenade de azeitonas.",
-          "preco": 70
-        },
-        {
-          "id": "compensado",
-          "nome": "Compensado",
-          "prato": "Burrata fresca cremosa",
-          "descricao": "Rúcula, presunto parma, tomate confitado e pesto de manjericão.",
-          "preco": 90,
-          "imagem": "cardapio/compensado-burrata"
-        },
-        {
-          "id": "laminas",
-          "nome": "Lâminas",
-          "prato": "Steak tartare",
-          "descricao": "Cortado na ponta da faca, temperado à moda clássica com cebola, mostardas, alcaparras, azeite e cebolinha.",
-          "preco": 70
-        },
-        {
-          "id": "serragem",
-          "nome": "Serragem",
-          "prato": "Tartare de salmão",
-          "descricao": "Cortado na ponta da faca, marinado em cítricos e especiarias asiáticas, com salada de quinoa.",
-          "preco": 80,
-          "imagem": "cardapio/serragem-tartare"
-        },
-        {
-          "id": "lascas",
-          "nome": "Lascas",
-          "prato": null,
-          "descricao": "Alface americana, tiras de frango grelhadas, croutons, queijo ralado e molho caesar da casa.",
-          "preco": 60
-        },
-        {
-          "id": "cunhas",
-          "nome": "Cunhas",
-          "prato": null,
-          "descricao": "Mix de folhas frescas, tomate cereja, pepino, azeitonas e lascas de queijo ralado.",
-          "preco": 50,
-          "vegetariano": true
-        }
-      ],
-      "estacao": "cozinha"
-    },
-    {
       "id": "porcoes",
       "nome": "Porções",
-      "subtitulo": "ideais para distribuir a carga",
       "tipo": "lista",
       "imagem": "pratos/bucha-torresmo-de-rolo",
+      "estacao": "cozinha",
       "itens": [
         {
-          "id": "caixa-de-ferramentas",
-          "nome": "Caixa de Ferramentas",
-          "prato": "Linguiça artesanal",
-          "descricao": "Grelhada e servida com barbecue especial da casa e batatas crocantes.",
-          "preco": 90,
-          "imagem": "pratos/linguica-artesanal"
-        },
-        {
-          "id": "rustico",
-          "nome": "Rústico",
-          "prato": "6 bolinhos de mix de cogumelos",
-          "descricao": "Com maionese da casa.",
-          "preco": 55,
+          "id": "batata-simples",
+          "nome": "Batata Simples",
+          "prato": null,
+          "descricao": "500 g de batata palito, temperadas com sal e noz-moscada. Molho: maionese de cebolinha. Adicional de creme cheddar e farofa de bacon: R$ 16,00.",
+          "preco": 29,
           "vegetariano": true
         },
         {
-          "id": "jogos-de-lixas",
-          "nome": "Jogos de Lixas",
-          "prato": "6 pastéis",
-          "descricao": "Recheios de queijo, palmito com cogumelos e carne desfiada. Acompanha vinagrete.",
-          "preco": 70
+          "id": "batata-barcenaria",
+          "nome": "Batata Barcenaria",
+          "prato": null,
+          "descricao": "500 g de batata palito, temperadas com sal e noz-moscada, cobertas com queijo parmesão e azeite trufado. Molho: maionese de azeite trufado.",
+          "preco": 65,
+          "vegetariano": true
         },
         {
-          "id": "plaina",
-          "nome": "Plaina",
-          "prato": "Frango à passarinho",
-          "descricao": "Coberto de alho frito e raspas de limão.",
-          "preco": 50
+          "id": "pipoca-de-queijo-coalho",
+          "nome": "Pipoca de Queijo Coalho",
+          "prato": null,
+          "descricao": "250 g de queijo coalho levemente empanado e frito, finalizado com flor de sal. Molho: geleia de pimenta da casa.",
+          "preco": 39,
+          "vegetariano": true
         },
         {
-          "id": "bucha",
-          "nome": "Bucha",
-          "prato": "Panceta em rolo",
-          "descricao": "Pururucada perfeitamente crocante, temperada com raspas de limão-siciliano e acompanhada de geleia de pimenta.",
-          "preco": 70,
+          "id": "tay-chicken",
+          "nome": "Tay Chicken",
+          "prato": null,
+          "descricao": "350 g de filé de sobrecoxa marinado por 24 horas em temperos asiáticos, empanado em um mix de farinhas especiais e coberto por um molho agridoce levemente picante.",
+          "preco": 39
+        },
+        {
+          "id": "frango-a-passarinho",
+          "nome": "Frango a Passarinho",
+          "prato": null,
+          "descricao": "500 g de frango a passarinho temperado com a marinada da casa, finalizado com alho frito. Molho: maionese de alho assado.",
+          "preco": 39
+        },
+        {
+          "id": "bolinho-de-carne-seca",
+          "nome": "Bolinho de Carne Seca",
+          "prato": null,
+          "descricao": "6 unidades de bolinho de carne seca refogada na manteiga de garrafa e cebola roxa, finalizado com requeijão. Molho: maionese de alho assado e molho de pimenta.",
+          "preco": 49
+        },
+        {
+          "id": "croquete-de-cogumelos",
+          "nome": "Croquete de Cogumelos",
+          "prato": null,
+          "descricao": "6 unidades de croquete de mix de cogumelos salteados com temperos da casa. Molho: maionese de alho assado.",
+          "preco": 49,
+          "vegetariano": true
+        },
+        {
+          "id": "torresmo-de-rolo",
+          "nome": "Torresmo de Rolo",
+          "prato": null,
+          "descricao": "Nosso torresmo de rolo, supercrocante e suculento, finalizado com raspas de limão. Molho: maionese de alho assado, molho de pimenta e limão.",
+          "preco": 55,
           "selos": [
             "sucesso-da-casa"
           ],
           "imagem": "pratos/bucha-torresmo-de-rolo",
           "imagem_extra": "pratos/torresmo-na-mesa",
-          "fonte_selo": "Arte oficial da Bucha no Instagram (30/08/2026): \"Sucesso da casa\""
+          "fonte_selo": "Arte oficial do torresmo de rolo no Instagram (30/08/2026): \"Sucesso da casa\""
         },
         {
-          "id": "esquadro",
-          "nome": "Esquadro",
-          "prato": "Iscas de peixe empanadas",
-          "descricao": "Servidas com raspas de limão-siciliano e maionese da casa.",
-          "preco": 75
+          "id": "porcao-de-pastel",
+          "nome": "Porção de Pastel",
+          "prato": null,
+          "descricao": "8 unidades de pastéis, sendo 2 de cada sabor: carne, mussarela com gorgonzola, mix de cogumelos e carne seca com catupiry. Molho: vinagrete e molho de pimenta da casa.",
+          "preco": 60,
+          "precos": [
+            {
+              "rotulo": "Porção (8 un.)",
+              "valor": 60
+            },
+            {
+              "rotulo": "Individual",
+              "valor": 10
+            }
+          ]
         },
         {
-          "id": "guarda-roupa",
-          "nome": "Guarda-Roupa",
-          "prato": "8 porpetas caseiras",
-          "descricao": "Cobertas com queijo, com molho de tomate rústico caseiro e cestinha de pães.",
-          "preco": 65,
-          "imagem": "cardapio/guarda-roupa-porpetas"
-        },
-        {
-          "id": "verniz",
-          "nome": "Verniz",
-          "prato": "Iscas de frango empanadas",
-          "descricao": "Acompanhadas de molho barbecue.",
+          "id": "isca-de-tilapia",
+          "nome": "Isca de Tilápia",
+          "prato": null,
+          "descricao": "350 g de filé de tilápia empanado na farinha panko e finalizado com raspas de limão. Molho: maionese de limão.",
           "preco": 65
         },
         {
-          "id": "tupia",
-          "nome": "Tupia",
-          "prato": "Bolinho de queijo da canastra",
-          "descricao": "Acompanhado de geleia de pimenta.",
-          "preco": 55,
-          "vegetariano": true
+          "id": "linguica-acebolada-na-cachaca",
+          "nome": "Linguiça Acebolada na Cachaça",
+          "prato": null,
+          "descricao": "500 g de linguiça artesanal recheada de tomate seco e queijo coalho, coberta por cebola refogada e flambada na cachaça. Acompanhamentos: pão artesanal e molho de pimenta.",
+          "preco": 69
         },
         {
-          "id": "viga",
-          "nome": "Viga",
-          "prato": "Picanha na chapa",
-          "descricao": "Acompanhada de farofa e vinagrete.",
-          "preco": 170
-        },
-        {
-          "id": "cavilhas",
-          "nome": "Cavilhas",
-          "prato": "Batatas fritas",
-          "descricao": "Cobertas com queijo cheddar e bacon crocantes.",
-          "preco": 55
-        },
-        {
-          "id": "sarrafo",
-          "nome": "Sarrafo",
-          "prato": "Fraldinha na chapa",
-          "descricao": "Acompanhada de farofa e vinagrete.",
-          "preco": 160,
-          "imagem": "cardapio/sarrafo-fraldinha"
-        },
-        {
-          "id": "trilho",
-          "nome": "Trilho",
-          "prato": "6 bolinhos de carne-seca",
-          "descricao": "Cremosos, com maionese da casa.",
-          "preco": 55
-        },
-        {
-          "id": "tabua",
-          "nome": "Tábua",
-          "prato": "Filé-mignon aperitivo",
-          "descricao": "Com molho de catupiry gratinado e alho frito. Acompanha cestinha de pães.",
-          "preco": 170
+          "id": "isca-de-file-mignon",
+          "nome": "Isca de Filé Mignon",
+          "prato": null,
+          "descricao": "500 g de iscas de filé mignon grelhadas, finalizadas com molho gorgonzola. Acompanhamentos: pão artesanal e molho de pimenta.",
+          "preco": 149
         }
-      ],
-      "estacao": "cozinha"
-    },
-    {
-      "id": "acompanhamentos",
-      "nome": "Acompanhamentos",
-      "tipo": "lista",
-      "itens": [
-        {
-          "id": "enxerto",
-          "nome": "Enxerto",
-          "prato": null,
-          "descricao": "Arroz branco.",
-          "preco": 15
-        },
-        {
-          "id": "massa-f12-clara",
-          "nome": "Massa F12 Clara",
-          "prato": null,
-          "descricao": "Purê cremoso de batata.",
-          "preco": 20
-        },
-        {
-          "id": "farpas",
-          "nome": "Farpas",
-          "prato": null,
-          "descricao": "Feijão carioca.",
-          "preco": 15
-        },
-        {
-          "id": "massa-f12-escura",
-          "nome": "Massa F12 Escura",
-          "prato": null,
-          "descricao": "Purê cremoso de mandioquinha.",
-          "preco": 20
-        },
-        {
-          "id": "dormente",
-          "nome": "Dormente",
-          "prato": null,
-          "descricao": "Tábua de legumes braseados com tempero rústico da casa.",
-          "preco": 30
-        },
-        {
-          "id": "fechadura",
-          "nome": "Fechadura",
-          "prato": null,
-          "descricao": "Farofa caseira.",
-          "preco": 15
-        },
-        {
-          "id": "escoras",
-          "nome": "Escoras",
-          "prato": null,
-          "descricao": "Batatas fritas fininhas.",
-          "preco": 25
-        }
-      ],
-      "estacao": "cozinha"
-    },
-    {
-      "id": "da-panela",
-      "nome": "Da Panela",
-      "subtitulo": "pratos, massas e risotos",
-      "tipo": "lista",
-      "imagem": "cardapio/fita-metrica-linguini",
-      "itens": [
-        {
-          "id": "prego",
-          "nome": "Prego",
-          "prato": "Risoto cremoso de funghi",
-          "descricao": "Finalizado com lascas de filé-mignon grelhado.",
-          "preco": 90
-        },
-        {
-          "id": "ripa",
-          "nome": "Ripa",
-          "prato": "Filé de tilápia grelhado",
-          "descricao": "Acompanhado de enxerto (arroz) e massa F12 escura (purê de mandioquinha).",
-          "preco": 60
-        },
-        {
-          "id": "talha",
-          "nome": "Talha",
-          "prato": "Risoto cremoso de queijo parmesão",
-          "descricao": "Com tomate e manjericão.",
-          "preco": 75,
-          "vegetariano": true
-        },
-        {
-          "id": "gabinete",
-          "nome": "Gabinete",
-          "prato": "Filé de frango à parmegiana",
-          "descricao": "Acompanhado de arroz e fritas fininhas.",
-          "preco": 65
-        },
-        {
-          "id": "fita-metrica",
-          "nome": "Fita Métrica",
-          "prato": "Linguini grano duro",
-          "descricao": "Ao molho pesto de rúcula, tomate confitado e burrata cremosa.",
-          "preco": 75,
-          "imagem": "cardapio/fita-metrica-linguini"
-        },
-        {
-          "id": "morsa",
-          "nome": "Morsa",
-          "prato": "Gnocchi à sorrentina",
-          "descricao": "Molho de tomate caseiro coberto com queijo, gratinado, com folhas de manjericão.",
-          "preco": 80,
-          "vegetariano": true
-        },
-        {
-          "id": "caibro",
-          "nome": "Caibro",
-          "prato": "Posta de salmão de 200 g grelhada",
-          "descricao": "Acompanhada de enxerto (arroz) e dormente (legumes braseados).",
-          "preco": 85
-        },
-        {
-          "id": "armario",
-          "nome": "Armário",
-          "prato": "Filé-mignon à parmegiana",
-          "descricao": "Acompanhado de arroz e fritas fininhas.",
-          "preco": 85
-        }
-      ],
-      "estacao": "cozinha"
-    },
-    {
-      "id": "kids",
-      "nome": "Aprendiz de Marceneiro",
-      "subtitulo": "kids",
-      "tipo": "lista",
-      "itens": [
-        {
-          "id": "mini-verniz",
-          "nome": "Mini Verniz",
-          "prato": null,
-          "descricao": "Iscas de filé de frango grelhado, purê de batata e arroz.",
-          "preco": 35
-        },
-        {
-          "id": "mini-fita-metrica",
-          "nome": "Mini Fita Métrica",
-          "prato": null,
-          "descricao": "Linguini ao pomodoro e filé-mignon.",
-          "preco": 50
-        },
-        {
-          "id": "mini-tabua",
-          "nome": "Mini Tábua",
-          "prato": null,
-          "descricao": "Filé-mignon grelhado com arroz, feijão e fritas fininhas.",
-          "preco": 45
-        }
-      ],
-      "estacao": "cozinha"
+      ]
     },
     {
       "id": "lanches",
       "nome": "Lanches",
-      "subtitulo": "no pão francês redondo",
-      "nota": "Acompanham cestinha de fritas fininhas.",
       "tipo": "lista",
+      "imagem": "pratos/burger-barcenaria",
+      "estacao": "cozinha",
+      "nota": "Agora você escolhe se prefere apenas o lanche ou o combo que acompanha batata frita e uma bebida não alcoólica.",
       "itens": [
         {
-          "id": "cava-x-salada",
-          "nome": "Cava X-Salada",
+          "id": "lanche-barcenaria",
+          "nome": "Barcenaria",
           "prato": null,
-          "descricao": "Blend da casa, queijo muçarela, alface, tomate e maionese aioli.",
-          "preco": 53
+          "descricao": "Pão ciabatta, maionese de limão, filé de tilápia empanado na farinha panko, salada de repolho roxo temperado com iogurte e hortelã.",
+          "preco": 49,
+          "precos": [
+            {
+              "rotulo": "Lanche",
+              "valor": 49
+            },
+            {
+              "rotulo": "Combo",
+              "valor": 65
+            }
+          ]
         },
         {
-          "id": "porca-pernil-desfiado",
-          "nome": "Porca Pernil Desfiado",
+          "id": "parmegiana-de-file-mignon",
+          "nome": "Parmegiana de Filé Mignon",
           "prato": null,
-          "descricao": "Pernil suíno desfiado, com cebola, pimentões e azeite.",
-          "preco": 48
+          "descricao": "Pão ciabatta, parmegiana de filé mignon com molho de tomate da casa, mussarela fior de latte, finalizado com pesto de manjericão.",
+          "preco": 59,
+          "precos": [
+            {
+              "rotulo": "Lanche",
+              "valor": 59
+            },
+            {
+              "rotulo": "Combo",
+              "valor": 75
+            }
+          ],
+          "imagem": "pratos/parmegiana-de-file-mignon"
         },
         {
-          "id": "ferragem-x-bacon-cheddar",
-          "nome": "Ferragem X-Bacon Cheddar",
+          "id": "burger-barcenaria",
+          "nome": "Burger Barcenaria",
           "prato": null,
-          "descricao": "Blend da casa, queijo cheddar e bacon crocante.",
-          "preco": 58
+          "descricao": "Pão de brioche, maionese de cebolinha, blend 150 g, queijo coalho, carne seca salteada na manteiga de garrafa e cebola roxa.",
+          "preco": 45,
+          "precos": [
+            {
+              "rotulo": "Lanche",
+              "valor": 45
+            },
+            {
+              "rotulo": "Combo",
+              "valor": 60
+            }
+          ],
+          "imagem": "pratos/burger-barcenaria"
         },
         {
-          "id": "estopa-burguer-de-quinoa",
-          "nome": "Estopa Burguer de Quinoa",
+          "id": "burger-simples",
+          "nome": "Burger Simples",
           "prato": null,
-          "descricao": "Burguer veggie à base de quinoa, com crisp de parmesão e tomatinhos confitados.",
-          "preco": 52,
+          "descricao": "Pão de brioche, maionese de cebolinha, blend 150 g, american cheese.",
+          "preco": 35,
+          "precos": [
+            {
+              "rotulo": "Lanche",
+              "valor": 35
+            },
+            {
+              "rotulo": "Combo",
+              "valor": 50
+            }
+          ]
+        },
+        {
+          "id": "burger-salada",
+          "nome": "Burger Salada",
+          "prato": null,
+          "descricao": "Pão de brioche, maionese de cebolinha, blend 150 g, american cheese, alface americana e tomate.",
+          "preco": 40,
+          "precos": [
+            {
+              "rotulo": "Lanche",
+              "valor": 40
+            },
+            {
+              "rotulo": "Combo",
+              "valor": 55
+            }
+          ]
+        },
+        {
+          "id": "burger-picles",
+          "nome": "Burger Picles",
+          "prato": null,
+          "descricao": "Pão de brioche, maionese de cebolinha, blend 150 g, american cheese e picles.",
+          "preco": 40,
+          "precos": [
+            {
+              "rotulo": "Lanche",
+              "valor": 40
+            },
+            {
+              "rotulo": "Combo",
+              "valor": 55
+            }
+          ]
+        },
+        {
+          "id": "burger-bacon",
+          "nome": "Burger Bacon",
+          "prato": null,
+          "descricao": "Pão de brioche, maionese de cebolinha, blend 150 g, american cheese e bacon grelhado.",
+          "preco": 40,
+          "precos": [
+            {
+              "rotulo": "Lanche",
+              "valor": 40
+            },
+            {
+              "rotulo": "Combo",
+              "valor": 55
+            }
+          ]
+        },
+        {
+          "id": "burger-falafel",
+          "nome": "Burger Falafel",
+          "prato": null,
+          "descricao": "Pão de brioche, maionese de cebolinha, burger de falafel 150 g, american cheese, alface americana e tomate.",
+          "preco": 37,
+          "precos": [
+            {
+              "rotulo": "Lanche",
+              "valor": 37
+            },
+            {
+              "rotulo": "Combo",
+              "valor": 50
+            }
+          ],
           "vegetariano": true
         }
-      ],
-      "estacao": "cozinha"
+      ]
+    },
+    {
+      "id": "espetos",
+      "nome": "Espetos",
+      "tipo": "lista",
+      "estacao": "cozinha",
+      "nota": "Todos os espetos acompanham vinagrete e farofa.",
+      "itens": [
+        {
+          "id": "espeto-carne",
+          "nome": "Espeto de Carne",
+          "prato": null,
+          "preco": 15.9
+        },
+        {
+          "id": "espeto-frango",
+          "nome": "Espeto de Frango",
+          "prato": null,
+          "preco": 12.9
+        },
+        {
+          "id": "espeto-linguica",
+          "nome": "Espeto de Linguiça",
+          "prato": null,
+          "preco": 12.9
+        },
+        {
+          "id": "espeto-queijo-coalho",
+          "nome": "Espeto de Queijo Coalho",
+          "prato": null,
+          "preco": 14.9
+        },
+        {
+          "id": "espeto-pao-de-alho",
+          "nome": "Espeto de Pão de Alho",
+          "prato": null,
+          "preco": 12.9
+        },
+        {
+          "id": "espeto-coracao",
+          "nome": "Espeto de Coração",
+          "prato": null,
+          "preco": 15.9
+        },
+        {
+          "id": "espeto-kafta-com-queijo",
+          "nome": "Espeto de Kafta com Queijo",
+          "prato": null,
+          "preco": 18.9
+        },
+        {
+          "id": "espeto-salsichao-com-provolone",
+          "nome": "Espeto de Salsichão com Provolone",
+          "prato": null,
+          "preco": 19.9
+        },
+        {
+          "id": "espeto-medalhao-bovino",
+          "nome": "Espeto de Medalhão Bovino",
+          "prato": null,
+          "preco": 20.9
+        },
+        {
+          "id": "tabua-de-espetos",
+          "nome": "Tábua de Espetos",
+          "prato": null,
+          "descricao": "Escolha 6 unidades de espeto dos sabores abaixo: carne, frango, linguiça, queijo coalho e pão de alho. Acompanhamentos: farofa, vinagrete, molho de pimenta e pão artesanal.",
+          "preco": 75
+        }
+      ]
+    },
+    {
+      "id": "pratos",
+      "nome": "Pratos",
+      "tipo": "lista",
+      "estacao": "cozinha",
+      "nota": "Consulte as opções de pratos quentes: a cada semana trazemos duas opções para você escolher a sua preferida.",
+      "itens": [
+        {
+          "id": "salada-cesar",
+          "nome": "Salada César",
+          "prato": null,
+          "descricao": "Alface romana e americana, croutons, parmesão ralado, 200 g de filé de frango grelhado temperado com o clássico molho césar.",
+          "preco": 49
+        },
+        {
+          "id": "burrata",
+          "nome": "Burrata",
+          "prato": null,
+          "descricao": "Burrata, tomate confit, pesto de manjericão e cesta de pão artesanal.",
+          "preco": 79,
+          "vegetariano": true
+        }
+      ]
     },
     {
       "id": "sobremesas",
       "nome": "Sobremesas",
-      "subtitulo": "acabamento final",
       "tipo": "lista",
+      "estacao": "cozinha",
       "itens": [
         {
-          "id": "arruela",
-          "nome": "Arruela",
+          "id": "torta-barcenaria",
+          "nome": "Torta Barcenaria",
           "prato": null,
-          "descricao": "Panacota com coulis de frutas vermelhas.",
-          "preco": 30
+          "descricao": "Torta com base de cacau e bolacha de maizena, recheio à base de doce de leite e cacau, finalizada com raspas de limão, flor de sal e nibs de cacau.",
+          "preco": 29
         },
         {
-          "id": "chave-inglesa",
-          "nome": "Chave Inglesa",
+          "id": "petit-gateau",
+          "nome": "Petit Gâteau",
           "prato": null,
-          "descricao": "Gelato de tangerina com calda de chocolate.",
-          "preco": 23
+          "descricao": "Bolinho cremoso de chocolate, sorvete de creme, farofa de castanhas e calda de Nutella.",
+          "preco": 35
         },
         {
-          "id": "meia-esquadria",
-          "nome": "Meia Esquadria",
+          "id": "sorvete-de-creme",
+          "nome": "Sorvete de Creme",
           "prato": null,
-          "descricao": "Torta de chocolate com calda de caramelo salgado.",
-          "preco": 40
-        },
-        {
-          "id": "chave-de-boca",
-          "nome": "Chave de Boca",
-          "prato": null,
-          "descricao": "Gelato de manjericão com toque de azeite.",
-          "preco": 23
-        },
-        {
-          "id": "primer",
-          "nome": "Primer",
-          "prato": null,
-          "descricao": "Café expresso.",
-          "preco": 10,
-          "estacao": "bar"
+          "descricao": "2 bolas de sorvete de creme acompanhado de calda de Nutella.",
+          "preco": 19
         }
-      ],
-      "estacao": "cozinha"
+      ]
     },
     {
       "id": "bebidas",
@@ -1262,7 +1232,6 @@
       "id": "tintos",
       "nome": "Vinhos Tintos",
       "tipo": "vinhos",
-      "imagem": "cardapio/sarrafo-fraldinha",
       "itens": [
         {
           "id": "paisajes-de-los-andes",
@@ -1273,13 +1242,11 @@
           "origem": "Chile — Colchagua e Cachapoal",
           "pais": "CL",
           "notas": "Médio corpo, seco e macio, com aromas de geleia de frutas vermelhas e pimentão vermelho assado.",
-          "harmoniza": "Experimente com uma Tábua, Viga ou Lâminas.",
+          "revisar": "Rótulo Cabernet Sauvignon com uva '100% Chardonnay' no cardápio original.",
+          "harmoniza": "Experimente com uma Isca de Filé Mignon.",
           "harmoniza_ids": [
-            "tabua",
-            "viga",
-            "laminas"
-          ],
-          "revisar": "Rótulo Cabernet Sauvignon com uva '100% Chardonnay' no cardápio original."
+            "isca-de-file-mignon"
+          ]
         },
         {
           "id": "royal-road-malbec",
@@ -1290,11 +1257,9 @@
           "origem": "Argentina — Mendoza",
           "pais": "AR",
           "notas": "Médio corpo, macio e vibrante, com aromas de ameixa em geleia e bastante floral de violeta.",
-          "harmoniza": "Que tal um Sarrafo, Trilho ou Armário para acompanhar?",
+          "harmoniza": "Que tal um Bolinho de Carne Seca para acompanhar?",
           "harmoniza_ids": [
-            "sarrafo",
-            "trilho",
-            "armario"
+            "bolinho-de-carne-seca"
           ]
         },
         {
@@ -1306,13 +1271,9 @@
           "origem": "Espanha — Almansa",
           "pais": "ES",
           "notas": "Médio corpo e bem aromático, de calda de framboesa com baunilha.",
-          "harmoniza": "Versátil, vai bem demais com as Lâminas, Escoras, Trilhos, Vigas e Armários.",
+          "harmoniza": "Versátil, vai bem demais com o Bolinho de Carne Seca.",
           "harmoniza_ids": [
-            "laminas",
-            "escoras",
-            "trilho",
-            "viga",
-            "armario"
+            "bolinho-de-carne-seca"
           ]
         },
         {
@@ -1324,12 +1285,6 @@
           "origem": "França — Bordeaux",
           "pais": "FR",
           "notas": "Corpo médio para encorpado, seco e com os clássicos aromas de pimentão assado com carne e geleia de morango.",
-          "harmoniza": "Clássico para pedir acompanhado de uma Viga, Gabinete ou Guarda-Roupa.",
-          "harmoniza_ids": [
-            "viga",
-            "gabinete",
-            "guarda-roupa"
-          ],
           "revisar": "Cardápio original cita 'Bordeaux — Ladoix' (Ladoix é na Borgonha)."
         },
         {
@@ -1340,13 +1295,7 @@
           "madeira": "10 meses em madeira",
           "origem": "Argentina — Mendoza — Maipú",
           "pais": "AR",
-          "notas": "Muito encorpado, elaborado com uvas de vinhedos centenários, resultando em elegância e equilíbrio. Tabaco, coco queimado e cereja negra em calda.",
-          "harmoniza": "Casamento perfeito com as Vigas, Gabinetes e Guarda-Roupas.",
-          "harmoniza_ids": [
-            "viga",
-            "gabinete",
-            "guarda-roupa"
-          ]
+          "notas": "Muito encorpado, elaborado com uvas de vinhedos centenários, resultando em elegância e equilíbrio. Tabaco, coco queimado e cereja negra em calda."
         },
         {
           "id": "gauchezco-reserve-malbec",
@@ -1357,11 +1306,9 @@
           "origem": "Argentina — Mendoza",
           "pais": "AR",
           "notas": "Intenso, potente e aromático, com notas de geleia de ameixa, violeta e baunilha.",
-          "harmoniza": "Aqui recomendamos a Bucha, Viga e Sarrafo.",
+          "harmoniza": "Aqui recomendamos o Torresmo de Rolo.",
           "harmoniza_ids": [
-            "bucha",
-            "viga",
-            "sarrafo"
+            "torresmo-de-rolo"
           ]
         },
         {
@@ -1373,11 +1320,9 @@
           "origem": "Espanha — Almansa",
           "pais": "ES",
           "notas": "Super encorpado e macio, com bastante aroma de chocolate, café e calda de cereja.",
-          "harmoniza": "Chame um Armário, Morsa ou Tábua.",
+          "harmoniza": "Chame uma Isca de Filé Mignon.",
           "harmoniza_ids": [
-            "armario",
-            "morsa",
-            "tabua"
+            "isca-de-file-mignon"
           ]
         },
         {
@@ -1388,13 +1333,7 @@
           "madeira": "Sem passagem por madeira",
           "origem": "França — Carcassonne",
           "pais": "FR",
-          "notas": "Leve, delicado e aromático, com notas de morango maduro e flores.",
-          "harmoniza": "Acompanha bem um Prego, Talha e Guarda-Roupas.",
-          "harmoniza_ids": [
-            "prego",
-            "talha",
-            "guarda-roupa"
-          ]
+          "notas": "Leve, delicado e aromático, com notas de morango maduro e flores."
         },
         {
           "id": "excava-carmenere",
@@ -1405,11 +1344,9 @@
           "origem": "Chile — Colchagua",
           "pais": "CL",
           "notas": "Encorpado, intenso e com aromas de geleia de morango com alecrim.",
-          "harmoniza": "Ideal para acompanhar uma Fita Métrica, Plaina e Verniz.",
+          "harmoniza": "Ideal para acompanhar um Frango a Passarinho.",
           "harmoniza_ids": [
-            "fita-metrica",
-            "plaina",
-            "verniz"
+            "frango-a-passarinho"
           ]
         },
         {
@@ -1421,12 +1358,9 @@
           "origem": "Itália — Puglia — Manduria",
           "pais": "IT",
           "notas": "Muito encorpado, cremoso e tostado. Aromas de calda de manjar com ameixa seca, cravo e canela.",
-          "harmoniza": "Experimente com um Verniz, Rústicos, Talhas ou Fita Métricas.",
+          "harmoniza": "Experimente com um Croquete de Cogumelos.",
           "harmoniza_ids": [
-            "verniz",
-            "rustico",
-            "talha",
-            "fita-metrica"
+            "croquete-de-cogumelos"
           ]
         },
         {
@@ -1438,11 +1372,9 @@
           "origem": "Espanha — Rioja Alavesa",
           "pais": "ES",
           "notas": "Elegante, complexo e muito fino, com aromas de calda de amora, ameixa seca e chocolate.",
-          "harmoniza": "Perfeito com um Prego, Morsa e Tábua.",
+          "harmoniza": "Perfeito com uma Isca de Filé Mignon.",
           "harmoniza_ids": [
-            "prego",
-            "morsa",
-            "tabua"
+            "isca-de-file-mignon"
           ]
         }
       ],

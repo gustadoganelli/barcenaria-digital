@@ -83,6 +83,22 @@ Registro corrido dos pedidos do Gustavo e do estado de cada um.
 - 2026-11-17, pedido do Gustavo: "coloca a animação no desenvolvido por assim como no Pecatto e nos outros".
   Feito e publicado em 23/11 na página inicial (o rodapé do cardápio digital não foi mexido).
 - 2026-11-23, pedido do Gustavo: "eles lançaram um novo cardápio, confere no Instagram e atualiza".
+  - Fonte: carrossel de 18/11/2026 (https://www.instagram.com/p/Df5fFo8mENN/, capa e quatro páginas) e reel de
+    20/11/2026 (https://www.instagram.com/reel/Df9r_FUvWCg/). A publicação traz só comidas.
+  - Feito e publicado em 23/11: comidas do cardápio digital trocadas pelas 35 novas (porções, lanches, espetos,
+    pratos, sobremesas); glossário da página inicial restrito aos drinks; "Os mais pedidos" e a grade do Instagram
+    com os itens novos; destaque do torresmo com nome e preço novos; harmonização dos vinhos só com pratos que
+    continuam; marca de vegetariano em seis itens novos pelo mesmo critério de antes (sem carne nem peixe na
+    descrição).
+  - **A confirmar com a casa:** carta de bebidas (os drinks com nome de ferramenta), almoço executivo e feijoada,
+    que não aparecem na publicação nova e ficaram como estavam. O destaque "Nosso Cardápio" do Instagram exige
+    login. Enquanto isso o cardápio digital mostra a faixa "Cardápio em atualização" (`status: parcial`).
+  - **Efeito no teste da vitrine (17/11):** Fita Métrica e Serragem, os dois pratos do teste, saíram do cardápio.
+    Se a direção for aprovada, o roteiro (`docs/roteiro-vitrine.md`) precisa ser refeito com itens novos.
+  - Sobraram sem uso, sem apagar: imagens `cardapio/serragem-tartare`, `cardapio/guarda-roupa-porpetas`,
+    `cardapio/fita-metrica-linguini`, `cardapio/sarrafo-fraldinha`, `cardapio/compensado-burrata`,
+    `pratos/linguica-artesanal`, `pratos/fraldinha-na-chapa`, `promos/fraldinha`, `promos/linguica` e
+    `promos/bucha-torresmo`.
 
 ### Plano de despacho (ultracode, autorizado diretamente)
 | Estágio | Objetivo | Agentes | Modelo · esforço | Ferramentas | Parada |

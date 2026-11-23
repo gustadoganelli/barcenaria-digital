@@ -14,22 +14,28 @@ const reduced = matchMedia('(prefers-reduced-motion: reduce)');
 const desktop = matchMedia('(min-width: 64rem)');
 const finePointer = matchMedia('(hover: hover) and (pointer: fine)');
 
-// Dishes shown in the "Glossário da oficina" and in the bento (ids from cardapio.json).
+// Drinks shown in the "Glossário da oficina" (since the menu of 18/11/2026 only the bar keeps the tool names)
+// and items of the bento (ids from cardapio.json).
 const GLOSSARY = [
-  { id: 'viga' }, { id: 'sarrafo' }, { id: 'serragem' }, { id: 'fita-metrica' }, { id: 'guarda-roupa' },
-  { id: 'caixa-de-ferramentas' }, { id: 'tupia' },
   { id: 'martelo-mojito', dish: 'Mojito de rum, hortelã e limão' },
+  { id: 'serrote-spritz', dish: 'Spritz de limoncello e espumante' },
   { id: 'marreta-negroni', dish: 'Negroni envelhecido em barril' },
+  { id: 'makita-mule', dish: 'Mule de vodka e gengibre na caneca de cobre' },
+  { id: 'alicate-carajillo', dish: 'Licor 43 com café forte' },
+  { id: 'formao-penicillin', dish: 'Whisky, mel, gengibre e limão-siciliano' },
+  { id: 'parafuso-tropical', dish: 'Vodka, maracujá, laranja e pimenta' },
+  { id: 'tico-tico-spritz', dish: 'Spritz de Aperol e espumante' },
+  { id: 'nivel-fitzgerald', dish: 'Gin, limão-siciliano e angostura' },
 ];
 const BENTO = [
-  { id: 'bucha', img: 'pratos/torresmo-na-mesa', tag: 'Sucesso da casa' },
-  { id: 'sarrafo', img: 'cardapio/sarrafo-fraldinha' },
-  { id: 'caixa-de-ferramentas', img: 'pratos/linguica-artesanal' },
-  { id: 'compensado', img: 'cardapio/compensado-burrata' },
-  { id: 'fita-metrica', img: 'cardapio/fita-metrica-linguini' },
-  { id: 'guarda-roupa', img: 'cardapio/guarda-roupa-porpetas' },
+  { id: 'torresmo-de-rolo', img: 'pratos/torresmo-na-mesa', tag: 'Sucesso da casa' },
+  { id: 'burger-barcenaria', img: 'pratos/burger-barcenaria', tag: 'Cardápio novo' },
+  { id: 'parmegiana-de-file-mignon', img: 'pratos/parmegiana-de-file-mignon', tag: 'Cardápio novo' },
+  { id: 'chopp-brahma', img: 'bar/chopp-brahma', label: 'Para acompanhar' },
   { id: 'resina-jorge-amado', img: 'bar/resina-jorge-amado', label: 'Drink autoral' },
   { id: 'barcenaipa', img: 'bar/barcenaipa', label: 'A cerveja da casa' },
+  { id: 'tico-tico-spritz', img: 'bar/drink-spritz', label: 'Do balcão' },
+  { id: 'chave-tonica', img: 'cardapio/gin-tonica', label: 'Gin tônica' },
   { id: 'feijoada', img: 'cardapio/feijoada-panela', tag: 'Sábados, 12h às 16h', tagClass: 'brick' },
 ];
 const PROMO_DAYS = [3, 4, 5, 6, 0];

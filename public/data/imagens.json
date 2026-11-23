@@ -186,6 +186,20 @@
     ],
     "ratio": 1.1667
   },
+  "pratos/burger-barcenaria": {
+    "widths": [
+      480,
+      1014
+    ],
+    "ratio": 1.4486
+  },
+  "pratos/parmegiana-de-file-mignon": {
+    "widths": [
+      480,
+      1014
+    ],
+    "ratio": 1.4486
+  },
   "promos/chopp-double": {
     "widths": [
       640,
@@ -241,6 +255,13 @@
       1080
     ],
     "ratio": 1
+  },
+  "promos/cardapio-novo": {
+    "widths": [
+      640,
+      1120
+    ],
+    "ratio": 1.0275
   },
   "cardapio/compensado-burrata": {
     "widths": [

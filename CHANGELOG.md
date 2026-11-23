@@ -6,6 +6,16 @@ Log de trabalho diário fica em `.sessoes/` — não aqui. Aqui entra só o que 
 ## [2026-11-23] — publicado em https://barcenaria-digital.vercel.app (noindex)
 ### Alterado
 - Rodapé da página inicial: o "Desenvolvido por" ganhou a animação que as outras demos já têm. Ao chegar ao fim da página, o nome entra letra por letra, um fio dourado se desenha por baixo, uma lasca cai do fio e os três links sobem em arco.
+- Cardápio digital: comidas trocadas pelo cardápio novo que a casa publicou no Instagram em 18/11/2026. Entram Porções (12), Lanches (8, com preço do lanche e do combo), Espetos (10), Pratos (2, mais o aviso dos pratos quentes da semana) e Sobremesas (3), com os textos e preços da publicação. Bebidas, almoço executivo e feijoada não aparecem na publicação nova e seguem como estavam; por isso o cardápio digital mostra a faixa "Cardápio em atualização".
+- Página inicial: o glossário passa a falar só dos drinks ("Aqui, o balcão é oficina."), porque as comidas novas não têm mais nome de ferramenta. "Os mais pedidos da casa" mostra o Torresmo de Rolo, o Burger Barcenaria e a Parmegiana de Filé Mignon (fotos do reel de 20/11), chopp e drinks.
+- Promoções: o destaque do torresmo usa o nome e o preço novos (Torresmo de Rolo, R$ 55) e entra o destaque "Cardápio novo na mesa". A grade do Instagram abre com a publicação do cardápio novo e o reel de 20/11.
+- Vinhos: a harmonização citava pratos do cardápio antigo. Ficou só nos rótulos cujo prato continua (isca de filé mignon, bolinho de carne seca, torresmo de rolo, frango a passarinho, croquete de cogumelos).
+- Buscas do cardápio digital e da tela do garçom: os exemplos sugeridos usam itens que existem (torresmo, burger, negroni, espeto).
+### Adicionado
+- Fotos do Burger Barcenaria e da Parmegiana de Filé Mignon (quadros do reel de 20/11) e a capa do cardápio novo; os prints das quatro páginas ficam em `referencias/cardapio/2026-11-18-cardapio-novo-*.jpg`.
+### Removido
+- Categorias Entradas, Acompanhamentos, Da Panela e Aprendiz de Marceneiro (kids), e os itens antigos de Porções, Lanches e Sobremesas: saíram do cardápio da casa.
+- Da grade do Instagram: as artes da Bucha e da fraldinha na chapa (nome antigo e prato que saiu).
 
 ## [2026-11-16] — publicado em https://barcenaria-digital.vercel.app (noindex)
 ### Removido

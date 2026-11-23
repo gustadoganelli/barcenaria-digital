@@ -1,6 +1,6 @@
 {
-  "atualizado_em": "2026-09-29",
-  "observacao": "Promoções extraídas dos posts do Instagram oficial (30/08 a 29/09/2026) e do cardápio de 30/06/2026. Validade a confirmar com a casa.",
+  "atualizado_em": "2026-11-23",
+  "observacao": "Promoções extraídas dos posts do Instagram oficial (30/08 a 20/11/2026) e do cardápio de 30/06/2026. Validade a confirmar com a casa.",
   "promocoes": [
     {
       "id": "chopp-double",
@@ -88,7 +88,7 @@
       "publicado_em": "2026-08-30"
     },
     {
-      "id": "bucha-torresmo",
+      "id": "cardapio-novo",
       "tipo": "destaque",
       "dias": [
         0,
@@ -97,14 +97,34 @@
         5,
         6
       ],
-      "titulo": "Bucha — Torresmo de Rolo",
-      "resumo": "O sucesso da casa: panceta em rolo pururucada, com limão-siciliano e geleia de pimenta.",
-      "detalhe": "Feita na casa, receita exclusiva. Combina com um chopp bem gelado.",
-      "preco": 70,
-      "imagem": "promos/bucha-torresmo",
-      "imagem_alt": "Arte da Bucha, torresmo de rolo, sucesso da casa",
-      "fonte": "https://www.instagram.com/barcenariaoficial/p/DcribKPJfc-/",
-      "publicado_em": "2026-08-30"
+      "titulo": "Cardápio novo na mesa",
+      "resumo": "Torresmo de rolo pra dividir, burgers pra matar a fome e espetinhos pra acompanhar o chopp gelado.",
+      "detalhe": "Porções, lanches no pão ciabatta e no brioche, espetos e sobremesas: o cardápio novo já está disponível na casa.",
+      "preco": null,
+      "imagem": "promos/cardapio-novo",
+      "imagem_alt": "Arte do cardápio novo da Barcenaria, com bolinhos dourados e molho num prato",
+      "fonte": "https://www.instagram.com/p/Df5fFo8mENN/",
+      "publicado_em": "2026-11-18",
+      "categoria": "porcoes"
+    },
+    {
+      "id": "torresmo-de-rolo",
+      "tipo": "destaque",
+      "dias": [
+        0,
+        3,
+        4,
+        5,
+        6
+      ],
+      "titulo": "Torresmo de Rolo",
+      "resumo": "O sucesso da casa: supercrocante e suculento, finalizado com raspas de limão.",
+      "detalhe": "Vem com maionese de alho assado, molho de pimenta e limão. Combina com um chopp bem gelado.",
+      "preco": 55,
+      "imagem": "pratos/torresmo-na-mesa",
+      "imagem_alt": "Torresmo de rolo e chopp na mesa da varanda",
+      "fonte": "https://www.instagram.com/p/Df5fFo8mENN/",
+      "publicado_em": "2026-11-18"
     },
     {
       "id": "eventos",

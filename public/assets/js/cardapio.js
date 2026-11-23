@@ -656,7 +656,7 @@ function renderEmpty(shown) {
   box.replaceChildren(
     icon('mug'),
     h('p', { class: 'empty__title', text: title }),
-    h('p', { class: 'empty__text', text: 'Tente o nome do prato (ex.: picanha, burrata, negroni) ou veja uma categoria. O garçom também pode ajudar.' }),
+    h('p', { class: 'empty__text', text: 'Tente o nome do prato (ex.: torresmo, burger, negroni) ou veja uma categoria. O garçom também pode ajudar.' }),
     h('div', { class: 'empty__actions' },
       h('button', { class: 'btn', type: 'button', text: 'Limpar busca e filtros', onclick: () => { clearAll(); $('#busca').focus(); } }),
       state.cats.slice(0, 8).map((cat) => h('button', {
