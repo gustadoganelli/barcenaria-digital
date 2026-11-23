@@ -40,13 +40,6 @@ const BENTO = [
 ];
 const PROMO_DAYS = [3, 4, 5, 6, 0];
 
-const money = new Map();
-const brl = (v) => {
-  const digits = Number.isInteger(v) ? 0 : 2;
-  if (!money.has(digits)) money.set(digits, new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL', minimumFractionDigits: digits }));
-  return money.get(digits).format(v);
-};
-
 const state = { casa: null, cardapio: null, promocoes: [], imagens: {}, items: new Map(), now: null };
 
 /* ---------- helpers ---------- */
@@ -192,7 +185,6 @@ function firstSentence(text) {
   const s = String(text ?? '').split(/(?<=\.)\s/)[0];
   return s.replace(/\.$/, '');
 }
-const priceOf = (it) => it.preco ?? (it.precos?.[0]?.valor ?? null);
 
 function renderGlossary() {
   const list = $('#glossario');
@@ -202,8 +194,7 @@ function renderGlossary() {
   list.replaceChildren(...items.map((it, i) => {
     // The answer is a sibling of the disclosure button, so it stays hidden from assistive tech until opened.
     const reveal = h('p', { class: 'gloss__reveal', id: `gloss-${it.id}`, hidden: true },
-      h('span', { class: 'gloss__dish', text: it.short ?? it.prato ?? firstSentence(it.descricao) }),
-      priceOf(it) != null && h('span', { class: 'gloss__price', text: brl(priceOf(it)) }));
+      h('span', { class: 'gloss__dish', text: it.short ?? it.prato ?? firstSentence(it.descricao) }));
     const btn = h('button', {
       class: 'gloss__card', type: 'button', 'aria-expanded': 'false', 'aria-controls': reveal.id,
       onclick: () => {
@@ -225,17 +216,13 @@ function renderBento() {
   const cards = BENTO.map((cfg) => ({ cfg, it: state.items.get(cfg.id) })).filter((x) => x.it);
   if (!cards.length) return;
   box.replaceChildren(...cards.map(({ cfg, it }, i) => {
-    const prices = it.precos?.length
-      ? it.precos.map((p) => `${p.rotulo} ${brl(p.valor)}`).join(' · ')
-      : (it.preco != null ? brl(it.preco) : 'Consulte');
     const card = h('a', { class: 'dish reveal', href: `/cardapio#item-${it.id}` },
       image(cfg.img, { cls: 'dish__img', alt: '', sizes: i === 0 ? '(min-width: 64rem) 58vw, 78vw' : '(min-width: 64rem) 33vw, 78vw' }),
       h('span', { class: 'dish__body' },
         cfg.tag && h('span', { class: `dish__tag${cfg.tagClass ? ` dish__tag--${cfg.tagClass}` : ''}`, text: cfg.tag }),
         (cfg.label || it.prato) && h('span', { class: 'dish__tool', text: cfg.label ?? it.nome }),
         h('span', { class: 'dish__name', text: it.prato ?? it.nome }),
-        h('span', { class: 'dish__desc', text: it.descricao }),
-        h('span', { class: 'dish__price', text: prices })));
+        h('span', { class: 'dish__desc', text: it.descricao })));
     // CSSOM (not a style attribute), so the strict CSP allows it.
     card.style.setProperty('--delay', `${(i % 3) * 70}ms`);
     return card;
@@ -263,7 +250,6 @@ function promoCard(p, i, group) {
       h('h3', { class: 'promo-card__title', text: p.titulo }),
       h('p', { class: 'promo-card__text', text: p.resumo }),
       h('div', { class: 'promo-card__foot' },
-        p.preco != null && h('p', { class: 'promo-card__price' }, p.preco_rotulo && h('small', { text: p.preco_rotulo }), brl(p.preco)),
         p.fonte && h('a', { class: 'promo-card__link', href: p.fonte, target: '_blank', rel: 'noopener' }, icon('instagram'), 'Ver no Instagram'))));
 }
 

@@ -99,6 +99,9 @@ Registro corrido dos pedidos do Gustavo e do estado de cada um.
     `cardapio/fita-metrica-linguini`, `cardapio/sarrafo-fraldinha`, `cardapio/compensado-burrata`,
     `pratos/linguica-artesanal`, `pratos/fraldinha-na-chapa`, `promos/fraldinha`, `promos/linguica` e
     `promos/bucha-torresmo`.
+- 2026-11-23, pedido do Gustavo: "tira os preços da página inicial". Feito e publicado: glossário, "Os mais
+  pedidos" e cartões de promoção sem valor; resumo da feijoada sem os preços; arte do Resina Jorge Amado trocada
+  pela foto na grade do Instagram. Cardápio digital, comanda e painel seguem com preço.
 
 ### Plano de despacho (ultracode, autorizado diretamente)
 | Estágio | Objetivo | Agentes | Modelo · esforço | Ferramentas | Parada |

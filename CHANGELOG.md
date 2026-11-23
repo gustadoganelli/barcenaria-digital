@@ -11,6 +11,7 @@ Log de trabalho diário fica em `.sessoes/` — não aqui. Aqui entra só o que 
 - Promoções: o destaque do torresmo usa o nome e o preço novos (Torresmo de Rolo, R$ 55) e entra o destaque "Cardápio novo na mesa". A grade do Instagram abre com a publicação do cardápio novo e o reel de 20/11.
 - Vinhos: a harmonização citava pratos do cardápio antigo. Ficou só nos rótulos cujo prato continua (isca de filé mignon, bolinho de carne seca, torresmo de rolo, frango a passarinho, croquete de cogumelos).
 - Buscas do cardápio digital e da tela do garçom: os exemplos sugeridos usam itens que existem (torresmo, burger, negroni, espeto).
+- Página inicial sem preços, a pedido do Gustavo: saíram do glossário, dos cartões de "Os mais pedidos da casa" e dos cartões de promoção; a feijoada deixou de citar os valores no resumo; na grade do Instagram, a arte do Resina Jorge Amado (com "R$45" impresso) deu lugar à foto do mesmo post. Os preços continuam no cardápio digital.
 ### Adicionado
 - Fotos do Burger Barcenaria e da Parmegiana de Filé Mignon (quadros do reel de 20/11) e a capa do cardápio novo; os prints das quatro páginas ficam em `referencias/cardapio/2026-11-18-cardapio-novo-*.jpg`.
 ### Removido

@@ -264,7 +264,6 @@ address { font-style: normal; }
 .gloss__hint .icon { width: 1rem; height: 1rem; transition: transform var(--dur) var(--ease-out); }
 .gloss__reveal { position: absolute; inset: auto var(--space-4) var(--space-5); margin: 0; display: grid; gap: var(--space-1); pointer-events: none; }
 .gloss__dish { font: 600 var(--fs-md)/1.3 var(--font-body); }
-.gloss__price { color: var(--gold-bright); font: 700 var(--fs-lg)/1 var(--font-menu); font-variant-numeric: tabular-nums; }
 .gloss__reveal:not([hidden]) { animation: panel-in var(--dur) var(--ease-out); }
 .js .gloss__card[aria-expanded="true"] { border-color: var(--gold); background-color: var(--surface-raised); }
 .js .gloss__card[aria-expanded="true"] .gloss__hint { display: none; }
@@ -322,7 +321,6 @@ address { font-style: normal; }
   color: var(--text-muted); font-size: var(--fs-sm); line-height: 1.5;
   display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; overflow: hidden;
 }
-.dish__price { margin-top: var(--space-2); color: var(--gold-bright); font: 700 var(--fs-xl)/1 var(--font-menu); font-variant-numeric: tabular-nums; }
 .bento__progress { position: relative; height: 2px; margin-top: var(--space-5); background: var(--line); overflow: hidden; border-radius: var(--radius-pill); }
 .bento__progress span { position: absolute; inset: 0; background: var(--gold); transform-origin: left; transform: scaleX(var(--p, 0.2)); transition: transform var(--dur-fast) linear; }
 
@@ -367,8 +365,6 @@ address { font-style: normal; }
 .promo-card__title { font: 600 var(--fs-xl)/1.2 var(--font-display); letter-spacing: 0.01em; }
 .promo-card__text { color: var(--text-muted); }
 .promo-card__foot { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2) var(--space-5); margin-top: var(--space-1); }
-.promo-card__price { color: var(--gold-bright); font: 700 var(--fs-2xl)/1 var(--font-menu); font-variant-numeric: tabular-nums; }
-.promo-card__price small { margin-right: var(--space-1); color: var(--text-muted); font: 500 var(--fs-sm)/1 var(--font-body); }
 .promo-card__link { display: inline-flex; align-items: center; gap: var(--space-1); color: var(--text-muted); font: 600 var(--fs-sm)/1 var(--font-condensed); letter-spacing: 0.04em; text-decoration: none; }
 .promo-card__link:hover { color: var(--gold-bright); }
 .promo-card__link .icon { width: 1rem; height: 1rem; }
