@@ -115,8 +115,13 @@ Registro corrido dos pedidos do Gustavo e do estado de cada um.
     computador: bloco 3 (Torresmo de Rolo, tijolo escuro, machadinha em traço) e bloco 4 (BarcenaIPA, verde-noite,
     lúpulo e tampinha em traço), com a tábua e a garrafa com a taça recortadas por contorno à mão. Os dois vídeos
     foram regravados com os quatro blocos.
-  - **Aguardando o Gustavo:** decidir se a vitrine substitui "Os mais pedidos da casa" ou fica junto, para ela
-    entrar na página inicial (antes de publicar: medir a cadência de quadros e mostrar o vídeo final).
+  - 2026-11-24, decisão do Gustavo: "substitui os mais pedidos pela vitrine". Feito no computador, sem commit e
+    sem publicar: a vitrine entrou na seção Nº 03 da página inicial no lugar dos nove cartões (saem da página o
+    chopp, os três drinks e a feijoada, que seguem no cardápio digital); cada bloco ganhou o atalho "Ver no
+    cardápio"; fecho com "Ver o cardápio completo" e "Reservar mesa"; código e estilos dos cartões removidos; a
+    página de teste `/vitrine` e o `vitrine.js` foram apagados (a entrada dos blocos passou para o `site.js`).
+    Cadência medida com a GPU (números em `docs/roteiro-vitrine.md`).
+  - 2026-11-24, depois de ver os vídeos da página inicial: "pode publicar". Publicado (ver `CHANGELOG.md`).
 
 ### Plano de despacho (ultracode, autorizado diretamente)
 | Estágio | Objetivo | Agentes | Modelo · esforço | Ferramentas | Parada |

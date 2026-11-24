@@ -1,4 +1,4 @@
-# Roteiro — "vitrine" da página inicial da Barcenaria (teste)
+# Roteiro — "vitrine" da página inicial da Barcenaria
 
 Pedido do Gustavo em 2026-11-17, depois de ver o reel do @_marsdesigner com um site conceito para o Café Pilão:
 "iniciar pelo passo 1, mas bolar o roteiro elaborado pro Barcenaria inicialmente como teste". O passo 1 é levar
@@ -33,9 +33,10 @@ atual.
 
 ## Onde entra
 No lugar da seção Nº 03, "Os mais pedidos da casa" (hoje nove cartões com foto: três comidas, chopp, quatro drinks
-e a feijoada). A vitrine mostra menos itens, um por bloco, com muito mais presença. **Decisão do Gustavo:**
-substituir a fileira de cartões ou manter as duas. No teste nada é substituído: a vitrine fica numa página à
-parte, só no computador.
+e a feijoada). A vitrine mostra menos itens, um por bloco, com muito mais presença. **Decisão do Gustavo em 24/11:**
+"substitui os mais pedidos pela vitrine". A seção mantém o título "Os mais pedidos da casa" e o atalho para o
+cardápio; os cartões saem. Com eles saem da página inicial o chopp, os três drinks e a feijoada, que seguem no
+cardápio digital (a feijoada também nas promoções de sábado).
 
 ## Direção de arte
 - **Cores, todas da marca** (já estão em `tokens.css`): verde-placa `#1a3103`, dourado `#c9ae6a`, tijolo `#b0583a`,
@@ -116,8 +117,11 @@ cardápio novo e não há foto desses drinks.
    Direção aprovada pelo Gustavo em 24/11 ("gostei, faz os blocos do torresmo e da barcenaipa").
 2. **Blocos 3 e 4 (feitos em 24/11)**, com os recortes que faltavam. Vídeos dos quatro blocos em
    `docs/prints/vitrine-cardapio-novo-celular.mp4` e `vitrine-cardapio-novo-computador.mp4`.
-3. Decisão sobre substituir ou manter "Os mais pedidos da casa"; entra na página inicial.
-4. Vídeo final, aceite e publicação.
+3. **Página inicial (feito em 24/11)**: a vitrine entrou no lugar dos cartões, cada bloco com o
+   atalho "Ver no cardápio" que os cartões tinham, e o fecho com "Ver o cardápio completo" e "Reservar mesa". A
+   página de teste `/vitrine` deixou de existir. Vídeos em `docs/prints/vitrine-pagina-inicial-celular.mp4` e
+   `vitrine-pagina-inicial-computador.mp4`.
+4. **Aceite e publicação (24/11)**: "pode publicar", depois dos vídeos da página inicial. No ar.
 
 ## Critérios de aceite do teste
 - Rolagem livre do começo ao fim, sem nada preso.
@@ -125,5 +129,7 @@ cardápio novo e não há foto desses drinks.
   (conferido em 24/11).
 - Nenhum preço e nenhum texto fora do cardápio.
 - Com "reduzir movimento", os blocos aparecem parados e completos (conferido em 24/11).
-- Cadência de quadros medida com a GPU, como nas outras cenas: sem tarefa longa ao rolar. **Não medida nesta
-  rodada**; medir antes de levar para a página inicial.
+- Cadência de quadros medida com a GPU, como nas outras cenas (24/11, página inicial inteira, Chrome com
+  Direct3D): mediana de 16,7 ms por quadro no celular e no computador, igual à do site no ar. Quadros acima de
+  34 ms: 3,7% a 5% com a vitrine, contra 3,2% a 3,6% no site no ar. Na primeira rolagem apareceram de uma a três
+  tarefas de 50 a 90 ms (as fotos recortadas sendo abertas); na segunda medição do celular, nenhuma.

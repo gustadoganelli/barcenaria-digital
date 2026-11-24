@@ -1,4 +1,4 @@
-// Site one-page: enhances the static HTML with data from /data/*.json (status, glossário, bento, promo tabs)
+// Site one-page: enhances the static HTML with data from /data/*.json (status, glossário, promo tabs)
 // plus header/scroll behaviour, lightbox, videos, map and the event pre-booking form.
 
 document.documentElement.classList.add('js');
@@ -14,8 +14,8 @@ const reduced = matchMedia('(prefers-reduced-motion: reduce)');
 const desktop = matchMedia('(min-width: 64rem)');
 const finePointer = matchMedia('(hover: hover) and (pointer: fine)');
 
-// Drinks shown in the "Glossário da oficina" (since the menu of 18/11/2026 only the bar keeps the tool names)
-// and items of the bento (ids from cardapio.json).
+// Drinks shown in the "Glossário da oficina" (since the menu of 18/11/2026 only the bar keeps the tool names);
+// ids from cardapio.json.
 const GLOSSARY = [
   { id: 'martelo-mojito', dish: 'Mojito de rum, hortelã e limão' },
   { id: 'serrote-spritz', dish: 'Spritz de limoncello e espumante' },
@@ -26,17 +26,6 @@ const GLOSSARY = [
   { id: 'parafuso-tropical', dish: 'Vodka, maracujá, laranja e pimenta' },
   { id: 'tico-tico-spritz', dish: 'Spritz de Aperol e espumante' },
   { id: 'nivel-fitzgerald', dish: 'Gin, limão-siciliano e angostura' },
-];
-const BENTO = [
-  { id: 'torresmo-de-rolo', img: 'pratos/torresmo-na-mesa', tag: 'Sucesso da casa' },
-  { id: 'burger-barcenaria', img: 'pratos/burger-barcenaria', tag: 'Cardápio novo' },
-  { id: 'parmegiana-de-file-mignon', img: 'pratos/parmegiana-de-file-mignon', tag: 'Cardápio novo' },
-  { id: 'chopp-brahma', img: 'bar/chopp-brahma', label: 'Para acompanhar' },
-  { id: 'resina-jorge-amado', img: 'bar/resina-jorge-amado', label: 'Drink autoral' },
-  { id: 'barcenaipa', img: 'bar/barcenaipa', label: 'A cerveja da casa' },
-  { id: 'tico-tico-spritz', img: 'bar/drink-spritz', label: 'Do balcão' },
-  { id: 'chave-tonica', img: 'cardapio/gin-tonica', label: 'Gin tônica' },
-  { id: 'feijoada', img: 'cardapio/feijoada-panela', tag: 'Sábados, 12h às 16h', tagClass: 'brick' },
 ];
 const PROMO_DAYS = [3, 4, 5, 6, 0];
 
@@ -179,7 +168,7 @@ function renderStatus() {
   $(`.hours tr[data-dia="${dow}"]`)?.classList.add('is-today');
 }
 
-/* ---------- glossário + bento ---------- */
+/* ---------- glossário ---------- */
 
 function firstSentence(text) {
   const s = String(text ?? '').split(/(?<=\.)\s/)[0];
@@ -211,30 +200,17 @@ function renderGlossary() {
   observeReveal($$('.reveal', list));
 }
 
-function renderBento() {
-  const box = $('#bento');
-  const cards = BENTO.map((cfg) => ({ cfg, it: state.items.get(cfg.id) })).filter((x) => x.it);
-  if (!cards.length) return;
-  box.replaceChildren(...cards.map(({ cfg, it }, i) => {
-    const card = h('a', { class: 'dish reveal', href: `/cardapio#item-${it.id}` },
-      image(cfg.img, { cls: 'dish__img', alt: '', sizes: i === 0 ? '(min-width: 64rem) 58vw, 78vw' : '(min-width: 64rem) 33vw, 78vw' }),
-      h('span', { class: 'dish__body' },
-        cfg.tag && h('span', { class: `dish__tag${cfg.tagClass ? ` dish__tag--${cfg.tagClass}` : ''}`, text: cfg.tag }),
-        (cfg.label || it.prato) && h('span', { class: 'dish__tool', text: cfg.label ?? it.nome }),
-        h('span', { class: 'dish__name', text: it.prato ?? it.nome }),
-        h('span', { class: 'dish__desc', text: it.descricao })));
-    // CSSOM (not a style attribute), so the strict CSP allows it.
-    card.style.setProperty('--delay', `${(i % 3) * 70}ms`);
-    return card;
-  }));
-  observeReveal($$('.reveal', box));
-  const bar = $('.bento__progress span');
-  const update = () => {
-    const max = box.scrollWidth - box.clientWidth;
-    bar.style.setProperty('--p', max > 0 ? Math.max(0.12, (box.scrollLeft + box.clientWidth) / box.scrollWidth) : 1);
-  };
-  box.addEventListener('scroll', update, { passive: true });
-  update();
+/* ---------- vitrine (Nº 03) ---------- */
+
+// Each block plays its entrance once, when a good part of it is on screen (assets/css/vitrine.css). The drift
+// that follows the scroll is CSS only.
+function initVitrine() {
+  const blocks = $$('.bloco');
+  if (!('IntersectionObserver' in window)) { blocks.forEach((b) => b.classList.add('is-in')); return; }
+  const io = new IntersectionObserver((entries) => {
+    for (const e of entries) if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
+  }, { threshold: 0.3 });
+  blocks.forEach((b) => io.observe(b));
 }
 
 /* ---------- promo tabs ---------- */
@@ -671,6 +647,7 @@ async function init() {
   initLightbox();
   initVideos();
   initCredit();
+  initVitrine();
   initParallax();
   initMarquee();
   initBooking();
@@ -692,7 +669,7 @@ async function init() {
     }
   }
   initMap();
-  if (state.cardapio && Object.keys(state.imagens).length) { renderGlossary(); renderBento(); }
+  if (state.cardapio && Object.keys(state.imagens).length) renderGlossary();
   if (state.promocoes.length && Object.keys(state.imagens).length) renderPromoTabs();
 }
 

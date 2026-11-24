@@ -3,6 +3,12 @@
 Formato: [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/) · Versões por **data** (`AAAA-MM-DD`), não SemVer.
 Log de trabalho diário fica em `.sessoes/` — não aqui. Aqui entra só o que importa a quem **consome** o projeto.
 
+## [2026-11-24] — publicado em https://barcenaria-digital.vercel.app (noindex)
+### Alterado
+- Página inicial, seção "Os mais pedidos da casa": os nove cartões com foto deram lugar à vitrine, quatro blocos de tela cheia (Burger Barcenaria, Parmegiana de Filé Mignon, Torresmo de Rolo e BarcenaIPA). Em cada um, o nome vai em letras gigantes numa cor chapada da marca, com a peça recortada da foto na frente, uma ferramenta em traço e lascas soltas que andam com a rolagem. A rolagem é livre, nada fica preso. Cada bloco leva ao item no cardápio digital, e a seção fecha com "Ver o cardápio completo" e "Reservar mesa".
+### Removido
+- Dos destaques da página inicial: o chopp, os três drinks e a feijoada, que estavam nos cartões. Continuam no cardápio digital; a feijoada também nas promoções de sábado.
+
 ## [2026-11-23] — publicado em https://barcenaria-digital.vercel.app (noindex)
 ### Alterado
 - Rodapé da página inicial: o "Desenvolvido por" ganhou a animação que as outras demos já têm. Ao chegar ao fim da página, o nome entra letra por letra, um fio dourado se desenha por baixo, uma lasca cai do fio e os três links sobem em arco.

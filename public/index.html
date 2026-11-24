@@ -25,6 +25,7 @@
   <link rel="preload" as="image" href="/video/hero-poster.webp">
   <link rel="stylesheet" href="/assets/css/tokens.css">
   <link rel="stylesheet" href="/assets/css/site.css">
+  <link rel="stylesheet" href="/assets/css/vitrine.css">
   <link rel="stylesheet" href="/assets/css/corte.css">
   <link rel="preload" as="image" href="/images/brand/serrote-traco.svg" media="(prefers-reduced-motion: no-preference)">
   <link rel="preload" as="image" href="/images/brand/logo-vidro.webp" media="(prefers-reduced-motion: no-preference)">
@@ -287,10 +288,137 @@
           </div>
           <a class="link-arrow" href="/cardapio">Cardápio completo<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
         </header>
-        <div class="bento" id="bento">
-          <p class="bento__fallback">Torresmo de Rolo, Burger Barcenaria, Parmegiana de Filé Mignon e drinks autorais: veja descrições e preços no <a href="/cardapio">cardápio digital</a>.</p>
-        </div>
-        <div class="bento__progress" aria-hidden="true"><span></span></div>
+      </div>
+      <!-- The "vitrine" (docs/roteiro-vitrine.md): one item per block, the name as a giant word behind the piece
+           cut out of its photo. Free scroll, nothing pinned. Styles in vitrine.css, entrance set off by site.js. -->
+      <div class="vitrine">
+        <!-- 1 · Burger Barcenaria: green block, gold word, the dish coming in from the left edge (its plate is cut
+             by the frame on that side), a tape measure across -->
+        <section class="bloco bloco--verde bloco--burger" aria-labelledby="bloco-burger">
+          <p class="bloco__num">Cardápio novo · Nº 01</p>
+          <p class="bloco__palavra" aria-hidden="true"><span class="bloco__palavra-in"><span>Burger</span></span></p>
+          <div class="bloco__ferramenta bloco__ferramenta--trena" aria-hidden="true">
+            <svg viewBox="0 0 1400 140" fill="none" stroke="#e3cf93" stroke-linecap="round" stroke-linejoin="round" preserveAspectRatio="xMinYMid meet">
+              <defs>
+                <pattern id="trena-marcas" width="100" height="36" patternUnits="userSpaceOnUse" x="170" y="52">
+                  <path d="M0 0v20M20 0v9M40 0v9M60 0v9M80 0v9M50 0v14" stroke="#e3cf93" stroke-width="2"/>
+                </pattern>
+              </defs>
+              <rect x="20" y="12" width="132" height="116" rx="22" stroke-width="3.2"/>
+              <circle cx="86" cy="70" r="30" stroke-width="2.4"/>
+              <circle cx="86" cy="70" r="8" stroke-width="2"/>
+              <path d="M152 44h14M152 96h14" stroke-width="3.2"/>
+              <path d="M166 52H1372v36H166z" stroke-width="3.2"/>
+              <rect x="170" y="52" width="1200" height="36" fill="url(#trena-marcas)" stroke="none"/>
+              <path d="M1372 44v52M1372 96h14" stroke-width="3.2"/>
+            </svg>
+          </div>
+          <div class="bloco__prato">
+            <div class="bloco__flutua">
+              <img loading="lazy" decoding="async" src="/images/recortes/burger-barcenaria.webp" width="1200" height="949" alt="Burger com queijo coalho tostado e carne seca desfiada, com a tampa do pão de brioche apoiada ao lado">
+            </div>
+          </div>
+          <div class="bloco__texto">
+            <h3 class="bloco__nome" id="bloco-burger">Burger Barcenaria</h3>
+            <p class="bloco__chega">Lanche</p>
+            <p class="bloco__desc">Pão de brioche, maionese de cebolinha, blend 150 g, queijo coalho, carne seca salteada na manteiga de garrafa e cebola roxa.</p>
+            <a class="bloco__link" href="/cardapio#item-burger-barcenaria">Ver no cardápio<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </div>
+          <span class="solto solto--a" aria-hidden="true"></span>
+          <span class="solto solto--b" aria-hidden="true"></span>
+          <span class="solto solto--c" aria-hidden="true"></span>
+          <span class="solto solto--d" aria-hidden="true"></span>
+          <span class="solto solto--e" aria-hidden="true"></span>
+        </section>
+
+        <!-- 2 · Parmegiana de Filé Mignon: gold block, green word broken in two around the dish, the saw of the
+             ident in green -->
+        <section class="bloco bloco--dourado bloco--parmegiana" aria-labelledby="bloco-parmegiana">
+          <p class="bloco__num">Cardápio novo · Nº 02</p>
+          <p class="bloco__palavra" aria-hidden="true"><span class="bloco__palavra-in"><span>Parme</span><span>giana</span></span></p>
+          <div class="bloco__ferramenta bloco__ferramenta--serrote" aria-hidden="true"></div>
+          <div class="bloco__prato">
+            <div class="bloco__flutua">
+              <img loading="lazy" decoding="async" src="/images/recortes/parmegiana.webp" width="1200" height="828" alt="Sanduíche de parmegiana de filé mignon no pão ciabatta, com queijo derretido, molho de tomate e pesto">
+            </div>
+          </div>
+          <div class="bloco__texto">
+            <h3 class="bloco__nome" id="bloco-parmegiana">Parmegiana de Filé Mignon</h3>
+            <p class="bloco__chega">Lanche</p>
+            <p class="bloco__desc">Pão ciabatta, parmegiana de filé mignon com molho de tomate da casa, mussarela fior de latte, finalizado com pesto de manjericão.</p>
+            <a class="bloco__link" href="/cardapio#item-parmegiana-de-file-mignon">Ver no cardápio<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </div>
+          <span class="solto solto--a" aria-hidden="true"></span>
+          <span class="solto solto--b" aria-hidden="true"></span>
+          <span class="solto solto--c" aria-hidden="true"></span>
+          <span class="solto solto--d" aria-hidden="true"></span>
+          <span class="solto solto--e" aria-hidden="true"></span>
+        </section>
+
+        <!-- 3 · Torresmo de Rolo: brick block, paper word, the wooden board in front of it, a hatchet in line work -->
+        <section class="bloco bloco--tijolo bloco--torresmo" aria-labelledby="bloco-torresmo">
+          <p class="bloco__num">Sucesso da casa · Nº 03</p>
+          <p class="bloco__palavra" aria-hidden="true"><span class="bloco__palavra-in"><span>Torresmo</span></span></p>
+          <div class="bloco__ferramenta bloco__ferramenta--machadinha" aria-hidden="true">
+            <svg viewBox="0 0 600 200" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M26 108 390 82l4 38L30 136q-16-12-4-28Z"/>
+              <path d="M384 62l68-8q56-16 96-44 36 82 8 176-46-34-100-46l-66 4Z"/>
+              <path d="M452 54l4 86M534 26q28 68 8 144"/>
+            </svg>
+          </div>
+          <div class="bloco__prato">
+            <div class="bloco__flutua">
+              <img loading="lazy" decoding="async" src="/images/recortes/torresmo-de-rolo.webp" width="1029" height="689" alt="Torresmo de rolo fatiado na tábua de madeira, com gomos de limão, salsa e um pote de molho">
+            </div>
+          </div>
+          <div class="bloco__texto">
+            <h3 class="bloco__nome" id="bloco-torresmo">Torresmo de Rolo</h3>
+            <p class="bloco__chega">Porção</p>
+            <p class="bloco__desc">Nosso torresmo de rolo, supercrocante e suculento, finalizado com raspas de limão. Molho: maionese de alho assado, molho de pimenta e limão.</p>
+            <a class="bloco__link" href="/cardapio#item-torresmo-de-rolo">Ver no cardápio<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </div>
+          <span class="solto solto--a" aria-hidden="true"></span>
+          <span class="solto solto--b" aria-hidden="true"></span>
+          <span class="solto solto--c" aria-hidden="true"></span>
+          <span class="solto solto--d" aria-hidden="true"></span>
+          <span class="solto solto--e" aria-hidden="true"></span>
+        </section>
+
+        <!-- 4 · BarcenaIPA: night-green block, gold word, the bottle and the glass of the house's own art, a hop cone
+             and a crown cap in line work -->
+        <section class="bloco bloco--noite bloco--ipa" aria-labelledby="bloco-ipa">
+          <p class="bloco__num">Do balcão · Nº 04</p>
+          <p class="bloco__palavra" aria-hidden="true"><span class="bloco__palavra-in"><span>BarcenaIPA</span></span></p>
+          <div class="bloco__ferramenta bloco__ferramenta--lupulo" aria-hidden="true">
+            <svg viewBox="0 0 420 240" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M110 34c58 32 66 116 0 186-66-70-58-154 0-186Z"/>
+              <path d="M72 96q38 32 76 0M62 132q48 38 96 0M74 168q36 30 72 0M110 34v28"/>
+              <path d="M110 34q2-16 14-24 36-6 52 20-30 10-52-20"/>
+              <circle cx="320" cy="150" r="52" stroke-dasharray="9 7"/>
+              <circle cx="320" cy="150" r="40"/>
+            </svg>
+          </div>
+          <div class="bloco__prato">
+            <div class="bloco__flutua">
+              <img loading="lazy" decoding="async" src="/images/recortes/barcenaipa.webp" width="980" height="1454" alt="Garrafa da BarcenaIPA ao lado de uma taça cheia da cerveja">
+            </div>
+          </div>
+          <div class="bloco__texto">
+            <h3 class="bloco__nome" id="bloco-ipa">BarcenaIPA</h3>
+            <p class="bloco__chega">Cerveja · by Dr. Ewam, 500 ml</p>
+            <p class="bloco__desc">O marceneiro também sabe fazer cerveja.</p>
+            <a class="bloco__link" href="/cardapio#item-barcenaipa">Ver no cardápio<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </div>
+          <span class="solto solto--a" aria-hidden="true"></span>
+          <span class="solto solto--b" aria-hidden="true"></span>
+          <span class="solto solto--c" aria-hidden="true"></span>
+          <span class="solto solto--d" aria-hidden="true"></span>
+          <span class="solto solto--e" aria-hidden="true"></span>
+        </section>
+      </div>
+      <div class="wrap vitrine__fecha">
+        <a class="btn" href="/cardapio"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg>Ver o cardápio completo</a>
+        <a class="btn btn--ghost" href="https://wa.me/message/BVGPN2ILM2WIG1" target="_blank" rel="noopener" data-whatsapp="reserva"><svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg>Reservar mesa</a>
       </div>
     </section>
 

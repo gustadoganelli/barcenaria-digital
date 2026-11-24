@@ -1,0 +1,160 @@
+/* Barcenaria — "vitrine" (docs/roteiro-vitrine.md): section Nº 03 of the home page, in place of the dish cards.
+   Loaded after site.css, whose base styles apply here.
+   One dish per block: a flat brand colour, the name of the dish as a giant word, the real dish cut out of its
+   photo in front of the word, a tool of the workshop in line work, and loose chips at three depths.
+   Nothing is pinned: the page scrolls freely. Three kinds of motion, each on its own element so they never fight
+   over `transform`: the scroll-linked drift (outer element, CSS scroll-driven animation, off the main thread,
+   only where the browser has it), the idle float (middle), and the one-off entrance when the block comes into
+   view (inner, set off by site.js adding .is-in). With reduced motion everything stands still, in place. */
+
+
+.vitrine { margin-top: var(--space-10); }
+.vitrine__fecha { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-3); padding-top: var(--space-10); }
+
+/* ---------- a block ---------- */
+.bloco {
+  --fundo: var(--brand-green); --palavra: var(--gold); --tinta: var(--text); --tinta-2: var(--gold-bright); --lasca: var(--gold);
+  --n: 7; /* letters in the longest line of the word: the word is sized to fill the width */
+  position: relative; isolation: isolate; overflow: clip; min-height: 86svh;
+  display: grid; grid-template-rows: auto 1fr auto; padding: var(--space-8) var(--gutter) var(--space-10);
+  background: var(--fundo); color: var(--tinta);
+}
+.bloco--burger { --n: 6; min-height: max(86svh, calc(3.6rem + 85vw + 15rem)); } /* room for the word, the dish below it and the text */
+.bloco--parmegiana { --n: 5; min-height: max(86svh, calc(88vw + 21rem)); } /* two lines of the word, then the text */
+.bloco--torresmo { --n: 8; min-height: max(86svh, calc(3.6rem + 73vw + 17rem)); }
+.bloco--ipa { --n: 10; min-height: max(86svh, calc(3.6rem + 98vw + 13rem)); }
+.bloco--tijolo { --fundo: var(--brick-ink); --palavra: var(--paper); --tinta: var(--on-brick); --tinta-2: var(--paper); --lasca: var(--paper); } /* the darker brick: 6:1 with the text */
+.bloco--noite { --fundo: var(--bg); }
+.bloco--dourado { --fundo: var(--gold); --palavra: var(--brand-green); --tinta: var(--on-gold); --tinta-2: #2c3d12; --lasca: var(--brand-green); }
+
+.bloco__num { position: relative; z-index: 4; color: var(--tinta-2); font: 700 var(--fs-xs)/1 var(--font-condensed); letter-spacing: var(--tracking-caps); text-transform: uppercase; }
+
+/* the giant word, behind everything */
+.bloco__palavra { position: absolute; inset: 0; z-index: 0; display: grid; place-content: center; padding-bottom: 14svh; pointer-events: none; }
+.bloco__palavra-in {
+  display: grid; justify-items: center; row-gap: 21vw; color: var(--palavra);
+  font: 700 calc(92vw / (var(--n) * 0.47))/0.84 "Barlow Condensed", var(--font-condensed); letter-spacing: -0.01em; text-transform: uppercase; white-space: nowrap;
+}
+
+/* the tool in line work, between the word and the dish */
+.bloco__ferramenta { position: absolute; z-index: 1; pointer-events: none; color: var(--palavra); }
+.bloco__ferramenta--machadinha svg, .bloco__ferramenta--lupulo svg { display: block; width: 100%; height: auto; }
+.bloco__ferramenta--machadinha { left: -8vw; top: calc(3.6rem + 42vw); width: 100vw; rotate: -9deg; opacity: 0.9; } /* behind the board */
+.bloco__ferramenta--lupulo { left: 70vw; top: calc(3.6rem + 62vw); width: 38vw; opacity: 0.9; } /* the hop shows beside the bottle, the cap runs off the screen */
+.bloco__ferramenta--trena { left: -6vw; top: 50%; width: 150vw; translate: 0 -50%; }
+.bloco__ferramenta--trena svg { display: block; width: 100%; height: auto; }
+.bloco__ferramenta--serrote { /* the saw of the opening ident, tinted with the colour of the word */
+  left: -24vw; top: 53%; width: min(130vw, 44rem); aspect-ratio: 5 / 1; rotate: -12deg;
+  background: var(--palavra); opacity: 0.9;
+  -webkit-mask: url("/images/brand/serrote-traco.svg") center / contain no-repeat; mask: url("/images/brand/serrote-traco.svg") center / contain no-repeat;
+}
+
+/* the dish, in front of the word */
+.bloco__prato { position: absolute; z-index: 2; left: 50%; top: 43%; width: min(80vw, 27rem); translate: -50% -50%; pointer-events: none; }
+.bloco__prato img { width: 100%; filter: drop-shadow(0 26px 22px rgba(0, 0, 0, 0.42)); }
+.bloco--burger .bloco__palavra { place-content: start center; padding: 3.6rem 0 0; }
+.bloco--burger .bloco__prato { left: 0; top: calc(3.6rem + 13vw); width: min(88vw, 30rem); translate: none; } /* its plate is cut by the frame on the left: it comes in from that edge */
+.bloco--burger .solto--e { left: 92%; top: 33%; } /* away from the word: over a letter it reads as an accent */
+.bloco--burger .bloco__prato img { filter: drop-shadow(14px 24px 22px rgba(0, 0, 0, 0.45)); }
+.bloco--torresmo .bloco__palavra, .bloco--ipa .bloco__palavra { place-content: start center; padding: 3.6rem 0 0; }
+.bloco--torresmo .bloco__prato { top: calc(3.6rem + 11vw); width: min(92vw, 30rem); translate: -50% 0; }
+.bloco--ipa .bloco__prato { top: calc(3.6rem + 9vw); width: min(60vw, 17rem); translate: -50% 0; } /* upright: the bottle is the tall thing of the block */
+.bloco--ipa .bloco__prato img { filter: drop-shadow(0 22px 26px rgba(0, 0, 0, 0.6)); }
+.bloco--parmegiana .bloco__palavra { place-content: start center; padding: 4rem 0 0; }
+.bloco--parmegiana .bloco__ferramenta--serrote { top: 44%; } /* behind the dish, off the heading */
+.bloco--parmegiana .bloco__prato { top: calc(4rem + 43vw); width: min(88vw, 29rem); } /* over the gap between the two lines */
+
+/* the small text */
+.bloco__texto { position: relative; z-index: 4; grid-row: 3; display: grid; gap: var(--space-1); max-width: 21rem; }
+.bloco__nome { font: 700 clamp(1.5rem, 6vw, 2rem)/1.05 var(--font-display); letter-spacing: 0.04em; text-transform: uppercase; }
+.bloco__chega { color: var(--tinta-2); font: 700 var(--fs-md)/1.2 var(--font-condensed); letter-spacing: 0.04em; text-transform: uppercase; }
+.bloco__desc { font-size: var(--fs-md); line-height: 1.5; }
+.bloco__link { justify-self: start; display: inline-flex; align-items: center; gap: var(--space-1); min-height: 2.75rem; color: var(--tinta-2); font: 700 var(--fs-sm)/1 var(--font-condensed); letter-spacing: var(--tracking-caps); text-transform: uppercase; text-underline-offset: 0.3em; }
+.bloco__link .icon { width: 1.1rem; height: 1.1rem; transition: transform var(--dur-fast, 160ms) var(--ease-out); }
+.bloco__link:hover .icon { transform: translateX(4px); }
+
+/* loose chips at three depths: far ones small and faint, near ones large */
+.solto { position: absolute; z-index: 3; width: 16px; height: 7px; border-radius: 2px; background: var(--lasca); opacity: 0.85; pointer-events: none; }
+.solto--a { left: 9%; top: 24%; rotate: 28deg; }
+.solto--b { left: 84%; top: 18%; width: 11px; height: 5px; rotate: -40deg; opacity: 0.55; z-index: 1; }
+.solto--c { left: 88%; top: 46%; width: 24px; height: 10px; rotate: 62deg; } /* above the small text, never on it */
+.solto--d { left: 16%; top: 70%; width: 9px; height: 4px; rotate: -18deg; opacity: 0.5; z-index: 1; }
+.solto--e { left: 46%; top: 12%; width: 20px; height: 20px; border-radius: 50%; background: none; border: 3px solid var(--lasca); border-left-color: transparent; border-bottom-color: transparent; rotate: 20deg; } /* a curled shaving */
+
+/* ---------- entrance (once, when the block comes into view) ---------- */
+@media (prefers-reduced-motion: no-preference) {
+  .js .bloco__palavra-in { opacity: 0; transform: translate3d(-7%, 0, 0); transition: opacity 700ms var(--ease-out), transform 900ms var(--ease-out); }
+  .js .bloco--dourado .bloco__palavra-in { transform: translate3d(7%, 0, 0); }
+  .js .bloco__prato img { opacity: 0; transform: translate3d(0, 46px, 0) rotate(-5deg) scale(0.94); transition: opacity 500ms var(--ease-out) 160ms, transform 900ms var(--ease-back) 160ms; }
+  .js .bloco--burger .bloco__prato img { transform: translate3d(-56px, 0, 0); transition: opacity 500ms var(--ease-out) 160ms, transform 900ms var(--ease-out) 160ms; } /* from its edge, no overshoot: the cut side never shows */
+  .js .bloco__ferramenta--trena { clip-path: inset(0 100% 0 0); transition: clip-path 1100ms var(--ease-in-out) 260ms; } /* the tape runs out */
+  .js .bloco__ferramenta--serrote { opacity: 0; transform: translate3d(-18%, 0, 0); transition: opacity 500ms var(--ease-out) 240ms, transform 900ms var(--ease-out) 240ms; }
+  .js .bloco__ferramenta--machadinha, .js .bloco__ferramenta--lupulo { opacity: 0; transition: opacity 700ms var(--ease-out) 240ms; }
+  .js .bloco__num, .js .bloco__texto > * { opacity: 0; transform: translate3d(0, 14px, 0); transition: opacity 600ms var(--ease-out), transform 700ms var(--ease-out); }
+  .js .bloco__texto > :nth-child(1) { transition-delay: 420ms; }
+  .js .bloco__texto > :nth-child(2) { transition-delay: 500ms; }
+  .js .bloco__texto > :nth-child(3) { transition-delay: 580ms; }
+  .js .bloco__texto > :nth-child(4) { transition-delay: 660ms; }
+  .js .solto { opacity: 0; transition: opacity 700ms var(--ease-out) 500ms; }
+
+  .js .bloco.is-in .bloco__palavra-in, .js .bloco.is-in .bloco__prato img, .js .bloco.is-in .bloco__num, .js .bloco.is-in .bloco__texto > * { opacity: 1; transform: none; }
+  .js .bloco.is-in .bloco__ferramenta--trena { clip-path: inset(0); }
+  .js .bloco.is-in .bloco__ferramenta--serrote { opacity: 0.9; transform: none; }
+  .js .bloco.is-in .bloco__ferramenta--machadinha, .js .bloco.is-in .bloco__ferramenta--lupulo { opacity: 0.9; }
+  .js .bloco.is-in .solto { opacity: 0.85; }
+  .js .bloco.is-in .solto--b { opacity: 0.55; }
+  .js .bloco.is-in .solto--d { opacity: 0.5; }
+
+  /* idle: the dish floats a little (first frame = last frame) */
+  .bloco__flutua { animation: bloco-flutua 6s var(--ease-in-out) infinite; }
+  @keyframes bloco-flutua { 0%, 100% { transform: translate3d(0, -4px, 0); } 50% { transform: translate3d(0, 4px, 0); } }
+
+  /* scroll-linked drift: the word moves less than the dish, each chip at its own pace. Free scroll, nothing pinned. */
+  @supports (animation-timeline: view()) {
+    .bloco__palavra, .bloco__prato, .bloco__ferramenta, .solto { animation: linear both; animation-timeline: view(); animation-range: entry 0% exit 100%; }
+    .bloco__palavra { animation-name: anda-palavra; }
+    .bloco__prato { animation-name: anda-prato; }
+    .bloco__ferramenta { animation-name: anda-ferramenta; }
+    .solto--a, .solto--c { animation-name: anda-perto; }
+    .solto--b, .solto--d { animation-name: anda-longe; }
+    .solto--e { animation-name: anda-cavaco; }
+    @keyframes anda-palavra { from { transform: translate3d(0, 9%, 0); } to { transform: translate3d(0, -9%, 0); } }
+    @keyframes anda-prato { from { transform: translate3d(0, -8%, 0); } to { transform: translate3d(0, 8%, 0); } }
+    @keyframes anda-ferramenta { from { transform: translate3d(-4%, 0, 0); } to { transform: translate3d(4%, 0, 0); } }
+    @keyframes anda-perto { from { transform: translate3d(0, 120px, 0) rotate(-30deg); } to { transform: translate3d(0, -120px, 0) rotate(40deg); } }
+    @keyframes anda-longe { from { transform: translate3d(0, 40px, 0); } to { transform: translate3d(0, -40px, 0); } }
+    @keyframes anda-cavaco { from { transform: translate3d(-20px, 80px, 0) rotate(-60deg); } to { transform: translate3d(20px, -80px, 0) rotate(80deg); } }
+  }
+}
+
+/* ---------- wide screens: the word in one line, the dish a little to the right ---------- */
+@media (min-width: 64rem) {
+  .bloco { min-height: 84vh; padding: var(--space-10) max(var(--gutter), calc((100vw - 80rem) / 2)) var(--space-12, 3rem); }
+  .bloco--burger { min-height: 84vh; }
+  .bloco--parmegiana { --n: 10; min-height: 84vh; }
+  .bloco__palavra { padding-bottom: 6vh; }
+  .bloco__palavra-in { display: block; }
+  .bloco__prato { width: 31rem; }
+  .bloco__prato { left: 57%; top: 50%; width: 31rem; }
+  .bloco__ferramenta--trena { left: -2vw; width: 110vw; top: 60%; }
+  .bloco__ferramenta--serrote { left: 4vw; top: 9%; width: 46rem; rotate: -9deg; }
+  .bloco--burger .bloco__palavra { place-content: center; padding: 0 0 22vh; } /* high: the text below stays off the letters */
+  .bloco--burger .bloco__prato { top: auto; bottom: 5vh; width: 35rem; }
+  .bloco--burger .bloco__texto { justify-self: end; }
+  .bloco--torresmo, .bloco--ipa { min-height: 84vh; }
+  .bloco--torresmo .bloco__palavra { place-content: center; padding: 0 0 22vh; }
+  .bloco--ipa .bloco__palavra { place-content: center; padding: 0 0 12vh; }
+  .bloco--torresmo .bloco__prato { left: 40%; top: 70%; width: 36rem; translate: -50% -50%; }
+  .bloco--torresmo .bloco__texto { justify-self: end; }
+  .bloco--ipa .bloco__prato { left: 80%; top: 52%; width: 21rem; translate: -50% -50%; }
+  .bloco__ferramenta--machadinha { left: 56vw; top: 7%; width: 28rem; rotate: 12deg; }
+  .bloco__ferramenta--lupulo { left: 17vw; top: 5%; width: 14rem; }
+  .bloco--parmegiana .bloco__palavra { place-content: center; padding: 0 0 12vh; }
+  .bloco--parmegiana .bloco__prato { top: 70%; width: 34rem; } /* low: the top half of the letters stays readable */
+  .bloco__nome { font-size: 2.2rem; }
+  .bloco__link { min-height: 2rem; }
+  .bloco--parmegiana .bloco__ferramenta--serrote { top: 9%; }
+  .solto { width: 22px; height: 9px; }
+  .solto--c { width: 34px; height: 13px; }
+  .solto--e { width: 28px; height: 28px; }
+}
