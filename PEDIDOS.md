@@ -102,6 +102,17 @@ Registro corrido dos pedidos do Gustavo e do estado de cada um.
 - 2026-11-23, pedido do Gustavo: "tira os preços da página inicial". Feito e publicado: glossário, "Os mais
   pedidos" e cartões de promoção sem valor; resumo da feijoada sem os preços; arte do Resina Jorge Amado trocada
   pela foto na grade do Instagram. Cardápio digital, comanda e painel seguem com preço.
+- 2026-11-23/24, pedido do Gustavo: "refaz o roteiro da vitrine com os itens novos" (e, em 24/11, "vamos retomar
+  isso"). Feito, só no computador:
+  - `docs/roteiro-vitrine.md` reescrito: a palavra gigante passa a ser o nome do prato, a ferramenta em traço fica
+    como marca da casa, e os blocos são Burger, Parmegiana, Torresmo e BarcenaIPA.
+  - Teste refeito com os blocos 1 e 2 (Burger Barcenaria em verde, Parmegiana de Filé Mignon em dourado), com os
+    pratos recortados dos quadros do reel de 20/11 (`scripts/build-recortes.mjs`).
+  - Vídeos novos: `docs/prints/vitrine-cardapio-novo-celular.mp4` e `vitrine-cardapio-novo-computador.mp4`.
+    Os de 17/11 (`vitrine-teste-*.mp4`) e os recortes `fita-metrica.webp` e `serragem.webp` ficaram sem uso, sem
+    apagar.
+  - **Aguardando o Gustavo:** aprovar a direção pelos vídeos novos e decidir se a vitrine substitui "Os mais
+    pedidos da casa" ou fica junto. Isto substitui a pendência de 17/11.
 
 ### Plano de despacho (ultracode, autorizado diretamente)
 | Estágio | Objetivo | Agentes | Modelo · esforço | Ferramentas | Parada |
