@@ -66,8 +66,8 @@ parte, só no computador.
 |---|---|---|---|---|---|---|
 | 1 | BURGER | verde-placa → dourado | reel de 20/11 | Burger Barcenaria. Lanche. Pão de brioche, maionese de cebolinha, blend 150 g, queijo coalho, carne seca salteada na manteiga de garrafa e cebola roxa. | trena aberta atravessando a tela | pronto |
 | 2 | PARMEGIANA | dourado → verde-placa | reel de 20/11 | Parmegiana de Filé Mignon. Lanche. Pão ciabatta, parmegiana de filé mignon com molho de tomate da casa, mussarela fior de latte, finalizado com pesto de manjericão. | o serrote da vinheta, em verde | pronto |
-| 3 | TORRESMO | tijolo → papel | `pratos/torresmo-na-mesa` (original com 3.072 px de largura) | Torresmo de Rolo. Porção. Nosso torresmo de rolo, supercrocante e suculento, finalizado com raspas de limão. Selo "Sucesso da casa". | machadinha (a arte da casa mostra o torresmo com uma) | por fazer |
-| 4 | BARCENAIPA | verde-noite → dourado | `bar/barcenaipa` | A cerveja da casa. BarcenaIPA by Dr. Ewam, 500 ml. | lúpulo e tampinha | por fazer |
+| 3 | TORRESMO | tijolo escuro → papel | foto da mesa na varanda, de 24/09 (original com 3.072 px de largura) | Torresmo de Rolo. Porção. Nosso torresmo de rolo, supercrocante e suculento, finalizado com raspas de limão. Molho: maionese de alho assado, molho de pimenta e limão. Selo "Sucesso da casa". | machadinha (a arte da casa mostra o torresmo com uma) | pronto |
+| 4 | BARCENAIPA | verde-noite → dourado | garrafa e taça da arte da casa para a cerveja, de 04/09 | BarcenaIPA. Cerveja, by Dr. Ewam, 500 ml. "O marceneiro também sabe fazer cerveja." | lúpulo e tampinha | pronto |
 
 Fecho da seção: faixa fina com "Ver o cardápio completo" e "Reservar mesa".
 
@@ -81,11 +81,16 @@ cardápio novo e não há foto desses drinks.
   a palavra gigante em cima; o prato por cima dela; texto de apoio embaixo.
   - Burger: palavra em uma linha, o prato entra pela borda esquerda da tela e cobre a metade de baixo das letras.
   - Parmegiana: palavra em duas linhas, o prato no vão entre elas.
+  - Torresmo: palavra em uma linha, a tábua centralizada cobrindo a metade de baixo das letras.
+  - BarcenaIPA: palavra em uma linha, menor, e a garrafa com a taça em pé logo abaixo; é o bloco em que a peça,
+    e não a palavra, ocupa a tela.
 - **Computador**: faixa da largura inteira, cerca de 84% da altura. A palavra em uma linha de ponta a ponta; o
   prato baixo, cobrindo só a metade de baixo de algumas letras, para a palavra continuar legível; a ferramenta
   cruzando por trás do prato.
   - Burger: prato na borda esquerda, texto embaixo à direita. Parmegiana: prato no centro para a direita, texto
-    embaixo à esquerda. Os blocos alternam o lado, para a seção não parecer uma lista.
+    embaixo à esquerda. Torresmo: tábua no centro para a esquerda, texto à direita. BarcenaIPA: garrafa e taça à
+    direita, por cima das últimas letras, texto à esquerda. Os blocos alternam o lado, para a seção não parecer
+    uma lista.
 
 ## Limites conhecidos
 - **Fotos de vídeo**: Burger e Parmegiana são quadros do reel (vídeo de 720 px de largura, com o filtro de cor
@@ -96,16 +101,21 @@ cardápio novo e não há foto desses drinks.
 - **Contorno do Burger**: fica um fio escuro (o sofá de couro ao fundo) em volta do pão e da carne seca. No bloco
   verde ele se confunde com a sombra; num bloco claro apareceria.
 - **Recorte**: o projeto não tem ferramenta de recorte de fundo. `scripts/build-recortes.mjs` tira o prato por
-  contraste e o que fica acima do prato por um polígono marcado à mão sobre a foto. Torresmo (prato escuro sobre
-  mesa de madeira) e BarcenaIPA (garrafa e taça) pedem um polígono inteiro à mão.
-- **Comprimento**: quatro blocos somam pouco mais de três telas de rolagem no celular, contra uma tela e meia da
-  fileira de cartões. Se pesar, ficam os três de comida.
+  contraste e o que fica acima do prato por um contorno marcado à mão sobre a foto. A tábua do torresmo e a
+  garrafa com a taça saem só pelo contorno à mão.
+- **Tijolo mais escuro**: o bloco do torresmo usa o tijolo escuro da marca (`#96452b`), porque no tijolo claro o
+  texto pequeno não alcança o contraste mínimo.
+- **BarcenaIPA vem de uma arte, não de uma foto de mesa**: a garrafa e a taça saem da arte que a casa publicou
+  para a cerveja. Na origem a garrafa tem 220 px de largura; na tela ela segura até uns 340 px do conjunto. Com
+  foto oficial da garrafa o bloco ganha tamanho.
+- **Comprimento**: quatro blocos somam cerca de três telas e meia de rolagem no celular, contra uma tela e meia
+  da fileira de cartões. Se pesar, ficam os três de comida.
 
 ## Etapas
 1. **Teste (feito em 24/11)**: página à parte (`/vitrine`, só no computador, fora do git), com os blocos 1 e 2.
-   Vídeos em `docs/prints/vitrine-cardapio-novo-celular.mp4` e `vitrine-cardapio-novo-computador.mp4` para o
-   Gustavo aprovar ou ajustar a direção.
-2. Aprovada a direção: blocos 3 e 4, com os recortes que faltam.
+   Direção aprovada pelo Gustavo em 24/11 ("gostei, faz os blocos do torresmo e da barcenaipa").
+2. **Blocos 3 e 4 (feitos em 24/11)**, com os recortes que faltavam. Vídeos dos quatro blocos em
+   `docs/prints/vitrine-cardapio-novo-celular.mp4` e `vitrine-cardapio-novo-computador.mp4`.
 3. Decisão sobre substituir ou manter "Os mais pedidos da casa"; entra na página inicial.
 4. Vídeo final, aceite e publicação.
 

@@ -111,8 +111,12 @@ Registro corrido dos pedidos do Gustavo e do estado de cada um.
   - Vídeos novos: `docs/prints/vitrine-cardapio-novo-celular.mp4` e `vitrine-cardapio-novo-computador.mp4`.
     Os de 17/11 (`vitrine-teste-*.mp4`) e os recortes `fita-metrica.webp` e `serragem.webp` ficaram sem uso, sem
     apagar.
-  - **Aguardando o Gustavo:** aprovar a direção pelos vídeos novos e decidir se a vitrine substitui "Os mais
-    pedidos da casa" ou fica junto. Isto substitui a pendência de 17/11.
+  - 2026-11-24, retorno do Gustavo: "gostei, faz os blocos do torresmo e da barcenaipa". Feito, só no
+    computador: bloco 3 (Torresmo de Rolo, tijolo escuro, machadinha em traço) e bloco 4 (BarcenaIPA, verde-noite,
+    lúpulo e tampinha em traço), com a tábua e a garrafa com a taça recortadas por contorno à mão. Os dois vídeos
+    foram regravados com os quatro blocos.
+  - **Aguardando o Gustavo:** decidir se a vitrine substitui "Os mais pedidos da casa" ou fica junto, para ela
+    entrar na página inicial (antes de publicar: medir a cadência de quadros e mostrar o vídeo final).
 
 ### Plano de despacho (ultracode, autorizado diretamente)
 | Estágio | Objetivo | Agentes | Modelo · esforço | Ferramentas | Parada |
